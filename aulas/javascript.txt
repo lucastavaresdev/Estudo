@@ -194,6 +194,7 @@ Dom nivel 2
             
             $txtMsg.addEventListener('keypress', keypress);
             $txtMsg.addEventListener('keyup', keyup);
+            $txtMsg.addEventListener('keyup', keyup);
             $txtMsg.addEventListener('keydown', keydown);
         })();
         
@@ -215,5 +216,11 @@ Dom nivel 2
     </script>
     
 ------------------------------------------
-    
+
+- keypress - só é habilitado quando é clicado um numero ou letra
+- input, pega qualquer coisa no imput tanto colado como no colado pelo clicle
+
+--------------------------------------------------
+
+
     
