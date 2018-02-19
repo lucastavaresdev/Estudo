@@ -1,0 +1,219 @@
+Declarando Objeto
+
+ var hoje = new Date();
+  
+----------------------------
+ //Objeto Literal
+        
+    var caneta = {
+        cor: "red",
+        mudarCor: function(cor){
+            this.cor = cor;
+        }
+    }
+        
+    caneta.mudarCor('gray');
+    
+---------------------------
+// Objeto sempre com letra maiuscula
+
+ -- Sem parametro
+
+   function Caneta(){
+            this.preco = 1;
+            this.cor = "Black";
+            this.mudarCor = function(cor){
+                this.cor = cor;
+            }
+        }
+        
+        var caneta1 = new Caneta();
+    
+    
+    --com paramentro
+    
+    
+     //crio o objeto
+     
+        function Caneta(preco , cor){
+            //passei o parametro caso nao tenha parametro recebe 1 ou black
+            var color = cor || "Black";
+            this.preco = preco || 1;
+            
+            //a função recebe o paramentro cor faz verificação caso nao seja igual nao atribui
+            this.mudarCor = function(cor){
+                if(cor !== 'red' || cor !== 'blue' ){
+                    return;
+                }
+                color = cor;
+            }
+            
+            
+            //pega a cor da variavel e retorna
+            this.pagaCor= function(){
+                return color;
+            }
+            
+        }
+        
+        //instancia o objeto passando os paramentros
+        var caneta1 = new Caneta(5, 'red');
+        
+        
+--------------------------------------------------------------------------------------
+    teste = "pessoa1"
+        "pessoa1"
+
+        window[teste]
+        {nome: "Lucas", sobrenone: "Tavares"}
+        
+------------------------------------------------------------------------------------
+Array dentro de obj
+
+<script>
+       (function(){
+        var pessoas = {
+            nome: ["lucas", "joyce"],
+            sobrenome: ["Tavares", "Tomiati"]
+        };
+
+
+        for (var i = 0; i < pessoas.nome.length; i++) {
+            console.log(pessoas.nome[i] + " " + pessoas.sobrenome[i]);
+        }
+        })();
+    </script>
+    
+    
+---------------------------------------------------------
+
+Eventos
+
+
+Dom nivel 0 
+
+    <h1>Curso de Javascript</h1>
+
+        <button id="bt1" onclick="clicar()">botao1</button>
+        <button id="bt2">botao2</button>
+
+        <script>
+            //dom nivel 0
+            var btn2 = document.getElementById('bt2');
+            
+            //com este tipo do posso ter um execução
+                btn2.onclick = clicar;
+
+
+                function clicar(){
+                    alert('botão clicado')
+                }
+
+        </script>
+    </body>   
+
+------------------------------------------
+Dom nivel 2 
+
+        var btn3 = document.getElementById('bt3');
+
+        //eu posso atrelar outro evento com 2 clicles
+        btn3.addEventListener("click", function() {
+            alert('clicou com dom level 2');
+        });
+        btn3.addEventListener("click", function() {
+            alert('clicou com dom level 2 com o segundo evento');
+        });
+        
+----------------------------------------------
+
+
+
+<body>
+    <h1>Curso de Javascript</h1>
+
+    <div class="container">
+        <h1>propagação de eventos</h1>
+
+        <div id="d1" style="background: red; padding: 25px">
+            Texto dentro da div
+            <span style="background: yellow;">texto dentro da span</span>
+        </div>
+    </div>
+
+    <script>
+        
+        var $d1 = document.querySelector('#d1');
+        var $d1Span = document.querySelector('#d1 span');
+
+        
+            // o true altera a propagação do evento
+        $d1.addEventListener('click',function(){
+            console.log('Click no $d1');
+        },true);
+        
+        $d1Span.addEventListener('click',function(){
+            console.log('click no $d1Span');
+        },true);
+        
+        document.addEventListener('click',function(){
+           console.log('click no document'); 
+        },true);
+
+    </script>
+</body>
+
+------------------------------------------------
+
+    <script>
+        (function(){
+            'use strict';
+            var $form = document.querySelector('form');
+            var $txtUser = document.getElementById('txtUser');
+            var $txtPass = document.getElementById('txtPass');
+            var $btn = document.getElementById('btn');
+            
+
+            //previne do comportamento padrao ele barra o evento de enviar
+            $form.addEventListener('submit', function(evt){
+                if(!$txtUser.value || !$txtPass.value){
+                    alert('preencha todos os campos');
+                    evt.preventDefault();
+                }
+            });
+        })();
+    </script>
+    
+--------------------------------
+
+    <script>
+        (function(){
+            'use strict';
+           
+            var $txtMsg = document.getElementById('msg');
+            
+            $txtMsg.addEventListener('keypress', keypress);
+            $txtMsg.addEventListener('keyup', keyup);
+            $txtMsg.addEventListener('keydown', keydown);
+        })();
+        
+        
+        function keypress(e){
+            console.log('keypress' , this.value);
+        }
+        
+        function keyup(e){
+            console.log('keyup' , this.value);
+            
+        }
+        
+        function keydown(e){
+            console.log('keydown' , this.value);
+            
+        }
+        
+    </script>
+    
+------------------------------------------
+    
+    
