@@ -222,5 +222,41 @@ Dom nivel 2
 
 --------------------------------------------------
 
+Colocar css no javacript para evitar erro caso nao tenho o javascript
+
+$restaContaneir.style.display = 'block';
+
+---------------------------------
+ <script>
+        (function() {
+                'use strict';
+
+                var $resta = document.getElementById('resta');
+                var $txtMsg = document.getElementById('msg');
+                var $restaContaneir = document.getElementById('resta')
+
+                var maxima = $txtMsg.maxLength;
+
+                $restaContaneir.style.display = 'block';
+
+                $resta.textContent = maxima;
+
+                $txtMsg.addEventListener('input', checkLength);
+
+                function checkLength(e)
+
+                var numletrasdigitas = this.value.length;
+                var caracteresfaltantes = maxima - numletrasdigitas;
+                mostrarcaracterfaltantes(caracteresfaltantes);
+            
+            }
+
+            function mostrarcaracterfaltantes(n) {
+                $resta.textContent = n;
+            }
+
+        })();
+
+    </script>
 
     
