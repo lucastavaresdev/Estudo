@@ -23,23 +23,28 @@
                 var $restaContaneir = document.getElementById('resta')
 
                 var maxima = $txtMsg.maxLength;
-
-                $restaContaneir.style.display = 'block';
-
-                $resta.textContent = maxima;
+                
+                mostraContainer();
+                mostrarcaracterfaltantes(maxima);
 
                 $txtMsg.addEventListener('input', checkLength);
 
                 function checkLength(e)
 
                 var numletrasdigitas = this.value.length;
-                var caracteresfaltantes = maxima - numletrasdigitas;
+                var caracteresfaltantes = parseInt(maxima) - parseInt(numletrasdigitas);
                 mostrarcaracterfaltantes(caracteresfaltantes);
-            
+
             }
 
             function mostrarcaracterfaltantes(n) {
+
                 $resta.textContent = n;
+            }
+
+            function mostraContainer() {
+                $restaContaneir.style.display = 'block';
+
             }
 
         })();
