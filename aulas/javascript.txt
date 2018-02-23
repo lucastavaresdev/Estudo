@@ -259,4 +259,58 @@ $restaContaneir.style.display = 'block';
 
     </script>
 
+
+------------------------------
+ <script>
+        (function(){
+            'use strict';
+
+            var $chk = document.getElementById('chk');
+            var $btn = document.getElementById('btn');
+        
+            $btn.disabled = toggleBtn();
+
+
+            $chk.addEventListener('change', function() {
+                $btn.disabled = toggleBtn();
+                //  if(this.checked){
+                //    $btn.disabled = false;
+                //}else{
+                //  $btn.disabled = true;
+
+                //  }
+            })
+
+
+            function toggleBtn(){
+                return !$chk.checked
+            }
+
+        })();
+
+    </script>
+    </script>
+    
+    -------------------------
+       
+   //exibi qual o script clicado
+    <script>
+        (function() {
+            'use strict';
+
+
+            var $btns = document.getElementsByTagName('button')
+            for (var i = 0; i < $btns.length; i++) {
+                $btns[i].addEventListener('click', clicou);
+            }
+
+                function clicou() {
+                    console.log(this.textContent);
+                }
+            
+        })();
+
+    </script>
+    
+    
     
