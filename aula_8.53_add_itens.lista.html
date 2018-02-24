@@ -23,6 +23,7 @@
         (function() {
             'use strict';
             var $ul = document.querySelector('ul')
+            var $lis = $ul.querySelector('li');
             var $txtlista = document.querySelector('#txtlista');
             var $btn = document.querySelector('#btn');
             
@@ -32,6 +33,15 @@
                     addTask();
                 }
             })
+            
+            for(var i =0; i<$lis.length;i++){
+             $lis[i].addEventListener('click' , toogleDone);   
+            }
+            
+            function toogleDone(){
+                
+            }
+            
             
             function addTask(){
                 var task = '<li>'+$txtlista.value+'</li>'; 
