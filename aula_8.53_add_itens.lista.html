@@ -18,12 +18,20 @@
         <li>jogar video game </li>
     </ul>
 
+    
+    <style>
+    .teste{
+        background: red;
+    }
+    
+    
+    </style>
 
     <script>
         (function() {
             'use strict';
             var $ul = document.querySelector('ul')
-            var $lis = $ul.querySelector('li');
+            var $lis = $ul.querySelectorAll('li');
             var $txtlista = document.querySelector('#txtlista');
             var $btn = document.querySelector('#btn');
             
@@ -39,7 +47,7 @@
             }
             
             function toogleDone(){
-                
+                this.classList.toggle('teste');
             }
             
             

@@ -313,4 +313,12 @@ $restaContaneir.style.display = 'block';
     </script>
     
     
+    ---------------------------
+    Adicionar e remover uma classe
+    
+    this.classList.toggle('teste');//se tiver remove se nao tiver add
+    this.classList.add('teste'); //remove
+    this.classList.remove('teste');//add
+
+    
     
