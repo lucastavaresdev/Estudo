@@ -319,6 +319,26 @@ $restaContaneir.style.display = 'block';
     this.classList.toggle('teste');//se tiver remove se nao tiver add
     this.classList.add('teste'); //remove
     this.classList.remove('teste');//add
+    createElement - cria o elemento do no dom
+    innerhtml   - subitiui no dom o que ta la apaga 
+    document.createTextNode = cria um texto para que eu possa subtituir
 
+    
+    ---------------------------
+
+
+   function addTask(){
+                    
+                var li = document.createElement('li'); //Cria as <li> no dom
+                var text = document.createTextNode($txtlista.value)//cria o texto 
+                
+                li.appendChild(text);//atrela a variavel li
+                
+                $ul.appendChild(li);//e o li e atrelado a ul que é fixa
+                
+                $txtlista.value = " "; //limpar o input
+                $btn.value = focus();//levar o mouse para o botao
+            }
+            
     
     
