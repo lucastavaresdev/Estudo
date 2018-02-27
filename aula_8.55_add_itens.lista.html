@@ -43,7 +43,7 @@
             })
             
             for(var i =0; i<$lis.length;i++){
-             $lis[i].addEventListener('click' , toogleDone);   
+                addEvent($lis[i]);
             }
             
             function toogleDone(){
@@ -60,9 +60,19 @@
                 
                 $ul.appendChild(li);//e o li e atrelado a ul que é fixa
                 
+                addEvent(li);
+                
+                
                 $txtlista.value = " "; //limpar o input
                 $btn.value = focus();//levar o mouse para o botao
+                
             }
+            
+            function addEvent(li){
+                li.addEventListener('click' , toogleDone);   
+
+            }
+            
             
             
         })();
