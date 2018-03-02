@@ -339,6 +339,8 @@ $restaContaneir.style.display = 'block';
                 $txtlista.value = " "; //limpar o input
                 $btn.value = focus();//levar o mouse para o botao
             }
+------------------------------------------------
+sr-only = apenas para leitores de tela            
             
     
     
