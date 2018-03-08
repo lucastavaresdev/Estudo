@@ -340,7 +340,35 @@ $restaContaneir.style.display = 'block';
                 $btn.value = focus();//levar o mouse para o botao
             }
 ------------------------------------------------
-sr-only = apenas para leitores de tela            
+sr-only = apenas para leitores de tela  
+---------------------------------------------
+
+Função para abrir e fechar menu sem tratamento
+
+(function(){
+    var html = document.querySelector('html');
+    var btn = document.querySelector('.header-nav__hamburgger');
+    
+    btn.addEventListener('click', function(){
+       html.classList.toggle('menu-opened'); 
+    });
+    
+})();
             
+-----------------------------------------------
+verificar se o javascript esta habilitado ou nao
+<html lang="en" class="no-js">
+
+(function(){
+    var html = document.querySelector('html');
+    var btn = document.querySelector('.header-nav__hamburgger');
     
+    $html.classList.remove('no-js');
     
+    btn.addEventListener('click', function(){
+       html.classList.toggle('menu-opened'); 
+    });
+    
+})();
+
+---------------------------------------------
