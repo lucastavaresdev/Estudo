@@ -399,3 +399,13 @@ função para mostrar ou nao o aria exampande para leitor de tela
     
 })();
 
+---------------------------------------------------------------
+    **Strings
+-------------------
+<script>
+    var n = "string literal";
+    console.log(n);
+        
+    var x = new String('String Objeto');
+    console.log(x);
+</script>
