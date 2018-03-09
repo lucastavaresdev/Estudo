@@ -8,11 +8,15 @@
     
     
     <script>
-        var n = "string literal";
-        console.log(n);
+            x= "Lucas Tavares da Silva";
         
-        var x = new String('String Objeto');
-        console.log(x);
+            exibirString(x);
+        
+            function exibirString(x){
+            x = x.split(' ');
+            console.log(x[0]+', ' + x[1] + " " + x[2]  + " " + x[3]);
+            }
+            
     </script>
 </body>
 </html>

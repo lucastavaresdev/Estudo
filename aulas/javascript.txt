@@ -409,3 +409,26 @@ função para mostrar ou nao o aria exampande para leitor de tela
     var x = new String('String Objeto');
     console.log(x);
 </script>
+
+
+-- string.legth//conta o tanto de caracteres
+
+-- strng.replace('i','I')//troca a primeira ocorrecia, esse metodo nao altera o valor da variavel.
+
+--- strng.replace(/i/g,'I')// troca todas
+
+--string .indexOf('A');//tras a posição da string no consujoto començando por 0
+
+--string.lastindexOf('')pega o ultimo caractere
+
+-- string.slice(5);//corta a string 
+
+-- string.slice(5, 10);//corta a string  com 2 paramentros
+
+--string.substring(5,10)//o mesmo do string so que os parametros nao precisa colocar a string
+
+-- string.split(' ')//retona uma array e tuliza como por parametro exemplo se eu quiser colocar sempre que apararecer 2 o2meu2nome2é2joyce
+array[o,meu,nome,é,joyce]
+
+--string.toUopperCase() //coloca tudo para maiuscolo
+tolowerCase()//tudo menusculo
