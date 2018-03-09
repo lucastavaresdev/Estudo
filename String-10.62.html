@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        var nome = "Lucas Tavares da Silva";
+
+        var nomeformatado = nomeformatado(nome);
+        
+        console.log(nomeformatado);
+
+        function nomeformatado(nome) {
+            var posicaoUltimoEspaco = nome.lastIndexOf(' ' +1 );//pega o ultimo nome
+            if(posicaoUltimoEspaco <= 0){
+                return nome;
+            } 
+            
+            var ultimoNome = nome.slice(posicaoUltimoEspaco);
+            //console.log('ultimo Nome: ', ultimoNome);
+            
+            var primeiroNome = nome.slice(0,posicaoUltimoEspaco)
+            //console.log('Primeiro Nome: ', primeiroNome);
+            
+            return primeiroNome + ',' + ultimoNome;
+        }
+
+    </script>
+</body>
+
+</html>
