@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+   <h1>Aula de Javascript</h1>
+   
+
+       <textarea name="" id="msg" cols="30" rows="10"></textarea>
+   
+    <script>
+        (function(){
+            'use strict';
+           
+            var $txtMsg = document.getElementById('msg');
+            
+            $txtMsg.addEventListener('keypress', keypress);
+            $txtMsg.addEventListener('keyup', keyup);
+            $txtMsg.addEventListener('keydown', keydown);
+        })();
+        
+        
+        function keypress(e){
+            console.log('keypress' , this.value);
+        }
+        
+        function keyup(e){
+            console.log('keyup' , this.value);
+            
+        }
+        
+        function keydown(e){
+            console.log('keydown' , this.value);
+            
+        }
+        
+    </script>
+</body>
+</html>
