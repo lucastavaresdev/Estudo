@@ -470,5 +470,19 @@ tolowerCase()//tudo menusculo
  numero.toString// transforma um numero em string é possivel tranformar em exadevima
  
  numero.toExponencial;//
+ ---------------------------------------------------------------
+    **Metodos Matematicos
+-------------------
+
+math.min(1,2,3)//retorna o menor valor
+math.max(1,2,3)//retorna o maior valor
+math.round(55.55)//arrrendoda um numero
+math.flor(55.99)//arredonda para baixo
+marh.ceil(55.01)//arredonada para cima
+marh.pow(2,3) //potencia
+math.random()/numero aleatório
+math.pi()//tras o numero pi
+
+    
 
     
