@@ -10,14 +10,20 @@
     <script>
         var arr = [1, 2, 3, 4, "5","lucas",8];
 
+        
+//-----------------------------------------------------------------
+//Every
+//-----------------------------------------------------------------
         //metodo retorna boleano se todos os indices da array passar por uma verificação
         // o elemento é obrigatorio os outros não
         var sonumeros = arr.every(function(elemento, indice, obj) {
             return typeof elemento === 'number';
         });
+        console.log(sonumeros);      
         
-        console.log(sonumeros);
-        
+//-----------------------------------------------------------------
+//Some
+//-----------------------------------------------------------------
         // se tiver um elemento for verdadeiro ele retorna true
         var aoMenosUmNumero = arr.some(function(elemento) {
             return typeof elemento === 'number';
@@ -25,13 +31,34 @@
         
         console.log(aoMenosUmNumero);
         
+//-----------------------------------------------------------------
+//Filter
+//-----------------------------------------------------------------
         //filter cria outra array que satisfaça uma condição
-        
         var numeros = arr.filter(function(el,i,arr){
             return typeof el === 'number';
         });
-
         console.log(numeros);
+//-----------------------------------------------------------------
+//forEach
+//-----------------------------------------------------------------
+        //loop - a cada indice da minha array eu execulto uma função
+        arr.forEach(function(el,i,arr){
+            console.log('elemento: ',el, '| indice do elemento:',i);
+        })
+        
+//-----------------------------------------------------------------
+//indexOf e lastIndexOf
+//-----------------------------------------------------------------
+        //saber a posição da string o index of aceita mais um parametro a partir de qual indice eu quero procurar
+        //se nao encotrar o valor na array ele retorna -1
+        var posicaoStr1 = arr.indexOf('ludas')
+        console.log(posicaoStr1);
+        
+        //ele retorna o ultimo indice com valeores iguais ex inidici 2=7 indice 30 = 7 retorno indice 30;
+        var posicaoStr1 = arr.lastIndexOf('lucas')
+        console.log(posicaoStr1);
+        
     </script>
 </body>
 

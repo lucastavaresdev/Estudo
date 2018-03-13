@@ -511,38 +511,4 @@ forma de objeto
 //array direto    
 var arr = [1,2,3,4,5];
     
-    --every
---------------------------
-
-<script>
-        var arr = [1, 2, 3, 4, 5];
-
-        //metodo retorna boleano se todos os indices da array passar por uma verificação
-        // o elemento é obrigatorio os outros não
-
-        var sonumeros = arr.every(function(elemento, indice, obj) {
-            return typeof elemento === 'number';
-        });
-        
-        console.log(sonumeros);
-</script>
-
-    -some
--------------------------
-
- // se tiver um elemento for verdadeiro ele retorna true
-        var aoMenosUmNumero = arr.some(function(elemento) {
-            return typeof elemento === 'number';
-        });
-        
-    console.log(aoMenosUmNumero);   
------------------------
-      //filter cria outra array que satisfaça uma condição
-        
-        var numeros = arr.filter(function(el,i,arr){
-            return typeof el === 'number';
-        });
-
-        console.log(numeros);
-    </script>
-    
+  
