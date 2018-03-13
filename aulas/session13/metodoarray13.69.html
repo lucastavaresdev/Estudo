@@ -86,6 +86,35 @@
         var str = arrayconcatenado.join(' - ');
         console.log(str);
         
+//-----------------------------------------------------------------
+//push
+//-----------------------------------------------------------------    
+      //metodo de adivionar e destrutivo altera a array principal incluir item no array
+        arr.push('noco item')
+        console.log(arr);
+        
+//-----------------------------------------------------------------
+//pop
+//-----------------------------------------------------------------
+    //pop retira  o ultimo item da array modifica a array principal
+        var ultimoItem = arr.pop();
+        console.log(ultimoItem);
+        console.log(arr);
+        
+//-----------------------------------------------------------------
+//shift
+//-----------------------------------------------------------------
+    //retira o primeiro item da array e modifica a array principal
+        var primeiroItem = arr.shift();
+        console.log(primeiroItem);
+        console.log(arr);
+//-----------------------------------------------------------------
+//unShift
+//-----------------------------------------------------------------    
+     //igual ao push so que add no primeiro   indice
+        arr.unshift(50,75);
+        console.log(arr);
+        
     </script>
     
 </body>
