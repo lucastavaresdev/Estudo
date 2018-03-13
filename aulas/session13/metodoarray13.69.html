@@ -114,6 +114,35 @@
      //igual ao push so que add no primeiro   indice
         arr.unshift(50,75);
         console.log(arr);
+//-----------------------------------------------------------------
+//reduce
+//-----------------------------------------------------------------        
+
+    //soma do elementos da array porem execulta qualquer tipo de parametros +-*/ posso passar o indice
+        var somaDeArr =  num.reduce(function(anterior, atual, indice){
+            return anterior + atual;
+        }); 
+    console.log(somaDeArr);
+        
+        //da para seta o valor que deve iniciar }, 70); 
+
+//-----------------------------------------------------------------
+// reduce
+//-----------------------------------------------------------------  
+        //Right com string inverte a array
+        var reducecomstring = ['1','2','3','4','5'].reduceRight(function(i,a){
+            return i + a;
+        });
+        
+        console.log(reducecomstring);
+        
+//-----------------------------------------------------------------
+// reverse 
+//-----------------------------------------------------------------   
+        //inverte a array o metodo é destrutivo ou sej altera a original
+        console.log([10,20,30].reverse())
+        
+        
         
     </script>
     
