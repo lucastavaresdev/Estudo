@@ -58,8 +58,36 @@
         //ele retorna o ultimo indice com valeores iguais ex inidici 2=7 indice 30 = 7 retorno indice 30;
         var posicaoStr1 = arr.lastIndexOf('lucas')
         console.log(posicaoStr1);
+//-----------------------------------------------------------------
+//Map
+//-----------------------------------------------------------------        
+     //realiza algum tipo de alteração na array;
+        
+        var num = [1,2,3,4,5];
+
+        
+        //nao é obrigatorio o i e nem o array como parametro
+        console.log(num);//before
+            num = num.map(function(el, i){
+                return el * i; //returns the result of the index multiplied by the element
+            });
+        console.log(num);
+        
+//-----------------------------------------------------------------
+//Concat
+//-----------------------------------------------------------------   
+        //concatena resultados, posso passar elementos sem ser de uma array para concatenar
+        var arrayconcatenado = arr.concat(num,'passado');
+        console.log(arrayconcatenado);
+//-----------------------------------------------------------------
+//join
+//-----------------------------------------------------------------         
+        //transforma uma array em String posso passar um caractere separador
+        var str = arrayconcatenado.join(' - ');
+        console.log(str);
         
     </script>
+    
 </body>
 
 </html>
