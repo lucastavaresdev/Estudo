@@ -511,4 +511,12 @@ forma de objeto
 //array direto    
 var arr = [1,2,3,4,5];
     
-  
+  ---------------------------------------------------------------
+    **if ternario
+-------------------   
+    var temzero = notas.some(function(nota){
+        return nota === 0;
+    });
+                    
+    var mensagem = temzero ? 'reprovado': calcularMedia.apply(this, notas);;
+                    

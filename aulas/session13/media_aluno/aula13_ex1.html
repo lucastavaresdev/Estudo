@@ -34,7 +34,7 @@
 					<tbody>
 						<tr class="aluno" >
 							<td class="aluno-nome">Gertrude</td>
-							<td class="aluno-n1">10</td>
+							<td class="aluno-n1">0</td>
 							<td class="aluno-n2">8.5</td>
 							<td class="aluno-n3">9</td>
 							<td class="aluno-n4">7.5</td>	
@@ -72,7 +72,7 @@
 							<td class="aluno-n1">10</td>
 							<td class="aluno-n2">9.5</td>
 							<td class="aluno-n3">10</td>
-							<td class="aluno-n4">8.5</td>
+							<td class="aluno-n4">0</td>
 							<td class="aluno-m"></td>
 						</tr>
 					</tbody>
@@ -91,10 +91,17 @@
                 while(trs[x]){
                     var linhaAluno = trs[x];  
                     var tds = linhaAluno.querySelectorAll('td');
-                    var notas = recuperarNumerosDeColunas(tds);  
-                    var media = calcularMedia.apply(this, notas);
+                    var notas = recuperarNumerosDeColunas(tds); 
                     
-                    linhaAluno.querySelector('.aluno-m').textContent = media;
+                    
+                    var temzero = notas.some(function(nota){
+                        return nota === 0;
+                    });
+                    
+                    var mensagem = temzero ? 'reprovado': calcularMedia.apply(this, notas);;
+                    
+                  
+                    linhaAluno.querySelector('.aluno-m').textContent = mensagem;
                     x++;
                 }
                 
