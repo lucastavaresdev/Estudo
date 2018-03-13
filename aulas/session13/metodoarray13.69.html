@@ -141,9 +141,23 @@
 //-----------------------------------------------------------------   
         //inverte a array o metodo é destrutivo ou sej altera a original
         console.log([10,20,30].reverse())
+
+//-----------------------------------------------------------------
+// slice 
+//-----------------------------------------------------------------  
+        //cria uma sub array de uma array apartir da posição da array ele nao modifica a array original
+        var result = arr.slice(5); 
+        var result2 = arr.slice(3,5);// a quinta posição é incluida
+        console.log(result2);
         
-        
-        
+//-----------------------------------------------------------------
+// splice
+//-----------------------------------------------------------------
+        //ele modifiva a original e se cololar para uma variavel recer ele cria um array com os elementos exvluidos
+        //2 é a posição que começa a alteração 0 é quentos vou receber 3 e 4 parametro inclui
+        // da para colocar valor em qualquer posiçãod aarray
+            arr.splice(2,0, 'maça', 'apple');
+            console.log(arr);
     </script>
     
 </body>
