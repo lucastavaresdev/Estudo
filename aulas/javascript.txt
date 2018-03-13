@@ -519,4 +519,27 @@ var arr = [1,2,3,4,5];
     });
                     
     var mensagem = temzero ? 'reprovado': calcularMedia.apply(this, notas);;
+-----------------------------------
+    ** Spread_operator
+-----------------------------------
+//passar argumentos para a função com array.
+
+calcularMedia(...[2,3]);
+
+documentação
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Spread_operator
+
+
+-----------------------------------
+    ** arrow function
+-----------------------------------
+
+          //tradional  
+            var temzero = notas.some(function(nota){                        return nota === 0;
+            });
                     
+            //arrow function
+            var temzero = notas.some( nota => nota === 0);
+----------------------------------
+    ** arrow function
+-----------------------------------

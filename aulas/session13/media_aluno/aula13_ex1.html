@@ -93,10 +93,12 @@
                     var tds = linhaAluno.querySelectorAll('td');
                     var notas = recuperarNumerosDeColunas(tds); 
                     
-                    
-                    var temzero = notas.some(function(nota){
-                        return nota === 0;
-                    });
+                  //tradional  
+//                    var temzero = notas.some(function(nota){
+//                        return nota === 0;
+//                    });
+                    //arrow function
+                    var temzero = notas.some( nota => nota === 0);
                     
                     var mensagem = temzero ? 'reprovado': calcularMedia.apply(this, notas);;
                     
