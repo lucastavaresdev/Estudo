@@ -22,10 +22,6 @@ function sortear(n) {
 
 
 function imagem() {
-    var selecionadiv = document.querySelector('.imagem');
-    var numerorandomizado = sortear(5);
-    if (numerorandomizado <= 0 || numerorandomizado >= 6) {
-        sortear(7);
-    } 
-    selecionadiv.innerHTML = '<img src="images/' + numerorandomizado + '.jpg">';
+    var numerorandomizado = sortear(5) + 1;
+    document.body.style.background = "url('images/"+numerorandomizado+".jpg')";
 }

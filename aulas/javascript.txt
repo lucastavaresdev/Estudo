@@ -495,7 +495,11 @@ function sortear(n){
     
 }
 
-
+//função para randomizar plano de fundo
+function imagem() {
+    var numerorandomizado = sortear(5) + 1;
+    document.body.style.backgroundImage = "url('images/"+numerorandomizado+".jpg')";
+}
 
     
 
