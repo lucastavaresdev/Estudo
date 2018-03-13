@@ -483,6 +483,20 @@ marh.pow(2,3) //potencia
 math.random()/numero aleatório
 math.pi()//tras o numero pi
 
+
+function sortear(n){
+    n = n || 1; //recepe o parametro
+    
+    var nSorteado = Math.random(); //recebe o numero e sorteia um aleatorio
+    nSorteado = nSorteado * n;//multiplica pelo valor ou seja sortei um numero e exibe na tela
+    nSorteado = Math.floor(nSorteado); //arredonda
+    
+    return nSorteado;//retorna o resultado
+    
+}
+
+
+
     
 
     
