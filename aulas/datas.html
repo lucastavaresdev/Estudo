@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Teste</title>
+</head>
+
+<body>
+    <script>
+        //datas no javascript dece ser sempre instanciados
+        
+        var minhadata = new Date();
+        console.log(minhadata);
+        
+                
+//-----------------------------------------------------------------
+//getDay(), getDate , getMonth ,getYear,getFullYear 
+//-----------------------------------------------------------------
+        //dia da semana sendo domingo 0 e sabado 6
+        dia =  minhadata.getDay();
+        console.log(dia);
+
+        //Mês
+        mes = minhadata.getDate();
+        console.log(mes);
+        
+        //Ano janeiro começa em 0 e 11 é dezembro
+        ano = minhadata.getMonth();
+        console.log(ano);
+        
+        //contagem de ano depois de 1900
+        anodepois1900 = minhadata.getYear();
+        console.log(anodepois1900);
+        
+        //ano atual
+        anovigente = minhadata.getFullYear();
+        console.log(anovigente);
+        
+        
+        
+//-----------------------------------------------------------------
+//Horas
+//-----------------------------------------------------------------
+        //no caso como esta em local host ele cria novamente quando dou refresh na pagina porem ele pega o horario em que o  obj foi criado
+        
+        //Hora que o objeto foi criado nao é a hora atual
+        hora = minhadata.getHours();
+        console.log(hora); 
+        
+        //minutos que o objeto foi criado nao é a hora atual
+        minutos = minhadata.getMinutes();
+        console.log(minutos);
+        
+        //segundos que o objeto foi criado nao é a hora atual
+        segundos = minhadata.getSeconds();
+        console.log(segundos);  
+        
+        //O numero de miles segundo que passaram desde 1970
+        time = minhadata.getTime();
+        console.log(time);
+            //atalho para o time
+                +new Date();//nao exibe pq nao coloquei o console
+        
+        
+     
+        
+        
+    </script>
+</body>
+
+</html>
