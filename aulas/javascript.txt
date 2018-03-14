@@ -541,5 +541,16 @@ https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Spre
             //arrow function
             var temzero = notas.some( nota => nota === 0);
 ----------------------------------
-    ** arrow function
+    ** CLASSES
 -----------------------------------
+classList.add()// insere a classe
+ClassName = subistiu a classe
+
+
+// usando varios metodos, algoritimo para colocar classe em um paragrafo com uma determinada palavra
+        var paragrafos = document.querySelectorAll('p');
+
+        for (var i = 0; paragrafos.length; i++) {
+            var temJs = paragrafos[i].textContent.toLowerCase().indexOf('javascript') >= 0;
+            paragrafos[i].className = temJs ? 'destaque':''
+        }
