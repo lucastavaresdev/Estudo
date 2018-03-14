@@ -64,7 +64,7 @@
         
         
 //-----------------------------------------------------------------
-//Setando data
+//Setando data e hora
 //-----------------------------------------------------------------   
         
         //data inicial computada 
@@ -77,9 +77,21 @@
         console.log(setdata);//exibe o tanto que retrocedeu
         console.log(minhadata);
         
-        //metodos de setar setMonth(1) , setYear(1920), 
+        //metodos de setar setMonth(1) , setYear(1920),set Hours, setMinutes 
+          
+//-----------------------------------------------------------------
+//Passando paramentros no momento que cria o obj
+//-----------------------------------------------------------------   
         
+        datas = new Date(2017, 0, 7)
+        console.log(datas); 
         
+        datashora = new Date(2017, 0, 7, 14,53,20)
+        console.log(datashora); 
+        
+        //nao remendado usar pq alguns browers se comportam diferente
+        outraforma = new Date("2017/01/08")
+        console.log(outraforma);
 
         
     </script>
