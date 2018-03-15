@@ -554,3 +554,10 @@ ClassName = subistiu a classe
             var temJs = paragrafos[i].textContent.toLowerCase().indexOf('javascript') >= 0;
             paragrafos[i].className = temJs ? 'destaque':''
         }
+        
+------------------------------------------------------------------------
+
+//remover o filho do dom
+banner.parentNode.removeChild(banner);//ele vai la no elemento pai e remove o filho        
+        
+        
