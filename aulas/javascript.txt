@@ -558,6 +558,11 @@ ClassName = subistiu a classe
 ------------------------------------------------------------------------
 
 //remover o filho do dom
-banner.parentNode.removeChild(banner);//ele vai la no elemento pai e remove o filho        
+banner.parentNode.removeChild(banner);//ele vai la no elemento pai e remove o filho    
+
+0--------------------------------
+
+Constante SEMPRE EM maiusculo
+Funçao recursiva: aquela que chama ela mesmo
         
         
