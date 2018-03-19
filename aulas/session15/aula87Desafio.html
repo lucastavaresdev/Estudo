@@ -29,29 +29,65 @@
             $iniciar.addEventListener('click', iniciar)
             $pausar.addEventListener('click', pausar)
             $parar.addEventListener('click', parar)
-
+            
+            var intervalo = null;
             var msclicqueIniciar = 0;
-
+            var msclickpausar = 0;
+            var msTempodecorrido = 0;
+            var rodando = false;
+            
+            
             function iniciar() {
                 msclicqueIniciar = Date.now();
                 iniciarCronometro();
+                rodando = true;
             }
-
-            function iniciarCronometro() {
-                setInterval(function() {
-                    var msagora = Date.now();
-                    var diferenca = msagora - msclicqueIniciar;
-                    $cronometro.value = diferenca;
-                }, 100);
-            }
-
+            
             function pausar() {
-
+                if(rodando){
+                    rodando =  false;
+                    clearInterval(intervalo);
+                    msclickpausar  = Date.now();
+                    msTempodecorrido += (msclickpausar - msclicqueIniciar);
+                }else{
+                    rodando = true;
+                    msclicqueIniciar = Date.now();
+                    iniciarCronometro(msTempodecorrido);
+                    }
             }
 
             function parar() {
 
             }
+
+            function iniciarCronometro(tempoDecorrido) {
+                var _ms = tempoDecorrido || 0;
+                intervalo = setInterval(function() {
+                    var msagora = Date.now();
+                    var diferenca = msagora - msclicqueIniciar;
+                    $cronometro.value = formataMS(diferenca + _ms);
+                }, 100);
+            }
+            
+            function formataMS(ms){
+                if(ms < 1000){
+                    return ms;
+                }else if(ms<60000){
+                    var s = ms/1000;
+                    s = parseInt(s);
+                    var c = ms - ( s * 1000 );
+                    return s + ':' + c;
+                } else {
+                    var m = ms / ( 60000 );
+                    m = parseInt(m);
+                    var s = ms / 1000 - (m * 60);
+                    s = parseInt(s);
+                    var c = ms - (s * 1000) - ( m * 60 * 1000);
+                    return m + ':' + s + ':' + c;
+                }
+                
+            }
+
 
         })();
 
