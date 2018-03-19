@@ -38,12 +38,14 @@
             
             
             function iniciar() {
+                if(rodando) return;
                 msclicqueIniciar = Date.now();
                 iniciarCronometro();
                 rodando = true;
             }
             
             function pausar() {
+                if(!$cronometro.value)
                 if(rodando){
                     rodando =  false;
                     clearInterval(intervalo);
@@ -57,7 +59,13 @@
             }
 
             function parar() {
-
+                msclickpausar = 0;
+                msclicqueIniciar = 0;
+                msTempodecorrido = 0;
+                rodando = false;
+                clearInterval(intervalo);
+                $cronometro.value = " ";           
+                
             }
 
             function iniciarCronometro(tempoDecorrido) {
