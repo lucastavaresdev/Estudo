@@ -661,7 +661,53 @@ Funçao recursiva: aquela que chama ela mesmo
                 alert('Beforeunload Disparado');
             });
     </script>
+------------------------------------------------
+--navbar
+    <script>
+        //Script que faz a nav bar crescer e diminuir
+        (function() {
+            var $menu = document.querySelector('.menu');
+            window.addEventListener('scroll', setupNav);
+            
+            function setupNav(){
+                var posYScroll  = getYscroll();
+                
+                if(posYScroll > 150 && !hasClassFx()){
+                    document.body.classList.add('fx');
+                }
+                
+                if(posYScroll <= 100 && hasClassFx()){
+                    document.body.classList.remove('fx')
+                }
+            }
+            
+            function getYscroll(){
+                return window.pageYOffset;
+            }
+            
+            function hasClassFx(){
+               return !!document.querySelector('.fx');
+            }
+            
+        })();
+    </script>
+    
 
+----------------------------------
+    ** Estilo
+-----------------------------------
+    
+    
+    //pega o stylo computado e em anvegadores diferentes resultados diferentes
+        getComputedStyle();
+    
+    
+    //saber a posição do do elemento na tela
+    offsetHeighy 
+    offsetWidth
+    offsetLeft
+    offsetTop
+    
     
         
         
