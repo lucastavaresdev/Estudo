@@ -564,5 +564,25 @@ banner.parentNode.removeChild(banner);//ele vai la no elemento pai e remove o fi
 
 Constante SEMPRE EM maiusculo
 Funçao recursiva: aquela que chama ela mesmo
+
+----------------------------------------
+BOM - browser Object model
+
+innerHeight e innerHeight: tamanho do browser interno
+OuterHeight : tamanho total do browser com o sistema externo
+outerWidth: tamanho interno do braswer no equipamento sem dev tools.
+opener:
+pageXoffset x pageoffset : o tanto de scrol que dei numa pagina;
+screenX e screenY: reclação da minha janela com o monitor valores aproximado;
+
+---------------------------------
+History
+
+history.legth: historico de navegação
+||.go(-1): navega entre as paginas
+||.back(): volta na navegação
+||.forwald: vai para frente
+
+
         
         
