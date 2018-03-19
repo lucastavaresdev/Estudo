@@ -610,6 +610,58 @@ Funçao recursiva: aquela que chama ela mesmo
     ||.open("url", "janela",'width=600,height=300');
     
     close() // so funciona se vc abrir com javascript
+    
+    ----------------------
+    scrollTO// da um scroll para pagina para o local que vc quer
+    socrollby // soma com o valor que ja esta na pagina;
+    -----------------------
+    print() // manda imprimir
+    ----------------------------
+    
+    ----------------------------------
+    ** BOM - Eventos
+---------------------------
+    
+    
+    <script>
+      //quando carrega conteudo na tela 
+       window.addEventListener('load',function(){
+          console.log('load disparado'); 
+       });
+        
+        
+        //dispara quando a estrutura do html é disparada
+        window.addEventListener('DOMContentLoaded', function(){
+            console.log('DOMContentLoaded Disparado');
+        });
+        
+        
+        //disparado quando redimenciona a tela
+        window.addEventListener('resize',function(e){ 
+            console.log('resize disparado');
+            console.log(e);
+        });
+        
+      //quando uso a barra de rolagem
+        window.addEventListener('scroll',function(e){
+            console.log('resize disparado');
+            console.log(e);
+            console.log("scroll y:", pageYOffset);
+        })
+        
+       //os alertes são ignoradosm funçoes para fechar a pagina
+            window.addEventListener('unload', function(){
+                console.log('unload Disparado')
+                alert('unload Disparado')
+        });
 
+
+            window.addEventListener('beforeunload', function(){
+                console.log('Beforeunload Disparado');
+                alert('Beforeunload Disparado');
+            });
+    </script>
+
+    
         
         

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem beatae aspernatur reiciendis quibusdam enim eos modi magnam explicabo, ut, quae molestias sint consequatur ipsa iste adipisci amet quod vero est!</p>
+    
+    <script>
+        //quando carrega conteudo na tela 
+       window.addEventListener('load',function(){
+          console.log('load disparado'); 
+       });
+        
+        
+        //dispara quando a estrutura do html é disparada
+        window.addEventListener('DOMContentLoaded', function(){
+            console.log('DOMContentLoaded Disparado');
+        });
+        
+        
+        
+        //disparado quando redimenciona a tela
+        window.addEventListener('resize',function(e){ 
+            console.log('resize disparado');
+            console.log(e);
+        });
+        
+      //quando uso a barra de rolagem
+        window.addEventListener('scroll',function(e){
+            console.log('resize disparado');
+            console.log(e);
+            console.log("scroll y:", pageYOffset);
+        })
+        
+       //os alertes são ignoradosm funçoes para fechar a pagina
+            window.addEventListener('unload', function(){
+                console.log('unload Disparado')
+                alert('unload Disparado')
+            });
+
+
+            window.addEventListener('beforeunload', function(){
+                console.log('Beforeunload Disparado');
+                alert('Beforeunload Disparado');
+            });
+        
+       
+        
+
+    </script>
+</body>
+</html>
