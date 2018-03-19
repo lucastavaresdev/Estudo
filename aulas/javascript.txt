@@ -566,23 +566,50 @@ Constante SEMPRE EM maiusculo
 Funçao recursiva: aquela que chama ela mesmo
 
 ----------------------------------------
-BOM - browser Object model
 
-innerHeight e innerHeight: tamanho do browser interno
-OuterHeight : tamanho total do browser com o sistema externo
-outerWidth: tamanho interno do braswer no equipamento sem dev tools.
-opener:
-pageXoffset x pageoffset : o tanto de scrol que dei numa pagina;
-screenX e screenY: reclação da minha janela com o monitor valores aproximado;
+----------------------------------
+    ** BOM - browser Object model
+-----------------------------------
 
----------------------------------
-History
+    innerHeight e innerHeight: tamanho do browser interno
+    OuterHeight : tamanho total do browser com o sistema externo
+    outerWidth: tamanho interno do braswer no equipamento sem dev tools.
+    opener:referencia do obj window
+    pageXoffset x pageoffset : o tanto de scrol que dei numa pagina;
+    screenX e screenY: reclação da minha janela com o monitor valores aproximado;
 
-history.legth: historico de navegação
-||.go(-1): navega entre as paginas
-||.back(): volta na navegação
-||.forwald: vai para frente
+    ---------------------------------
+    History
 
+    history.legth: historico de navegação
+    ||.go(-1): navega entre as paginas
+    ||.back(): volta na navegação
+    ||.forwald: vai para frente
+
+    ----------------------------------
+    
+    location
+    
+    ||.href
+    ||.protocol
+    ||.hash #teste: depois da hashiteg exemplo one page
+    ||.seach: get e post parametro
+    
+    ||.reload: refresh na pagina;
+    ||.assign('URL'); //navega pelas url recebe uma url por parametro
+    ||.replace('URL') // faz quase a mesma coisa mas o historico nao é utilizado
+    
+    -------------------------------------------
+    navgator : informações sobre o browser.
+    --------------------------------
+    Screen: referente a tela do usuario ou seja monitor;
+    --------------------------------
+    window
+    
+    ||.open: abre uma outra aba
+    ||.open("url", "janela",'width=600,height=300');
+    
+    close() // so funciona se vc abrir com javascript
 
         
         
