@@ -708,6 +708,6 @@ Funçao recursiva: aquela que chama ela mesmo
     offsetLeft
     offsetTop
     
-    
+
         
         
