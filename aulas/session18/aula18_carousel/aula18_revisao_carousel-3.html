@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Javascript Completo</title>
+    <meta charset="utf-8">
+
+    <link href="carousel.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <main class="content">
+
+        <h1>Javascript Completo</h1>
+
+        <section class="carousel">
+            <div class="carousel__inner">
+                <div class="carousel__item"> <a href=""><img src="images/01.jpg" alt=""></a></div>
+                <div class="carousel__item"> <a href=""><img src="images/02.jpg" alt=""></a></div>
+                <div class="carousel__item"> <a href=""><img src="images/03.jpg" alt=""></a></div>
+                <div class="carousel__item"> <a href=""><img src="images/04.jpg" alt=""></a></div>
+            </div>
+
+            <button class="carousel__btn carousel__btn--prev"> &lt; </button>
+            <button class="carousel__btn carousel__btn--next"> &gt; </button>
+
+            <ul class="carousel__paginacao"></ul>
+        </section>
+
+    </main>
+
+    <script>
+        (function() {
+            'use strict';
+
+            var btnPrev = document.querySelector('.carousel__btn--prev');
+            var btnNext = document.querySelector('.carousel__btn--next');
+            var carousel = document.querySelector(".carousel");
+            var caroselInner = document.querySelector('.carousel__inner')
+            var caroselItens = document.querySelectorAll('.carousel__item')
+            console.log(caroselItens)
+            var banneratual = 0;
+            var qtdBanners = caroselItens.length;
+
+
+            btnPrev.style.display = 'block';
+            btnNext.style.display = 'block';
+            carousel.style.overflowX = 'hidden';
+
+            btnPrev.addEventListener('click', showPrev);
+            btnNext.addEventListener('click', showNext);
+
+            function showPrev() {
+                banneratual--;
+                mostrarBanner(banneratual);
+            }
+
+            function showNext() {
+                banneratual++;
+                mostrarBanner(banneratual);
+            }
+
+            
+            function setupNav(banneratual){
+                btnPrev.disabled = !banneratual > 0;
+                btnNext.disabled = banneratual === qtdBanners -1;
+            }
+
+            function mostrarBanner(banneratual){
+                setupNav();
+                var largura = getComputedStyle(caroselItens[0]).width;
+                largura = parseInt(largura);
+                var novaPosicao = largura * banneratual * -1;
+                caroselInner.style.transform = "translateX("+novaPosicao+"px)";
+            }
+        })()
+
+    </script>
+
+</body>
+
+</html>
