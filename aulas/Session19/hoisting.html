@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funções</title>
+</head>
+<body>
+    <script>
+        
+    //hoisting é forma que o javascript le 2 variaveis    
+        var nome = "Lucas";
+        
+        function mostraNome(){
+            console.log(nome);
+            var nome = "tavares";
+            
+             console.log(testeHoisting());
+        }
+            
+            function testeHoisting(){
+                return "foi";
+            }
+
+        mostraNome();
+  
+        //let e const - escopo em bloco
+        
+//==============================================================
+        
+    </script>
+</body>
+</html>
