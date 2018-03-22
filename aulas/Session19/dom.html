@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        window.addEventListener('DOMContentLoaded', function(){
+            var _p1 = document.querySelectorAll('p');
+            var _p2 = document.getElementsByTagName('p');
+            console.log(_p1.length, _p2.length);
+            
+            var newp = document.createElement('p');
+            nwP.textContent = 'novoPragrafo';
+            document.body.appendChild(newp);
+            
+            console.log(_p1.length,_p2.length);
+        });
+    
+    </script>
+</body>
+</html>
