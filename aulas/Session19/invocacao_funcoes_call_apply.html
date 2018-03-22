@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function teste(str , n){
+            console.log('teste', str, n);
+            console.log(this);
+        }
+        
+        //forma classica
+        teste();
+        
+        
+        var obj1 = {foo: 'bar'}
+        var obj2 = {foo2: 'bar2'}
+        
+        
+        //o call e apply fazem a mesma coisa invoca a função, porem a forma de passar paramentro é diferente./altera tambem serve para alterar o this.
+        teste.call(obj1, "minha string", 15);  
+        teste.apply(obj2, ['passo arrya', 20]);
+        
+    </script>
+</body>
+</html>
