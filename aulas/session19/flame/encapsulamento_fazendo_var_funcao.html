@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flame</title>
+    <script src="flame.js"></script>
+</head>
+<body>
+            <p>teste<a href="#">1 teste</a></p>
+            <p>teste<a href="#">2 teste</a></p>
+            <p>teste<a href="#">3 teste</a></p>
+            <p>teste<a href="#">4 teste</a></p>
+            <p>teste<a href="#">5 teste</a></p> 
+    <script>
+        
+        //a variavel sera uma função
+        var closeOrOpen = (function(){
+            var status = 'is-open'
+            return function(){
+                status = (status === 'is-close') ? 'is-open' : 'is-close';
+                return status;
+            }
+        })();
+        
+    </script>
+</body>
+</html>

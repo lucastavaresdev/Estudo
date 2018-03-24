@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flame</title>
+    <script src="flame.js"></script>
+</head>
+<body>
+            <p>teste<a href="#">1 teste</a></p>
+            <p>teste<a href="#">2 teste</a></p>
+            <p>teste<a href="#">3 teste</a></p>
+            <p>teste<a href="#">4 teste</a></p>
+            <p>teste<a href="#">5 teste</a></p> 
+    <script>
+        function teste(){
+            console.log(this);
+//            setTimeout(function(){
+//                console.log(this);
+//            },1000);
+            
+            
+            //arrow funtion
+            setTimeout(()=>{
+                console.log(this);
+            },1000);
+        };
+        
+       // teste();
+        
+        var obj = {foo: teste};
+                   obj.foo();
+        
+    </script>
+</body>
+</html>

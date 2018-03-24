@@ -708,6 +708,27 @@ Funçao recursiva: aquela que chama ela mesmo
     offsetLeft
     offsetTop
     
+    
+    -------------------------------------------
+    
+    query selector é metodo estatico so pega o que esta a principio na tela
+    ja o get element pega ate as tag que forem criadas depois
+    
+    ---------------------------------------------
+       window.addEventListener('DOMContentLoaded', function(){
+            var _p1 = document.querySelectorAll('p'); // pega os paragrafos e atribui a uma variavel
+            var _p2 = document.getElementsByTagName('p'); 
+            console.log(_p1.length, _p2.length); // exibe a quantidade que tem
+            
+            var newp = document.createElement('p'); // cria um  novo p
+            newp.textContent = 'novoPragrafo';//atribui uma string a essa novo paragrafo
+            document.body.appendChild(newp); // coloca o elemento pai
+            
+            console.log(_p1.length,_p2.length);//exibe a quantidade de paragrafos na tela
+        });
+    
+--------------------------------------------
+
 
         
         
