@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Obejto</title>
+</head>
+<body>
+    <script>
+        var obj1 = {
+            name: 'obj1',
+            log:function(msg){
+                console.log(msg);
+            }
+        }
+        
+        var obj2 = new Object();
+        obj2.name = 'obj2';
+        
+        function Pessoa(nome){
+            this.nome = nome;
+            this.falar = function(msg){
+               // console.log(this.nome + 'fala' + msg);
+                //tamplate literal ecma scriot 7
+                console.log(`${this.nome} esta falando: ${msg}`);
+            }
+        }
+        
+    </script>
+</body>
+</html>
