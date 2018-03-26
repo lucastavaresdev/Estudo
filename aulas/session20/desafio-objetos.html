@@ -14,71 +14,27 @@
     </body>
     
     <script>
+                
+        const alunos = [
+            {"_id": 1, "nome": "Daniel"},
+            {"_id": 2, "nome": "Maria"},
+            {"_id": 3, "nome": "José"},
+            {"_id": 4, "nome": "João"}
+        ];
         
-        var obj1 = {
-            name: 'obj1',
-            log: function(msg){
-                console.log(msg);
-            }
-        }
+        const faltas = [
+            {"_idAluno": 1, faltas: 5},
+            {"_idAluno": 2, faltas: 11},
+            {"_idAluno": 3, faltas: 0},
+            {"_idAluno": 4, faltas: 15}
+        ];
         
-        var obj2 = new Object();
-        obj2.name = 'obj2';
+        const reprovadosPorFalta = faltas
+                .filter( falta => falta.faltas > 10 ) // filtra maior que 10
+                .map( falta => falta._idAluno ) // 
+                .map( idAluno => alunos.filter( aluno => aluno._id === idAluno )[0].nome );//filtra o aluno somente pelo id 
         
-        function Pessoa(nome){
-            this.nome = nome;
-            this.falar = function(msg){
-                //console.log(this.nome + ' fala: ' + msg);
-                console.log(`${this.nome} está falando: ${msg}`);
-            }
-            this.endereco = "rua qualquer";
-        }
+        console.table(reprovadosPorFalta)
         
-        var daniel = new Pessoa('daniel');
-        
-        var luana = Object.create(daniel);
-        luana.nome = "Luana";
-        
-        var obj3 = {
-            'nome': 'obj3',
-            'valor': 10
-        }
-        var obj4 = Object.create(obj3);
-        obj4.apelido = 'meu objeto';
-        obj4.nome = 'obj4';
-        obj4.andar = function(){
-            console.log('andando');
-        }
-        
-        for (var prop in obj4){
-            
-            if(obj4.hasOwnProperty(prop)){
-                console.log(prop);
-                console.log(obj4[prop]);
-            }
-        }
-        
-        const keys = Object.keys(obj4);
-        console.log(keys);
-        keys.forEach( (item) => {
-            console.log('a propriedade é: ' + item);
-        } );
-        
-        const values = Object.values(obj4);
-        console.log(values);
-        
-        const entries = Object.entries(obj4);
-        console.log(entries);
-        
-        var nome = 'daniel';
-        var sobrenome = 'tapias morales';
-        
-        /*var eu = {
-            nome: nome,
-            sobrenome: sobrenome
-        }*/
-        let eu = { nome, sobrenome };
-        
-    
     </script>
 </html>
