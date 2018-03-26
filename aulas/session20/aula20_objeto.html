@@ -23,7 +23,16 @@
                 //tamplate literal ecma scriot 7
                 console.log(`${this.nome} esta falando: ${msg}`);
             }
+            this.endereco = "rua qualquer";//para fim didatico 
         }
+        
+        
+        //object create
+        
+        var lucas = new Pessoa('lucas');
+        var luana = Object.create(lucas)//cria uma relação entre os dois objetos, herda os adjetivos do pai
+        luana.nome = "Luana"; //recebe altera o nome herdado
+        
         
     </script>
 </body>
