@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        var n = 0
+
+        function somaUm() {
+            console.log(n++);
+
+            if (n > 5) {
+                clearInterval(intervalo);
+            }
+        }
+
+
+        //execulta a função a cada millesegundo  apenas uma vez
+        setTimeout(function() {
+            //console.log('n:', n)
+        }, 4000);
+
+        //intervalo de tempo liber a função e aqui exibe o intervalo de tempo
+        intervalo = setInterval(somaUm, 1000)
+
+        console.log(intervalo)
+
+        var timeoutTest = setTimeout(function() {
+            var i;
+            for(i < 0; i < 10000; i++){
+                str += "i: " + i + "----";
+            }
+
+        }, 3000);
+
+    </script>
+
+
+</body>
+
+</html>

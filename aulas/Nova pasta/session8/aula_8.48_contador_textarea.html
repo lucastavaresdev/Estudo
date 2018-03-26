@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Aula de Javascript</h1>
+
+
+    <textarea name="" id="msg" cols="30" rows="10" maxlength="5"></textarea><br>
+    <div id="restaContainer" style="display: none;">Restam <span id="resta"></span> caracteres</div>
+
+    <script>
+        (function() {
+                'use strict';
+
+                var $resta = document.getElementById('resta');
+                var $txtMsg = document.getElementById('msg');
+                var $restaContaneir = document.getElementById('resta')
+
+                var maxima = $txtMsg.maxLength;
+                
+                mostraContainer();
+                mostrarcaracterfaltantes(maxima);
+
+                $txtMsg.addEventListener('input', checkLength);
+
+                function checkLength(e)
+
+                var numletrasdigitas = this.value.length;
+                var caracteresfaltantes = parseInt(maxima) - parseInt(numletrasdigitas);
+                mostrarcaracterfaltantes(caracteresfaltantes);
+
+            }
+
+            function mostrarcaracterfaltantes(n) {
+
+                $resta.textContent = n;
+            }
+
+            function mostraContainer() {
+                $restaContaneir.style.display = 'block';
+
+            }
+
+        })();
+
+    </script>
+</body>
+
+</html>

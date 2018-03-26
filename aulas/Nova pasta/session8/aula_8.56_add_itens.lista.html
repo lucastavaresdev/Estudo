@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Aula de Javascript</h1>
+
+    <input type="text" id="txtlista">
+    <button type="submit" id='btn'>Inserir</button>
+    <ul>
+        <li>Estudar Javascript</li>
+        <li>Estudar eventos Javascript</li>
+        <li>jogar video game </li>
+    </ul>
+
+
+    <style>
+        .done {
+            background: red;
+        }
+
+    </style>
+
+    <script>
+        (function() {
+                'use strict';
+                var $ul = document.querySelector('ul')
+                var $lis = $ul.querySelectorAll('li');
+                var $txtlista = document.querySelector('#txtlista');
+                var $btn = document.querySelector('#btn');
+
+                $btn.addEventListener('click', addTask);
+                $txtlista.addEventListener('keyup', function(e) {
+                    if (e.keyCode === 13) {
+                        addTask();
+                    }
+                })
+
+                $ul.addEventListener('click', function(e) { //acrenceitei um evento de listener na minha ul
+                    if (e.target.nodeName === 'LI') { //verifica se o que eu cliquei é uma li
+                        toogleDone(e.target); //chama uma li
+                    }
+                });
+
+                function toogleDone(li) {
+                    li.classList.toggle('done'); //acrecenta a tag done na li
+                }
+
+
+                function addTask() {
+
+                    var li = document.createElement('li'); //Cria as <li> no dom
+                    var text = document.createTextNode($txtlista.value) //cria o texto 
+
+                    li.appendChild(text); //atrela a variavel li
+
+                    $ul.appendChild(li); //e o li e atrelado a ul que é fixa
+
+                    $txtlista.value = " "; //limpar o input
+                    $btn.value = focus(); //levar o mouse para o botao
+                }
+        })();
+
+    </script>
+</body>
+
+</html>

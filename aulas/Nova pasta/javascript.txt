@@ -1,0 +1,734 @@
+Declarando Objeto
+
+ var hoje = new Date();
+  
+----------------------------
+ //Objeto Literal
+        
+    var caneta = {
+        cor: "red",
+        mudarCor: function(cor){
+            this.cor = cor;
+        }
+    }
+        
+    caneta.mudarCor('gray');
+    
+---------------------------
+// Objeto sempre com letra maiuscula
+
+ -- Sem parametro
+
+   function Caneta(){
+            this.preco = 1;
+            this.cor = "Black";
+            this.mudarCor = function(cor){
+                this.cor = cor;
+            }
+        }
+        
+        var caneta1 = new Caneta();
+    
+    
+    --com paramentro
+    
+    
+     //crio o objeto
+     
+        function Caneta(preco , cor){
+            //passei o parametro caso nao tenha parametro recebe 1 ou black
+            var color = cor || "Black";
+            this.preco = preco || 1;
+            
+            //a função recebe o paramentro cor faz verificação caso nao seja igual nao atribui
+            this.mudarCor = function(cor){
+                if(cor !== 'red' || cor !== 'blue' ){
+                    return;
+                }
+                color = cor;
+            }
+            
+            
+            //pega a cor da variavel e retorna
+            this.pagaCor= function(){
+                return color;
+            }
+            
+        }
+        
+        //instancia o objeto passando os paramentros
+        var caneta1 = new Caneta(5, 'red');
+        
+        
+--------------------------------------------------------------------------------------
+    teste = "pessoa1"
+        "pessoa1"
+
+        window[teste]
+        {nome: "Lucas", sobrenone: "Tavares"}
+        
+------------------------------------------------------------------------------------
+Array dentro de obj
+
+<script>
+       (function(){
+        var pessoas = {
+            nome: ["lucas", "joyce"],
+            sobrenome: ["Tavares", "Tomiati"]
+        };
+
+
+        for (var i = 0; i < pessoas.nome.length; i++) {
+            console.log(pessoas.nome[i] + " " + pessoas.sobrenome[i]);
+        }
+        })();
+    </script>
+    
+    
+---------------------------------------------------------
+
+Eventos
+
+
+Dom nivel 0 
+
+    <h1>Curso de Javascript</h1>
+
+        <button id="bt1" onclick="clicar()">botao1</button>
+        <button id="bt2">botao2</button>
+
+        <script>
+            //dom nivel 0
+            var btn2 = document.getElementById('bt2');
+            
+            //com este tipo do posso ter um execução
+                btn2.onclick = clicar;
+
+
+                function clicar(){
+                    alert('botão clicado')
+                }
+
+        </script>
+    </body>   
+
+------------------------------------------
+Dom nivel 2 
+
+        var btn3 = document.getElementById('bt3');
+
+        //eu posso atrelar outro evento com 2 clicles
+        btn3.addEventListener("click", function() {
+            alert('clicou com dom level 2');
+        });
+        btn3.addEventListener("click", function() {
+            alert('clicou com dom level 2 com o segundo evento');
+        });
+        
+----------------------------------------------
+
+
+
+<body>
+    <h1>Curso de Javascript</h1>
+
+    <div class="container">
+        <h1>propagação de eventos</h1>
+
+        <div id="d1" style="background: red; padding: 25px">
+            Texto dentro da div
+            <span style="background: yellow;">texto dentro da span</span>
+        </div>
+    </div>
+
+    <script>
+        
+        var $d1 = document.querySelector('#d1');
+        var $d1Span = document.querySelector('#d1 span');
+
+        
+            // o true altera a propagação do evento
+        $d1.addEventListener('click',function(){
+            console.log('Click no $d1');
+        },true);
+        
+        $d1Span.addEventListener('click',function(){
+            console.log('click no $d1Span');
+        },true);
+        
+        document.addEventListener('click',function(){
+           console.log('click no document'); 
+        },true);
+
+    </script>
+</body>
+
+------------------------------------------------
+
+    <script>
+        (function(){
+            'use strict';
+            var $form = document.querySelector('form');
+            var $txtUser = document.getElementById('txtUser');
+            var $txtPass = document.getElementById('txtPass');
+            var $btn = document.getElementById('btn');
+            
+
+            //previne do comportamento padrao ele barra o evento de enviar
+            $form.addEventListener('submit', function(evt){
+                if(!$txtUser.value || !$txtPass.value){
+                    alert('preencha todos os campos');
+                    evt.preventDefault();
+                }
+            });
+        })();
+    </script>
+    
+--------------------------------
+
+    <script>
+        (function(){
+            'use strict';
+           
+            var $txtMsg = document.getElementById('msg');
+            
+            $txtMsg.addEventListener('keypress', keypress);
+            $txtMsg.addEventListener('keyup', keyup);
+            $txtMsg.addEventListener('keyup', keyup);
+            $txtMsg.addEventListener('keydown', keydown);
+        })();
+        
+        
+        function keypress(e){
+            console.log('keypress' , this.value);
+        }
+        
+        function keyup(e){
+            console.log('keyup' , this.value);
+            
+        }
+        
+        function keydown(e){
+            console.log('keydown' , this.value);
+            
+        }
+        
+    </script>
+    
+------------------------------------------
+
+- keypress - só é habilitado quando é clicado um numero ou letra
+- input, pega qualquer coisa no imput tanto colado como no colado pelo clicle
+
+--------------------------------------------------
+
+Colocar css no javacript para evitar erro caso nao tenho o javascript
+
+$restaContaneir.style.display = 'block';
+
+---------------------------------
+ <script>
+        (function() {
+                'use strict';
+
+                var $resta = document.getElementById('resta');
+                var $txtMsg = document.getElementById('msg');
+                var $restaContaneir = document.getElementById('resta')
+
+                var maxima = $txtMsg.maxLength;
+
+                $restaContaneir.style.display = 'block';
+
+                $resta.textContent = maxima;
+
+                $txtMsg.addEventListener('input', checkLength);
+
+                function checkLength(e)
+
+                var numletrasdigitas = this.value.length;
+                var caracteresfaltantes = maxima - numletrasdigitas;
+                mostrarcaracterfaltantes(caracteresfaltantes);
+            
+            }
+
+            function mostrarcaracterfaltantes(n) {
+                $resta.textContent = n;
+            }
+
+        })();
+
+    </script>
+
+
+------------------------------
+ <script>
+        (function(){
+            'use strict';
+
+            var $chk = document.getElementById('chk');
+            var $btn = document.getElementById('btn');
+        
+            $btn.disabled = toggleBtn();
+
+
+            $chk.addEventListener('change', function() {
+                $btn.disabled = toggleBtn();
+                //  if(this.checked){
+                //    $btn.disabled = false;
+                //}else{
+                //  $btn.disabled = true;
+
+                //  }
+            })
+
+
+            function toggleBtn(){
+                return !$chk.checked
+            }
+
+        })();
+
+    </script>
+    </script>
+    
+    -------------------------
+       
+   //exibi qual o script clicado
+    <script>
+        (function() {
+            'use strict';
+
+
+            var $btns = document.getElementsByTagName('button')
+            for (var i = 0; i < $btns.length; i++) {
+                $btns[i].addEventListener('click', clicou);
+            }
+
+                function clicou() {
+                    console.log(this.textContent);
+                }
+            
+        })();
+
+    </script>
+    
+    
+    ---------------------------
+    Adicionar e remover uma classe
+    
+    this.classList.toggle('teste');//se tiver remove se nao tiver add
+    this.classList.add('teste'); //remove
+    this.classList.remove('teste');//add
+    createElement - cria o elemento do no dom
+    innerhtml   - subitiui no dom o que ta la apaga 
+    document.createTextNode = cria um texto para que eu possa subtituir
+
+    
+    ---------------------------
+
+
+   function addTask(){
+                    
+                var li = document.createElement('li'); //Cria as <li> no dom
+                var text = document.createTextNode($txtlista.value)//cria o texto 
+                
+                li.appendChild(text);//atrela a variavel li
+                
+                $ul.appendChild(li);//e o li e atrelado a ul que é fixa
+                
+                $txtlista.value = " "; //limpar o input
+                $btn.value = focus();//levar o mouse para o botao
+            }
+------------------------------------------------
+sr-only = apenas para leitores de tela  
+---------------------------------------------
+
+Função para abrir e fechar menu sem tratamento
+
+(function(){
+    var html = document.querySelector('html');
+    var btn = document.querySelector('.header-nav__hamburgger');
+    
+    btn.addEventListener('click', function(){
+       html.classList.toggle('menu-opened'); 
+    });
+    
+})();
+            
+-----------------------------------------------
+verificar se o javascript esta habilitado ou nao
+<html lang="en" class="no-js">
+
+(function(){
+    var html = document.querySelector('html');
+    var btn = document.querySelector('.header-nav__hamburgger');
+    
+    $html.classList.remove('no-js');
+    
+    btn.addEventListener('click', function(){
+       html.classList.toggle('menu-opened'); 
+    });
+    
+})();
+
+---------------------------------------------
+
+função para mostrar ou nao o aria exampande para leitor de tela
+(function(){
+    var html = document.querySelector('html');
+    var btn = document.querySelector('.header-nav__hamburgger');
+    
+    
+    var ariaControl = btn.getAttribute('aria-controls');
+    
+    var menu = document.getElementById(ariaControl);
+    
+    html.classList.remove('no-js');
+    html.classList.add('js');
+    
+    
+    btn.addEventListener('click', function(){
+       html.classList.toggle('menu-opened');
+        
+            var AriaExpand = this.getAttribute('aria-expanded') === "true";//this é o meu proprio botao
+        
+            btn.setAttribute('aria-expanded', !AriaExpand);
+            menu.setAttribute('aria-expanded', !AriaExpand);
+
+    });
+    
+})();
+
+---------------------------------------------------------------
+    **Strings
+-------------------
+<script>
+    var n = "string literal";
+    console.log(n);
+        
+    var x = new String('String Objeto');
+    console.log(x);
+</script>
+
+
+-- string.legth//conta o tanto de caracteres
+
+-- strng.replace('i','I')//troca a primeira ocorrecia, esse metodo nao altera o valor da variavel.
+
+--- strng.replace(/i/g,'I')// troca todas
+
+--string .indexOf('A');//tras a posição da string no consujoto començando por 0
+
+--string.lastindexOf('')pega o ultimo caractere
+
+-- string.slice(5);//corta a string 
+
+-- string.slice(5, 10);//corta a string  com 2 paramentros
+
+--string.substring(5,10)//o mesmo do string so que os parametros nao precisa colocar a string
+
+-- string.split(' ')//retona uma array e tuliza como por parametro exemplo se eu quiser colocar sempre que apararecer 2 o2meu2nome2é2joyce
+array[o,meu,nome,é,joyce]
+
+--string.toUopperCase() //coloca tudo para maiuscolo
+tolowerCase()//tudo menusculo
+-----------------------------------------------------
+ <script>
+       (function(){
+           window.addEventListener('load',init);//quando a pagina for carregada ele inicia essa função
+           
+           function init(){
+               var $paragrafos = document.querySelectorAll('p'); //captura todos os paragrafos
+               
+               var x=0;
+               while($paragrafos[x]){ //enquanto existir pararagrados exculta a função formartar testo
+                    $paragrafos[x].innerHTML = formatarTexto($paragrafos[x].innerHTML);
+                   x++;
+               }
+           }
+           
+           function formatarTexto(texto){
+               var numerodecaracteres = 50; 
+               
+               if(texto.length <= numerodecaracteres) return texto;//quando tiver apenas uma unica condição pode ser feito em um unica linha
+               
+               var subtexto = texto.slice(0,numerodecaracteres);//execulta a função since e ate o numero de caracteres coloca reticencias
+               return subtexto +  '...';
+           }
+           
+       })();
+
+    </script>
+    
+    
+---------------------------------------------------------------
+    **Number
+-------------------
+ numero.tofixed// trada das casas decimais depois do ponto 
+ numero.toPrecision(2)// quantos digitos esses numero tem e limita o tanto de numero que exibe
+ 
+ numero.toString// transforma um numero em string é possivel tranformar em exadevima
+ 
+ numero.toExponencial;//
+ ---------------------------------------------------------------
+    **Metodos Matematicos
+-------------------
+
+math.min(1,2,3)//retorna o menor valor
+math.max(1,2,3)//retorna o maior valor
+math.round(55.55)//arrrendoda um numero
+math.flor(55.99)//arredonda para baixo
+marh.ceil(55.01)//arredonada para cima
+marh.pow(2,3) //potencia
+math.random()/numero aleatório
+math.pi()//tras o numero pi
+
+
+function sortear(n){
+    n = n || 1; //recepe o parametro
+    
+    var nSorteado = Math.random(); //recebe o numero e sorteia um aleatorio
+    nSorteado = nSorteado * n;//multiplica pelo valor ou seja sortei um numero e exibe na tela
+    nSorteado = Math.floor(nSorteado); //arredonda
+    
+    return nSorteado;//retorna o resultado
+    
+}
+
+//função para randomizar plano de fundo
+function imagem() {
+    var numerorandomizado = sortear(5) + 1;
+    document.body.style.backgroundImage = "url('images/"+numerorandomizado+".jpg')";
+}
+
+  ---------------------------------------------------------------
+    **Metodos Array
+-------------------   
+
+forma de objeto
+ var arr = new Array(0,2,3, 'asd');
+        console.log(arr);
+//array direto    
+var arr = [1,2,3,4,5];
+    
+  ---------------------------------------------------------------
+    **if ternario
+-------------------   
+    var temzero = notas.some(function(nota){
+        return nota === 0;
+    });
+                    
+    var mensagem = temzero ? 'reprovado': calcularMedia.apply(this, notas);;
+-----------------------------------
+    ** Spread_operator
+-----------------------------------
+//passar argumentos para a função com array.
+
+calcularMedia(...[2,3]);
+
+documentação
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Spread_operator
+
+
+-----------------------------------
+    ** arrow function
+-----------------------------------
+
+          //tradional  
+            var temzero = notas.some(function(nota){                        return nota === 0;
+            });
+                    
+            //arrow function
+            var temzero = notas.some( nota => nota === 0);
+----------------------------------
+    ** CLASSES
+-----------------------------------
+classList.add()// insere a classe
+ClassName = subistiu a classe
+
+
+// usando varios metodos, algoritimo para colocar classe em um paragrafo com uma determinada palavra
+        var paragrafos = document.querySelectorAll('p');
+
+        for (var i = 0; paragrafos.length; i++) {
+            var temJs = paragrafos[i].textContent.toLowerCase().indexOf('javascript') >= 0;
+            paragrafos[i].className = temJs ? 'destaque':''
+        }
+        
+------------------------------------------------------------------------
+
+//remover o filho do dom
+banner.parentNode.removeChild(banner);//ele vai la no elemento pai e remove o filho    
+
+0--------------------------------
+
+Constante SEMPRE EM maiusculo
+Funçao recursiva: aquela que chama ela mesmo
+
+----------------------------------------
+
+----------------------------------
+    ** BOM - browser Object model
+-----------------------------------
+
+    innerHeight e innerHeight: tamanho do browser interno
+    OuterHeight : tamanho total do browser com o sistema externo
+    outerWidth: tamanho interno do braswer no equipamento sem dev tools.
+    opener:referencia do obj window
+    pageXoffset x pageoffset : o tanto de scrol que dei numa pagina;
+    screenX e screenY: reclação da minha janela com o monitor valores aproximado;
+
+    ---------------------------------
+    History
+
+    history.legth: historico de navegação
+    ||.go(-1): navega entre as paginas
+    ||.back(): volta na navegação
+    ||.forwald: vai para frente
+
+    ----------------------------------
+    
+    location
+    
+    ||.href
+    ||.protocol
+    ||.hash #teste: depois da hashiteg exemplo one page
+    ||.seach: get e post parametro
+    
+    ||.reload: refresh na pagina;
+    ||.assign('URL'); //navega pelas url recebe uma url por parametro
+    ||.replace('URL') // faz quase a mesma coisa mas o historico nao é utilizado
+    
+    -------------------------------------------
+    navgator : informações sobre o browser.
+    --------------------------------
+    Screen: referente a tela do usuario ou seja monitor;
+    --------------------------------
+    window
+    
+    ||.open: abre uma outra aba
+    ||.open("url", "janela",'width=600,height=300');
+    
+    close() // so funciona se vc abrir com javascript
+    
+    ----------------------
+    scrollTO// da um scroll para pagina para o local que vc quer
+    socrollby // soma com o valor que ja esta na pagina;
+    -----------------------
+    print() // manda imprimir
+    ----------------------------
+    
+    ----------------------------------
+    ** BOM - Eventos
+---------------------------
+    
+    
+    <script>
+      //quando carrega conteudo na tela 
+       window.addEventListener('load',function(){
+          console.log('load disparado'); 
+       });
+        
+        
+        //dispara quando a estrutura do html é disparada
+        window.addEventListener('DOMContentLoaded', function(){
+            console.log('DOMContentLoaded Disparado');
+        });
+        
+        
+        //disparado quando redimenciona a tela
+        window.addEventListener('resize',function(e){ 
+            console.log('resize disparado');
+            console.log(e);
+        });
+        
+      //quando uso a barra de rolagem
+        window.addEventListener('scroll',function(e){
+            console.log('resize disparado');
+            console.log(e);
+            console.log("scroll y:", pageYOffset);
+        })
+        
+       //os alertes são ignoradosm funçoes para fechar a pagina
+            window.addEventListener('unload', function(){
+                console.log('unload Disparado')
+                alert('unload Disparado')
+        });
+
+
+            window.addEventListener('beforeunload', function(){
+                console.log('Beforeunload Disparado');
+                alert('Beforeunload Disparado');
+            });
+    </script>
+------------------------------------------------
+--navbar
+    <script>
+        //Script que faz a nav bar crescer e diminuir
+        (function() {
+            var $menu = document.querySelector('.menu');
+            window.addEventListener('scroll', setupNav);
+            
+            function setupNav(){
+                var posYScroll  = getYscroll();
+                
+                if(posYScroll > 150 && !hasClassFx()){
+                    document.body.classList.add('fx');
+                }
+                
+                if(posYScroll <= 100 && hasClassFx()){
+                    document.body.classList.remove('fx')
+                }
+            }
+            
+            function getYscroll(){
+                return window.pageYOffset;
+            }
+            
+            function hasClassFx(){
+               return !!document.querySelector('.fx');
+            }
+            
+        })();
+    </script>
+    
+
+----------------------------------
+    ** Estilo
+-----------------------------------
+    
+    
+    //pega o stylo computado e em anvegadores diferentes resultados diferentes
+        getComputedStyle();
+    
+    
+    //saber a posição do do elemento na tela
+    offsetHeighy 
+    offsetWidth
+    offsetLeft
+    offsetTop
+    
+    
+    -------------------------------------------
+    
+    query selector é metodo estatico so pega o que esta a principio na tela
+    ja o get element pega ate as tag que forem criadas depois
+    
+    ---------------------------------------------
+       window.addEventListener('DOMContentLoaded', function(){
+            var _p1 = document.querySelectorAll('p'); // pega os paragrafos e atribui a uma variavel
+            var _p2 = document.getElementsByTagName('p'); 
+            console.log(_p1.length, _p2.length); // exibe a quantidade que tem
+            
+            var newp = document.createElement('p'); // cria um  novo p
+            newp.textContent = 'novoPragrafo';//atribui uma string a essa novo paragrafo
+            document.body.appendChild(newp); // coloca o elemento pai
+            
+            console.log(_p1.length,_p2.length);//exibe a quantidade de paragrafos na tela
+        });
+    
+--------------------------------------------
+
+
+        
+        

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Saltos</title>
+</head>
+
+<body>
+
+    <script>
+        //-----------------------------------------------------------------
+        //Return
+        //-----------------------------------------------------------------
+        //sai da função com o resultado execultado ate o return  e para a execulção da função
+        function testeSaltos() {
+            for (var i = 0; i < 10; i++) {
+                console.log(i);
+                if (i == 5) {
+                    return
+                }
+            }
+
+            console.log("o brack continuo a função");
+
+        }
+
+        testeSaltos();
+
+        //-----------------------------------------------------------------
+        //Brack
+        //-----------------------------------------------------------------
+        console.log("---------------------------------------------");
+
+        // o brack sai do loop, porem continua a função
+        function breack() {
+            for (var i = 0; i < 10; i++) {
+                console.log(i);
+                if (i == 3) {
+                    break;
+                }
+            }
+            console.log("o brack continuo a função");
+        }
+        breack();
+
+
+
+
+        //-----------------------------------------------------------------
+        //O continue pula uam volta do loop
+        //-----------------------------------------------------------------
+        console.log("---------------------------------------------");
+
+        // o continue
+        function con() {
+            for (var i = 0; i < 10; i++) {
+                if (i == 7) {
+                    continue;
+                }
+                console.log(i);
+            }
+            console.log("pulou o numero 7");
+        }
+        con();
+
+    </script>
+</body>
+
+</html>
