@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Objeto</title>
+</head>
+<body>
+    <script>
+        var obj1 = {
+            name: 'obj1',
+            log:function(msg){
+                console.log(msg);
+            }
+        }
+        
+        var obj2 = new Object();
+        obj2.name = 'obj2';
+        
+        function Pessoa(nome){
+            this.nome = nome;
+            this.falar = function(msg){
+               // console.log(this.nome + 'fala' + msg);
+                //tamplate literal ecma scriot 7
+                console.log(`${this.nome} esta falando: ${msg}`);
+            }
+            this.endereco = "rua qualquer";//para fim didatico 
+        }
+        
+        
+        //object create
+        
+        var lucas = new Pessoa('lucas');
+        var luana = Object.create(lucas)//cria uma relação entre os dois objetos, herda os adjetivos do pai
+        luana.nome = "Luana"; //recebe altera o nome herdado
+        
+        
+    //a propriedade in server para verificar se exite a propriedade dentro do objeto
+
+    
+        
+    var obj3 ={
+        'nome': 'obj3',
+        'valor': 10
+    }
+        
+    var obj4 = Object.create(obj3);//herdou o nome do obj4
+        obj4.apelido = 'meu objeto';
+        obj4.nome = 'obj4'; // objeto sobrequevreu
+        
+       //para testar o in é so colocar no navegador "valor" in obj4;
+      //retorno true
+     //vem da herança o valor
+        
+    //----------------------------------------------------------------
+       
+        //exibir objeto
+        //para cada propriedade  no obejto 4 vai mostrar a propriedade
+        for(var prop in obj4){
+           // console.log(prop)
+          //  console.log(obj4[prop])//mostra a o propiedade pertece
+            if(obj4.hasOwnProperty(prop)){ // verifica o que existe no obj e nao mostra o que é herdado
+                console.log(prop)
+                console.log(obj4[prop])//mostra a o propiedade pertece
+            }
+        }
+        
+        
+    //--------------------------
+    //    objetokey
+    //--------------------------
+        
+        //retorna uma array com as propriedades do objetos é tem um bom suportes
+        const keys = Object.keys(obj4);
+        //console.log(keys);
+        
+        
+        
+                
+    //--------------------------
+    //    objetovalues *ecma 2017
+    //--------------------------
+        
+        //tras um array com as propriedades
+        const values = Object.values(obj4);
+        console.log(values);
+        
+    //--------------------------
+    //    entries *ecma 2017 *ecma 2017
+    //--------------------------    
+        //retorna um array contendo chave e valor de um objeto
+        const entries  = Object.entries(obj4);
+        console.log(entries);
+        
+        //--------------------------------------
+        //deletar propriedade de um objeto
+        //delete obj4.propriedadeaadeletar
+        
+        
+    //---------------------------
+        var nome = 'Lucas';
+        var sobrenome = 'Tavares da Silva'
+        
+//      Ecma 2015  
+//        var eu = {
+//            nome: nome,
+//            sobrenome: sobrenome: 
+//        }
+        
+        //se tiber o mesmo nomer igual a  nome: nome
+        
+        let eu = {nome,sobrenome}
+
+
+    </script>
+</body>
+</html>
