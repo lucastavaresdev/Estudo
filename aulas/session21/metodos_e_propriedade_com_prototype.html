@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototype</title>
+</head>
+<body>
+    <script>
+        
+        function Animal(tipo){
+            if(tipo) this.tipo = tipo;
+        }
+
+        
+        function Cachorro(nome, tipo){
+            this.nome = nome;
+            Animal.call(this, tipo);
+            this.constructor = Cachorro;
+        }
+       
+        Cachorro.prototype = new Animal(this.tipo);
+        
+        var toto = new Cachorro('dog' , 'mamifero')
+        console.log(toto)
+        
+        Animal.prototype.obtemTipo = function(){
+            return this.tipó;
+        }
+    
+        Animal.prototype.tipo = "desconhecido";
+        
+        //prototypeObj.isPrototypeOf(objeto)     
+        resulta =  Animal.prototype.isPrototypeOf(toto);
+        console.log(resulta)//true
+        
+        resulta =  String.prototype.isPrototypeOf(toto);
+        console.log(resulta)//false
+        
+        //----------------------------------------------
+        //getPrototypeOf
+        //----------------------------------------------
+        
+        console.log(Object.getPrototypeOf(toto));//tras a classe
+        
+         //----------------------------------------------
+        //instanceOf - verifica instancia existe
+        //----------------------------------------------
+        
+        console.log(toto instanceof Cachorro);//true
+        console.log(toto instanceof String);//false
+        
+        //----------------------------------------------
+        //constructor - 
+        //----------------------------------------------   
+        
+        var lesma = new Animal();
+        
+        console.log(toto.constructor)//para ter acesso ao construtor tem que corrigir na função this.constructor = cachorro;
+        
+    </script>
+</body>
+</html>

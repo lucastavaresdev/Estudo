@@ -749,4 +749,8 @@ Funçao recursiva: aquela que chama ela mesmo
         
         console.log(cachorro, gato);
         
-        
+    -------------------------------
+
+class é do ecmascript 6
+
+isprototypeof() e para testar erança
