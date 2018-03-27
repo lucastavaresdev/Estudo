@@ -730,5 +730,23 @@ Funçao recursiva: aquela que chama ela mesmo
 --------------------------------------------
 
 
+ ----------------------------------
+    ** Sessão 21
+-----------------------------------   
+//Objetos
+
+//cada vez que eu crio uma objeto ele duplica a função
+ function Animal(tipo){
+            this.tipo = tipo;
+            this.obtemTipo = function(){
+                console.log('o tipo é' + this.tipo);
+                return this.tipo;
+            }
+        }
+    
+        var cachorro = new Animal('Mamifero');
+        var gato = new Animal('Mamifero');
+        
+        console.log(cachorro, gato);
         
         

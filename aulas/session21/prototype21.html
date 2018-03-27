@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototype</title>
+</head>
+<body>
+    <script>
+        
+        function Animal(tipo){
+            if(tipo) this.tipo = tipo;
+        }
+
+        
+        //todas as instancias dese animal ira herdar essa função evitando duplicidade
+        Animal.prototype.obtemTipo = function(){
+            return this.tipó;
+        }
+    
+        Animal.prototype.tipo = "desconhecido";
+        
+        var cachorro = new Animal('Mamifero');
+        var gato = new Animal('Mamifero');
+        
+        var peixe = new Animal();
+        
+        console.log(cachorro, gato,peixe);
+        //para testar digita no console peixe.tipo
+        
+        
+        //----------------
+        //Se inverter a ordem do prototipo nao importa se colocar antes ou depois ele funciona normal com a propriedade prototipo
+        //------------------
+        
+        
+        //pegar emprestado propiedade de um metodo exmplo forEach
+        
+        function teste(){
+            console.log(arguments)//arguments pega a propriedade e passadas
+            
+            Array.prototype.forEach.call(arguments,function(argument){
+                console.log('argumento: ' + argument);
+            })
+        }
+        
+        teste('ola','mundo',7)   //exemplo argumets
+        
+    </script>
+</body>
+</html>
