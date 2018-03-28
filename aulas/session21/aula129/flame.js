@@ -26,6 +26,12 @@ var flame = (function(){
     
     f.calcularMedia = _calcularMedia;
     
+    f.each - _each;
+    
+    function _each(seletor, funcao){
+        var _seletor = this.$$(seletor);
+        Array.prototype.forEach.call(_seletor,funcao);
+    }
     
     return f;
 })();
