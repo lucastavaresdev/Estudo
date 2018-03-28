@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <h4>colocar um replace all tem todas as strings</h4>
+            
+    <script>
+        //split quebra a string
+        String.prototype.replaceAll =  function(busca, troca){
+            console.log(this.valueOf());
+            var str = this.valueOf()
+            return str.split(busca).join(troca);
+        }
+        
+        //testar no navegador "teste".replaceAll('e')
+    
+    </script>
+    
+</body>
+</html>
