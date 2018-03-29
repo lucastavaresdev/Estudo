@@ -30,3 +30,10 @@ CLASSE ABSTRATA É GENERICA POREM SO POSSO UTILIZAR A CLASSE PARA CRIAR OUTRA CL
 
 --------------------------------------------------------------
 funçoes contrutora constroi a classe
+
+-- quando eu não quero que o metodo da classe seja alterado por nenhum classe é privado exemplo:
+
+classe pessoa
+    - datadecriação
+    
+datadecriação nao pode ser alterado por nenhuma outra classe a nao ser a pessoa ou seja é privado
