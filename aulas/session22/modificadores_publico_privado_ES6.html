@@ -35,12 +35,25 @@
                 //this.aniversario = new Date();
                 const aniversario = new Date().getTime();
                 
+                //fake private (Convesão)
+                this._aniversario = Date.now();
+                
                this.getNiver = function(){
                    return aniversario;
                }
                 
             }
          
+        }
+        
+        
+        //iinteseptadores de propriedade de obj
+        get aniversario(){
+            return this._aniversario;
+        }
+        
+        set aniversario(novadata){
+            this._aniversario;
         }
         
         
