@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        //ES5
+        function ContaCorrente(cliente, numero){
+            'use strict'
+            if(this instanceof ContaCorrente){
+            this.cliente = cliente;
+            this.numero = numero;
+            }else{
+               // throw new Error("conta corrente so pode ser usado com o new");
+                return new ContaCorrente(cliente,numero)//mascara o erro do usuario nao colocar new
+            }
+        }
+    
+        //ES6 -Conta poupança é uma função  
+        
+        class ContaPoupanca{
+            
+            constructor(cliente,numero){
+                this.cliente = cliente;
+                this.numero = numero;
+
+            }
+        }
+        
+        //a grande diferença e que usando o class contaPopança tem que usar o new 
+    
+    </script>
+    
+</body>
+</html>
