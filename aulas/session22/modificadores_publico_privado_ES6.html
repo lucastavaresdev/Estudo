@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+         //ES6
+        
+        
+        class ContaBancaria{
+            constructor(cliente, numero){
+                this.cliente = cliente;
+                this.numero = numero;
+                this.saldo = 0;
+            }
+                depositar(valor){
+                    this.saldo += valor;
+                }
+        }
+        
+        class ContaCorrente extends ContaBancaria{
+            constructor(cliente,numero){
+                super(cliente,numero);//o super ta pegando o cliente e o numero da Conta Bancaria
+                this.limite = 2000;
+            }
+        }
+        
+        class ContaPoupanca extends ContaBancaria{
+            constructor(cliente, numero){
+                super(cliente,numero);
+                //publico
+                //this.aniversario = new Date();
+                const aniversario = new Date().getTime();
+                
+               this.getNiver = function(){
+                   return aniversario;
+               }
+                
+            }
+         
+        }
+        
+        
+        let cc = new ContaCorrente('Lucas', 7);
+        
+        cc.depositar(1000);
+        console.log(cc.saldo)
+        
+        let cp = new ContaPoupanca('joyce', 28);
+        
+        console.log(cp.aniversario);
+        
+        // testar no chrome e so colocar o nome da variavel cc
+    </script>
+    
+</body>
+</html>
