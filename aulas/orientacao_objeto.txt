@@ -29,3 +29,4 @@ CLASSE CONTA BANCARIA TODA CONTA TEM UM CLIENTE
 CLASSE ABSTRATA É GENERICA POREM SO POSSO UTILIZAR A CLASSE PARA CRIAR OUTRA CLASSE
 
 --------------------------------------------------------------
+funçoes contrutora constroi a classe
