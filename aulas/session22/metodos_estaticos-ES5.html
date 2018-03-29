@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+         //ES5
+        
+        function ContaBancaria(cliente,numero){
+            this.cliente = cliente;
+            this.numero = numero;
+        }
+        
+       
+        function ContaCorrente(cliente, numero){
+            
+//            ContaBancaria.call(this, cliente, numero);
+//            this.contructor = ContaCorrente;//controi a classe
+        }
+        //faz parte direto
+        ContaCorrente.juros = 15;
+        //ContaCorrente.juros
+        //faz parte da instancia
+        
+        ContaCorrente.prototype.teste = 'testando prototype';
+        //cc.teste
+        
+        
+        ContaCorrente.verTipo = function(){
+            return "testando static method"
+            //testando no nav ContaCorrente.verTipo()
+        }
+        
+        
+        function ContaPoupanca(cliente,numero){
+            ContaBancaria.call(this, cliente, numero);
+            
+            //PRIVADO
+            const aniversario = new Date().getTime();//evita que modifica o original e continua intacto
+        
+            //PUBLICO
+            this.pegaNiver = function(){
+                return aniversario;
+            }
+        }
+        
+        var cp = new ContaPoupanca('maria', 7);
+        Object.setPrototypeOf(cp, new ContaBancaria())
+        
+        var cc = new ContaCorrente('teste',8)
+        
+        //teste
+        //var cp = new ContaPoupanca('teste',8)
+        //cp.pegaNiver()
+        
+    </script>
+    
+</body>
+</html>

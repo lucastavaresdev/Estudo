@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+         //ES6
+        
+        
+        class ContaBancaria{
+            constructor(cliente, numero){
+                this.cliente = cliente;
+                this.numero = numero;
+                this.saldo = 0;
+            }
+                depositar(valor){
+                    this.saldo += valor;
+                }
+        }
+        
+        class ContaCorrente extends ContaBancaria{
+            constructor(cliente,numero){
+                super(cliente,numero);//o super ta pegando o cliente e o numero da Conta Bancaria
+                this.limite = 2000;
+            }
+              static get juros(){
+                  return 15;
+              };
+            //ContaCorrente.juros oo acesso é apenas como um metodo
+        }
+        
+        class ContaPoupanca extends ContaBancaria{
+            constructor(cliente, numero){
+                super(cliente,numero);
+                //publico
+                //this.aniversario = new Date();
+                const aniversario = new Date().getTime();
+                
+                //fake private (Convesão)
+                this._aniversario = Date.now();
+                
+               this.getNiver = function(){
+                   return aniversario;
+               }
+                
+            }
+         
+        }
+        
+        var cc = new ContaCorrente('maria',5);
+        
+     
+    </script>
+    
+</body>
+</html>
