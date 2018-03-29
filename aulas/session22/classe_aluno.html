@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        class Aluno{
+            constructor(nome){
+                this.nome = nome;
+                this._faltas = 0;//metodo privado
+            }
+            
+            adicionarFaltas(){
+                console.log(`${this.nome} tem ${this._faltas} faltas`);
+                this._faltas++;
+            }
+        }
+     
+        let lucas = new Aluno('lucas');
+        
+        //lucas.adicionarFaltas() 
+        //bular o sistema lucas._faltas = 0
+        
+        
+        class ListaAlunos{
+            constructor(_lista){
+                this.lista = [].concat(_lista);//crio uma array vazia e contcateno montando uma nova lista não altera a original
+            }
+            obterAluno(nome){
+                return this.lista.filter(aluno => aluno.nome === nome)[0];
+            }
+        }
+        
+        var alunos = ['lucas','joyce'].map(aluno => new Aluno(aluno));
+        console.log(alunos);
+        
+        var lista = new ListaAlunos(alunos);
+        //testar lista.obterAluno('joyce')
+        
+        
+        
+        
+    </script>
+    
+</body>
+</html>
