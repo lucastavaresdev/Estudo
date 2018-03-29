@@ -1,0 +1,31 @@
+- Classe é o projeto
+
+-Objeto é o resultado desse projeto
+
+
+Classe cadeira cor() , tipo()
+
+
+Objeto Caderira - tipo de cadeira(balando, reta, cor  etc)
+objeto herda da classe o tipo de propriedade(metodo)
+
+o obj pode colocar mais propriedads e metodos girar() anda();
+
+
+Conseito geral:
+
+- forte relação com o mundo real
+- facilita manutencao
+- defini em pedaco
+
+Gerar uma classe
+- Pegar o que tem de comum
+
+associação EX:
+
+CLASSE CLIENTE
+CLASSE CONTA BANCARIA TODA CONTA TEM UM CLIENTE
+
+CLASSE ABSTRATA É GENERICA POREM SO POSSO UTILIZAR A CLASSE PARA CRIAR OUTRA CLASSE
+
+--------------------------------------------------------------
