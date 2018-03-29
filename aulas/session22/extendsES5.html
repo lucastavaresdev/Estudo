@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+         //ES5
+        
+        function ContaBancaria(cliente,numero){
+            this.cliente = cliente;
+            this.numero = numero;
+        }
+        
+       
+        function ContaCorrente(cliente, numero){
+//            ContaBancaria.call(this, cliente, numero);
+//            this.contructor = ContaCorrente;//controi a classe
+        }
+//        ContaCorrente.prototype = new ContaBancaria();//cria a heranca
+    
+        let cc = new ContaCorrente();
+        let cb = new ContaBancaria('Lucas' , 7)
+        Object.setPrototypeOf(cc, cb);
+        console.log(cc);
+        
+        
+        
+        //ES6
+    </script>
+    
+</body>
+</html>
