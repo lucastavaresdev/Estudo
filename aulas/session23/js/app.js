@@ -14,3 +14,21 @@ var listaAlunosView = new ListaAlunosView('#listaAlunos');
 listaAlunosView.atualiza(listaAlunos);
 
 var listaAlunosController = new ListaAlunosController(listaAlunos , listaAlunosView);
+
+
+blg.$("#form-adiciona form").addEventListener('submit', function(e){
+    e.preventDefault();
+    
+    var nome = blg.$('#nome').value;
+    
+    var notas = [];
+    var i = 0;
+    
+    while(blg.$('#nota' + i)){
+       notas.push(parseFloat(blg.$('#nota' + i).value));
+        i++
+    }
+    
+    listaAlunosController.adicionarAluno(nome,notas);
+                
+});
