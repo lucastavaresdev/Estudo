@@ -11,7 +11,7 @@ class ListaAlunosView {
                         <td class="aluno-n${i+1}">${nota}</td>
                         
                     ` ).join(' ')}
-                <td class="aluno-m"></td>
+                <td class="aluno-m">${aluno.recuperarMedia()}</td>
             </tr>
         `
             
