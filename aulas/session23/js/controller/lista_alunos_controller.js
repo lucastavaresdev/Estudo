@@ -44,4 +44,9 @@ class ListaAlunosController{
         this.view.atualiza(this.model);
         
     }
+    
+    atualizaLista(alunos){
+        this.view.atualiza(alunos);
+    }
+    
 }

@@ -11,4 +11,7 @@ class ListaAlunos{
         this.lista.push(aluno);
     }
     
+    buscarAlunos(_nome){
+        return this.lista.filter( aluno => aluno.nome.indexOf(_nome) >= 0);
+    }
 }
