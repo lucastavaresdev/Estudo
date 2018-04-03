@@ -39,9 +39,9 @@ blg.$("#form-adiciona form").addEventListener('submit', function (e) {
     formAdicionarAlunoController.limpar();
 });
 
-blg.$('#form-busca form').addEventListener('submit', function (e) {
+blg.$('#form-busca form').addEventListener('submit', function(e) {
     e.preventDefault();
-   formBuscaAlunoController.buscaAluno(function(_alunos){
+   formBuscaAlunoController.buscarAluno(function(_alunos){
         listaAlunosController.atualizaLista({lista: _alunos});
     });
 });

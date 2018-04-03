@@ -3,8 +3,8 @@ class FormBuscaAlunoController{
         this.model = model;
         this.view = view;
     }
-    buscaAluno(callback){
-        var nome = this.view.$selector.querySelectorAll('input').value;
+     buscarAluno( callback ){
+        var nome = this.view.$selector.querySelector('input').value;
         var filtrados = this.model.buscarAlunos(nome);
         
         if(filtrados && typeof callback === 'function'){

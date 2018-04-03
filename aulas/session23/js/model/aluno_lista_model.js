@@ -12,6 +12,7 @@ class ListaAlunos{
     }
     
     buscarAlunos(_nome){
-        return this.lista.filter( aluno => aluno.nome.indexOf(_nome) >= 0);
+        debugger
+         return this.lista.filter( aluno => aluno.nome.toLowerCase().indexOf(_nome.toLowerCase()) >= 0 );
     }
 }
