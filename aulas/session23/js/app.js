@@ -15,6 +15,9 @@ listaAlunosView.atualiza(listaAlunos);
 
 var listaAlunosController = new ListaAlunosController(listaAlunos , listaAlunosView);
 
+var formAdicionarAlunoView = new FormAdicionarAlunoView('#form-adiciona')
+
+var formAdicionarAlunoController = new FormAdicionarAlunoController(listaAlunos,formAdicionarAlunoView);
 
 blg.$("#form-adiciona form").addEventListener('submit', function(e){
     e.preventDefault();
@@ -30,11 +33,7 @@ blg.$("#form-adiciona form").addEventListener('submit', function(e){
     }
     
     listaAlunosController.adicionarAluno(nome,notas);
-    blg.$('#nome').value = '';
-    blg.$('#nota1').value = '';
-    blg.$('#nota2').value = '';
-    blg.$('#nota3').value = '';
-    blg.$('#nota4').value = '';
-    blg.$('#nome').focus();
+    formAdicionarAlunoController.limpar();
+
                 
 });
