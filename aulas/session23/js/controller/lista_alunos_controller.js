@@ -49,4 +49,7 @@ class ListaAlunosController{
         this.view.atualiza(alunos);
     }
     
+    limparFiltro(){
+        this.view.atualiza(this.model);
+    }
 }

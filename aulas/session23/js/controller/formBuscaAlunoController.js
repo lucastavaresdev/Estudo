@@ -12,4 +12,8 @@ class FormBuscaAlunoController{
         }
     }
     
+    limparInput(){
+        this.view.$selector.querySelector('input').value = ' ';
+    }
+    
 }

@@ -39,9 +39,16 @@ blg.$("#form-adiciona form").addEventListener('submit', function (e) {
     formAdicionarAlunoController.limpar();
 });
 
-blg.$('#form-busca form').addEventListener('submit', function(e) {
+blg.$('#form-busca form').addEventListener('submit', function (e) {
     e.preventDefault();
-   formBuscaAlunoController.buscarAluno(function(_alunos){
-        listaAlunosController.atualizaLista({lista: _alunos});
+    formBuscaAlunoController.buscarAluno(function (_alunos) {
+        listaAlunosController.atualizaLista({
+            lista: _alunos
+        });
     });
+});
+
+blg.$('#btnLimparFiltro').addEventListener('click', function (e) {
+    formBuscaAlunoController.limparInput();
+    listaAlunosController.limparFiltro();
 });
