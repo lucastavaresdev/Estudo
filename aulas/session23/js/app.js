@@ -15,17 +15,21 @@ listaAlunosView.atualiza(listaAlunos);
 
 var listaAlunosController = new ListaAlunosController(listaAlunos , listaAlunosView);
 
-var formAdicionarAlunoView = new FormAdicionarAlunoView('#form-adiciona')
+var formAdicionarAlunoView = new FormAdicionarAlunoView('#form-adiciona');
 
 var formAdicionarAlunoController = new FormAdicionarAlunoController(listaAlunos,formAdicionarAlunoView);
 
+var formBuscaAlunoView = new FormBuscaAlunoView('#form-busca');
+var formBuscaAlunoController = new FormBuscaAlunoController(listaAlunos,formBuscaAlunoView)
+
 blg.$("#form-adiciona form").addEventListener('submit', function(e){
+        debugger;
     e.preventDefault();
     
     var nome = blg.$('#nome').value;
     
     var notas = [];
-    var i = 0;
+    var i = 1;
     
     while(blg.$('#nota' + i)){
        notas.push(parseFloat(blg.$('#nota' + i).value));

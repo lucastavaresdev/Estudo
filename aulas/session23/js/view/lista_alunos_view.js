@@ -1,6 +1,6 @@
 class ListaAlunosView {
     constructor(seletor) {
-        this.$seletor = blg.$(seletor);
+        this.$selector = blg.$(seletor);
     }
     getTemplate(model) {
         return `
@@ -20,6 +20,6 @@ class ListaAlunosView {
     }
     
     atualiza(model){
-        this.$seletor.innerHTML = this.getTemplate(model);
+        this.$selector.innerHTML = this.getTemplate(model);
     }
 }

@@ -4,9 +4,7 @@ class FormAdicionarAlunoController{
         this.view = view;
     }
     limpar(){
-        console.log("teste")
-        console.log(this.view.$seletor.querySelectorAll('input'));
-        let inputs = this.view.$seletor.querySelectorAll('input')
+        let inputs = this.view.$selector.querySelectorAll('input')
         Array.prototype.forEach.call(inputs, input => input.value = ' ');
         inputs[0].focus();
     }

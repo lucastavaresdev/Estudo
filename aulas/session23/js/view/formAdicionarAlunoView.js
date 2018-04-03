@@ -1,7 +1,7 @@
 class FormAdicionarAlunoView {
     constructor(seletor) {
-        this.$seletor = blg.$(seletor);
-        this.$seletor.innerHTML = this.getTemplate();
+        this.$selector = blg.$(seletor);
+        this.$selector.innerHTML = this.getTemplate();
     }
 
     getTemplate() {
