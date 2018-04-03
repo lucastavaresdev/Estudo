@@ -26,9 +26,15 @@ blg.$("#form-adiciona form").addEventListener('submit', function(e){
     
     while(blg.$('#nota' + i)){
        notas.push(parseFloat(blg.$('#nota' + i).value));
-        i++
+        i++;
     }
     
     listaAlunosController.adicionarAluno(nome,notas);
+    blg.$('#nome').value = '';
+    blg.$('#nota1').value = '';
+    blg.$('#nota2').value = '';
+    blg.$('#nota3').value = '';
+    blg.$('#nota4').value = '';
+    blg.$('#nome').focus();
                 
 });
