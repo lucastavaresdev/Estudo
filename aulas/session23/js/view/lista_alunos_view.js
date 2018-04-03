@@ -1,6 +1,6 @@
-class ListaAlunosView {
+class ListaAlunosView extends View {
     constructor(seletor) {
-        this.$selector = blg.$(seletor);
+       super(seletor);
     }
     getTemplate(model) {
         return `
@@ -20,6 +20,6 @@ class ListaAlunosView {
     }
     
     atualiza(model){
-        this.$selector.innerHTML = this.getTemplate(model);
+      this.$seletor.innerHTML = this.getTemplate(model);
     }
 }

@@ -4,7 +4,7 @@ class FormBuscaAlunoController{
         this.view = view;
     }
      buscarAluno( callback ){
-        var nome = this.view.$selector.querySelector('input').value;
+        var nome = this.view.$seletor.querySelector('input').value;
         var filtrados = this.model.buscarAlunos(nome);
         
         if(filtrados && typeof callback === 'function'){
@@ -13,7 +13,7 @@ class FormBuscaAlunoController{
     }
     
     limparInput(){
-        this.view.$selector.querySelector('input').value = ' ';
+        this.view.$seletor.querySelector('input').value = ' ';
     }
     
 }

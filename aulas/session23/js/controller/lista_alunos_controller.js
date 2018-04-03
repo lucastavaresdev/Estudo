@@ -3,7 +3,7 @@ class ListaAlunosController{
         this.model = model;
         this.view = view;
 
-        this.view.$selector.addEventListener('click', this.editarAluno.bind(this))
+        this.view.$seletor.addEventListener('click', this.editarAluno.bind(this))
     }
     
     editarAluno(e){

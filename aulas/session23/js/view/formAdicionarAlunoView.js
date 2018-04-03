@@ -1,7 +1,7 @@
-class FormAdicionarAlunoView {
+class FormAdicionarAlunoView extends View {
     constructor(seletor) {
-        this.$selector = blg.$(seletor);
-        this.$selector.innerHTML = this.getTemplate();
+        super(seletor);
+        this.$seletor.innerHTML = this.getTemplate();
     }
 
     getTemplate() {
