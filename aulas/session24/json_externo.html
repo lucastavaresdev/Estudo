@@ -45,11 +45,13 @@
     }
 
     function mostraUsuarios(usuarios) {
-        console.time('DOM')
+        console.time('DOM');
+        const fraguimento = document.createDocumentFragment();//é uma boa pratica pois nem todos os navegadores são rapidos igual o chrome
         usuarios.forEach(usuario => {
-            adicionarElemento($listaUsuario, 'dt', usuario.name);
-            adicionarElemento($listaUsuario, 'dd', usuario.email, usuario.phone, usuario.website);
+            adicionarElemento(fraguimento, 'dt', usuario.name);
+            adicionarElemento(fraguimento, 'dd', usuario.email, usuario.phone, usuario.website);
         });
+        $listaUsuario.appendChild(fraguimento);
         console.timeEnd('DOM');
     }
 
