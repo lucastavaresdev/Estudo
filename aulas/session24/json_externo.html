@@ -16,7 +16,7 @@
     let xhr = new XMLHttpRequest();
     let url = "https://jsonplaceholder.typicode.com/users";
     const $listaUsuario = document.querySelector("#lista-usuarios")
-    
+
     //abrir a comunicacao (tipo de requisição , caminho da requisicao)
     xhr.open("GET", url);
     //enviar a requisição
@@ -45,20 +45,25 @@
     }
 
     function mostraUsuarios(usuarios) {
+        console.time('DOM')
         usuarios.forEach(usuario => {
-            adicionarElemento($listaUsuario,'dt',usuario.name);
-            adicionarElemento($listaUsuario,'dt',usuario.email);
-            adicionarElemento($listaUsuario,'dt',usuario.phone);
+            adicionarElemento($listaUsuario, 'dt', usuario.name);
+            adicionarElemento($listaUsuario, 'dd', usuario.email, usuario.phone, usuario.website);
         });
+        console.timeEnd('DOM');
     }
 
-    
-    function adicionarElemento(container,tag,text){
-        var _tag = document.createElement(tag);
-        var _textNode = document.createTextNode(text);
-        _tag.appendChild(_textNode);
-        container.appendChild(_tag);
+
+    function adicionarElemento(container, tag, ...text) {
+        [...text].forEach(str => {
+            let _tag = document.createElement(tag);
+            let _textNode = document.createTextNode(text);
+            _tag.appendChild(_textNode);
+            container.appendChild(_tag);
+        })
+
     }
+
 </script>
 
 </html>
