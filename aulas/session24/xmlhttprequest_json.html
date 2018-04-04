@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //instanciar o objeto
+            let xhr = new XMLHttpRequest();
+        //abrir a comunicacao (tipo de requisição , caminho da requisicao)
+            xhr.open("GET", "alunos.json")
+        //enviar a requisição
+            xhr.send(null);
+        //resposta finalizada
+            xhr.onreadystatechange = verificaAjax;
+        // resultado do ajax - 200  - 4
+        function verificaAjax() {
+            console.log(xhr.readyState);//status da requisição 
+            console.log(xhr.status);//status da respotas
+            
+            if(xhr.readyState === 4){
+                if(xhr.status === 200 || xhr.status === 304){
+                    console.log(xhr.responseText);//json
+                    let resposta = xhr.responseText;
+                    console.log(JSON.parse(resposta)[0].nome);
+                }else{
+                    alert('erro na resposta');
+                    console.log(xhr);
+                }
+            }
+        }
+        
+    
+    </script>
+</body>
+</html>

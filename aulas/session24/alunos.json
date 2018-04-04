@@ -7,5 +7,9 @@
         "nome": "Joyce",
         "notas": [10,2,3,5]
     },
+    {
+        "nome": "teste",
+        "notas": [10,4,5,5]
+    }
     
 ]
