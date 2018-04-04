@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <dl id="lista-usuarios"></dl>
+
+
+</body>
+<script>
+    //instanciar o objeto
+    let xhr = new XMLHttpRequest();
+    let url = "https://jsonplaceholder.typicode.com/users";
+    const $listaUsuario = document.querySelector("#lista-usuarios")
+    
+    //abrir a comunicacao (tipo de requisição , caminho da requisicao)
+    xhr.open("GET", url);
+    //enviar a requisição
+    xhr.send(null);
+    //resposta finalizada
+    xhr.onreadystatechange = verificaAjax;
+    // resultado do ajax - 200  - 4
+    function verificaAjax() {
+        console.log(xhr.readyState); //status da requisição 
+        console.log(xhr.status); //status da respotas
+
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200 || xhr.status === 304) {
+                let resposta = xhr.responseText;
+
+                resposta = JSON.parse(resposta);
+
+                mostraUsuarios(resposta);
+
+
+            } else {
+                alert('erro na resposta');
+                console.log(xhr);
+            }
+        }
+    }
+
+    function mostraUsuarios(usuarios) {
+        usuarios.forEach(usuario => {
+            adicionarElemento($listaUsuario,'dt',usuario.name);
+            adicionarElemento($listaUsuario,'dt',usuario.email);
+            adicionarElemento($listaUsuario,'dt',usuario.phone);
+        });
+    }
+
+    
+    function adicionarElemento(container,tag,text){
+        var _tag = document.createElement(tag);
+        var _textNode = document.createTextNode(text);
+        _tag.appendChild(_textNode);
+        container.appendChild(_tag);
+    }
+</script>
+
+</html>
