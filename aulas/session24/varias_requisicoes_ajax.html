@@ -42,15 +42,10 @@
         };
     }
 
-
     function mostraUsuarios(usuario) {
-
         adicionarElemento($listaUsuario, 'dt', usuario.id);
         adicionarElemento($listaUsuario, 'dd', usuario.name, usuario.email, usuario.website);
-
-
     }
-
 
     function adicionarElemento(container, tag, ...text) {
         [...text].forEach(str => {
@@ -61,7 +56,6 @@
         })
 
     }
-
     //assincrona 
     getUser(1, function(usuario) {
         mostraUsuarios(usuario);
@@ -74,5 +68,4 @@
     });
 
 </script>
-
 </html>

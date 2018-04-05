@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <dl id="lista-usuarios"></dl>
+
+
+</body>
+<script>
+    const $listaUsuario = document.querySelector("#lista-usuarios")
+
+    function getUser(id) {
+        let promise = new Promise((resolve, reject) => {
+            //instanciar o objeto
+            let xhr = new XMLHttpRequest();
+            let url = `https://jsonplaceholder.typicode.com/users/${id}`;
+
+            //abrir a comunicacao (tipo de requisição , caminho da requisicao)
+            xhr.open("GET", url);
+            //enviar a requisição
+            xhr.send(null);
+            //resposta finalizada
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200 || xhr.status === 304) {
+                        let resposta = xhr.responseText;
+
+                        resposta = JSON.parse(resposta);
+                        resolve(resposta);
+                    } else {
+                        reject('erro na resposta');
+                    }
+                }
+            };
+        });
+        return promise;
+    }
+
+    function mostraUsuarios(usuario) {
+        adicionarElemento($listaUsuario, 'dt', usuario.id);
+        adicionarElemento($listaUsuario, 'dd', usuario.name, usuario.email, usuario.website);
+    }
+
+    function adicionarElemento(container, tag, ...text) {
+        [...text].forEach(str => {
+            let _tag = document.createElement(tag);
+            let _textNode = document.createTextNode(text);
+            _tag.appendChild(_textNode);
+            container.appendChild(_tag);
+        })
+
+    }
+    
+    
+    getUser(1).then(resposta => {console.log(resposta)
+                                mostraUsuarios(resposta);
+                                
+                                }).catch(err=>console.log(err.message));//tratar error
+    
+</script>
+</html>
