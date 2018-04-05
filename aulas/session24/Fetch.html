@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <dl id="lista-usuarios"></dl>
+
+
+</body>
+<script>
+    const $listaUsuario = document.querySelector("#lista-usuarios")
+
+    function getUser(id) {
+        let url = `https://jsonplaceholder.typicode.com/users/${id}`;
+        return fetch(url)
+            .then(resposta => {
+            if(!resposta.ok){
+                throw new Error('Erro: Arquivo nao existe')   
+            };
+            console.log(resposta);
+            return resposta;
+        })
+        .then(r => {
+            console.log(r);
+            let json = r.json();
+            
+            return json;
+        })
+    }
+
+    function mostraUsuarios(usuario) {
+        adicionarElemento($listaUsuario, 'dt', usuario.id);
+        adicionarElemento($listaUsuario, 'dd', usuario.name, usuario.email, usuario.website);
+    }
+
+    function adicionarElemento(container, tag, ...text) {
+        [...text].forEach(str => {
+            let _tag = document.createElement(tag);
+            let _textNode = document.createTextNode(text);
+            _tag.appendChild(_textNode);
+            container.appendChild(_tag);
+        })
+
+    }
+
+    //exibe
+    getUser(1)
+        .then(resposta => {
+        console.log(resposta)
+       mostraUsuarios(resposta);
+        return getUser(2);
+    })
+   .then(resposta => {
+        console.log(resposta)
+       mostraUsuarios(resposta);
+    })
+        .catch(err => {
+        console.log(err); //tratar error
+        console.log('erro'); //tratar error
+    });
+</script>
+</html>
