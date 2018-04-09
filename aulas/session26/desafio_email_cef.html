@@ -7,28 +7,31 @@
     <script src="../session24/Desafio/beluga2.js"></script>
 </head>
 
-    <body>
-        <input type="text" id='text'>
-        <button id="btn" disabled="disabled">Validar</button>
+<body>
+    <input type="text" id='text'>
+    <button id="btn" disabled="disabled">Validar</button>
 
-    </body>
-    <script>
+</body>
+<script>
 
 
-        (function () {
-            var $text = blg.$('#text');
-            var $btn = blg.$('#btn');
-            var padraoCpf = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/
+    (function () {
+        var $text = blg.$('#text');
+        var $btn = blg.$('#btn');
+        var padraoCpf = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/
+        var padraoEmail = /^[\w._-]+@[\w_.-]+\.[\w]{3,}/i;//cuidado com o g pois ele fica true e false
 
-            $text.addEventListener('input', function () {
-                var texto = this.value;
-                if (padraoCpf.test(texto)) {
-                    $btn.disabled = false;
-                } else {
-                    $btn.disabled = true;
-                }
-            });
-        })();
-    </script>
+        $text.addEventListener('input', function () {
+            var texto = this.value;
+             //if (padraoCpf.test(texto) || padraoEmail.test(texto)) {
+             //  $btn.disabled = false;
+             //} else {
+             //   $btn.disabled = true;
+            //}
+
+            $btn.disabled =  !(padraoCpf.test(texto) || padraoEmail.test(texto))
+        });
+    })();
+</script>
 
 </html>
