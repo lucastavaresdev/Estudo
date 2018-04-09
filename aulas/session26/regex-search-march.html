@@ -11,9 +11,12 @@
 <script>
 
        var str = 'hoje é 26/02/2018 e amanha será 27/02/18. Meu aniversario é 1/01';
-       var regex = /\d{1,2}/;
+       var regex = /\d{1,2}/g;
 
        var teste = str.search(regex);//mostra a posicão 
+       var teste1 = str.match(regex);
+
+
 
       
 </script>
