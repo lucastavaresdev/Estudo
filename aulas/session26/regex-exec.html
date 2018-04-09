@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    var str = 'o pato chato tem sapato de gato';
+    var regex = /([gp]|ch)ato/g;
+    var arr;
+    
+    //o exec atualiza a string até dar null
+    while(arr = regex.exec(str)){
+        var msg = "Encontrei " + arr[0] + ' em ' + arr.index + '.';
+        msg += "Proxima começa em " + regex.lastIndex;
+        console.log(msg);
+    }
+
+</script>
+
+</html>
