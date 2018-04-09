@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+
+    var str = window.location.href;
+    
+    var regex = /[&?](\w+)=(\w+)/g;    
+
+    var arr, parametros = {};;
+
+    while(arr = regex.exec(str)){
+        parametros[arr[1]] = arr[2];
+    }
+
+    console.log(arr);
+</script>
+
+</html>
