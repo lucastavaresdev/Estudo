@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    var testeRegex = 'abc';
+    var str = 'procurando abc neste paragrafo';
+ 
+
+    //regex dinamico
+    var regex = new RegExp(testeRegex, 'gi');//g-global - igora Maiuscula e minuscula
+
+    console.log(regex.exec(str));
+
+</script>
+
+</html>
