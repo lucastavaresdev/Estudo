@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+var obj1 = {
+    a: "teste a",
+    b: "teste b"
+}
+
+var arr1 = [1,2,3,4,5];
+
+for(let propriedade in obj1){
+    console.log(propriedade);
+    console.log(obj1[propriedade]);
+}
+
+
+for(let valor of arr1){
+    console.log('valor', valor);
+}
+
+console.log('-----------');
+for(let valor of Object.values(obj1)){
+    console.log('valor', valor);
+}
+
+
+for(let chave of Object.keys(obj1)){
+    console.log('valor', chave);
+}
+
+
+
+</script>
+</html>
