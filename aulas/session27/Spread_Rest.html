@@ -9,11 +9,21 @@
 </head>
 
 <body>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>
 </body>
 <script>
     //Rest 
     //sem rest
-    function mostraNomes(nome1, nome2, nome3){
+    function mostraNomes(nome1, nome2, nome3) {
         console.log(nome1);
         console.log(nome2);
         console.log(nome3);
@@ -24,13 +34,35 @@
 
 
     //com rest
-    function mostraNomesrest(...nomes){
+    function mostraNomesrest(...nomes) {
         nomes.forEach(nome => console.log(nome));
     }
-    
+
     console.log("---com Rest---");
     mostraNomesrest("aaa", "teste", 'joyce', 'lucas');
 
+    console.log("-------------------------------Spred------------------------------------")
+
+    let nomes = ['lucas', 'joyce', 'teste'];
+
+    mostraNomesrest(...nomes);
+
+   // var novaListaNomes = [...listaNomes]//para nao aterar a original
+
+    // let listaNomesS = ['daniel', 'maria', 'joao', 'carla'];
+    // mostraNomesrest(...listaNomes)
+    // let lista2 = ['ricardo', 'eliana'];
+
+    let ps = document.querySelectorAll('p');
+    ps.forEach(p => console.log(p));
+    [...ps].forEach( p => console.log(p.textContent));//Criei um array com os elementos com o spreed
+
+    const  lucas = {
+        nome: 'lucas',
+        idade: 23
+    }
+
+    const lucas2 = {...lucas, notas: [1,2,3,7]}//copia o elemento
 
 
 </script>
