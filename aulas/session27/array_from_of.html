@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>teste</h2>
+    <h2>teste</h2>
+    <h2>teste</h2>
+</body>
+<script>
+
+    var arr = new Array('lucas','teste');
+    var arr2 = Array.of('carla', 'joao');// a unica diferença e quando passa numero inteiro
+
+    console.log(arr);
+    console.log(arr2);
+
+
+    var arr3 = Array.from(arr2);//forma de criar uma copia
+    arr3.push('teste')
+    console.log(arr3);
+
+
+    var titles = document.querySelectorAll('h2');
+    var arrTitles = Array.from(titles);
+
+    console.log(titles);
+    console.log(arrTitles);
+</script>
+</html>
