@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    let lucas = {
+        nome: 'lucas',
+        notas: [1, 2, 3, 4],
+        toString: function () {
+            console.log(`As notas  de ${this.nome} foram: `);
+            this.notas.forEach((nota, i) => {
+                console.log(`a nota ${i + 1} de ${this.nome} foi ${nota}`)
+            })
+        },
+
+        //toda função de callback perde o this na forma tradicional na arrow isso nao acontece
+        surpresa: function () {
+            console.log (`o aluno   ${this.nome} foi ....`);
+            setTimeout(()=>{
+                console.log(`aprovado ${this.nome} `)
+            },1000)
+        },
+
+        teste1: function(){
+            console.log('teste1', this.nome);
+        },
+        teste2: () => {
+            console.log('teste2', this.nome);
+        }
+    }
+
+    lucas.surpresa();
+    lucas.teste1();
+    lucas.teste2();
+
+</script>
+
+</html>
