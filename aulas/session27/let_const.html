@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var n = 0;
+
+//let nao consigo usar a varivel sem declarar
+//posso colocar o mesmo nome de aarivel no let se for dentro do bloco
+
+
+        function mostraN() {
+            var n =1;
+            var n =2;
+            
+    //let nao permite duas variaveias com mesmo nome 
+            let n =1;
+            let n =2;
+
+
+            console.log(`n: ${n}`);
+
+            do {
+                let n = 30;//o n so vale dentro do bloco
+                console.log(`n: ${n}`);
+            } while (false)
+
+            console.log(`n: ${n}`);
+
+        }
+        mostraN();
+
+    </script>
+</body>
+
+</html>
