@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="spec.js"> </script>
+</head>
+<body>
+    
+</body>
+<script>
+
+    assert.describe("Teste A", () => {
+        assert(true,"deve ser verdadeiro");
+        assert(false, "isto é falso nao deve passar no teste")
+    })
+
+    assert.describe("Teste B", () => {
+        assert(true,"deve ser verdadeiro");
+        assert("string","deve ser verdadeiro");
+        assert(null, "isto é falso nao deve passar no teste")
+        assert(undefined, "isto é falso nao deve passar no teste")
+    })
+
+</script>
+</html>
