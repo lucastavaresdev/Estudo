@@ -12,17 +12,17 @@
     <script>
         var n = 0;
 
-//let nao consigo usar a varivel sem declarar
-//posso colocar o mesmo nome de aarivel no let se for dentro do bloco
+        //let nao consigo usar a varivel sem declarar
+        //posso colocar o mesmo nome de aarivel no let se for dentro do bloco
 
 
         function mostraN() {
-            var n =1;
-            var n =2;
-            
-    //let nao permite duas variaveias com mesmo nome 
+            var n = 1;
+            var n = 2;
+
+            //let nao permite duas variaveias com mesmo nome 
             //let n =1;
-           // let n =2;
+            // let n =2;
 
 
             console.log(`n: ${n}`);
@@ -41,15 +41,15 @@
 
         const j = 10
 
-        console.log('j:'+j);
+        console.log('j:' + j);
 
 
-        do{
+        do {
             const j = 15;
-            console.log('j: '+ j);//esta variavel esta dentro do bloco
-        }while(false)
-    
-    // //consigo alterar  a const
+            console.log('j: ' + j);//esta variavel esta dentro do bloco
+        } while (false)
+
+        // //consigo alterar  a const
 
 
         const lucas = {
@@ -64,10 +64,9 @@
         //na patrica estamos alterando os valores nao a referencia 
 
         //para nao alterar a constante dentro do metodo
-        
-        
+
+        Object.freeze(joyce);//congela o objeto para nao ser alterado
 
     </script>
 </body>
-
 </html>
