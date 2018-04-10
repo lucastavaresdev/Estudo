@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    //Rest 
+    //sem rest
+    function mostraNomes(nome1, nome2, nome3){
+        console.log(nome1);
+        console.log(nome2);
+        console.log(nome3);
+    };
+
+    console.log("---sem Rest---");
+    mostraNomes("teste", "teste", 'joyce');
+
+
+    //com rest
+    function mostraNomesrest(...nomes){
+        nomes.forEach(nome => console.log(nome));
+    }
+    
+    console.log("---com Rest---");
+    mostraNomesrest("aaa", "teste", 'joyce', 'lucas');
+
+
+
+</script>
+
+</html>
