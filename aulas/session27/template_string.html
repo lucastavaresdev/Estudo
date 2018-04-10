@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    const nome = 'lucas';
+    const idade = 2;//trocando para 1 fica ano
+
+    var str = `meu nome é ${nome}`;
+    console.log(str);
+
+    //tag de taplate altera o plural para o singular 
+
+    function trataIdade(strings, ...variaveis) {
+        console.log(strings);
+        console.log(variaveis);
+        var idade = variaveis[1];
+        var _strings = [...strings];
+        if (idade === 1) {
+            _strings[2] = "ano";
+        }
+        var result = [];
+        _strings.forEach((str, i) => {
+            result.push(str);
+            if (variaveis[i] !== undefined) {
+                result.push(variaveis[i]);
+            }
+        });
+        return result.join(' ');
+    }
+    var str3 = trataIdade`meu nome é ${nome} e tenho ${idade} anos`;
+
+
+    const aluno = 'jose';
+    const media = 1.2354;
+
+    function trataNota(strings, ...valores) {
+        const result = [];
+        valores.forEach((valor, i) => {
+            if (strings[i] !== undefined) result.push(strings[i]);
+            valor = isNaN(valor) ? valor : valor.toFixed(2);
+            if (valor) result.push(valor);
+        })
+        return result.join('');
+    }
+
+    console.log(trataNota`O ${aluno} tem media ${media}`)
+
+
+</script>
+
+</html>
