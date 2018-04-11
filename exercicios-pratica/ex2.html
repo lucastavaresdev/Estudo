@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initiamdn-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
@@ -21,27 +21,21 @@
 
     function seculo(year = 0) {
         let $ano = year;
-        ultimosDigitosdoAno = $ano.toString().substr(2, 2);
+        $contador = $ano.toString().length;
 
-        if (parseInt(ultimosDigitosdoAno) === 0) {
-            $ano = $ano.toString().substr(0, 2).replace("0", "");
-            return console.log(parseInt($ano));
-        } else if ($ano.toString.length === 4 || $ano.toString.length === 3) {
+        if ($contador === 4) {
             $ano = $ano.toString().substr(0, 2);
             return console.log(parseInt($ano) + 1);
         } else {
-            $ano = $ano.toString();
-             if($ano.indexOf(0) >= 0){ 
-                 $ano =  $ano.slice(0,-1)
-                return console.log($ano);
-              }else{ 
-                  $ano = $ano.slice(0,-1)
-                  return console.log(parseInt($ano) + 1);
-                   };
+           
+            $ano > 99 ? $ano = $ano.toString().charAt(0) : $ano = 0;
+            return console.log(parseInt($ano) + 1);
         }
+
+
     }
 
-    seculo(190);
+    seculo(100);
 
 
 
@@ -66,4 +60,31 @@ if (parseInt(ultimosDigitosdoAno) === 00) {
     seculo = parseInt(seculo[0] + seculo[1]);
     return console.log(seculo + 1);
 }
+
+
+
+
+   function seculo(year = 0) {
+        let $ano = year;
+        ultimosDigitosdoAno = $ano.toString().substr(2, 2);
+
+        if (parseInt(ultimosDigitosdoAno) === 0) {
+            $ano = $ano.toString().substr(0, 2).replace("0", "");
+            return console.log(parseInt($ano));
+        } else if ($ano.toString.length === 4 || $ano.toString.length === 3) {
+            $ano = $ano.toString().substr(0, 2);
+            return console.log(parseInt($ano) + 1);
+        } else {
+            $ano = $ano.toString();
+             if($ano.indexOf(0) >= 0){ 
+                 $ano =  $ano.slice(0,-1)
+                return console.log($ano);
+              }else{ 
+                  $ano = $ano.slice(0,-1)
+                  return console.log(parseInt($ano) + 1);
+                   };
+        }
+    }
+
+    seculo(190);
 -->
