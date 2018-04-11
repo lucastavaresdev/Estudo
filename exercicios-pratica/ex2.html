@@ -19,20 +19,42 @@
       second - from the year 101 up to and including the
        year 200, etc*/
 
-    function seculo(ano = 0) {
-        let arr = new Array();
-        let $ano = ano;
+    function seculo(year = 0) {
+        let $ano = year;
+        ultimosDigitosdoAno = $ano.toString().substr(2, 2);
 
-        arr = $ano.toString().split("");
-        seculo = arr[0] + arr[1];
-        seculo = parseInt(seculo); 
-        return console.log(seculo + 1);
+        if (parseInt(ultimosDigitosdoAno) === 00) {
+             $ano = $ano.toString().substr(0, 2);
+            return console.log(parseInt($ano));
+        } else {
+            $ano = $ano.toString().substr(0, 2);
+            return console.log(parseInt($ano) +1);
+        }
     }
 
-    seculo();
+    seculo(200);
 
 
 
 </script>
 
 </html>
+
+<!--
+let arr = new Array();
+let $ano = year;
+arr = $ano.toString().split("");
+var ultimosDigitosdoAno = arr.slice( 0 ); 
+ultimosDigitosdoAno = arr.splice(2, 2);
+
+
+if (parseInt(ultimosDigitosdoAno) === 00) {
+    let seculo = arr.splice(0, 2);
+    seculo = parseInt(seculo[0] + seculo[1]);
+    return console.log(seculo);
+} else {
+    let seculo = arr.splice(0, 2);
+    seculo = parseInt(seculo[0] + seculo[1]);
+    return console.log(seculo + 1);
+}
+-->
