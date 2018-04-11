@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initiamdn-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
@@ -24,18 +24,21 @@
         $contador = $ano.toString().length;
 
         if ($contador === 4) {
-            $ano = $ano.toString().substr(0, 2);
-            return console.log(parseInt($ano) + 1);
+            $ultimosDig = $ano.toString().substr(2, 4);
+            if ($ultimosDig === '00') {
+                $ano = $ano.toString().substr(0, 2);
+                return console.log(parseInt($ano));
+            } else {
+                $ano = $ano.toString().substr(0, 2);
+                return console.log(parseInt($ano) + 1);
+            }
         } else {
-           
             $ano > 99 ? $ano = $ano.toString().charAt(0) : $ano = 0;
             return console.log(parseInt($ano) + 1);
         }
-
-
     }
 
-    seculo(100);
+    seculo(200);
 
 
 
