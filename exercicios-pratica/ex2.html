@@ -19,15 +19,17 @@
       second - from the year 101 up to and including the
        year 200, etc*/
 
-    function seculo(ano) {
+    function seculo(ano = 0) {
         let arr = new Array();
         let $ano = ano;
 
         arr = $ano.toString().split("");
-        return console.log(arr);
+        seculo = arr[0] + arr[1];
+        seculo = parseInt(seculo); 
+        return console.log(seculo + 1);
     }
 
-    seculo(2022);
+    seculo();
 
 
 
