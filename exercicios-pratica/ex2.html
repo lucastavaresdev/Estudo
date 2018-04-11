@@ -23,16 +23,25 @@
         let $ano = year;
         ultimosDigitosdoAno = $ano.toString().substr(2, 2);
 
-        if (parseInt(ultimosDigitosdoAno) === 00) {
-             $ano = $ano.toString().substr(0, 2);
+        if (parseInt(ultimosDigitosdoAno) === 0) {
+            $ano = $ano.toString().substr(0, 2).replace("0", "");
             return console.log(parseInt($ano));
-        } else {
+        } else if ($ano.toString.length === 4 || $ano.toString.length === 3) {
             $ano = $ano.toString().substr(0, 2);
-            return console.log(parseInt($ano) +1);
+            return console.log(parseInt($ano) + 1);
+        } else {
+            $ano = $ano.toString();
+             if($ano.indexOf(0) >= 0){ 
+                 $ano =  $ano.slice(0,-1)
+                return console.log($ano);
+              }else{ 
+                  $ano = $ano.slice(0,-1)
+                  return console.log(parseInt($ano) + 1);
+                   };
         }
     }
 
-    seculo(200);
+    seculo(190);
 
 
 
