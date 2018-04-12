@@ -24,37 +24,38 @@
         $contador = $ano.toString().length;
 
         if ($contador === 4) {
-            $ultimosDig = $ano.toString().substr(2, 4);
+            $ultimosDig =  $ano.toString().substr(2, 4)
             if ($ultimosDig === '00') {
-                $ano = $ano.toString().substr(0, 2);
+                $ano = selecionaCaracter(0, 2);
                 return console.log(parseInt($ano));
             } else {
-                $ano = $ano.toString().substr(0, 2);
+                $ano = selecionaCaracter(0, 2);
                 return console.log(parseInt($ano) + 1);
             }
         } else {
-           
-            //$ano > 99 ? $ano = $ano.toString().charAt(0) : $ano = 0;
-           
-           
-            if($ano > 99){
+            if ($ano > 99) {
                 $ultimosDig = $ano.toString().substr(1, 3);
-
-               if($ultimosDig === "00"){
+                if ($ultimosDig === "00") {
                     $ano = $ano.toString().charAt(0)
                     return console.log(parseInt($ano));
-               }else{
-                $ano = $ano.toString().charAt(0)
-                   return console.log(parseInt($ano) + 1); 
-               }
-            }else{
+                } else {
+                    $ano = $ano.toString().charAt(0)
+                    return console.log(parseInt($ano) + 1);
+                }
+            } else {
                 $ano = 1;
                 return parseInt($ano);
             }
         }
+        function selecionaCaracter(inicio, fim) {
+            $ano = $ano.toString().substr(inicio, fim);
+            return $ano;
+        }
     }
 
-    seculo(9);
+
+
+    seculo(2015);
 
 
 
