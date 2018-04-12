@@ -15,24 +15,24 @@
 
         function adjacentElementsProduct(inputArray) {
 
-            var arr = inputArray;
+            var arr = inputArray; // atribui a array passada
             
-             arr[0] < arr[1] ? resultanterior = arr[0]: resultanterior = arr[1]
+             arr[0] < arr[1] ? resultanterior = arr[0]: resultanterior = arr[1]//verifica se o primeiro elemento nao é maior que o segundo para nao dar diferença ex [1,0]
              
-             result = arr[0];
+             result = arr[0]; //é atribuido o primeiro valor
 
-             for (var i = 0; i < arr.length; i++) {
-                let numeroantes = parseInt(arr[i - 1])
+             for (var i = 0; i < arr.length; i++) { // criado o loop para ver cada intervalo de array
+                let numeroantes = parseInt(arr[i - 1]) //como o primeiro elemento da array é NAN é atribuido antes para verificação
 
-                if (!isNaN(numeroantes)) {
-                    result = parseInt(arr[i]) * numeroantes;
-                    if ( result > resultanterior) {
-                        result  = result;
-                        resultanterior = result;
+                if (!isNaN(numeroantes)) {//verifica se é nan
+                    result = parseInt(arr[i]) * numeroantes; //multiplica o elem 1 pelo elem 2 
+                    if ( result > resultanterior) { //condição para ver se o resultado da conta é maior que o atual 
+                        result  = result; // se for atribui
+                        resultanterior = result; // passa o elemento atual para verificar com o proximo
                     }
                 }
             }
-            return console.log(resultanterior);
+            return console.log(resultanterior);//retorna a maior multiplicação
         }
         arr = [-23, 4, -3, 8, -12];
 
