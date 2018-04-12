@@ -11,9 +11,30 @@
 <body>
     <script>
 
+        //Given an array of integers, find the pair of adjacent elements that has the largest product and return that product.
 
+        function adjacentElementsProduct(inputArray) {
+            var arr = inputArray;
+            resultanterior = 0;
+            for (var i = 0; i < arr.length; i++) {
+                let numeroantes = parseInt(arr[i - 1])
+                if (isNaN(numeroantes)) { numeroantes = 0 }
+                result = parseInt(arr[i]) * numeroantes;
+                if(resultanterior < result){
+                    resultanterior = result;    
+                }
+            }
+            return resultanterior;
+          
+        }
+        arr = [-23, 4, -3, 8, -12];
+
+        adjacentElementsProduct(arr);
 
     </script>
 </body>
 
 </html>
+
+
+//    
