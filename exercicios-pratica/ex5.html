@@ -12,27 +12,32 @@
 
 </body>
 <script>
-    function shapeArea(n) {
-        
-        if(n === 1){
+    function shapeArea(n = 1) {
+
+        pontofixo = 1;
+
+        if (n === 1) {
             return 1
-        } 
-        
-        fixo = 1;
-        let numeroanterior = n - 1;//2
-        let numeroatual = n;
-        
-        resultadoanterior = 4 * numeroanterior;
-        resultaantepenutimo = 4 * (numeroanterior - 1)
+        }
 
-       
-       area = resultadoanterior + resultaantepenutimo + fixo; 
+        let arr = new Array();
 
-        return console.log(area);
+        for (i = 0; i < n; i++) {
+            a = 4 * i;
+            arr.push(a)
+        }
+
+        resultado = 0;
+        for (i = 0; i < arr.length; i++) {
+            resultado = arr[i] + resultado;
+        }
+
+       return resultado + pontofixo;
 
     }
 
-    shapeArea(5)
+
+    shapeArea(2)
 </script>
 
 </html>
