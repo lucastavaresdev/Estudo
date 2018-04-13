@@ -18,8 +18,7 @@
 
             var arr = inputArray; // atribui a array passada
             
-             arr[0] < arr[1] ? resultanterior = arr[0]: resultanterior = arr[1]//verifica se o primeiro elemento nao é maior que o segundo para nao dar diferença ex [1,0]
-             
+             resultanterior = null;
              result = arr[0]; //é atribuido o primeiro valor
 
              for (var i = 0; i < arr.length; i++) { // criado o loop para ver cada intervalo de array
@@ -27,7 +26,8 @@
 
                 if (!isNaN(numeroantes)) {//verifica se é nan
                     result = parseInt(arr[i]) * numeroantes; //multiplica o elem 1 pelo elem 2 
-                    if ( result > resultanterior) { //condição para ver se o resultado da conta é maior que o atual 
+             
+                    if ( result >= resultanterior || resultanterior === null) { //condição para ver se o resultado da conta é maior que o atual 
                         result  = result; // se for atribui
                         resultanterior = result; // passa o elemento atual para verificar com o proximo
                     }
@@ -35,7 +35,7 @@
             }
             return console.log(resultanterior);//retorna a maior multiplicação
         }
-        arr = [5,1,2,3,1,4];
+        arr = [-1,100  ];
 
         adjacentElementsProduct(arr);
 
