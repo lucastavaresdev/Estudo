@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
+
 </body>
 <script>
-        function shapeArea(n){
-             divisao =  n %2 
-            divisao === 0 ? area = n-1: area =n;
-            quatro = 4 * area;
+    function shapeArea(n) {
+        
+        if(n === 1){
+            return 1
+        } 
+        
+        fixo = 1;
+        let numeroanterior = n - 1;//2
+        let numeroatual = n;
+        
+        resultadoanterior = 4 * numeroanterior;
+        resultaantepenutimo = 4 * (numeroanterior - 1)
 
-            return area;
+       
+       area = resultadoanterior + resultaantepenutimo + fixo; 
 
-        }
+        return console.log(area);
 
-        shapeArea(5)
+    }
+
+    shapeArea(5)
 </script>
+
 </html>
