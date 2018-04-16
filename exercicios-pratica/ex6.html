@@ -13,20 +13,34 @@
     <script>
         function makeArrayConsecutive2(statues) {
 
+            if (!Array.isArray(statues)) { return false }
+
             let arr = statues;
 
-            arr = arr.sort()
+            arr = arr.sort()//array original
+            let arrayclonada = arr.slice();//clono a array pois o pop altera a original
 
-            for(let i = 0; i< arr.lenght;i++){
-                    valorInicial = arr[0];   
+
+
+            i = arr[0];
+            ultimoNumerodaArray = arrayclonada.pop()
+            let numerosFaltando = 0;
+            j = 0
+
+            while (i < ultimoNumerodaArray) {
+                comparacao = arr[j]
+                if (i === comparacao) {
+                    j++
+                    i++
+                } else {
+                    numerosFaltando = numerosFaltando + 1
+                    i++
+                }
             }
+            return console.log(numerosFaltando);
 
-
-            return console.log(arr);
-   
-   
         }
-        statues = [6, 2, 3, 8]
+        statues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 
 
