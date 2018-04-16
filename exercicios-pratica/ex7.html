@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
+
 </body>
-    <script>
-    </script>
+<script>
+
+    function almostIncreasingSequence(sequence) {
+
+        let array = sequence.sort((arr, b) => arr - b)
+        
+
+
+        for (var i = 0; i < array.length; i++) {
+            digitoAnterior = array[i - 1];
+            if (!isNaN(digitoAnterior)) {
+                if(digitoAnterior === array[i]){ return false;}
+            }
+        }
+
+        return console.log(array);
+    }
+
+    array =[10, 20, 30, 40, 50, 60];
+
+    almostIncreasingSequence(array)
+
+</script>
+
 </html>
