@@ -14,15 +14,15 @@
 <script>
 
     function almostIncreasingSequence(sequence) {
-
-        var global = false;
+        
+        var found = false;
 
         for (var i = 0; i < sequence.length; i++) {
             if (sequence[i] <= sequence[i - 1]) {
-                if (global) {
+                if (found) {
                     return false;
                 }
-                global = true;
+                found = true;
 
                 if (i === 1 || i + 1 === sequence.length) {
                     continue;
