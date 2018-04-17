@@ -10,81 +10,50 @@
 
 <body>
     <script>
+        //exercicie
+        /*
+            After they became famous, the CodeBots all decided to move to a new building and live
+            together. The building is represented by a rectangular matrix of rooms. 
+            Each cell in the matrix contains an integer that represents the price of the room.
+            Some rooms are free (their cost is 0), but that's probably because they are haunted, 
+            so all the bots are afraid of them. That is why any room that is free or 
+            is located anywhere below a free room in the same column is not considered suitable for the bots to live in.
+            Help the bots calculate the total price of all the rooms that are suitable for them.
+        */
 
-        var matriz = [
-            ["banana", "maça"],
-            ["pera", "abacate"],
-            ["Uva", "Tamara"]
+        function matrixElementsSum(matrix) {
+
+            //inicia as variaveis
+            var L = 0;
+            var C = 0;
+            var resultado = 0;
+
+            while (C < matrix[0].length) {//laço le a coluna
+                while (L < matrix.length) {//linha
+                    var comparacao = matrix[L][C];//compração recebe o valor da matriz
+                    if (comparacao > 0) { //se for maior que 0 sera somana e adicionada ao resultado e a linha anda 
+                        resultado = resultado + comparacao;
+                        L++
+                    } else { // se for menor que 0 esquece aquela coluna
+                        L++
+                        break;
+                    }
+                }//proxima coluna e zero as linhas
+                C++
+                L = 0;
+            }
+            return resultado;
+        }
+
+        var matrix = [
+            [1, 1, 1, 0],
+            [0, 5, 0, 1],
+            [2, 1, 3, 10]
         ]
 
-        //linha coluna
-        console.log(matriz[2][1] + matriz[0][1])
-        //todos os elementos
-        console.log(matriz)
+        matrixElementsSum(matrix);
+            //  console.log(matriz);
 
-        //formato de lista
-
-        var valores = ' ';
-
-        for (var L = 0; L <= 2; L++) {//linha
-            for (var C = 0; C <= 1; C++) {//coluna
-                valores += matriz[L][C] + '\n'
-
-            }
-        }
-        //alert("conteudo da matriz" +  '\n' + valores)
-
-
-        //conteudo de tabela
-
-        var valor = ' ';
-
-        for (var L = 0; L <= 2; L++) {//linha
-            for (var C = 0; C <= 1; C++) {//coluna
-                if (C < 1) {
-                    valor += matriz[L][C] + "  \t\t";
-                }
-                else {
-                    valor += matriz[L][C] + "  \n";
-                }
-            }
-        }
-
-        //alert("conteudo da matriz\n"  + valor);
-
-
-
-        var linhas = prompt("Digite a quantidade de linhas da matriz")
-        var colunas = prompt("Digite a quantidade de Colunas da matriz")
-        alert("Criada a matriz de " + linhas + " linhas por " + colunas);
-
-
-        var matriz2 = [];
-        for (i = 0; i < linhas; i++) {
-            matriz2[i] = [];
-            for (var j = 0; j < colunas; j++) {
-                matriz2[i][j] = '';
-            }
-        }
-
-        for (var L = 0; L < linhas; L++) {
-            for(var C = 0; C <colunas;C++){
-                matriz2 [L][C] = prompt("Digite os valores na tela")
-            }
-        }
-
-        valore2 = ' ';
-        for (var L =0;L<linhas;L++){
-            for(var C = 0; C < colunas;C++){
-                if(C < colunas - 1){//é menos 1 por causa do 0 ate 9
-                        valore2 += matriz2[L][C] + " \t\t";
-                }else{
-                        valore2 += matriz2[L][C] + " \n";
-                }
-            }
-        }
-
-        alert("conteudo da matriz 2\n" + valore2);
 
     </script>
 </body>
