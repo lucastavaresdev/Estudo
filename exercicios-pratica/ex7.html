@@ -14,44 +14,16 @@
 <script>
 
     function almostIncreasingSequence(sequence) {
-
-        let array = sequence.sort((arr, b) => arr - b);
-
-        for (var i = 0; i < array.length; i++) {
-            digitoAnterior = array[i - 1];
-            digitoAtual = array[i];
-            if (!isNaN(digitoAnterior)) {
-                if (digitoAnterior === digitoAtual) {
-                    return console.log(false);
-                }
-            }
-        }
-
-        for (var i = 0; i < array.length; i++) {
-            digitoAnterior = array[i - 1];
-            digitoAtual = array[i]
-            if (!isNaN(digitoAnterior)) {
-                if (digitoAnterior === digitoAtual - 1) {
-                    resultado = true;
-                } else {
-                    resultadonegativo = false;
-                }
-            }
-            if(resultado){
-                return true
-            }else{
-                return false
-            }
-        }
+      
 
     }
 
 
 
 
-    array =[10, 1, 2, 3, 4, 5];
+            array = [10, 1, 2, 3, 4, 5];
 
-    almostIncreasingSequence(array);
+            almostIncreasingSequence(array);
 
 </script>
 
