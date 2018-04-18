@@ -15,21 +15,23 @@
 
 
     function allLongestStrings(inputArray) {
-        var maioresPalavras = new Array();
-        var l = 0;
+        //inicializa as variaveis
+        var maioresPalavras = new Array(); 
+        var tamanhoUltimaPalavra = 0;
         var total = 0
 
+        //utiliza o map que retorna callback com a array com as maiores palavras
         inputArray.map(function (item, i) {
             tamanhoPalavra = item.length;
 
-            if (tamanhoPalavra >= l) {
-                if (tamanhoPalavra === l) {
-                    total = maioresPalavras.push(item)
-                    l = item.length
+            if (tamanhoPalavra >= tamanhoUltimaPalavra) { //verifica se tamanho da paravra é maior que a anterior
+                if (tamanhoPalavra === tamanhoUltimaPalavra) { //verifica se o tamanho da palavra é do mesmo tamanho do que a que esta na array
+                    total = maioresPalavras.push(item)//adiciona a array
+                    tamanhoUltimaPalavra = item.length //tamanho da ultima palavra
                 } else {
-                    maioresPalavras = []
-                    total = maioresPalavras.push(item);
-                    l = item.length
+                    maioresPalavras = [] //se a palavra for maior que todas as outra zera a array
+                    total = maioresPalavras.push(item);//add na array
+                    tamanhoUltimaPalavra = item.length//tamanho da ultima palavra
                 }
             }
 
