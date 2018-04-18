@@ -15,14 +15,31 @@
 
 
     function allLongestStrings(inputArray) {
+        var maioresPalavras = new Array();
+        var l = 0;
+        var total = 0
 
-        console.log(inputArray);
+        inputArray.map(function (item, i) {
+            tamanhoPalavra = item.length;
 
+            if (tamanhoPalavra >= l) {
+                if (tamanhoPalavra === l) {
+                    total = maioresPalavras.push(item)
+                    l = item.length
+                } else {
+                    maioresPalavras = []
+                    total = maioresPalavras.push(item);
+                    l = item.length
+                }
+            }
 
+        });
+        console.log(maioresPalavras);
     }
 
 
-    array = ["aba", "aa", "ad", "vcd", "aba"]
+
+    array = ["aba", "aa", "ad", "vcd", "lucas", "joyce"]
 
     allLongestStrings(array);
 
