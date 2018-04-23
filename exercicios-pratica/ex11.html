@@ -1,18 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
 
-<script>
-    
-    
-    
-    
-</script>
 </body>
+<script>
+
+    function isLucky(n) {
+        numeros = String(n);//converte os numero para String
+        tamanhodaString = numeros.length; //pega o tamanho da string
+        if (tamanhodaString % 2 === 1) {
+            return false;
+        }
+
+        tamanhodaString = tamanhodaString / 2
+
+        primeiraParte = numeros.slice(0, tamanhodaString);
+        segundaParte = numeros.slice(tamanhodaString);
+
+        resultadoPrimeiraParte = 0;
+        resultadoSegundaParte = 0;
+
+        for (i=0;i<primeiraParte.length;i++) {
+    
+            resultadoPrimeiraParte = resultadoPrimeiraParte + parseInt(primeiraParte[i]);
+            resultadoSegundaParte = resultadoSegundaParte + parseInt(segundaParte[i]);
+        }
+
+        resultadoPrimeiraParte === resultadoSegundaParte ? resultado = true: resultado = false;
+
+        return resultado;
+    }
+
+
+    isLucky(1230)
+
+
+</script>
+
 </html>
