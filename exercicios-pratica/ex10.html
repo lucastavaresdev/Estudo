@@ -11,45 +11,22 @@
 <body>
     <script>
         function commonCharacterCount(s1, s2) {
-            if (s1 === 0 || s2 === 0) {
-                return 0;
-            }
-            var maiorPalavra;
-            var amountCharactersEquals = 0
-            // s1 = s1.length ;
-            // s2 = s2.length;
             debugger
+            var string1 = s1.split('');//quebra a string
+            var string2 = s2.split('');
+            var common = 0;
 
-            //falra retirar caracteres repitidos
-
-            if (s1.length > s2.length) {
-                maiorPalavra = s1;
-                menorPalavra = s2;
-            } else {
-                maiorPalavra = s2;
-                menorPalavra = s1;
-            }
-
-
-
-
-            for (let i = 0; i < maiorPalavra.length; i++) {
-                for (let j = 0; j < menorPalavra.length; j++) {
-                        aaa = maiorPalavra[i]
-                        bbb = menorPalavra[j]
-
-                        if(aaa === bbb ){
-                            amountCharactersEquals = amountCharactersEquals + 1;
-                        }
+            for (var i = 0; i < string1.length; i++) {
+                if (string2.indexOf(string1[i]) >= 0) //compara o elemento de scring
+                    common++;
+                    string2.splice(string2.indexOf(string1[i]), 1);
                 }
-                j = 0;
-            } 
-
-            return amountCharactersEquals;
+            }
+            return common;
         }
 
 
-        commonCharacterCount("aabcca", "adcaa");
+        commonCharacterCount("zzzz", "zzzzzzz");
 
     </script>
 
