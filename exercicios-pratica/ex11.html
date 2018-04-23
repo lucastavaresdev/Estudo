@@ -16,24 +16,24 @@
     function isLucky(n) {
         numeros = String(n);//converte os numero para String
         tamanhodaString = numeros.length; //pega o tamanho da string
-        if (tamanhodaString % 2 === 1) {
+        if (tamanhodaString % 2 === 1) { //se a string der impar ele ja retorna false
             return false;
         }
 
-        tamanhodaString = tamanhodaString / 2
+        tamanhodaString = tamanhodaString / 2 //divide o tamanho da string em 2 para poder pegar o meio
 
-        primeiraParte = numeros.slice(0, tamanhodaString);
-        segundaParte = numeros.slice(tamanhodaString);
+        primeiraParte = numeros.slice(0, tamanhodaString); //primeira parte da string
+        segundaParte = numeros.slice(tamanhodaString);//segunda
 
-        resultadoPrimeiraParte = 0;
-        resultadoSegundaParte = 0;
+        resultadoPrimeiraParte = 0; // inicializa a string
+        resultadoSegundaParte = 0;//
 
-        for (i=0;i<primeiraParte.length;i++) {
+        for (i=0;i<primeiraParte.length;i++) {//laço para somar a string
     
             resultadoPrimeiraParte = resultadoPrimeiraParte + parseInt(primeiraParte[i]);
             resultadoSegundaParte = resultadoSegundaParte + parseInt(segundaParte[i]);
         }
-
+        //compara a string e retonar true ou false
         resultadoPrimeiraParte === resultadoSegundaParte ? resultado = true: resultado = false;
 
         return resultado;
