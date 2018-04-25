@@ -15,17 +15,23 @@
     function sortByHeight(a) {
         var array2 = a;
 
-        array = array2.filter((maiores) => {
+        //retorna uma array com numeros maiores que 1
+        array2 = array2.filter((maiores) => {
+            return maiores > 0;
+        }).sort((a,b)=>{
+            return a-b;
+        }) // ordena a array
 
-            if (maiores > 0) {
-                a.push(maiores); 
-            } else {
-                a.push(maiores);
+        var contador = 0; // cria uma variavel contadora
+
+        for(i = 0; i< a.length; i++){ // loop do tamanho do vetor original
+            result = a[i] < 0;
+            if(!result){ // se no indice da array for diferente de numeros de negativos
+                a[i] = array2[contador]; //a posicao de i recebe o numero de posição 2
+                contador++ // contador recebe mais 1 para andar o vector 2
             }
-            return a;
-        })
-
-        console.log(array);
+        }
+        return a;
     };
 
 
