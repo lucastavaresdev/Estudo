@@ -13,33 +13,60 @@
 </body>
 <script>
     function sortByHeight(a) {
-        debugger
 
         var arraypares = []
         var arrayimpar = []
         var arraymodificada = []
 
-
+        //separa os indices impares e pares
         for (let i = 0; i < a.length; i++) {
-            if (i% 2 == 0) {
-                 arraypares.push(a[i]);
+            if (i % 2 == 0) {
+                arraypares.push(a[i]);
             } else {
                 arrayimpar.push(a[i]);
-                 arrayimpar.sort();
             }
         }
 
-        console.log(arrayimpar);
-    }
+        for (i = 0; i < arraypares.length; i++) {
+            if (i % 2 == 1) {
+                if (arraypares[i] > arraypares[i + 2]) {
+                    let aux = arraypares[i];
+                    arraypares[i] = arraypares[i + 2];
+                    arraypares[i + 2] = aux;
+                }
+            }
+        }
 
+        i = 0
+        contador = 0
+
+        while (i < a.length) {
+            if (i % 2 == 0) {
+                if (contador === 0) {
+                    arraymodificada.push(arraypares[contador]);
+                } else {
+                    arraymodificada.push(arraypares[contador]);
+                }
+                contador++
+            } else {
+                if (contador === 1) {
+                    arraymodificada.push(arrayimpar[contador - 1]);
+
+                } else {
+                    arraymodificada.push(arrayimpar[contador - 1]);
+                }
+            }
+            i++;
+        }
+    
+        return(arraymodificada);
+    }
 
 
 
     var a = [-1, 150, 190, 170, -1, -1, 160, 180];
 
     sortByHeight(a);
-
-
 
 </script>
 
