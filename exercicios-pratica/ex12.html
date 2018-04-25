@@ -13,8 +13,26 @@
 </body>
 <script>
     function sortByHeight(a) {
-        console.log(a);
+        debugger
+
+        var arraypares = []
+        var arrayimpar = []
+        var arraymodificada = []
+
+
+        for (let i = 0; i < a.length; i++) {
+            if (i% 2 == 0) {
+                 arraypares.push(a[i]);
+            } else {
+                arrayimpar.push(a[i]);
+                 arrayimpar.sort();
+            }
+        }
+
+        console.log(arrayimpar);
     }
+
+
 
 
     var a = [-1, 150, 190, 170, -1, -1, 160, 180];
