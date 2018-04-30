@@ -14,21 +14,31 @@
         function reverseParentheses(s) {
             var str = s;
 
-            console.log(str)
 
 
-            str = str.replace(/[()]/g,1)
+            str = str.replace(/[()]/g, 1)
             array = str.split("1");
+
+            for (var i = 0; i < array.length; i++) {
+                debugger
              
-            
-            
-            return console.log(str);
+                    array[i] = array[i];
+              
+                    array[i] = array[i].reverse();
+               
+            }
+
+
+            return console.log(array);
 
         }
 
-        s= "co(de(fight)s)"
+        //pegar o 1 e o ultimo de cada vez
+
+        s = "co(de(fight)s)"
         reverseParentheses(s);
 
+    //"cosfighted"
 
     </script>
 </body>
