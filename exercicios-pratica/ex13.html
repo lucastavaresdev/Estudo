@@ -11,29 +11,21 @@
 <body>
     <script>
 
-        function reverseParentheses(s) {
-            var str = s;
-
-
-
-            str = str.replace(/[()]/g, 1)
-            array = str.split("1");
-
-            for (var i = 0; i < array.length; i++) {
-                debugger
-             
-                    array[i] = array[i];
-              
-                    array[i] = array[i].reverse();
-               
+        function reverseParentheses(s) { 
+            if (s.includes('(')) {
+                return reverseParentheses(reverse(s));
+            } else {
+                return s;
             }
-
-
-            return console.log(array);
-
         }
 
-        //pegar o 1 e o ultimo de cada vez
+        function reverse(s) {
+            var regex = /\(([^()]*)\)/i;//regex
+            var subStr = regex.exec(s)[1];//primeira palavra
+            subStr = subStr.split('').reverse().join('');//quebra reverse e junta
+
+            return s.replace(regex, subStr)
+        }
 
         s = "co(de(fight)s)"
         reverseParentheses(s);
