@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+
+    //forma   
+         function alternatingSums(a) {
+             var primeiro = 0;
+             var segundo = 0;
+
+             for (let i = 0; i < a.length; i++) {
+                 if (imparpar(i) === 0) {
+                     primeiro = primeiro + a[i];
+                 } else {
+                     segundo = segundo + a[i];
+                 }
+             }
+             var arr = [primeiro, segundo];
+             return arr;
+
+         }
+
+         function imparpar(numero) {
+             return numero % 2
+        }
+
+        var a = [50, 60, 60, 45, 70];
+
+        alternatingSums(a);
+
+    </script>
+
+
+</body>
+
+</html>
