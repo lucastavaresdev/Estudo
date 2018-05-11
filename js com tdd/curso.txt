@@ -1,0 +1,12 @@
+//iniciando um pack.json
+npm set init-author-name "Lucas Tavaresnpm"
+ npm set init-author-email "lucastavaresdev@gmail.com"
+ npm set init-license "MIT"
+
+//Depois é so logar o usuario npm
+
+npm adduser
+
+//depois é so criar o arquivo
+
+npm init

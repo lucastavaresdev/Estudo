@@ -1,0 +1,20 @@
+{
+  "name": "js-com-tdd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "npm": "^6.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "js",
+    "tdd",
+    "lucastavares"
+  ],
+  "author": "Lucas Tavares <lucastavaresdev@gmail.com>",
+  "license": "MIT",
+  "description": ""
+}
