@@ -34,3 +34,40 @@ a Documentação tem 3 arquivos
 readme.MD - intruções
 license - licença
 contributing - como contribuir
+
+//styleguide
+
+Padrão de programação
+
+exemplos
+
+aibnb
+standard
+idiomatic.json
+
+
+//verificando se esta correto as regras de programação
+
+ESLint
+
+
+----
+
+Utilizando o ES ESLint
+
+$ npm install eslint --save-dev
+$ ./node_modules/.bin/eslint --init
+
+
+
+$ npm install eslint --save-dev
+You should then setup a configuration file:
+
+$ ./node_modules/.bin/eslint --init
+After that, you can run ESLint in your project’s root directory like this:
+
+$ ./node_modules/.bin/eslint yourfile.js
+
+
+----------------------------
+
