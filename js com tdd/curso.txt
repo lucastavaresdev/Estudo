@@ -10,3 +10,11 @@ npm adduser
 //depois é so criar o arquivo
 
 npm init
+
+----------------------------------
+//criando git ignore
+
+
+gitignore --types
+gitignore Node
+more .gitignore
