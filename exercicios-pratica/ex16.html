@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-<script>
+    <script>
         function areSimilar(a, b) {
 
-        }
-    </script>
-        
+            a = a.sort(function(a, b){return a-b});
+            b = b.sort(function(a, b){return a-b});
 
-    
+            if (a.length != b.length) {
+                return console.log(false);
+            }
+
+             result = a.every(e => b.includes(e));
+
+              return console.log(result);
+
+        };
+
+        a = [1, 2,5];
+        b = [1, 2, 3];
+
+        areSimilar(a, b);
+    </script>
 </body>
+
 </html>
