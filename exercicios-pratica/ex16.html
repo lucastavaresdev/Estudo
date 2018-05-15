@@ -12,20 +12,22 @@
     <script>
         function areSimilar(a, b) {
 
-            a = a.sort(function(a, b){return a-b});
-            b = b.sort(function(a, b){return a-b});
+            diferente = [];
+            //usando o for e
+            a.map((element, i) => {
+                if (element !== b[i]) {
+                    diferente.push(i);
+                }
+            });
+        
+        }
 
-            if (a.length != b.length) {
-                return console.log(false);
-            }
 
-             result = a.every(e => b.includes(e));
 
-              return console.log(result);
 
-        };
 
-        a = [1, 2,5];
+        //comp
+        a = [4, 3, 2]
         b = [1, 2, 3];
 
         areSimilar(a, b);
