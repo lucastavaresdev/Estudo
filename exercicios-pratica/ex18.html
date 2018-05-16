@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>    
+    //Given the string, check if it is a palindrome
+
+    function checkPalindrome(inputString) {
+        let palindrome = inputString;
+        //verifica se é uma string
+        if (typeof palindrome === "number") { return result = false }
+        //quebra a string em uma array depois invert ela e o join uni;
+        stringInvertida = palindrome.split('').reverse().join('')
+        //varifica se é um palindrome
+        stringInvertida === palindrome ? result = stringInvertida : result = false;
+
+        return console.log(result);
+        
+    }
+    checkPalindrome("ana");
+</script>
+
+</html>
