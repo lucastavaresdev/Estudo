@@ -1,27 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-    function arrayChange(inputArray) {
-            
-            console.log(inputArray)
-    
-    
-    }
+        function arrayChange(inputArray) {
+            var arr = inputArray;
+
+            //pega o indice do primeiro elemento positivo
+            indicePrimario = arr.findIndex((elemen) => {
+                return elemen >= 0;
+            });
+
+            var resultado = 0;
+
+            debugger
+                
+            ValorAtual = arr[indicePrimario + indicePrimario];
+
+            while (indicePrimario < arr.length) {
+                ValorPrimario = arr[indicePrimario];
+
+                if (ValorAtual < ValorPrimario + 1) {
+                    ValorAtual =  ValorAtual + 1;
+                    resultado = resultado + 1;
+                } else {
+                    ValorAtual = arr[indicePrimario + 1];
+                    indicePrimario++;
+                }
+            }
 
 
-    inputArray = [-1000, 0, -2, 0]
+            return console.log(resultado);
+        }
 
 
-    arrayChange(inputArray);
+        inputArray = [2, 1, 10, 1]
 
-    
+
+        arrayChange(inputArray);
     </script>
 </body>
+
 </html>
