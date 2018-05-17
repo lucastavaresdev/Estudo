@@ -54,15 +54,33 @@ db.produtos.insert({
 
 -----------------
 
+Crud
+
+create
+
+INSERT
+db.produto.insert()
+db.produto.insertOne()
+db.produto.insertMany()
+
+UPDATE
+
+db.produto.update();-altera subtitui um documento
+db.produto.updateOne();- altera 1 doc
+db.produto.updateMany(); - altera varios documentos
 
 
+Delete
+
+db.produto.remove() - remove todos os documentos
+db.produtos.removeOne() - remove o primeiro documento achado
+db.produto.deleteMany() - um monte
 
 
+SELECT
 
-
-
-
-
+db.produto.find().pretty()
+db.produto.find({cdProduto : 3});
 
 
 
