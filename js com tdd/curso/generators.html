@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function* getNames() {
+            console.log("chamando 1 nome")
+            yield 'lucas';
+
+            console.log("chamando 2 nome")
+            yield 'Joyce';
+
+            console.log("chamando 3 nome")
+            yield 'Tomiati';
+        }
+        getNames();
+
+        const names = getNames();
+
+        //pega apensas a as primeiras interações
+        console.log(names.next());
+        console.log(names.next());
+    </script>
+</body>
+
+</html>
