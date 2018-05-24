@@ -1,5 +1,6 @@
 const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+var webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
 	mode: 'development',
@@ -29,6 +30,10 @@ module.exports = {
 				output: { comments: false },
 				sourceMap: true
 			}
+		}),
+		new webpack.SourceMapDevToolPlugin({
+			filename: 'app.js.map',
 		})
+
 	  ]
 };
