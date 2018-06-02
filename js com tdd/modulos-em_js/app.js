@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+console.log( 2 ** 3)
+=======
 import * as R from 'ramda';
 
 import sum,{sub, multi, div as dividir, pi}  from './utils.js';
@@ -21,3 +24,4 @@ console.log(sub(3,2))
 console.log(multi(3,5))
 console.log(dividir(2,2))
 console.log(pi)
+>>>>>>> 7790900fd63f721bcd4dede5341648efafe916d7
