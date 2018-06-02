@@ -1,3 +1,1 @@
-let number = 1
-
-console.log(number)
+console.log( 2 ** 3)
