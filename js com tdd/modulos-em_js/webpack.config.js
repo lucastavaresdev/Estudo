@@ -1,6 +1,9 @@
 const path = require('path');
+var webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
+	mode: 'development',
 	entry: './app',
 	output: {
 		filename: 'bundle.js',
@@ -19,5 +22,18 @@ module.exports = {
 				}
 			}
 		]
-	}
+	},
+	plugins: [
+		new UglifyJsPlugin({
+			uglifyOptions: {
+				compress: { warnings: false },
+				output: { comments: false },
+				sourceMap: true
+			}
+		}),
+		new webpack.SourceMapDevToolPlugin({
+			filename: 'app.js.map',
+		})
+
+	  ]
 };
