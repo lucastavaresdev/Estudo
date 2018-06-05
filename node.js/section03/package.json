@@ -9,6 +9,7 @@
   "author": "Lucas Tavares",
   "license": "MIT",
   "dependencies": {
+    "ejs": "^2.6.1",
     "express": "^4.16.3"
   }
 }
