@@ -1,8 +1,3 @@
--- para executar o arquivo javascript
-
-node nomedoarquivo
-
-
 var http = require('http');
 
 
