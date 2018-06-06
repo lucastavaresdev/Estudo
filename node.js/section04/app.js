@@ -22,3 +22,4 @@ app.get('/noticias',function(req, res){
 app.listen(5000, function(){
     console.log("server rodando com express")
 })
+
