@@ -7,6 +7,9 @@ app.set('view engine','ejs');
 app.set('views', './app/views');
 
 //reconhece todos  os arquivos da pasta e depois inclui no servidor
-consign().include('./app/routes').into(app);
+consign()
+    .include('./app/routes')
+    .then('config/dbConnection.js')//tem que colocar .js
+    .into(app);
 
 module.exports = app;
