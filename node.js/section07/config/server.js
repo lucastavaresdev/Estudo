@@ -5,10 +5,11 @@ var app = express();
 app.set('view engine','ejs');
 app.set('views', './app/views');
 
-//consign reconhece os modulos e dopois joga na instancia do servidor
+
+//reconhece todos  os arquivos da pasta e depois inclui no servidor
 consign()
-    .include('app/routes')
-    .then('config/dbConnection.js')//preciso apontar a extenção para nao achar que é subdiretorio
-    .into(app)
+    .include('./app/routes')
+    .then('config/dbConnection.js')//tem que colocar .js
+    .into(app);
 
 module.exports = app;
