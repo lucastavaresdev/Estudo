@@ -3,11 +3,12 @@ module.exports = function (app) {
     app.get('/noticia', function (req, res) {
         //faz a conexao com o banco
         var connection = app.config.dbConnection();
-        
-        connection.query('select * from noticias where id_noticias = 2', function (erro, resultado) {
-            res.render("noticias/noticia" , {noticia : resultado});
-        });
+        var noticiasModel = app.app.models.noticiasModel;
 
+
+        noticiasModel.getNoticia(connection ,function (erro, resultado) {
+            res.render("noticias/noticia" , {noticia : resultado});
+        }); 
     });
 };
 
