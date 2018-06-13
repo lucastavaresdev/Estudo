@@ -10,7 +10,7 @@ module.exports = function (app) {
             var noticiasModel = app.app.models.noticiasModel;
     
             noticiasModel.salvarNoticia(noticia, connection, function (erro, resultado) {
-                res.render("noticias/noticias" , {noticias : resultado});
+                res.redirect('/noticias');
             });
 
     });
