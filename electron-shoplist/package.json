@@ -1,0 +1,14 @@
+{
+  "name": "shoplist",
+  "version": "1.0.0",
+  "description": "Shipping list desktop app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Lucas Tavares",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^2.0.2"
+  }
+}
