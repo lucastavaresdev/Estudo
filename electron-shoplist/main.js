@@ -18,6 +18,11 @@ app.on('ready', function(){
         protocol: 'file',
         slashes: true
     }));
+    //Quit app when closed
+    mainWindow.on('closed', function(){
+        app.quit();
+    })
+
    //Build menu from template
     const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
     //inset menu
@@ -42,11 +47,17 @@ function createAddWindow(){
            slashes: true
        }));
 
+       //garbage collection handle
+       addWindow.on('close', function(){
+           addWindow = null;
+       })
+
 }
 
 
 //create menu template
 const mainMenuTemplate = [
+    {},
     {
         label: 'File', 
         submenu:[
