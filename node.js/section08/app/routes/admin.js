@@ -9,7 +9,7 @@ module.exports = function (app) {
             var connection = app.config.dbConnection();
             var noticiasModel = app.app.models.noticiasModel;
     
-            noticiasModel.salvarNoticia(noticia, connection, function (erro, resultado) {
+            noticiasModel.salvarNoticia(noticia, connection, function (error, resultado) {
                 res.redirect('/noticias');
             });
 
