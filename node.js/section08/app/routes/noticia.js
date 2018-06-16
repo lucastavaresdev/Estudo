@@ -3,10 +3,10 @@ module.exports = function (app) {
     app.get('/noticia', function (req, res) {
         //faz a conexao com o banco
         var connection = app.config.dbConnection();
-        var noticiasModel = app.app.models.noticiasModel;
+        var noticiasModel = new app.app.models.noticiasModel(connection);
 
 
-        noticiasModel.getNoticia(connection ,function (erro, resultado) {
+        noticiasModel.getNoticia(function (erro, resultado) {
             res.render("noticias/noticia" , {noticia : resultado});
         }); 
     });
