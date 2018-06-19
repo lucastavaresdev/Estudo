@@ -1,6 +1,7 @@
 var express = require('express');
 var consign = require('consign');
 var bodyParser = require('body-parser');
+var express_validador = require('express-validator');
 
 
 var app = express();
@@ -9,6 +10,7 @@ app.set('views', './app/views');
 
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express_validador());
 
 
 //reconhece todos  os arquivos da pasta e depois inclui no servidor
