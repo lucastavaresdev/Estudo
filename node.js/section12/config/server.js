@@ -8,7 +8,7 @@ var app = express();
 app.set('view engine','ejs');
 app.set('views', './app/views');
 
-
+app.use(express.static('./app/public'));//busca todos os arquivos estaticos 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express_validador());
 
