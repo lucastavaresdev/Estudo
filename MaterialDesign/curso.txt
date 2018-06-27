@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+mdl-layout mdl-js-layout = faz com q a aplicação saiba que é layont
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Material Design</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-deep_purple.min.css" />
-</head>
 
-<body>
-    <div class="mdl-layout mdl-js-layout">
+<header class="mdl-layout__header"> = faz a barra;
+
+<div class="mdl-layout__header-row"> linha
+
+<span class="mdl-layout-title">Introdução</span> : layont
+
+
+
+
+topo
+
+<div class="mdl-layout mdl-js-layout">
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
                 <span class="mdl-layout-title">Introdução</span>
@@ -35,10 +35,3 @@
                 <a class="mdl-navigation__link" href="">Link</a>
             </nav>
         </div>
-
-    </div>
-
-
-</body>
-
-</html>
