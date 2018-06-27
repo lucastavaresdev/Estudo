@@ -39,3 +39,41 @@ topo
 
 ----------------------------------------------------------------------------------------------
   <div class="mdl-grid"></div> - container
+
+
+  ------------------------------
+
+  
+        <main class="mdl-layout__content">
+            <div class="mdl-grid">
+             <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">Coluna 1</div>
+             <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet">Coluna 2</div>
+             <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--hide-desktop">Coluna 2</div>
+            </div>
+        </main>
+
+-----------------------------
+----------------------
+
+
+foooter
+
+mini-footer
+
+        <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer--right-section">
+                <div class="mdl-logo">teste</div>
+                <ul class="mdl-mini-footer--link-list">
+                    <li>
+                        <a href="">Canal no Youtube</a>
+                    </li>
+                    <li>
+                        <a href="">Canal nde duvidas</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+
+        -------------
+
+mega foooter
