@@ -15,12 +15,17 @@
     .transparente{
         background: url('img/cidade.jpg') center / cover;
     }
+
+    .mdl-cell{
+        background: red;
+        height: 30px;;
+    }
 </style>
 
 
 
 <body>
-    <div class="transparente mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
+    <div class="transparente mdl-layout mdl-js-layout mdl-layout--fixed-header ">
         <header class="mdl-layout__header mdl-layout__header--transparent">
             <div class="mdl-layout__header-row">
                 <span class="mdl-layout-title">Introdução</span>
@@ -46,12 +51,16 @@
 
         <main class="mdl-layout__content">
           
+            <div class="mdl-grid">
+             <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">Coluna 1</div>
+             <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet">Coluna 2</div>
+             <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--hide-desktop">Coluna 2</div>
+            </div>
+
+
+
+
         </main>
-
-
-
-
-
     </div>
 </body>
 
