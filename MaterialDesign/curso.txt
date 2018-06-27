@@ -8,6 +8,7 @@ mdl-layout mdl-js-layout = faz com q a aplicação saiba que é layont
 <span class="mdl-layout-title">Introdução</span> : layont
 
 
+<div class="transparente mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"> : deixar fixo a side bar
 
 
 topo
@@ -35,3 +36,5 @@ topo
                 <a class="mdl-navigation__link" href="">Link</a>
             </nav>
         </div>
+
+----------------------------------------------------------------------------------------------
