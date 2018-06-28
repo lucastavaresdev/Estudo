@@ -1,0 +1,146 @@
+mdl-layout mdl-js-layout = faz com q a aplicação saiba que é layont
+
+
+<header class="mdl-layout__header"> = faz a barra;
+
+<div class="mdl-layout__header-row"> linha
+
+<span class="mdl-layout-title">Introdução</span> : layont
+
+
+<div class="transparente mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"> : deixar fixo a side bar
+
+
+topo
+
+<div class="mdl-layout mdl-js-layout">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">Introdução</span>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation">
+                    <a href="#" class="mdl-navigation__link">Link 1</a>
+                    <a href="#" class="mdl-navigation__link">Link 2</a>
+                    <a href="#" class="mdl-navigation__link">Link 3</a>
+                </nav>
+            </div>
+
+
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Titulo da sidebar</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+            </nav>
+        </div>
+
+----------------------------------------------------------------------------------------------
+  <div class="mdl-grid"></div> - container
+
+
+  ------------------------------
+
+  
+        <main class="mdl-layout__content">
+            <div class="mdl-grid">
+             <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">Coluna 1</div>
+             <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet">Coluna 2</div>
+             <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-tablet mdl-cell--hide-desktop">Coluna 2</div>
+            </div>
+        </main>
+
+-----------------------------
+----------------------
+
+
+foooter
+
+mini-footer
+
+        <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer--right-section">
+                <div class="mdl-logo">teste</div>
+                <ul class="mdl-mini-footer--link-list">
+                    <li>
+                        <a href="">Canal no Youtube</a>
+                    </li>
+                    <li>
+                        <a href="">Canal nde duvidas</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+
+        -------------
+
+mega foooter
+
+ <footer class="mdl-mega-footer">
+            <div class="mdl-mega-footer--top-section">
+                <div class="mdl-mega-footer--drop-down-section">
+
+                    <input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked />
+                    <h1 class="mdl-mega-footer--heading">Cursos</h1>
+                    <ul class="mdl-mega-footer--link-list">
+                        <li>Html</li>
+                        <li>css</li>
+                        <li>Html</li>
+                        <li>Html</li>
+                    </ul>
+                </div>
+
+                <div class="mdl-mega-footer--drop-down-section">
+                    <input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked />
+                    <h1 class="mdl-mega-footer--heading">Empresa</h1>
+                    <ul class="mdl-mega-footer--link-list">
+                        <li>Html</li>
+                        <li>css</li>
+                        <li>Html</li>
+                        <li>Html</li>
+                    </ul>
+                </div>
+
+                <div class="mdl-mega-footer--drop-down-section">
+                    <input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked>
+                    <h1 class="mdl-mega-footer--heading">teste</h1>
+                    <ul class="mdl-mega-footer--link-list">
+                        <li>Html</li>
+                        <li>css</li>
+                        <li>Html</li>
+                        <li>Html</li>
+                    </ul>
+                </div>
+
+                <div class="mdl-mega-footer--drop-down-section">
+                    <input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked>
+                    <h1 class="mdl-mega-footer--heading">noticias</h1>
+                    <ul class="mdl-mega-footer--link-list">
+                        <li>Html</li>
+                        <li>css</li>
+                        <li>Html</li>
+                        <li>Html</li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="mdl-mega-footer--meddle-section">
+            </div>
+            <div class="mdl-mega-footer--bottom-section">
+
+                <div class="mdl-logo">teste</div>
+                <ul class="mdl-mega-footer--link-list">
+                    <li>
+                        <a href="">Canal no Youtube</a>
+                    </li>
+                    <li>
+                        <a href="">Canal nde duvidas</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+
+
+---------------------------------
