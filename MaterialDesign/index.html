@@ -74,10 +74,9 @@
         background: url('img/welcome_card.jpg') center / cover;
     }
 
-    .demostracao-card > .mdl-card__menu {
+    .demostracao-card>.mdl-card__menu {
         color: #fff
     }
-
 </style>
 
 
@@ -180,34 +179,34 @@
                         <h3>Text-field</h3>
                         <div class="background-cinza">
 
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input class="mdl-textfield__input" type="text" id="user" pattern="[0-9]*">
-                                    <label class="mdl-textfield__label" for="user">Numeros</label>
-                                    <span class="mdl-textfield__error">Apenas Numeros</span>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="user" pattern="[0-9]*">
+                                <label class="mdl-textfield__label" for="user">Numeros</label>
+                                <span class="mdl-textfield__error">Apenas Numeros</span>
+                            </div>
+
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <input class="mdl-textfield__input" type="text" id="user" pattern="[0-9]*">
+                                <label class="mdl-textfield__label" for="user">Numeros</label>
+                                <span class="mdl-textfield__error">Apenas Numeros</span>
+                            </div>
+
+
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <textarea class="mdl-textfield__input" type="text" id="end"></textarea>
+                                <label class="mdl-textfield__label" for="end">Textarea</label>
+                            </div>
+
+
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                                <label class="mdl-button mdl-js-button mdl-button--icon" for="pesquisa">
+                                    <i class="material-icons">search</i>
+                                </label>
+
+                                <div class="mdl-textfield__expandable-holder">
+                                    <input class="mdl-textfield__input" type="text" id="pesquisa">
                                 </div>
-
-                                <div class="mdl-textfield mdl-js-textfield">
-                                    <input class="mdl-textfield__input" type="text" id="user" pattern="[0-9]*">
-                                    <label class="mdl-textfield__label" for="user">Numeros</label>
-                                    <span class="mdl-textfield__error">Apenas Numeros</span>
-                                </div>
-
-
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <textarea class="mdl-textfield__input" type="text" id="end" ></textarea>
-                                    <label class="mdl-textfield__label" for="end">Textarea</label>
-                                </div>
-
-
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                                    <label class="mdl-button mdl-js-button mdl-button--icon" for="pesquisa">
-                                            <i class="material-icons">search</i>                                        
-                                    </label>
-
-                                    <div class="mdl-textfield__expandable-holder">
-                                        <input class="mdl-textfield__input" type="text" id="pesquisa" >
-                                    </div>
-                                </div>
+                            </div>
 
 
 
@@ -252,37 +251,72 @@
 
 
 
-<div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--6-col">
-        <h3>Tabelas</h3>
-            <table class="mdl-data-table mdl-js-data-table mdl-shadow--3dp mdl-data-table--selectable">
-                <thead>
-                    <tr>
-                        <th class="mdl-data-table__cell--non-numeric">Nome</th>
-                        <th>Idade</th>
-                        <th>id</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="mdl-data-table__cell--non-numeric">Joao silva</td>
-                        <td>22</td>
-                        <td>98520</td>
-                    </tr>
-                    <tr>
-                        <td>Juliano</td>
-                        <td>23</td>
-                        <td>17582</td>
-                    </tr>
-                    <tr>
-                        <td class="mdl-data-table__cell--non-numeric">Lucas Tavares</td>
-                        <td>23</td>
-                        <td>17582</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--6-col">
+                    <h3>Tabelas</h3>
+                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--3dp mdl-data-table--selectable">
+                        <thead>
+                            <tr>
+                                <th class="mdl-data-table__cell--non-numeric">Nome</th>
+                                <th>Idade</th>
+                                <th>id</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">Joao silva</td>
+                                <td>22</td>
+                                <td>98520</td>
+                            </tr>
+                            <tr>
+                                <td>Juliano</td>
+                                <td>23</td>
+                                <td>17582</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">Lucas Tavares</td>
+                                <td>23</td>
+                                <td>17582</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <div class="mdl-cell mdl-cell--6-col">
+                    <h3>Tooltips</h3>
+                    <p id="tool1">Html</p>
+                    <span for="tool1" class="mdl-tooltip"> Esqueleto</span>
+                    
+                    <!--Apenas o tolltip na palavra-->
+                    <p>A linguagem de Marcação mais utilizada na web é o <span id="tool2">HTML</span></p>
+                    <span for="tool2" class="mdl-tooltip"> Esqueleto</span>
+                    
+                    <p>A linguagem de Marcação mais utilizada na web é o <span id="tool3">HTML</span></p>
+                    <span for="tool3" class="mdl-tooltip"><b>E</b>squeleto </span>
+                  
+                    <p>A linguagem de Marcação mais utilizada na web é o <span id="tool4">HTML</span></p>
+                    <span for="tool4" class="mdl-tooltip mdl-tooltip--large"><b>E</b>squeleto </span>
+
+
+                    <p>A linguagem de Marcação mais utilizada na web é o <span id="tool5">HTML</span></p>
+                    <span for="tool5" class="mdl-tooltip"> Esqueleto<br>teste legend</span>
+                    
+
+                    <p>A linguagem de Marcação mais utilizada na web é o <span id="tool6">HTML</span></p>
+                    <span for="tool6" class="mdl-tooltip">
+                        <img src="img/esqueleto.png" alt="" width="30" height="30">
+                        <b>E</b>squeleto 
+                    
+                    </span>
+
+                </div>
+
+
+
+            </div>
+
         </div>
-</div>
 
 
 
@@ -294,76 +328,70 @@
 
 
 
+        <footer class="mdl-mega-footer">
+            <div class="mdl-mega-footer--top-section">
+                <div class="mdl-mega-footer--drop-down-section">
 
-
-
-
-
-
-            <footer class="mdl-mega-footer">
-                <div class="mdl-mega-footer--top-section">
-                    <div class="mdl-mega-footer--drop-down-section">
-
-                        <input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked />
-                        <h1 class="mdl-mega-footer--heading">Cursos</h1>
-                        <ul class="mdl-mega-footer--link-list">
-                            <li>Html</li>
-                            <li>css</li>
-                            <li>Html</li>
-                            <li>Html</li>
-                        </ul>
-                    </div>
-
-                    <div class="mdl-mega-footer--drop-down-section">
-                        <input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked />
-                        <h1 class="mdl-mega-footer--heading">Empresa</h1>
-                        <ul class="mdl-mega-footer--link-list">
-                            <li>Html</li>
-                            <li>css</li>
-                            <li>Html</li>
-                            <li>Html</li>
-                        </ul>
-                    </div>
-
-                    <div class="mdl-mega-footer--drop-down-section">
-                        <input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked>
-                        <h1 class="mdl-mega-footer--heading">teste</h1>
-                        <ul class="mdl-mega-footer--link-list">
-                            <li>Html</li>
-                            <li>css</li>
-                            <li>Html</li>
-                            <li>Html</li>
-                        </ul>
-                    </div>
-
-                    <div class="mdl-mega-footer--drop-down-section">
-                        <input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked>
-                        <h1 class="mdl-mega-footer--heading">noticias</h1>
-                        <ul class="mdl-mega-footer--link-list">
-                            <li>Html</li>
-                            <li>css</li>
-                            <li>Html</li>
-                            <li>Html</li>
-                        </ul>
-                    </div>
-
-                </div>
-                <div class="mdl-mega-footer--meddle-section">
-                </div>
-                <div class="mdl-mega-footer--bottom-section">
-
-                    <div class="mdl-logo">teste</div>
+                    <input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked />
+                    <h1 class="mdl-mega-footer--heading">Cursos</h1>
                     <ul class="mdl-mega-footer--link-list">
-                        <li>
-                            <a href="">Canal no Youtube</a>
-                        </li>
-                        <li>
-                            <a href="">Canal nde duvidas</a>
-                        </li>
+                        <li>Html</li>
+                        <li>css</li>
+                        <li>Html</li>
+                        <li>Html</li>
                     </ul>
                 </div>
 
-            </footer>
+                <div class="mdl-mega-footer--drop-down-section">
+                    <input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked />
+                    <h1 class="mdl-mega-footer--heading">Empresa</h1>
+                    <ul class="mdl-mega-footer--link-list">
+                        <li>Html</li>
+                        <li>css</li>
+                        <li>Html</li>
+                        <li>Html</li>
+                    </ul>
+                </div>
+
+                <div class="mdl-mega-footer--drop-down-section">
+                    <input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked>
+                    <h1 class="mdl-mega-footer--heading">teste</h1>
+                    <ul class="mdl-mega-footer--link-list">
+                        <li>Html</li>
+                        <li>css</li>
+                        <li>Html</li>
+                        <li>Html</li>
+                    </ul>
+                </div>
+
+                <div class="mdl-mega-footer--drop-down-section">
+                    <input type="checkbox" class="mdl-mega-footer--heading-checkbox" checked>
+                    <h1 class="mdl-mega-footer--heading">noticias</h1>
+                    <ul class="mdl-mega-footer--link-list">
+                        <li>Html</li>
+                        <li>css</li>
+                        <li>Html</li>
+                        <li>Html</li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="mdl-mega-footer--meddle-section">
+            </div>
+            <div class="mdl-mega-footer--bottom-section">
+
+                <div class="mdl-logo">teste</div>
+                <ul class="mdl-mega-footer--link-list">
+                    <li>
+                        <a href="">Canal no Youtube</a>
+                    </li>
+                    <li>
+                        <a href="">Canal nde duvidas</a>
+                    </li>
+                </ul>
+            </div>
+
+        </footer>
 
 </body>
 
