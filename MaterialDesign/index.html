@@ -13,7 +13,7 @@
 
 <style>
     .transparente {
-        background: url('img/cidade.jpg') center / cover;
+        /* background: url('img/cidade.jpg') center / cover; */
     }
 
 
@@ -177,8 +177,38 @@
                     </div>
 
                     <div class="mdl-cell mdl-cell--4-col">
-                        <h3>Cards</h3>
+                        <h3>Text-field</h3>
                         <div class="background-cinza">
+
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" type="text" id="user" pattern="[0-9]*">
+                                    <label class="mdl-textfield__label" for="user">Numeros</label>
+                                    <span class="mdl-textfield__error">Apenas Numeros</span>
+                                </div>
+
+                                <div class="mdl-textfield mdl-js-textfield">
+                                    <input class="mdl-textfield__input" type="text" id="user" pattern="[0-9]*">
+                                    <label class="mdl-textfield__label" for="user">Numeros</label>
+                                    <span class="mdl-textfield__error">Apenas Numeros</span>
+                                </div>
+
+
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <textarea class="mdl-textfield__input" type="text" id="end" ></textarea>
+                                    <label class="mdl-textfield__label" for="end">Textarea</label>
+                                </div>
+
+
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                                    <label class="mdl-button mdl-js-button mdl-button--icon" for="pesquisa">
+                                            <i class="material-icons">search</i>                                        
+                                    </label>
+
+                                    <div class="mdl-textfield__expandable-holder">
+                                        <input class="mdl-textfield__input" type="text" id="pesquisa" >
+                                    </div>
+                                </div>
+
 
 
                         </div>
