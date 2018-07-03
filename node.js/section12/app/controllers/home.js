@@ -1,11 +1,11 @@
-module.exports.index = function(app, req, res){
+module.exports.index = function(application, req, res){
 
-    var connection = app.config.dbConnection();
-    var noticiasModel = new app.app.models.NoticiasDAO(connection);
+	var connection = application.config.dbConnection();
+	var noticiasModel = new application.app.models.NoticiasDAO(connection);
 
-    noticiasModel.get5UltimasNoticias(function(error , result){// a função query precisa de um error
-        //console.log('result');
-        res.render("home/index", {noticias : result});//para o json do resultado
-    });
+	noticiasModel.get5UltimasNoticias(function(error, result){
+		res.render("home/index", {noticias : result});	
+	});
 
+	
 }

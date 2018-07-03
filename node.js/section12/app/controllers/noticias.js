@@ -1,23 +1,19 @@
-module.exports.noticias = function(app, req, res){
-        var connection = app.config.dbConnection();
-        var noticiasModel = new app.app.models.NoticiasDAO(connection);
+module.exports.noticias = function(application, req, res){
+	var connection = application.config.dbConnection();
+	var noticiasModel = new application.app.models.NoticiasDAO(connection);
 
-        noticiasModel.getNoticias(function (erro, resultado) {
-            res.render("noticias/noticias" , {noticias : resultado});
-        });
-   
+	noticiasModel.getNoticias(function(error, result){
+		res.render("noticias/noticias", {noticias : result});
+	});	
 }
 
-module.exports.noticia = function(app, req, res){
- 
-        //faz a conexao com o banco
-        var connection = app.config.dbConnection();
-        var noticiasModel = new app.app.models.NoticiasDAO(connection);
+module.exports.noticia = function(application, req, res){
+	var connection = application.config.dbConnection();
+	var noticiasModel = new application.app.models.NoticiasDAO(connection);
 
+	var id_noticia = req.query;
 
-        noticiasModel.getNoticia(function (erro, resultado) {
-            res.render("noticias/noticia" , {noticia : resultado});
-        }); 
-  
-
+	noticiasModel.getNoticia(id_noticia, function(error, result){
+		res.render("noticias/noticia", {noticia : result});
+	});	
 }
