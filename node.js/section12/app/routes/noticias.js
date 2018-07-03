@@ -1,10 +1,11 @@
-module.exports  = function (app, req, res) {
-    
-    app.get('/noticias', function (req, res) {
-        app.app.controllers.noticias.noticias(app, req, res);
-    });
-    
-    app.get('/noticia', function (req, res) {
-        app.app.controllers.noticias.noticia(app, req, res);
-    });
-}
+module.exports = function(application) {
+	
+	application.get('/noticias', function(req, res){
+		application.app.controllers.noticias.noticias(application, req, res);		
+	});
+
+	application.get('/noticia', function(req, res){
+		application.app.controllers.noticias.noticia(application, req, res);
+	});
+
+};
