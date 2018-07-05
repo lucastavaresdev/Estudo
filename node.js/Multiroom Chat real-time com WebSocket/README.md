@@ -128,3 +128,30 @@ module.exports = function(application){
 }
 
 ```
+----------------------------------------------
+##controllers
+
+
+Os controlers recebe a logica de programação
+
+
+```
+
+Controllers ---- index.js
+
+    module.exports.home = function(application,req, res){
+        res.render('index');
+    }
+
+
+routes --- indes.js
+
+    module.exports = function(application){
+
+        application.get('/', function(req, res){
+            //busca na pasta o aquivo ejs
+            application.app.controllers.index.home(application, req, res);
+        });
+
+    }
+```
