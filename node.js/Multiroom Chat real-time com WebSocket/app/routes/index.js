@@ -1,7 +1,8 @@
 module.exports = function(application){
 
     application.get('/', function(req, res){
-        res.send('Teste');
+        //busca na pasta o aquivo ejs
+        res.render('index');
     });
 
 }
