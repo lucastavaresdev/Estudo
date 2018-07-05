@@ -3,6 +3,6 @@
 var app = require('./config/server');
 
 /*Parametrizar a porta de esculta  */
-app.listen(80, function(){
+app.listen(8001, function(){
     console.log('Servidor Online');
 });
