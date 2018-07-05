@@ -28,12 +28,16 @@ Express
             Nome_do_projeto/
             ├── app/
                      ├── controllers/
+                            ├──index.js
+                            ├──chat.js
                      ├── models/
                      ├── public/
                               ├──css/
                               ├──images/
                               ├──js/
                      ├── routes/
+                              ├──index.js
+                              ├──chat.js
                      ├── views/
             ├── config/
                         ├── server.js
