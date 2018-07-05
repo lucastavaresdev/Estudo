@@ -104,3 +104,27 @@ Express
             module.exports = app;
     ```
 ---------------------------------------------------
+
+
+##routes
+
+
+As rotas redirecionam para a pagina e pode ser via get ou post
+
+```
+module.exports = function(application){
+    //post porque é submetido por um formulario
+    application.post('/chat', function(req, res){
+        //busca na pasta o aquivo ejs
+        res.render('chat');
+    });
+
+    //post porque é submetido por um formulario
+    application.get('/chat', function(req, res){
+        //busca na pasta o aquivo ejs
+        res.render('chat');
+    });
+
+}
+
+```
