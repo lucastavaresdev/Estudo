@@ -15,3 +15,15 @@
         |7) Firewall (Http, Https)
         |8) Outras Configurações redes, discos etc
     ```
+
+    ##Cloud Shell
+
+general -produção
+beta - je testado porem é beta
+alpha- estaveis - a google pode alterar os comandos
+preview - instaveis - a google pode alterar os comandos
+
+    ```
+
+    
+    ```
