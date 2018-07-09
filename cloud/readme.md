@@ -75,3 +75,9 @@ pagina inicial storage
  ## Help no cloud shell
 
  gsutil --help
+
+
+ # Criando maquina com debian
+
+ sudo su - console de root
+ apt-get update - para atualizar a lista de repositorio e a no debian
