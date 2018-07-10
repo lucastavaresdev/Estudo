@@ -81,3 +81,22 @@ pagina inicial storage
 
  sudo su - console de root
  apt-get update - para atualizar a lista de repositorio e a no debian
+
+ ##instalando o apeche no linux 
+
+```
+    Entrar na maquina
+
+    sudo su // permissão de admin
+
+    apt-get update // atualiza a lista de repositorios
+
+    apt-get install apache2 // instala o pache
+
+    Y // autoria o uso de tamanho em disco para a intalação
+```
+
+
+ clicar no ip da maquina virtual.
+ 
+só retirar o S do do http para funcionar
