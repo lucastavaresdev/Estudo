@@ -100,3 +100,6 @@ pagina inicial storage
  clicar no ip da maquina virtual.
  
 só retirar o S do do http para funcionar
+
+#Azure
+
