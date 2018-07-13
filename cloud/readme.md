@@ -102,4 +102,34 @@ pagina inicial storage
 só retirar o S do do http para funcionar
 
 #Azure
+Antes de criar a maquina virtual crair um grupo de recursos
 
+
+Na hora de criar a maquina virtual tem dropdown 
+* Selecione um modelo de implantação
+
+modelo classico = é o processo de instalação classico.
+A outra opção é o modelo atual
+
+
+Noções basicas 
+    1)nome, tipo de grupo, etc
+
+Tamanho
+    Tipo de maquina (esta no doc Azure)
+    VALORES SÃO UMA ESTIMATIVA 
+
+
+RESUMO
+    Baixar modelo e parâmetros
+
+    pode criar automaticamente se precisar fazer mais de uma vez e salvar como padrao
+
+
+
+Depois de Criar 
+
+IAM - controle de quem usa
+
+
+- conectando na vm no windows
