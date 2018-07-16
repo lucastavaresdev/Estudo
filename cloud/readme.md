@@ -114,6 +114,7 @@ A outra opção é o modelo atual
 
 Noções basicas 
     1)nome, tipo de grupo, etc
+    2) HTTP, HTTPS, RDP(para conexão a maquina remotamente)
 
 Tamanho
     Tipo de maquina (esta no doc Azure)
@@ -133,3 +134,10 @@ IAM - controle de quem usa
 
 
 - conectando na vm no windows
+criclar em conectar
+baixar rdp
+usuario e senha
+
+
+
+*para alterar o nome do cloud e so clicar em maq virtual e definir o nome - caso desligue a maquina o  ip muda porem o nome não
