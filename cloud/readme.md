@@ -142,3 +142,24 @@ usuario e senha
 
 *para alterar o nome do cloud e so clicar em maq virtual e definir o nome - caso desligue a maquina o  ip muda porem o nome não
 *nao esquecer que se for usar o mysql tem q liberar a porta em regreas de entrada
+
+
+
+para conectar a maq linux usar o mobaXterm ou o Putty
+
+NO PUTTY 
+
+colocar o ip
+SIM(para gerar a chave ssh)
+
+
+No mobal
+
+
+https://mobaxterm.mobatek.net/download-home-edition.html
+
+criar um novo terminal
+colocar o nome de usuario mais o ip 
+nomeusu@123.456.0.789
+
+o mobal da para mecher graficamente
