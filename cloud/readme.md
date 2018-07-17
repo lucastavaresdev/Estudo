@@ -163,3 +163,32 @@ colocar o nome de usuario mais o ip
 nomeusu@123.456.0.789
 
 o mobal da para mecher graficamente
+
+
+Contas de Armazenamento
+
+
+Tipo de conta 
+
+uso geral
+blob(
+    Armazenamento de objetos baseados em REST para dados não estruturados
+)
+
+
+desenpenho(tipo de hd)
+
+Replicação (gera custo)
+
+
+
+Quando criar a conta de armazenamento
+
+Arquivos
+Compartilhamento de arquivos
+    Nome da Conta
+    e o tamanho que a possoa pode utilizar
+
+Para gerenciar podemos utilizar o 
+
+https://azure.microsoft.com/en-us/features/storage-explorer/
