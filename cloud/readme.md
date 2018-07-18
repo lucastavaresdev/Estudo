@@ -192,3 +192,33 @@ Compartilhamento de arquivos
 Para gerenciar podemos utilizar o 
 
 https://azure.microsoft.com/en-us/features/storage-explorer/
+
+
+----------------------------------------------------
+AWS
+services -> EC2
+
+Criando uma maq virtual
+
+launch
+
+Escolher o sistema
+Select
+
+Escolher o tipo de maquina
+os tipos que começa com t2(t2.micro) a capacidade de processamento e VARIAVEL, sem t2 é fixo(m5.2XLARGE)
+
+Review in launch
+
+slep 7 - resumo da maquina
+
+Aparece para criar a chave
+
+escolher uma das opçoes para de chave 
+Criar 
+nome
+
+clicar para ver a maq virtual e aguardar gerar
+colocar o nome da maq
+
+Conect
