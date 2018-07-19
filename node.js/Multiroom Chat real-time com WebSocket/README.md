@@ -185,3 +185,11 @@ Colocar o socket no cliente
 					<script src="/socket.io/socket.io.js"></script>
     ```
 
+chamando a instancia do objeto que se conecta com o web socket
+
+```
+        var socket = io('http://localhost:8001');
+```
+
+
+
