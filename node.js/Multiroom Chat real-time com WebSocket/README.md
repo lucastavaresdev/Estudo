@@ -159,3 +159,9 @@ routes --- indes.js
 
     }
 ```
+
+##Socket.io
+
+Abre uma conexao co cliente do servidor e sevidor cliente;
+
+
