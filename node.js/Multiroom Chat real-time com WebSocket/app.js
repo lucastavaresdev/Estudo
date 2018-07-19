@@ -6,4 +6,16 @@ var server = app.listen(8001, function(){
     console.log('Servidor online');
 })
 
-require('socket.io').listen(server);
+var io = require('socket.io').listen(server);
+
+
+/*Criar a conexao por websocket */
+
+io.on('connection', function(socket){
+    console.log('teste de usuario');
+
+    socket.on('disconnect' , function(){
+        console.log("usuario desconectou")
+    })
+    
+})

@@ -191,5 +191,32 @@ chamando a instancia do objeto que se conecta com o web socket
         var socket = io('http://localhost:8001');
 ```
 
+ir no app.js pegar o require que esta escutando a porta e encapsular numa variavel
+
+Depois cria a conexao chamando o metodo on que fica escutando o que acontece com o cliente ou vice versa
+```
+    var io = require('socket.io').listen(server);
 
 
+    /*Criar a conexao por websocket */
+
+    io.on('connection', function(socket){
+        console.log('teste de usuario');
+    })
+```
+
+Adiciona o metodo de desconectar 
+    *A variavel sabe que desconectou pq ela a conexao do socket com o lado do cliente some
+
+```
+    /*Criar a conexao por websocket */
+
+    io.on('connection', function(socket){
+        console.log('teste de usuario');
+
+        socket.on('disconnect' , function(){
+            console.log("usuario desconectou")
+        })
+        
+    })
+```
