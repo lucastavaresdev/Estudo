@@ -262,8 +262,21 @@ No app.js coloca uma variavel global para poder ter as instancia do objeto
 
 recebendo a msg passada la no msg
     ```
+    //recuperando a informação passada no emit
             socket.on('msgParaCliente', function(data){
                  alert(data);
              })
     ```
+
+    ----------------------------------------------
+
+    ```
+      application.get('io').emit(
+            'msgParaCliente',
+                {apelido: dadosForm.apelido, mesagem: 'acabou de entrar no chat'}
+        )
+    ```
+
+
+
 
