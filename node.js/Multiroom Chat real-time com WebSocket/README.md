@@ -357,3 +357,29 @@ no app js o emit é so para a mesmo passoa duplica a linha e coloca o bloadcast.
 
 
 trazendo o apelido
+
+No controller da pagina quando ela é rederizada é pássado por parametro o dado do form que logou
+
+```
+ res.render('chat', {dadosForm: dadosForm});
+```
+
+
+
+Colocado um input escondido para pegar o dado do apelido 
+e depois capiturado pelo js
+```
+
+	<input type='hidden' value="<%=dadosForm.apelido%>" id="apelido">
+
+
+				$('#enviar_mensagem').click( function(){
+					socket.emit(
+						'msgParaServidor',
+						{ apelido: $('#apelido').val() , mensagem: $('#mensagem').val()}
+					);
+				});
+
+```
+##atualizar a relação dos participantes da conversa
+
