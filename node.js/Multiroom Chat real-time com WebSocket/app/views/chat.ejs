@@ -124,8 +124,8 @@
 			<script>
 				var socket = io('http://localhost:8001');
 
-				socket.on('msgParaCliente', function(){
-					alert('recebi uma requisição do servidor');
+				socket.on('msgParaCliente', function(data){
+					alert(data);
 				})
 			</script>
 

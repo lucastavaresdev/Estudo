@@ -260,6 +260,10 @@ No app.js coloca uma variavel global para poder ter as instancia do objeto
                     })
     ```
 
-
-
+recebendo a msg passada la no msg
+    ```
+            socket.on('msgParaCliente', function(data){
+                 alert(data);
+             })
+    ```
 
