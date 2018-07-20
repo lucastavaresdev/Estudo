@@ -381,5 +381,4 @@ e depois capiturado pelo js
 				});
 
 ```
-##atualizar a relação dos participantes da conversa
 
