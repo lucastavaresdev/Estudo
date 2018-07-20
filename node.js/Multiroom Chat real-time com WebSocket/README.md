@@ -220,3 +220,46 @@ Adiciona o metodo de desconectar
         
     })
 ```
+
+##Abrindo a conexao
+    Explicação
+        ```
+            //Ouve pedidos de Execução
+            on('nome', function()data{})
+            
+            //Envia pedido para execurtar alguma funcao
+            emit('nome', {})
+
+        ```
+No app.js coloca uma variavel global para poder ter as instancia do objeto
+        ```
+        var io = require('socket.io').listen(server);
+
+        app.set('io', io);
+
+        ```
+
+        no app.js estamos instanciando o io
+        ```
+            var io = require('socket.io').listen(server);
+        ```
+
+    Em controller chat
+        ```
+                                //nome para recuperar/estrutura de dados
+           application.get('io').emit(msgParaCliente','Teste' )
+
+        ```
+
+    na view chat
+          ```
+                   var socket = io('http://localhost:8001');
+
+                    socket.on('msgParaCliente', function(){
+                        alert('recebi uma requisição do servidor');
+                    })
+    ```
+
+
+
+
