@@ -277,6 +277,65 @@ recebendo a msg passada la no msg
         )
     ```
 
+Script final do chat.ejs
+
+```
+		<script>
+				var socket = io('http://localhost:8001');
+
+				socket.on('msgParaCliente', function(data){
+						var html = ' ';
+
+						html += '<div class="dialogo">';
+						html += '<h4>' +  data.apelido +'</h4>';
+						html += '<p>' +  data.mensagem +'</p>';
+						html += '</div>';
 
 
+						$('#dialogos').append(html)
+				})
+			</script>
+```
+
+
+
+-------------------------------------------------------------
+## Configurando pra troca de mensagem
+
+no chat.js
+
+´´´
+//pega o botão onde do clique, após instancia o emit da variavel socket para a função do on(msgParaServidor) com o json
+	$('#enviar_mensagem').click( function(){
+		socket.emit(
+			'msgParaServidor',
+			{ apelido: ' ', mensagem: $('#mensagem').val()}
+		);
+	});
+´´´
+
+
+-----------------------
+
+//O emit que esta na view envia a mensagem para o servidor (app.js) que recebe a mensam e envia outro emit com os dados
+*apensa o usuario ve
+
+No chat.js
+´´´
+	$('#enviar_mensagem').click( function(){
+		socket.emit(
+			'msgParaServidor',
+			{ apelido: ' ', mensagem: $('#mensagem').val()}
+		);
+	});
+´´´
+
+no app.js
+´´´
+    socket.on('msgParaServidor', function(data){
+        socket.emit('msgParaCliente', {apelido: data.apelido, mensagem: data.mensagem})
+    });
+´´´
+
+-----------------------------------------------------------------
 
