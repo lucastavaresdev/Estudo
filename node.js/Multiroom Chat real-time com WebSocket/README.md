@@ -339,3 +339,21 @@ no app.js
 
 -----------------------------------------------------------------
 
+
+no app js o emit é so para a mesmo passoa duplica a linha e coloca o bloadcast.emit
+
+```
+ socket.on('msgParaServidor', function(data){
+        socket.emit(
+            'msgParaCliente', 
+            {apelido: data.apelido, mensagem: data.mensagem}
+        );
+        socket.broadcast.emit(
+            'msgParaCliente', 
+            {apelido: data.apelido, mensagem: data.mensagem}
+        );
+    })
+```
+
+
+trazendo o apelido
