@@ -26,11 +26,7 @@ selecionar/criar o banco de dados (o comando so cria a partir do momento que tem
     ```
     use nomedoBanco
     ```
-para criar uma collection
 
-    ```
-    db.Alunos.save({nome:lucas})
-    ```
 
 deletar um banco
 entrar no banco
@@ -38,3 +34,26 @@ entrar no banco
     use nomedoBanco
     db.dropDatabase()
     ```
+
+##Exibindo criando e removendo coleções
+
+- Criar uma collection
+
+    ```
+    db.createCollection("alunos")
+    ```
+
+- Para ver todas as collections no banco
+
+    ```
+    db.getCollectionNames()
+    ```
+
+- para remover uma collection 
+    ```
+    db.nomedacollection.drop()
+    ```
+    
+
+
+
