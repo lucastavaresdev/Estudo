@@ -381,4 +381,97 @@ e depois capiturado pelo js
 				});
 
 ```
+--------------------------------------------------------------
+##Atualizando a lista de participantes
+
+Para atualizar a lista de participantes
+
+criar o elem pai com um id
+
+```
+	<div class="col-md-10" id="pessoas"></div>
+```
+
+atulizar a lista de partitcipantes no servidor (app.js)
+```
+    if (parseInt(data.apelido_atualizado_nos_clientes) == 0) {
+            socket.emit(
+                'participantesParaCliente', 
+                {apelido: data.apelido}
+            );
+            socket.broadcast.emit(
+                'participantesParaCliente', 
+                {apelido: data.apelido}
+            );
+     }
+
+```
+no lado do cliente na view (chat.ejs)
+
+```
+		socket.on('participantesParaCliente', function(data){
+						var html = ' ';
+
+						html += '<span class="participante">';
+						html +=   data.apelido ;
+						html += '</span>';
+
+
+						$('#pessoas').append(html)
+				})
+```
+
+para evitar duplicata de usuario
+
+coloca um input escondido onde o valor recebe 0 se e ele nao exitir vira 1 para na proxima tentativa cair na condição
+```
+	<input type='hidden' value="0" id="apelido_atualizado_nos_clientes">
+```
+
+coloca na hora de enviar no chat.ejs 
+```
+		$('#enviar_mensagem').click( function(){
+					socket.emit(
+						'msgParaServidor',
+						{ apelido: $('#apelido').val() , 
+						mensagem: $('#mensagem').val(),
+						apelido_atualizado_nos_clientes: $('#apelido_atualizado_nos_clientes').val();
+						}
+					);
+
+```
+
+adiciona if para validar se ja existe
+
+```
+ /* participantes */
+    if (parseInt(data.apelido_atualizado_nos_clientes) == 0) {
+        socket.emit(
+            'participantesParaCliente',
+            { apelido: data.apelido }
+        );
+        socket.broadcast.emit(
+            'participantesParaCliente',
+            { apelido: data.apelido }
+        );
+    }
+```
+
+
+adiciona depois da execução 1
+
+```
+	$('#enviar_mensagem').click( function(){
+					socket.emit(
+						'msgParaServidor',
+						{ apelido: $('#apelido').val() , 
+						mensagem: $('#mensagem').val(),
+						apelido_atualizado_nos_clientes: $('#apelido_atualizado_nos_clientes').val();
+						}
+					);
+
+					$('#apelido_atualizado_nos_clientes').val(1);//essa linha foi add
+				});
+```
+
 

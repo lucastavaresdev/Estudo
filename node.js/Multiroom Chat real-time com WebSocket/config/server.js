@@ -23,15 +23,15 @@ app.use(express.static('./app/public'));
 /* configurar o middleware body-parser */
 app.use(bodyParser.urlencoded({extended: true}));
 
-/*configurar o middleware express-validator */
+/* configurar o middleware express-validator */
 app.use(expressValidator());
 
 /* efetua o autoload das rotas, dos models e dos controllers para o objeto app */
 consign()
-    .include('app/routes')
-    .then('app/models')
-    .then('app/controllers')
-    .into(app)
+	.include('app/routes')
+	.then('app/models')
+	.then('app/controllers')
+	.into(app);
 
 /* exportar o objeto app */
 module.exports = app;
