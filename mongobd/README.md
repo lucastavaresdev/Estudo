@@ -53,7 +53,26 @@ entrar no banco
     ```
     db.nomedacollection.drop()
     ```
-    
+
+##Inserindo documentos no mongo
+
+
+BD RELACIONAIS VS MONGO DB
+![](2018-07-23-17-23-27.png)
+
+As collections não define uma estrutura como nas tabelas
+
+Todo documento é auto contido e auto descritivo
+
+Não tem uma estrutura rigida o que da flexibilidade 
+
+
+Salvando os dados numa collection
+
+
+
+
+
 
 
 
