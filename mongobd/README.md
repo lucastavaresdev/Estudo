@@ -249,3 +249,20 @@ varios
     ´´´
     db.alunos.update({nome: 'jose'}, {$set:{nome 'joao'}}, {multi: true})
     ´´´
+
+- remocendo documentos
+
+remove({criterio de exclusao}, 0 false ou 1 true})
+
+0 remove todos os documentos
+1 remove apenas o primeiro a aparecer
+
+
+```
+    db.alunos.remove({nome: 'maria'})
+        o comando de cima é o mesmo do debaixo
+    db.alunos.remove({nome:{$eq: 'maria'}})
+
+
+    db.alunos.remove({idade:{$gt: 20}})
+```
