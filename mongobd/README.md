@@ -211,6 +211,7 @@ sexo = f and idade < 25
 - or
 
 nome = maria or nome =jose
+
     ´´´
       {
           $or:[
@@ -221,3 +222,30 @@ nome = maria or nome =jose
     ´´´
 
 
+## Atualizando documentos (update)
+
+
+            update({parametros para atualização},{$set},{multi:false})
+
+            $set =  o que alterar
+            multi =  false so atualiza o primeiro
+            multi =  true atuliza todos os  documentos
+
+
+            o save busca o registo se encontrar ele substitui se nao ele inclui como um novo
+            save(
+                _id: xxxxxx
+            )
+
+
+
+- Update
+um unico
+    ´´´
+    db.alunos.update({nome: 'jose'}, {$set:{nome 'joao'}})
+    ´´´
+
+varios
+    ´´´
+    db.alunos.update({nome: 'jose'}, {$set:{nome 'joao'}}, {multi: true})
+    ´´´
