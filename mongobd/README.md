@@ -69,6 +69,35 @@ Não tem uma estrutura rigida o que da flexibilidade
 
 Salvando os dados numa collection
 
+    ´´´
+        db.alunos.save({
+            nome:'Jose',
+            idade: 30,
+            sexo: 'M',
+            cpf: '123.123.123-12',
+            rg: '123.123.123-1',
+            matricula: abcd123
+        })
+
+        db.alunos.save({
+            nome:'maria',
+            idade: 25,
+            sexo: 'F',
+            matricula: aaa1234,
+        })
+
+
+        db.alunos.save({
+            nome:'Fernanda',
+            idade: 23,
+            sexo: 'F',
+            matricula: curso,
+            cursos_interrese: [
+                {curso: 'curso1'},
+                {curso: 'curso2'}
+            ]
+        })
+    ´´´
 
 
 
