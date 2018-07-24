@@ -184,3 +184,40 @@ sexo != "M"  ($ne)
     ´´´
     db.alunos.find({sexo:{$ne: "F"}}).pretty()
     ´´´
+
+
+##consultando documentos com operadores logicos
+
+AND
+OR
+
+- and
+
+sexo = f and idade < 25
+
+    ´´´
+        {
+            sexo:{$eq: 'F'},
+            idade: {$lt: 25}
+        }
+
+        db.alunos.find(
+            {sexo:{$eq: "F"},
+            {idade:{$lt: 25}
+        }).pretty()
+    ´´´
+
+
+- or
+
+nome = maria or nome =jose
+    ´´´
+      {
+          $or:[
+              {nome:{$eq: "maria"}},
+              {nome:{$eq: "jose"}}
+          ]
+      }
+    ´´´
+
+
