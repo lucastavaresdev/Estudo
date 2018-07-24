@@ -100,8 +100,87 @@ Salvando os dados numa collection
     ´´´
 
 
+##consutando documentos
 
 
+Tabela de compação
+![](2018-07-24-10-32-32.png)
 
 
+    ´´´
+        show dbs
+        use nome_do_banco
+        db.getCollectionNames()
+    ´´´
 
+trazer o ultimo documento inserido dentro da collection
+
+    ´´´
+    db.alunos.findOne()
+    ´´´
+
+
+exibir todos os dados  da collection
+
+    ´´´
+    db.alunos.find()
+    ´´´
+
+exibir json formatado
+
+    ´´´
+    db.alunos.find().pretty()
+    ´´´
+
+
+###operadores
+
+-Igual
+
+nome = jose ($eq)
+    
+    ´´´
+    db.alunos.find({nome:{$eq: "jose"}}).pretty()
+    ´´´
+
+-menor
+
+idade < 30 ($lt)
+    
+    ´´´
+    db.alunos.find({idade:{$lt: 30}}).pretty()
+
+    ´´´
+-menor ou igual
+
+idade <= 30 ($lte)
+    
+    ´´´
+    db.alunos.find({idade:{$lt: 30}}).pretty()
+    ´´´
+
+
+-maior
+
+idade > 29  ($gt)
+    
+    ´´´
+    db.alunos.find({idade:{$gt: 29}}).pretty()
+    ´´´
+
+
+-maior ou igual
+
+idade >= 29  ($gt)
+    
+    ´´´
+    db.alunos.find({idade:{$gte: 29}}).pretty()
+    ´´´
+
+-diferente
+
+sexo != "M"  ($ne)
+    
+    ´´´
+    db.alunos.find({sexo:{$ne: "F"}}).pretty()
+    ´´´
