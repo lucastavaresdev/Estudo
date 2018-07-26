@@ -1,16 +1,25 @@
+/* Importar mongoDB */
 var mongo = require('mongodb');
 
-var connMongoDB = function() {
-    console.log('Conectou no banco');
-    var db = new mongo.Db(
-        'mmorpg_got',
-        new mongo.Server(
-            'localhost',
-            27017, {}), {});
+var conMongoDB = function() {
 
-    return db;
+	return new Promise(function(resolve, reject) {
+
+		mongo.MongoClient.connect(new mongo.Server("localhost", 27017), {native_parser: true})
+		.then(
+			function(database){
+				var db = database.db("got");
+				console.log("Conectado com sucesso");
+				resolve(db);
+			},
+	        function(err) {
+	 			console.log("Error connecting: " + err.message);
+	 			reject(err.message);
+        	}
+        );
+	});
 }
 
 module.exports = function() {
-    return connMongoDB;
+	return conMongoDB;
 }
