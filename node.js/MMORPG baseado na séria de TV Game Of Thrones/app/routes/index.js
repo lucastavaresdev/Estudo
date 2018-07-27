@@ -4,6 +4,6 @@ module.exports = function (application) {
 	});
 
 	application.post('/autenticar', function (req, res) {
-		res.send('autenticar')
+		application.app.controllers.index.autenticar(application, req, res)
 	});
 }
