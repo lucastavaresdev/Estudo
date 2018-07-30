@@ -12,6 +12,13 @@ UsuariosDAO.prototype.inserirUsuario = function (usuario, res) {
 	};
 	this._connection(dados);
 };
+
+
+UsuariosDAO.prototype.autenticar = function (usuario) {
+	console.log(usuario)
+}
+
+
 module.exports = function () {
 	return UsuariosDAO;
 };
