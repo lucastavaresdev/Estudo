@@ -22,6 +22,9 @@ function query(db, dados) {
 		case "inserir":
 			collection.insertOne(dados.usuario, dados.callback);
 			break;
+		case "buscar":
+			collection.find(dados.usuario, dados.callback);
+			break;
 		default:
 			break;
 	}

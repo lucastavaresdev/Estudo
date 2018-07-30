@@ -14,11 +14,33 @@ UsuariosDAO.prototype.inserirUsuario = function (usuario, res) {
 };
 
 
-UsuariosDAO.prototype.autenticar = function (usuario) {
-	console.log(usuario)
+UsuariosDAO.prototype.autenticar = function (usuario, req, res) {
+	var dados = {
+		operacao: "buscar",
+		usuario: usuario,
+		collection: "usuarios",
+		callback: function (err, result) {
+			result.toArray(function (err, result) {
+				if (result[0] != undefined) {
+					req.session.autorizado = true;
+				}
+
+				if (req.session.autorizado) {
+					res.send('usuario encontrado')
+				} else {
+					res.send('usuario não encontrado')
+				}
+
+			})
+		}
+	}
+
+	this._connection(dados);
 }
 
 
 module.exports = function () {
 	return UsuariosDAO;
 };
+
+
