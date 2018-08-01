@@ -1,6 +1,8 @@
 function JogoDAO(connection) {
     this._connection = connection;
+
 }
+
 
 JogoDAO.prototype.gerarParamentros = function (usuario) {
     var dados = {
@@ -16,11 +18,28 @@ JogoDAO.prototype.gerarParamentros = function (usuario) {
         },
         collection: "jogo",
         callback: function (err, result) {
-            console.log('jogoDAO')
         }
-    };
+    }
     this._connection(dados);
+};
+
+JogoDAO.prototype.iniciaJogo = function (res, usuario, casa) {
+    var dados = {
+        operacao: "buscar",
+        usuario: { usuario: usuario },
+        collection: "jogo",
+        callback: function (err, result) {
+            result.toArray(function (err, result) {
+                res.render('jogo', { img_casa: casa, jogo: result[0] })
+            })
+        }
+    }
+
+    this._connection(dados);
+
+
 }
+
 
 module.exports = function () {
     return JogoDAO;
