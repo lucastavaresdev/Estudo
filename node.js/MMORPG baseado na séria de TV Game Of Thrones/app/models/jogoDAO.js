@@ -23,23 +23,49 @@ JogoDAO.prototype.gerarParamentros = function (usuario) {
     this._connection(dados);
 };
 
-JogoDAO.prototype.iniciaJogo = function (res, usuario, casa, comando_invalido) {
+JogoDAO.prototype.iniciaJogo = function (res, usuario, casa, msg) {
     var dados = {
         operacao: "buscar",
         usuario: { usuario: usuario },
         collection: "jogo",
         callback: function (err, result) {
             result.toArray(function (err, result) {
-                res.render('jogo', { img_casa: casa, jogo: result[0], comando_invalido })
+                res.render('jogo', { img_casa: casa, jogo: result[0], msg: msg })
             })
         }
     }
 
     this._connection(dados);
-
-
 }
 
+JogoDAO.prototype.acao = function (acao) {
+    var date = new Date();
+
+    var tempo = null;
+
+    switch (acao.acao) {
+        case 1: tempo = 1 * 60 * 60000;
+        case 2: tempo = 2 * 60 * 60000;
+        case 3: tempo = 5 * 60 * 60000;
+        case 4: tempo = 5 * 60 * 60000;
+    }
+
+    acao.acao_termina_em = date.getTime() + tempo;
+
+    var dados = {
+        operacao: "inserir",
+        usuario: {
+            usuario: acao.usuario,
+            acao: acao.acao,
+            quantidade: acao.quantidade,
+            termina_em: acao.acao_termina_em,
+        },
+        collection: "acao",
+        callback: function (err, result) {
+        }
+    }
+    this._connection(dados);
+}
 
 module.exports = function () {
     return JogoDAO;
