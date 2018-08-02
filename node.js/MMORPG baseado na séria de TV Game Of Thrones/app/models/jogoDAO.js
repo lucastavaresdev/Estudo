@@ -23,14 +23,14 @@ JogoDAO.prototype.gerarParamentros = function (usuario) {
     this._connection(dados);
 };
 
-JogoDAO.prototype.iniciaJogo = function (res, usuario, casa) {
+JogoDAO.prototype.iniciaJogo = function (res, usuario, casa, comando_invalido) {
     var dados = {
         operacao: "buscar",
         usuario: { usuario: usuario },
         collection: "jogo",
         callback: function (err, result) {
             result.toArray(function (err, result) {
-                res.render('jogo', { img_casa: casa, jogo: result[0] })
+                res.render('jogo', { img_casa: casa, jogo: result[0], comando_invalido })
             })
         }
     }
