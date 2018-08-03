@@ -24,9 +24,12 @@ JogoDAO.prototype.gerarParamentros = function (usuario) {
 };
 
 JogoDAO.prototype.iniciaJogo = function (res, usuario, casa, msg) {
+    var date = new Date();
+    var momento_atual = date.getTime();
+
     var dados = {
         operacao: "buscar",
-        usuario: { usuario: usuario },
+        usuario: { usuario: usuario, },
         collection: "jogo",
         callback: function (err, result) {
             result.toArray(function (err, result) {
@@ -43,11 +46,11 @@ JogoDAO.prototype.acao = function (acao) {
 
     var tempo = null;
 
-    switch (acao.acao) {
-        case 1: tempo = 1 * 60 * 60000;
-        case 2: tempo = 2 * 60 * 60000;
-        case 3: tempo = 5 * 60 * 60000;
-        case 4: tempo = 5 * 60 * 60000;
+    switch (parseInt(acao.acao)) {
+        case 1: tempo = 1 * 60 * 60000; break;
+        case 2: tempo = 2 * 60 * 60000; break;
+        case 3: tempo = 5 * 60 * 60000; break;
+        case 4: tempo = 5 * 60 * 60000; break;
     }
 
     acao.acao_termina_em = date.getTime() + tempo;
@@ -64,6 +67,23 @@ JogoDAO.prototype.acao = function (acao) {
         callback: function (err, result) {
         }
     }
+    this._connection(dados);
+}
+
+JogoDAO.prototype.getAcoes = function (usuario, res) {
+
+    var dados = {
+        operacao: "buscar",
+        usuario: { usuario: usuario, },
+        collection: "acao",
+        callback: function (err, result) {
+            result.toArray(function (err, result) {
+                res.render('pergaminhos', { acoes: result });
+
+            })
+        }
+    }
+
     this._connection(dados);
 }
 

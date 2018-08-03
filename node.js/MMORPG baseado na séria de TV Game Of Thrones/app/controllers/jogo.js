@@ -36,13 +36,24 @@ module.exports.suditos = function (application, req, res) {
     }
     res.render('aldeoes', { validacao: {} });
 }
+
+
+
 module.exports.pergaminhos = function (application, req, res) {
     if (req.session.autorizado !== true) {
         res.send("Usuario precisa realizar login")
         return;
     }
-    res.render('pergaminhos', { validacao: {} });
+    //recuperando as ações
+    var connection = application.config.dbConnection;
+    var JogoDAO = new application.app.models.jogoDAO(connection);
+
+    var usuario = req.session.usuario;
+
+    JogoDAO.getAcoes(usuario, res);
+
 }
+
 
 module.exports.ordenar_acao_sudito = function (application, req, res) {
     if (req.session.autorizado !== true) {
