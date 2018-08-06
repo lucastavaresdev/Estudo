@@ -25,6 +25,9 @@ function query(db, dados) {
 		case "buscar":
 			collection.find(dados.usuario, dados.callback);
 			break;
+		case "update":
+			collection.update(dados.usuario, dados.callback);
+			break;
 		default:
 			break;
 	}
