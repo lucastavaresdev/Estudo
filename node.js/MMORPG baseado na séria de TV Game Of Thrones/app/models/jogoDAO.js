@@ -71,15 +71,17 @@ JogoDAO.prototype.acao = function (acao) {
 }
 
 JogoDAO.prototype.getAcoes = function (usuario, res) {
+    var d = new Date();
+    var momento_atual = d.getTime();
 
     var dados = {
         operacao: "buscar",
-        usuario: { usuario: usuario, },
+        usuario: { usuario: usuario, termina_em: { $gt: momento_atual } },
         collection: "acao",
         callback: function (err, result) {
             result.toArray(function (err, result) {
+                console.log(result);
                 res.render('pergaminhos', { acoes: result });
-
             })
         }
     }
