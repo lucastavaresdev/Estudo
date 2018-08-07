@@ -28,6 +28,9 @@ function query(db, dados) {
 		case "update":
 			collection.update(dados.queryDb, dados.updateContent, dados.callback);
 			break;
+		case "remove":
+			collection.remove(dados.usuario, dados.callback);
+			break;
 		default:
 			break;
 	}

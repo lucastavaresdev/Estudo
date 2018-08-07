@@ -1,3 +1,6 @@
+var ObjectID = require('mongodb').ObjectId;
+
+
 function JogoDAO(connection) {
     this._connection = connection;
 
@@ -118,6 +121,21 @@ JogoDAO.prototype.getAcoes = function (usuario, res) {
 
     this._connection(dados);
 }
+
+JogoDAO.prototype.revogarAcao = function (_id, res) {
+
+    var dados = {
+        operacao: "remove",
+        usuario: { _id: ObjectID(_id) },
+        collection: "acao",
+        callback: function (err, result) {
+            res.redirect("jogo?msg=D")
+        }
+    }
+
+    this._connection(dados);
+}
+
 
 module.exports = function () {
     return JogoDAO;
