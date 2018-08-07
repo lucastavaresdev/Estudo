@@ -26,7 +26,7 @@ function query(db, dados) {
 			collection.find(dados.usuario, dados.callback);
 			break;
 		case "update":
-			collection.update(dados.usuario, dados.callback);
+			collection.update(dados.queryDb, dados.updateContent, dados.callback);
 			break;
 		default:
 			break;

@@ -77,19 +77,26 @@ JogoDAO.prototype.acao = function (acao) {
         case 3: moedas = -1 * acao.quantidade; break;
         case 4: moedas = -1 * acao.quantidade; break;
     }
+    this._connection(dados);
+}
 
-    var update = {
+
+JogoDAO.prototype.updateMoedas = function (res, dadosForm, moedas) {
+
+    var queryDb = { usuario: { '$eq': dadosForm.usuario } };
+    var updateContent = { $inc: { "moeda": 30 } }
+
+    var dados = {
         operacao: "update",
-        usuario: (
-            { usuario: acao.usuario },
-            { $inc: { moeda: moedas } }
-        ),
+        queryDb: queryDb,
+        updateContent: updateContent,
         collection: "jogo",
         callback: function (err, result) {
+            console.log(err);
+            console.log('Moeda atualizada com sucesso!');
+            res.redirect('jogo?msg=D');
         }
-    }
-
-    this._connection(update);
+    };
     this._connection(dados);
 }
 
