@@ -47,7 +47,7 @@ console.log('Servidor HTTP escutando na porta ' + port);
 app.get('/', function (req, res) {
     res.send({ msg: 'Olá' });
 });
-
+//POST (create)
 app.post('/api', function (req, res) {
     var data = req.body;
     var dados = {
@@ -59,6 +59,23 @@ app.post('/api', function (req, res) {
                 res.json({ 'status': 0 });
             } else {
                 res.json({ 'status': 1 });
+            }
+        }
+    }
+    connMongoDB(dados);
+});
+
+app.get('/api', function (req, res) {
+
+    var dados = {
+        operacao: 'pesquisar',
+        // dados: data,
+        collection: 'postagens',
+        callback: function (err, records) {
+            if (err) {
+                res.json(err);
+            } else {
+                res.json(records)
             }
         }
     }
