@@ -3,7 +3,7 @@ var http = require('http');
 var opcoes = {
     hostname: 'localhost',
     port: 8080,
-    path: '/teste',
+    path: '/',
     headers: {
         'Accept': 'application/json'
     }
@@ -19,7 +19,5 @@ http.get(opcoes, function (res) {
     res.on('end', function () {
         var corpo_response = Buffer.concat(buffer_corpo_response).toString();
         console.log(corpo_response);
-        console.log(corpo_responde);
-        console.log(res.statusCode);
     });
 });
