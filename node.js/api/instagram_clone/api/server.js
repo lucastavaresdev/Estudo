@@ -98,3 +98,26 @@ app.get('/api/:id', function (req, res) {
     }
     connMongoDB(dados);
 });
+
+
+app.put('/api/:id', function (req, res) {
+    var dados = {
+        operacao: 'atualizar',
+        dados: {
+            _id: objectID(req.params.id),
+
+
+        },
+        collection: 'postagens',
+        callback: function (err, records) {
+            { $set: { titulo: req.body.titulo } },
+            { }
+            // if (err) {
+            //     res.json(err);
+            // } else {
+            //     res.json(records)
+            // }
+        }
+    }
+    connMongoDB(dados);
+});
