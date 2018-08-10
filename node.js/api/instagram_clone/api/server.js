@@ -103,20 +103,16 @@ app.get('/api/:id', function (req, res) {
 app.put('/api/:id', function (req, res) {
     var dados = {
         operacao: 'atualizar',
-        dados: {
-            _id: objectID(req.params.id),
-
-
-        },
+        where: { _id: objectID(req.params.id) },
+        set: { $set: { titulo: req.body.titulo } },
+        multi: {},
         collection: 'postagens',
         callback: function (err, records) {
-            { $set: { titulo: req.body.titulo } },
-            { }
-            // if (err) {
-            //     res.json(err);
-            // } else {
-            //     res.json(records)
-            // }
+            if (err) {
+                res.json(err);
+            } else {
+                res.json(records);
+            }
         }
     }
     connMongoDB(dados);
