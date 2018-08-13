@@ -111,6 +111,22 @@ app.put('/api/:id', function (req, res) {
             if (err) {
                 res.json(err);
             } else {
+                res.status(500).json(records);
+            }
+        }
+    }
+    connMongoDB(dados);
+});
+
+app.delete('/api/:id', function (req, res) {
+    var dados = {
+        operacao: 'remover',
+        where: { _id: req.params.id },
+        collection: 'postagens',
+        callback: function (err, records) {
+            if (err) {
+                res.json(err);
+            } else {
                 res.json(records);
             }
         }
