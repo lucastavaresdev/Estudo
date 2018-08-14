@@ -56,12 +56,11 @@ app.post('/api', function (req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     var dados
 
-    dados = req.body;
-    res.send(req.files)
-
     //trazendo a foto do formulario
     var path_origem = req.files.arquivo.path;
     var path_destino = './uploads/' + req.files.arquivo.originalFilename;
+
+    var url_imagem = req.files.arquivo.originalFilename;
 
     fs.rename(path_origem, path_destino, function (err) {
         if (err) {
@@ -69,22 +68,27 @@ app.post('/api', function (req, res) {
             return;
         }
 
+        var dadosimg = {
+            url_imagem: url_imagem,
+            titulo: req.body.titulo
+        }
 
+
+
+        var dados = {
+            operacao: 'inserir',
+            dados: dadosimg,
+            collection: 'postagens',
+            callback: function (err, records) {
+                if (err) {
+                    res.json({ 'status': 0 });
+                } else {
+                    res.json({ 'status': 1 });
+                }
+            }
+        }
+        connMongoDB(dados);
     });
-
-    // var dados = {
-    //     operacao: 'inserir',
-    //     dados: data,
-    //     collection: 'postagens',
-    //     callback: function (err, records) {
-    //         if (err) {
-    //             res.json({ 'status': 0 });
-    //         } else {
-    //             res.json({ 'status': 1 });
-    //         }
-    //     }
-    // }
-    // connMongoDB(dados);
 });
 
 app.get('/api', function (req, res) {
