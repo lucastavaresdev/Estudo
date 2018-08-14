@@ -49,20 +49,26 @@ app.get('/', function (req, res) {
 });
 //POST (create)
 app.post('/api', function (req, res) {
-    var data = req.body;
-    var dados = {
-        operacao: 'inserir',
-        dados: data,
-        collection: 'postagens',
-        callback: function (err, records) {
-            if (err) {
-                res.json({ 'status': 0 });
-            } else {
-                res.json({ 'status': 1 });
-            }
-        }
-    }
-    connMongoDB(dados);
+
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    var dados
+
+    dados = req.body;
+    res.send(dados)
+
+    // var dados = {
+    //     operacao: 'inserir',
+    //     dados: data,
+    //     collection: 'postagens',
+    //     callback: function (err, records) {
+    //         if (err) {
+    //             res.json({ 'status': 0 });
+    //         } else {
+    //             res.json({ 'status': 1 });
+    //         }
+    //     }
+    // }
+    // connMongoDB(dados);
 });
 
 app.get('/api', function (req, res) {
