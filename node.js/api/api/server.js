@@ -56,11 +56,15 @@ app.post('/api', function (req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     var dados
 
+    var date = new Date();
+    time_stamp = date.getTime();
+
+    var url_imagem = time_stamp + '_' + req.files.arquivo.originalFilename;
+
     //trazendo a foto do formulario
     var path_origem = req.files.arquivo.path;
-    var path_destino = './uploads/' + req.files.arquivo.originalFilename;
+    var path_destino = './uploads/' + url_imagem;
 
-    var url_imagem = req.files.arquivo.originalFilename;
 
     fs.rename(path_origem, path_destino, function (err) {
         if (err) {
@@ -83,7 +87,7 @@ app.post('/api', function (req, res) {
                 if (err) {
                     res.json({ 'status': 0 });
                 } else {
-                    res.json({ 'status': 1 });
+                    res.json({ 'status': "inclusão realizada com sucesso" });
                 }
             }
         }
