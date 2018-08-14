@@ -1,8 +1,9 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
     mongodb = require('mongodb').MongoClient,
-    multiparty = require('connect-multiparty')
-objectID = require('mongodb').ObjectId;
+    multiparty = require('connect-multiparty'),
+    objectID = require('mongodb').ObjectId,
+    fs = require('fs');
 
 var app = express();
 
@@ -56,7 +57,20 @@ app.post('/api', function (req, res) {
     var dados
 
     dados = req.body;
-    res.send(dados)
+    res.send(req.files)
+
+    //trazendo a foto do formulario
+    var path_origem = req.files.arquivo.path;
+    var path_destino = './uploads/' + req.files.arquivo.originalFilename;
+
+    fs.rename(path_origem, path_destino, function (err) {
+        if (err) {
+            res.status(500).json({ error: err });
+            return;
+        }
+
+
+    });
 
     // var dados = {
     //     operacao: 'inserir',
