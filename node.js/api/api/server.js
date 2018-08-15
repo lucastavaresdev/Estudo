@@ -97,6 +97,8 @@ app.post('/api', function (req, res) {
 
 app.get('/api', function (req, res) {
 
+    res.setHeader("Access-Control-Allow-Origin", "*");
+
     var dados = {
         operacao: 'pesquisar',
         // dados: data,
