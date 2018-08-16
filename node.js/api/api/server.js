@@ -165,6 +165,7 @@ app.get('/imagens/:imagem', function (req, res) {
     });
 })
 
+
 app.delete('/api/:id', function (req, res) {
     var dados = {
         operacao: 'remover',
