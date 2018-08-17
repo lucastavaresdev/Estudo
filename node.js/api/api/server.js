@@ -142,23 +142,30 @@ app.get('/api/:id', function (req, res) {
 
 
 app.put('/api/:id', function (req, res) {
-    res.send(req.body.comentario);
 
-    // var dados = {
-    //     operacao: 'atualizar',
-    //     where: { _id: objectID(req.params.id) },
-    //     set: { $set: { titulo: req.body.titulo } },
-    //     multi: {},
-    //     collection: 'postagens',
-    //     callback: function (err, records) {
-    //         if (err) {
-    //             res.json(err);
-    //         } else {
-    //             res.status(500).json(records);
-    //         }
-    //     }
-    // }
-    // connMongoDB(dados);
+    var dados = {
+        operacao: 'atualizar',
+        where: { _id: objectID(req.params.id) },
+        set:
+        {
+            $push: {
+                comentarios: {
+                    id_comentario: new objectId(),
+                    comentario: req.body.comentario
+                }
+            }
+        },
+        multi: {},
+        collection: 'postagens',
+        callback: function (err, records) {
+            if (err) {
+                res.json(err);
+            } else {
+                res.status(500).json(records);
+            }
+        }
+    }
+    connMongoDB(dados);
 });
 
 app.get('/imagens/:imagem', function (req, res) {

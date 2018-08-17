@@ -51,7 +51,12 @@
 								xhr.setRequestHeader('Content-type', 'application/json')
 
 								xhr.onload = function(){
+									if(xhr.status === 200){
+										window.location.href = '/home'
+									}
+
 									alert(xhr.responseText);
+
 								}
 
 								xhr.send(JSON.stringify({comentario: comentario}));
