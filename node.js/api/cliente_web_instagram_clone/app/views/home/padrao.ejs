@@ -45,6 +45,7 @@
 								var id = this.value;
 								var id_input_comentario = 'postagem_'+id;
 								var comentario = $('#'+id_input_comentario).val();
+								console.log('http://localhost:8080/api/'+id)
 							
 								var xhr = new XMLHttpRequest();
 								xhr.open('PUT', 'http://localhost:8080/api/'+id);
