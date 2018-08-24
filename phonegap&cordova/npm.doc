@@ -4,4 +4,59 @@ npm install -g phonegap cordova
 phonegap create hello com.lucastavares.hello HelloWorld
 cordova create hellocordova com.lucastavares.hellocordova HelloWorldcordova
 
+_____________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Phonegap server para emular
+
+Add platform
+
+phonegap platform add android
+
+cordova platform add android
 
