@@ -52,7 +52,7 @@ ADDED from C:\wamp\www\cursos\Javascript\phonegap_cordova\botoesdoAparelho\platf
 		ADDED from C:\wamp\www\cursos\Javascript\phonegap_cordova\botoesdoAparelho\platforms\android\app\src\main\AndroidManifest.xml:5:18-52
 	android:icon
 		ADDED from C:\wamp\www\cursos\Javascript\phonegap_cordova\botoesdoAparelho\platforms\android\app\src\main\AndroidManifest.xml:5:53-80
-activity#io.cordova.hellocordova.MainActivity
+activity#io.lucas.botoesaparelho.MainActivity
 ADDED from C:\wamp\www\cursos\Javascript\phonegap_cordova\botoesdoAparelho\platforms\android\app\src\main\AndroidManifest.xml:6:9-11:20
 	android:label
 		ADDED from C:\wamp\www\cursos\Javascript\phonegap_cordova\botoesdoAparelho\platforms\android\app\src\main\AndroidManifest.xml:6:97-134

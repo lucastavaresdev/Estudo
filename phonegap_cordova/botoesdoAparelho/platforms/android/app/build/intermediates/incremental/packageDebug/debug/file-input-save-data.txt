@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Aug 28 11:32:38 BRT 2018
+#Tue Aug 28 14:09:48 BRT 2018
 25.file=C\:\\wamp\\www\\cursos\\Javascript\\phonegap_cordova\\botoesdoAparelho\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable-port-xhdpi-v4\\screen.png
 25.base=C\:\\wamp\\www\\cursos\\Javascript\\phonegap_cordova\\botoesdoAparelho\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
 22.set=ASSET
