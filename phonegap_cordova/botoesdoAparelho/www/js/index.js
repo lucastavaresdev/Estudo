@@ -18,7 +18,7 @@
  */
 var app = {
     // Application Constructor
-    initialize: function() {
+    initialize: function () {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
 
@@ -26,12 +26,12 @@ var app = {
     //
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
-    onDeviceReady: function() {
+    onDeviceReady: function () {
         this.receivedEvent('deviceready');
     },
 
     // Update DOM on a Received Event
-    receivedEvent: function(id) {
+    receivedEvent: function (id) {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -40,7 +40,43 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+
+        document.addEventListener("pause", onPause, false);
+        document.addEventListener("resume", onResume, false);
+        document.addEventListener("backbutton", onBackKeyDown, false);
+        document.addEventListener("menubutton", onMenuKeyDown, false);
+        document.addEventListener("searchbutton", onSearchKeyDown, false);
+        document.addEventListener("volumedownbutton", onVolumeDownKeyDown, false);
+        document.addEventListener("volumeupbutton", onVolumeUpKeyDown, false);
     }
 };
+
+function onPause() {
+    alert('o app foi pausado')
+}
+
+function onResume() {
+    alert('o app foi retiradodo segundo plano.')
+}
+
+function onBackKeyDown() {
+    alert('Apertado o botao voltar')
+}
+
+function onBackKeyDown() {
+    alert('Apertado o botao de Menu')
+}
+
+function onSearchKeyDown() {
+    alert('Apertado o botao de Pesquisa')
+}
+
+function onVolumeDownKeyDown() {
+    alert('Abaixar Volume')
+}
+
+function onVolumeUpKeyDown() {
+    alert('Aumentar Volume')
+}
 
 app.initialize();
