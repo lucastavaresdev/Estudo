@@ -18,7 +18,7 @@
  */
 var app = {
     // Application Constructor
-    initialize: function() {
+    initialize: function () {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
 
@@ -26,21 +26,73 @@ var app = {
     //
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
-    onDeviceReady: function() {
-        this.receivedEvent('deviceready');
+    onDeviceReady: function () {
+
+        btnAlert = document.getElementById('alert');
+        btnconfirm = document.getElementById('confirm');
+        btnprompt = document.getElementById('prompt');
+        beep = document.getElementById('beep');
+
+        btnAlert.addEventListener('click', function () {
+            clickAlerta();
+        })
+
+        btnconfirm.addEventListener('click', function () {
+            clickConfimacao();
+        })
+
+        btnprompt.addEventListener('click', function () {
+            clickprompt();
+        })
+        beep.addEventListener('click', function () {
+            clickbeep();
+        })
     },
-
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
-    }
 };
+
+function clickAlerta() {
+    function alertDismissed() {
+        alert('alerta do javacript')
+    }
+
+    navigator.notification.alert(
+        'Isto e uma mensagem',  // message
+        alertDismissed,         // callback
+        'Mensagem',            // title
+        'ok'                  // buttonName
+    );
+}
+
+function clickConfimacao() {
+
+    function onConfirm(buttonIndex) {
+        alert('Usuario clicou no botão ' + buttonIndex);
+    }
+
+    navigator.notification.confirm(
+        'Erro ao salvar registro, deseja salvar novamente', // message
+        onConfirm,            // callback to invoke with index of button pressed
+        'Erro',           // title
+        ['Sim', 'Nao']     // buttonLabels
+    );
+}
+
+function clickprompt() {
+    function onPrompt(results) {
+        alert("Bem vindo " + results.input1 + "e você clicou no botão " + results.buttonIndex);
+    }
+
+    navigator.notification.prompt(
+        'Informe seu Nome',  // message
+        onPrompt,                  // callback to invoke
+        'Registro',            // title
+        ['Ok', 'Exit'],             // buttonLabels
+        'Lucas Tavares'                 // defaultText
+    );
+
+}
+function clickbeep() {
+    navigator.notification.beep(2);
+}
 
 app.initialize();
