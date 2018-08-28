@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Aug 28 12:54:04 BRT 2018
+#Tue Aug 28 13:27:00 BRT 2018
 25.file=C\:\\wamp\\www\\cursos\\Javascript\\phonegap_cordova\\bateria\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\img\\logo.png
 25.base=C\:\\wamp\\www\\cursos\\Javascript\\phonegap_cordova\\bateria\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 22.set=ANDROID_RESOURCE

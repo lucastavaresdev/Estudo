@@ -7,7 +7,7 @@
     <feature name="Battery">
         <param name="android-package" value="org.apache.cordova.batterystatus.BatteryListener" />
     </feature>
-    <name>HelloCordova</name>
+    <name>Bateria</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>

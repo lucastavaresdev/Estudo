@@ -35,7 +35,7 @@ var app = {
         window.addEventListener("batterystatus", onBatteryStatus, false);
 
         function onBatteryStatus(status) {
-            document.getElementById("level").innerHTML = status.level
+            document.getElementById("level").innerHTML = status.level + '%';
             document.getElementById("isPlugged").innerHTML = status.isPlugged
         }
     }
