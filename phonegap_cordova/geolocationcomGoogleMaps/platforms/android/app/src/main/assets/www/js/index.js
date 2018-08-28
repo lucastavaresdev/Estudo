@@ -18,7 +18,7 @@
  */
 var app = {
     // Application Constructor
-    initialize: function() {
+    initialize: function () {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
 
@@ -26,21 +26,35 @@ var app = {
     //
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
-    onDeviceReady: function() {
+    onDeviceReady: function () {
         this.receivedEvent('deviceready');
+        navigator.geolocation.getCurrentPosition(onSuccess(), onError());
     },
-
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
-    }
 };
 
+function onSuccess(position) {
+
+    var longitude = position.coords.longitude;
+    var latitude = position.coords.latitude;
+    var latLong = new google.maps.LatLng(latitude, longitude);
+
+    var mapOptions = {
+        center: latLong,
+        zoom: 13,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+    var marker = new google.maps.Marker({
+        position: latLong,
+        map: map,
+        title: 'my location'
+    });
+}
+
+function onError(error) {
+    alert("cod erro " + error.code + ". \n" +
+        "mensagem: " + error.message);
+}
 app.initialize();
