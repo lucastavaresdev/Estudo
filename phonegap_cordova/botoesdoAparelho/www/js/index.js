@@ -41,13 +41,14 @@ var app = {
 
         console.log('Received Event: ' + id);
 
+        document.addEventListener("volumedownbutton", onVolumeDownKeyDown, false);
+        document.addEventListener("volumeupbutton", onVolumeUpKeyDown, false);
         document.addEventListener("pause", onPause, false);
         document.addEventListener("resume", onResume, false);
         document.addEventListener("backbutton", onBackKeyDown, false);
         document.addEventListener("menubutton", onMenuKeyDown, false);
         document.addEventListener("searchbutton", onSearchKeyDown, false);
-        document.addEventListener("volumedownbutton", onVolumeDownKeyDown, false);
-        document.addEventListener("volumeupbutton", onVolumeUpKeyDown, false);
+
     }
 };
 

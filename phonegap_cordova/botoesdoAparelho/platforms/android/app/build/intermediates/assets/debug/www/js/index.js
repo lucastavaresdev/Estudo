@@ -41,17 +41,43 @@ var app = {
 
         console.log('Received Event: ' + id);
 
+        document.addEventListener("volumedownbutton", onVolumeDownKeyDown, false);
+        document.addEventListener("volumeupbutton", onVolumeUpKeyDown, false);
         document.addEventListener("pause", onPause, false);
+        document.addEventListener("resume", onResume, false);
+        document.addEventListener("backbutton", onBackKeyDown, false);
+        document.addEventListener("menubutton", onMenuKeyDown, false);
+        document.addEventListener("searchbutton", onSearchKeyDown, false);
 
     }
-
-
 };
 
 function onPause() {
-    var elem = document.getElementById('onDeviceReady');
-    elem = "App em pausa"
+    alert('o app foi pausado')
 }
 
+function onResume() {
+    alert('o app foi retiradodo segundo plano.')
+}
+
+function onBackKeyDown() {
+    alert('Apertado o botao voltar')
+}
+
+function onBackKeyDown() {
+    alert('Apertado o botao de Menu')
+}
+
+function onSearchKeyDown() {
+    alert('Apertado o botao de Pesquisa')
+}
+
+function onVolumeDownKeyDown() {
+    alert('Abaixar Volume')
+}
+
+function onVolumeUpKeyDown() {
+    alert('Aumentar Volume')
+}
 
 app.initialize();
