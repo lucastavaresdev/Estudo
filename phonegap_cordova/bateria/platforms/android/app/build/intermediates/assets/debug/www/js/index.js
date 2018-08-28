@@ -32,15 +32,16 @@ var app = {
 
     // Update DOM on a Received Event
     receivedEvent: function (id) {
-        window.addEventListener("batterylow", onBatteryLow, false);
+        window.addEventListener("batterystatus", onBatteryStatus, false);
+
+        function onBatteryStatus(status) {
+            document.getElementById("level").innerHTML = status.level
+            document.getElementById("isPlugged").innerHTML = status.isPlugged
+        }
     }
 };
 
 
-function onBatteryLow(status) {
-    document.getElementById("level").innerHTML = status.level
-    document.getElementById("isPlugged").innerHTML = status.isPlugged
 
-}
 
 app.initialize();
