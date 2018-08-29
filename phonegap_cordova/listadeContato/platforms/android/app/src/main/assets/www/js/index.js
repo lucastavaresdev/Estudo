@@ -18,7 +18,7 @@
  */
 var app = {
     // Application Constructor
-    initialize: function() {
+    initialize: function () {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
 
@@ -26,21 +26,69 @@ var app = {
     //
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
-    onDeviceReady: function() {
-        this.receivedEvent('deviceready');
+    onDeviceReady: function () {
+        var list = document.getElementById('listacontato');
+        var pick = document.getElementById('pickContact');
+        var create = document.getElementById('create');
+
+
+        list.addEventListener('click', function () {
+            var options = new ContactFindOptions();
+            options.multiple = true;
+            options.desiredFields = [navigator.contacts.fieldType.id];
+            var fields = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
+            navigator.contacts.find(fields, onSuccess, onError, options);
+
+            function onSuccess(contacts) {
+                alert('Found ' + contacts.length + ' contacts.');
+            };
+
+            function onError(contactError) {
+                alert('onError!');
+            };
+
+
+        })
+
+        pick.addEventListener('click', function () {
+            navigator.contacts.pickContact(function (contact) {
+                alert('The following contact has been selected:' + JSON.stringify(contact));
+            }, function (err) {
+                console.log('Error: ' + err);
+            });
+        })
+
+
+        create.addEventListener('click', function () {
+            function onSuccess(contact) {
+                alert("Save Success");
+            };
+
+            function onError(contactError) {
+                alert("Error = " + contactError.code);
+            };
+
+            // create a new contact object
+            var contact = navigator.contacts.create();
+            contact.displayName = "aaa";
+            contact.nickname = "teste cordova";            // specify both to support all devices
+
+            // populate some fields
+            var name = new ContactName();
+            name.givenName = "AAAAAAA";
+            name.familyName = "CORDOVA";
+            contact.name = name;
+
+            // save to device
+            contact.save(onSuccess, onError);
+        })
+
     },
 
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
-    }
 };
+
+
+
+
 
 app.initialize();
