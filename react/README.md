@@ -1,5 +1,7 @@
-#Curso de React e Redux
+# Curso de React e Redux
 
-##Section: 1
+=======================================
+
+## Section: 1
 
 Introdução
