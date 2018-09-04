@@ -10,5 +10,15 @@ module.exports = {
     devServer: {
         port: 8080,
         contentBase: './public' // pasta onde o servidor ira ler
+    },
+    module: {
+        loaders: [{
+            test: /.js?$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/,
+            query: {
+                presets: ['es2015'] //o que ira traduzir
+            }
+        }]
     }
 }
