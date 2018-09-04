@@ -57,4 +57,8 @@ npm i --save-dev react@15.4.2 react-dom@15.4.2 babel-core@6.22.1 babel-loader@6.
 
  ```
 
+ -Configuração do webpack
+
+ ```
  
+ ```
