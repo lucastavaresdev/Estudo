@@ -2,7 +2,7 @@ const webpack = require('webpack');
 
 //o obj que e compilado
 module.exports = {
-    entry: './ex.1/index.js', //ponto de entrada
+    entry: './ex.2/index.js', //ponto de entrada
     output: { //ponto de saida
         path: __dirname + '/public',
         filename: './bundle.js'
