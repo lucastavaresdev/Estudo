@@ -2,7 +2,7 @@ const webpack = require('webpack');
 
 //o obj que e compilado
 module.exports = {
-    entry: './ex.3/index.js', //ponto de entrada
+    entry: './ex.4/index.js', //ponto de entrada
     output: { //ponto de saida
         path: __dirname + '/public',
         filename: './bundle.js'
@@ -17,7 +17,7 @@ module.exports = {
             loader: 'babel-loader',
             exclude: /node_modules/,
             query: {
-                presets: ['es2015'], //o que ira traduzir
+                presets: ['es2015', 'react'], //o que ira traduzir
                 plugins: ['transform-object-rest-spread']
             }
         }]
