@@ -1,0 +1,1 @@
+require('./duvida_cruel');
