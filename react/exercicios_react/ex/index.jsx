@@ -4,5 +4,5 @@ import ClassComponent from './classComponent'
 
 
 ReactDOM.render(
-    <ClassComponent value='Componente Classe' />
+    <ClassComponent value={10} />
     , document.getElementById('app'))                       
