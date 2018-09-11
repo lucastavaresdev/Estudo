@@ -11,7 +11,7 @@ server.use(bodyParser.urlencoded({
 server.use(bodyParser.json());
 
 server.listen(port, function () {
-    console.log('backend rodando')
+    console.log('backend rodando ' + port)
 })
 
 module.exports = server;
