@@ -18,7 +18,7 @@ module.exports = {
         }
     },
     plugins: [
-        new ExtractTextPlugin('app.css');
+        new ExtractTextPlugin('app.css')
     ],
     module: {
         loaders: [{
@@ -28,6 +28,7 @@ module.exports = {
                 query: {
                     presets: ['es2015', 'react'],
                     plugins: ['transform-object-rest-spread'],
+
                 }
             },
             {
