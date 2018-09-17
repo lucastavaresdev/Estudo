@@ -1,7 +1,7 @@
-import React from 'react'
+import React from react;
 
 export default props => (
     <div>
-        <h1>form</h1>
+        <h1>List</h1>
     </div>
 )
