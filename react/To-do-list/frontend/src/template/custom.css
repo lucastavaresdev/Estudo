@@ -7,3 +7,11 @@
     color: #777;
     background: rgb(196, 195, 195);
 }
+
+.tableActions {
+    width: 105px;
+}
+
+.todoForm {
+    padding-bottom: 60px;
+}
