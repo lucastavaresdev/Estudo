@@ -1,7 +1,7 @@
-import { combineReduces } from 'react'
+import { combineReducers } from 'redux'
 
-const rootReducer = combineReduces({
-    todo: () = ({
+const rootReducer = combineReducers({
+    todo: () => ({
         description: 'Ler livro',
         list: [{
             _id: 1,
