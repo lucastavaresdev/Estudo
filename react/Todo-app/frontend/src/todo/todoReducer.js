@@ -1,18 +1,5 @@
 const INITIAL_STATE = {
-    description: 'Ler livro',
-    list: [{
-        _id: 1,
-        description: 'Pagar Fatura do cartão',
-        done: true
-    }, {
-        _id: 2,
-        description: 'Reunião com a equipe as 10h',
-        done: false
-    }, {
-        _id: 3,
-        description: 'Consulta medica na terça',
-        done: false
-    }]
+    description: ' ', list: []
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -21,6 +8,8 @@ export default (state = INITIAL_STATE, action) => {
             return { ...state, description: action.payload }
         case 'TODO_SEARCHED':
             return { ...state, list: action.payload.data }
+        case 'TODO_ADDED':
+            return { ...state, description: ' ' }
         default:
             return state
     }
