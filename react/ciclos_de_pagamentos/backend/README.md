@@ -1,4 +1,4 @@
-Criando api para ciclos de pagamento
+Criando API para ciclos de pagamento
 ==============
 
 ### Montando o Ambiente
@@ -24,6 +24,36 @@ Criando a pasta backend
 
         npm i --save-dev nodemon@1.11.0
 
-
 ```
 
+ - Package.json
+
+ Configurar package.json as linhas em destaque
+
+```
+        {
+       ** "name": "ciclos-de-pagamento-backend-API",**
+        "version": "1.0.0",
+        "description": "",
+       ** "main": "src/loader.js",**
+       ** "scripts": {
+            "dev": "nodemon",
+            "production": "pm2 start src/loader.js --name ciclos-de-pagamento-backend-API"
+        },**
+        "keywords": [],
+        "author": "Lucas Tavares <lucastavaresdev@gmail.com>",
+        "license": "MIT",
+        "dependencies": {
+            "body-parser": "^1.15.2",
+            "express": "^4.14.0",
+            "express-query-int": "^1.0.1",
+            "mongoose": "^4.7.0",
+            "mongoose-paginate": "^5.0.3",
+            "node-restful": "^0.2.5",
+            "pm2": "^2.1.5"
+        },
+        "devDependencies": {
+            "nodemon": "^1.11.0"
+        }
+        }
+```
