@@ -119,12 +119,13 @@ Criando a pasta backend
 
 - Mapeando Objeto Documento
 
-    1 Criar a pasta api
-    2 Criar a pasta billingCycle
-    3 Criar a arquivo billingCycle.js
+    - Criar a pasta api
+    - Criar a pasta billingCycle
+    - Criar a arquivo billingCycle.js
 
 
  **billingCycle.js **
+ 
     ```
                 const restful = require('node-restiful')
                 const mongoose = restful.mongoose
