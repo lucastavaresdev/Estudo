@@ -93,10 +93,26 @@ Criando a pasta backend
                         console.log(`backend usando a porta ${port}`)
                     })
 
+                // Caso de esse erro Error: listen EADDRINUSE :::3003 é so alterar a porta  
     ```
 
+- Configurando o Banco de dados
 
-    Caso de esse erro  ```Error: listen EADDRINUSE :::3003``` é so alterar a porta  
+    criar o arquivo config/database.js
 
+    No  **loader.js** incluir o caminho do arquivo
 
+    ```
+    require('./require('./config/database')
+    ```
 
+    Em **config/database**  
+
+    ```
+    const mongoose = require('mongoose')
+    mongoose.Promise = global.Promise
+    module.exports = mongoose.connect('mongodb://localhost/ciclos')
+
+    // o banco deve estar startado
+
+    ```
