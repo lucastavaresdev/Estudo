@@ -6,6 +6,8 @@ Criando API para ciclos de pagamento
 Criando a pasta do projeto
 Criando a pasta backend
 
+
+
 - Dependencias
 
     npm init -y
@@ -25,6 +27,8 @@ Criando a pasta backend
         npm i --save-dev nodemon@1.11.0
 
 ```
+
+
 
  - Package.json
 
@@ -55,7 +59,7 @@ Criando a pasta backend
         "devDependencies": {
             "nodemon": "^1.11.0"
         }
-        }
+   }
 ```
 
 - Configurando o servidor
@@ -69,7 +73,6 @@ Criando a pasta backend
 
   ```
   require('./config/server')
-
   ```
   
  **config/server.js**
@@ -94,3 +97,6 @@ Criando a pasta backend
 
 
     Caso de esse erro  ```Error: listen EADDRINUSE :::3003``` é so alterar a porta  
+
+
+
