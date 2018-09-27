@@ -152,3 +152,22 @@ Criando a pasta backend
                 })
 
                 module.exports = restful.model('BillingCycle', billingCycleSchema)
+
+
+- Criação da api rest
+
+    criar um arquivo na pasta billingCycle/billingCycleService
+
+    **billingCycleService.js**
+
+    
+    const BillingCycle = require('./billingCycle');
+
+    //Metodos utilizados 
+    BillingCycle.methods(['get', 'post', 'put', 'delete'])
+
+    //Como as regras so funciona para os inserts essa linha coloca para update as validações
+    BillingCycle.updateOptions({ new: true, runValidators: true })
+
+    module.exports = BillingCycle
+
