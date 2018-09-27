@@ -119,9 +119,9 @@ Criando a pasta backend
 
 - Mapeando Objeto Documento
 
-    1) Criar a pasta api
-    2) Criar a pasta billingCycle
-    2) Criar a arquivo billingCycle.js
+    1 Criar a pasta api
+    2 Criar a pasta billingCycle
+    3 Criar a arquivo billingCycle.js
 
 
  **billingCycle.js **
