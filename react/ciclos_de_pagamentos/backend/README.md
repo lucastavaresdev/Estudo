@@ -125,8 +125,7 @@ Criando a pasta backend
 
 
  **billingCycle.js **
- 
-    ```
+
                 const restful = require('node-restiful')
                 const mongoose = restful.mongoose
 
@@ -153,4 +152,3 @@ Criando a pasta backend
                 })
 
                 module.exports = restful.model('BillingCycle', billingCycleSchema)
-    ```
