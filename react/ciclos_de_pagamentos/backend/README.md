@@ -57,3 +57,40 @@ Criando a pasta backend
         }
         }
 ```
+
+- Configurando o servidor
+
+ 1) Criar o caminho src/loader.js
+ 2) dentro de src criar config/server.js
+
+
+
+ **loader.js**
+
+  ```
+  require('./config/server')
+
+  ```
+  
+ **config/server.js**
+
+
+
+    ```
+                    const port = 3004
+
+                    const bodyParser = require('body-parser')
+                    const express = require('express')
+                    const server = express()
+
+                    server.use(bodyParser.urlencoded({ extended: true }))
+                    server.use(bodyParser.json())//pega todas as requisições json
+
+                    server.listen(port, function () {
+                        console.log(`backend usando a porta ${port}`)
+                    })
+
+    ```
+
+
+    Caso de esse erro  ```Error: listen EADDRINUSE :::3003``` é so alterar a porta  
