@@ -124,7 +124,7 @@ Criando a pasta backend
     - Criar a arquivo billingCycle.js
 
 
- **billingCycle.js **
+ ** billingCycle.js **
 
                 const restful = require('node-restiful')
                 const mongoose = restful.mongoose
