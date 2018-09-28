@@ -177,8 +177,7 @@ Criando a pasta backend
 
     -criando o arquivo config/routes
 
-
-routes.js
+    **routes.js**
         
 ```
         const express = require('express')
