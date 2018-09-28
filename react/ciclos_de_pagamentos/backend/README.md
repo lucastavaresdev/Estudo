@@ -397,10 +397,33 @@ realizar a importação
 const errorHandle = require('../common/errorHandler')
 ```
 
-Adcionar a linda abaixo para interceptar apos var a requisição e colocar a msg
+Adicionar a linha abaixo para interceptar apos var a requisição e colocar a msg
 
 ```
     BillingCycle.updateOptions({ new: true, runValidators: true })
     BillingCycle.after('post', errorHandle).after('put', errorHandle)
 ```
 
+=====================
+
+## ▶️ Configurando o Cors
+
+- O cors serve para que a api possa ser acessada de outro dominio ou porta numa outra aplicação pode ser limitada ou não
+
+Sempre o mideware tem que responder se não coloca next()
+
+cors.js
+```
+module.exports = (req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Request-With', 'Content-Type, Accept')
+    next()
+}
+```
+
+
+server.js
+```
+
+```
