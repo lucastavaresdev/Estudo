@@ -224,3 +224,8 @@ Criando a pasta backend
             require('./config/routes')(server)
 ```                
 
+
+- Testando a api
+
+Abrir o postman
+
