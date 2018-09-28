@@ -319,3 +319,22 @@ Neste momento api com as quatro operações ja deve estar funcionando
 ============================================
 
 ## ▶️ Obtendo a quantidade de Registros
+
+billingCycleService.js
+
+```
+//adiciona a rota e conta os resgistros no banco de dados
+BillingCycle.route('count', (req, res, next) => {
+    BillingCycle.count((error, value) => {
+        if (error) {
+            res.status(500).json({ errors: [error] })
+        } else {
+            res.json({ value })
+        }
+    })
+})
+
+```
+
+
+
