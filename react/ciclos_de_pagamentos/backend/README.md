@@ -231,3 +231,68 @@ Após isso para para os routes o servidor no loader.js
 
     -Abrir o postman
 
+Validação Funcionando
+
+```
+nome: Janeiro/17
+month: 1
+year: 2017
+credits[0][name]:Salario Empresa
+credits[0][value]: 6500
+credits[1][name]:Salario Professor
+credits[1][value]: 2700
+```
+
+
+Validação nao funcionando
+
+```
+nome: Janeiro/17
+month: 1
+year: 2017
+credits[0][name]:Salario Empresa
+credits[0][value]: 6500
+credits[1][name]:Salario Professor
+credits[1][value]: 2700
+debts[0][name]:Telefone
+```
+
+Colocando mensagem de erro 
+
+No **database.js** colocar a msg
+
+```
+    const mongoose = require('mongoose')
+    mongoose.Promise = global.Promise
+    module.exports = mongoose.connect('mongodb://localhost/ciclos')
+
+
+    mongoose.Error.messages.general.required = " O atributo '{PATH}' é obrigatorio."  
+
+```
+
+
+Outra forma de colocar o aviso é no billingCycles.js na regra coloca a mensagem
+
+```
+value: { type: Number, min: 0, required: [true, 'informe o valor de Debito'] },
+```
+
+
+Testando no postmen (abrir postman colocar a url da api, clicar em post -> body -> x-www-form -> Bulkedit-> colar -> send)
+
+```
+nome: Janeiro/17
+month: 1
+year: 2017
+credits[0][name]:Salario Empresa
+credits[0][value]: 6500
+credits[1][name]:Salario Professor
+credits[1][value]: 2700
+debts[0][name]: Telefone
+debts[0][value]: 89.59
+debts[0][status]:PAGO
+debts[1][name]: Condominio
+debts[1][value]: 720
+debts[1][status]:AGENDADO
+```
