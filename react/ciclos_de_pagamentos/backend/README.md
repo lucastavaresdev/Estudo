@@ -177,7 +177,8 @@ Criando a pasta backend
 
     -criando o arquivo config/routes
 
-    routes.js
+
+routes.js
         
 ```
         const express = require('express')
@@ -194,35 +195,37 @@ Criando a pasta backend
         }
 ```
 
+
         Apos definir as rotas
 
         no arquivo server.js exportar o server
-        
+
+
 ```
-            const port = 3004
+    const port = 3004
 
-            const bodyParser = require('body-parser')
-            const express = require('express')
-            const server = express()
+    const bodyParser = require('body-parser')
+    const express = require('express')
+    const server = express()
 
-            server.use(bodyParser.urlencoded({ extended: true }))
-            server.use(bodyParser.json())//pega todas as requisições json
+    server.use(bodyParser.urlencoded({ extended: true }))
+    server.use(bodyParser.json())//pega todas as requisições json
 
-            server.listen(port, function () {
-                console.log(`backend usando a porta ${port}`)
-            })
+    server.listen(port, function () {
+        console.log(`backend usando a porta ${port}`)
+    })
 
-
-            //exportando o server
-            module.exports = server
+    //exportando o server
+    module.exports = server
 ```
+
 
             após isso para para os routes o servidor no loader.js
             
-            ```
-            const server = require('./config/server')
-            require('./config/database')
-            require('./config/routes')(server)
+```
+    const server = require('./config/server')
+    require('./config/database')
+    require('./config/routes')(server)
 ```                
 
 
