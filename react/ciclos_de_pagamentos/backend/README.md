@@ -361,3 +361,46 @@ No agrregate alterar versão do mongoose para     "mongoose": "^4.13.7", e coloc
 ```
 module.exports = mongoose.connect('mongodb://localhost/ciclos', { useMongoClient: true })
 ```
+
+
+-Tratando os errors de post e put invalidos
+
+Criar common/errorHandle.js
+
+errorHandle.js
+```
+const _ = require('lodash')
+
+module.exports = (req, res, next) => {
+    const bundle = res.locals.bundle
+
+    if(bundle.errors) {
+        const errors = parseErrors(bundle.errors)
+        res.status(500).json({errors})
+    } else {
+        next()
+    }
+}
+
+const parseErrors = (nodeRestfulErrors) => {
+    const errors = []
+    _.forIn(nodeRestfulErrors, error => errors.push(error.message))
+    return errors 
+}
+```
+
+billingCycleService.js
+
+realizar a importação
+
+```
+const errorHandle = require('../common/errorHandler')
+```
+
+Adcionar a linda abaixo para interceptar apos var a requisição e colocar a msg
+
+```
+    BillingCycle.updateOptions({ new: true, runValidators: true })
+    BillingCycle.after('post', errorHandle).after('put', errorHandle)
+```
+
