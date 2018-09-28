@@ -161,7 +161,7 @@ Criando a pasta backend
 
     **billingCycleService.js**
 
-    
+```
     const BillingCycle = require('./billingCycle');
 
     //Metodos utilizados 
@@ -171,7 +171,7 @@ Criando a pasta backend
     BillingCycle.updateOptions({ new: true, runValidators: true })
 
     module.exports = BillingCycle
-
+```
 
 - Mapeando as Rotas
 
@@ -179,7 +179,7 @@ Criando a pasta backend
 
     routes.js
         
-        ```
+```
         const express = require('express')
 
         module.exports = function (server) {
@@ -192,13 +192,13 @@ Criando a pasta backend
             const BillingCycle = require('../api/billingCycle/billingCycleService')
             BillingCycle.register(router, './billingCycle')
         }
-        ```
+```
 
         Apos definir as rotas
 
         no arquivo server.js exportar o server
         
-        ```
+```
             const port = 3004
 
             const bodyParser = require('body-parser')
@@ -215,7 +215,7 @@ Criando a pasta backend
 
             //exportando o server
             module.exports = server
-            ```
+```
 
             após isso para para os routes o servidor no loader.js
             
