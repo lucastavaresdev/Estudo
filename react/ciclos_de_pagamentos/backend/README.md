@@ -177,7 +177,8 @@ Criando a pasta backend
     -criando o arquivo config/routes
 
     routes.js
-
+        
+        ```
         const express = require('express')
 
         module.exports = function (server) {
@@ -190,11 +191,13 @@ Criando a pasta backend
             const BillingCycle = require('../api/billingCycle/billingCycleService')
             BillingCycle.register(router, './billingCycle')
         }
+        ```
 
         Apos definir as rotas
 
         no arquivo server.js exportar o server
-
+        
+        ```
             const port = 3004
 
             const bodyParser = require('body-parser')
@@ -211,12 +214,13 @@ Criando a pasta backend
 
             //exportando o server
             module.exports = server
-
+            ```
 
             após isso para para os routes o servidor no loader.js
-
+            
+            ```
             const server = require('./config/server')
             require('./config/database')
             require('./config/routes')(server)
-                
+```                
 
