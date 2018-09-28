@@ -152,3 +152,71 @@ Criando a pasta backend
                 })
 
                 module.exports = restful.model('BillingCycle', billingCycleSchema)
+
+
+- Criação da api rest
+
+    criar um arquivo na pasta billingCycle/billingCycleService
+
+    **billingCycleService.js**
+
+    
+    const BillingCycle = require('./billingCycle');
+
+    //Metodos utilizados 
+    BillingCycle.methods(['get', 'post', 'put', 'delete'])
+
+    //Como as regras so funciona para os inserts essa linha coloca para update as validações
+    BillingCycle.updateOptions({ new: true, runValidators: true })
+
+    module.exports = BillingCycle
+
+
+- Mapeando as Rotas
+
+    -criando o arquivo config/routes
+
+    routes.js
+
+        const express = require('express')
+
+        module.exports = function (server) {
+
+            //Definir a URL base
+            const router = express.Router()
+            server.use('/api', router)
+
+            //Rotas do ciclo de pagamento
+            const BillingCycle = require('../api/billingCycle/billingCycleService')
+            BillingCycle.register(router, './billingCycle')
+        }
+
+        Apos definir as rotas
+
+        no arquivo server.js exportar o server
+
+            const port = 3004
+
+            const bodyParser = require('body-parser')
+            const express = require('express')
+            const server = express()
+
+            server.use(bodyParser.urlencoded({ extended: true }))
+            server.use(bodyParser.json())//pega todas as requisições json
+
+            server.listen(port, function () {
+                console.log(`backend usando a porta ${port}`)
+            })
+
+
+            //exportando o server
+            module.exports = server
+
+
+            após isso para para os routes o servidor no loader.js
+
+            const server = require('./config/server')
+            require('./config/database')
+            require('./config/routes')(server)
+                
+
