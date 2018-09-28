@@ -126,6 +126,7 @@ Criando a pasta backend
 
  ** billingCycle.js **
 
+```
                 const restful = require('node-restiful')
                 const mongoose = restful.mongoose
 
@@ -152,7 +153,7 @@ Criando a pasta backend
                 })
 
                 module.exports = restful.model('BillingCycle', billingCycleSchema)
-
+```
 
 - Criação da api rest
 
@@ -160,7 +161,7 @@ Criando a pasta backend
 
     **billingCycleService.js**
 
-    
+```
     const BillingCycle = require('./billingCycle');
 
     //Metodos utilizados 
@@ -170,14 +171,15 @@ Criando a pasta backend
     BillingCycle.updateOptions({ new: true, runValidators: true })
 
     module.exports = BillingCycle
-
+```
 
 - Mapeando as Rotas
 
     -criando o arquivo config/routes
 
-    routes.js
-
+    **routes.js**
+        
+```
         const express = require('express')
 
         module.exports = function (server) {
@@ -190,33 +192,149 @@ Criando a pasta backend
             const BillingCycle = require('../api/billingCycle/billingCycleService')
             BillingCycle.register(router, './billingCycle')
         }
-
-        Apos definir as rotas
-
-        no arquivo server.js exportar o server
-
-            const port = 3004
-
-            const bodyParser = require('body-parser')
-            const express = require('express')
-            const server = express()
-
-            server.use(bodyParser.urlencoded({ extended: true }))
-            server.use(bodyParser.json())//pega todas as requisições json
-
-            server.listen(port, function () {
-                console.log(`backend usando a porta ${port}`)
-            })
+```
 
 
-            //exportando o server
-            module.exports = server
+Apos definir as rotas
+no arquivo server.js exportar o server
 
 
-            após isso para para os routes o servidor no loader.js
+```
+    const port = 3004
 
-            const server = require('./config/server')
-            require('./config/database')
-            require('./config/routes')(server)
-                
+    const bodyParser = require('body-parser')
+    const express = require('express')
+    const server = express()
+
+    server.use(bodyParser.urlencoded({ extended: true }))
+    server.use(bodyParser.json())//pega todas as requisições json
+
+    server.listen(port, function () {
+        console.log(`backend usando a porta ${port}`)
+    })
+
+    //exportando o server
+    module.exports = server
+```
+
+
+Após isso para para os routes o servidor no loader.js
+            
+```
+    const server = require('./config/server')
+    require('./config/database')
+    require('./config/routes')(server)
+```                
+
+
+- Testando a api
+
+    -Abrir o postman
+
+Validação Funcionando
+
+```
+nome: Janeiro/17
+month: 1
+year: 2017
+credits[0][name]:Salario Empresa
+credits[0][value]: 6500
+credits[1][name]:Salario Professor
+credits[1][value]: 2700
+```
+
+
+Validação nao funcionando
+
+```
+nome: Janeiro/17
+month: 1
+year: 2017
+credits[0][name]:Salario Empresa
+credits[0][value]: 6500
+credits[1][name]:Salario Professor
+credits[1][value]: 2700
+debts[0][name]:Telefone
+```
+
+Colocando mensagem de erro 
+
+No **database.js** colocar a msg
+
+```
+    const mongoose = require('mongoose')
+    mongoose.Promise = global.Promise
+    module.exports = mongoose.connect('mongodb://localhost/ciclos')
+
+
+    mongoose.Error.messages.general.required = " O atributo '{PATH}' é obrigatorio."  
+
+```
+
+
+Outra forma de colocar o aviso é no billingCycles.js na regra coloca a mensagem
+
+```
+value: { type: Number, min: 0, required: [true, 'informe o valor de Debito'] },
+```
+
+
+Testando no postmen (abrir postman colocar a url da api, clicar em post -> body -> x-www-form -> Bulkedit-> colar -> send)
+
+```
+nome: Janeiro/17
+month: 1
+year: 2017
+credits[0][name]:Salario Empresa
+credits[0][value]: 6500
+credits[1][name]:Salario Professor
+credits[1][value]: 2700
+debts[0][name]: Telefone
+debts[0][value]: 89.59
+debts[0][status]:PAGO
+debts[1][name]: Condominio
+debts[1][value]: 720
+debts[1][status]:AGENDADO
+```
+
+Usando o put 
+
+pegar o id
+alterar a url http://localhost:3004/api/billingCycles/:id
+colocar post
+Clicar em paramtros 
+Colcoar o id desejado
+
+```
+
+mongoose.Error.messages.general.required = " O atributo '{PATH}' é obrigatorio."
+mongoose.Error.messages.Number.min = "O '{VALUE} informado é menor que o limite minimo de '{MIN}'"
+mongoose.Error.messages.Number.max = "O '{VALUE}' informado é maior que o limite maximo de {MAX}"
+mongoose.Error.messages.String.enum = "'{VALUE}' não é valido para o atributo '{PATH}'."
+
+```
+
+Neste momento api com as quatro operações ja deve estar funcionando
+
+============================================
+
+## ▶️ Obtendo a quantidade de Registros
+
+billingCycleService.js
+
+```
+//adiciona a rota e conta os resgistros no banco de dados
+BillingCycle.route('count', (req, res, next) => {
+    BillingCycle.count((error, value) => {
+        if (error) {
+            res.status(500).json({ errors: [error] })
+        } else {
+            res.json({ value })
+        }
+    })
+})
+
+```
+
+
 
