@@ -195,9 +195,8 @@ Criando a pasta backend
 ```
 
 
-        Apos definir as rotas
-
-        no arquivo server.js exportar o server
+Apos definir as rotas
+no arquivo server.js exportar o server
 
 
 ```
@@ -219,7 +218,7 @@ Criando a pasta backend
 ```
 
 
-            após isso para para os routes o servidor no loader.js
+Após isso para para os routes o servidor no loader.js
             
 ```
     const server = require('./config/server')
@@ -230,5 +229,5 @@ Criando a pasta backend
 
 - Testando a api
 
-Abrir o postman
+    -Abrir o postman
 
