@@ -296,3 +296,12 @@ debts[1][name]: Condominio
 debts[1][value]: 720
 debts[1][status]:AGENDADO
 ```
+
+Usando o put 
+
+pegar o id
+alterar a url http://localhost:3004/api/billingCycles/:id
+colocar post
+Clicar em paramtros 
+Colcoar o id desejado
+
