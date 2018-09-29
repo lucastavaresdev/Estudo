@@ -425,5 +425,30 @@ module.exports = (req, res, next) => {
 
 server.js
 ```
+const server = express()
+**const allowCors = require('./cors')**
+
+server.use(bodyParser.urlencoded({ extended: true }))
+server.use(bodyParser.json())//pega todas as requisições json
+**server.use(allowCors)**
 
 ```
+
+
+=========================================
+
+-Paginando a requisição
+
+server.js
+
+```
+const queryParser = require('express-query-int')
+server.use(queryParser())
+```
+
+para testar
+
+```
+http://localhost:3004/api/billingCycles?skip=0&limit=1
+```
+
