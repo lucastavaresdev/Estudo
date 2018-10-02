@@ -116,7 +116,21 @@ devServer: {
 </html>
 ```
 
+## Criando componente index e app
+
+criar na raiz a pasta de codigo fonte src
+dentro de src criar uma pasta main e app.jsx
+criar na pasta src inde.jsx
 
 
+no app.jsx
+```
+import React from 'react'
 
+export default props => (
+    <div className="wrapper">
+        <h1>App</h1>
+    </div>
+)
+```
 
