@@ -4,7 +4,8 @@
   "description": "node_modules/\r *.log\r react/curso-react-redux\r react/ciclos_de_pagamentos/package-lock.json\r react/ciclos_de_pagamentos/backend/package-lock.json",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack-dev-server --progress --colors --inline --hot",
+    "production": "webpack --progress -p"
   },
   "author": "Lucas Tavares",
   "license": "MIT",
