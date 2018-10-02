@@ -220,3 +220,48 @@ export default props => (
 ```
 
 
+# Componente Menu
+
+Criar 2 arquivos de componentes menu.jsx e sidebar.jsx
+
+
+
+**menu.jsx**
+```
+import React from 'react'
+
+export default props => (
+    <ul className="sidebar-menu">
+
+    </ul>
+)
+```
+
+**sidebar.jsx**
+```
+import React from 'react'
+import Menu from './menu'
+
+export default props => (
+    <aside className="main-sidebar">
+        <section className="sidebar">
+            <Menu />
+        </section>
+    </aside>
+)
+
+
+```
+
+**app.jsx**
+
+```
+import SideBar from '../common/template/sidebar'
+
+export default props => (
+    <div className="wrapper">
+        <Header />
+        <SideBar />
+    </div>
+)
+```
