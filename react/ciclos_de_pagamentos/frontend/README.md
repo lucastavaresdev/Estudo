@@ -135,7 +135,7 @@ export default props => (
 ```
 
 
-# Dependencias do tamplate admin LTE
+## Dependencias do tamplate admin LTE
 
 Vamos criar a pasta de dependencias comuns no tamplate
 
@@ -176,7 +176,7 @@ export default props => (
 )
 ```
 
-# Componente Cabeçalho
+## Componente Cabeçalho
 
 
 criar em na pasta tamplate criar
@@ -220,7 +220,7 @@ export default props => (
 ```
 
 
-# Componente Menu
+## Componente Menu
 
 Criar 2 arquivos de componentes menu.jsx e sidebar.jsx
 
@@ -265,3 +265,33 @@ export default props => (
     </div>
 )
 ```
+## Componente Menu Item
+
+
+criar um arquivo jsx em tamplate chamado menuItem.jsx
+
+**menuitem.jsx**
+```
+import React from 'react'
+
+export default props => (
+    <li>
+        <a href={props.path}>
+            <i className={`fa fa-${props.icon}`}></i>{props.label}
+        </a>
+    </li>
+)
+```
+
+**menu.jsx**
+```
+import React from 'react'
+import MenuItem from './menuitem'
+
+export default props => (
+    <ul className="sidebar-menu">
+        <MenuItem path='#' label='Dashboard' icon='dashboard' />
+    </ul>
+)
+```
+
