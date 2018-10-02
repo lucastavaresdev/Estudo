@@ -1,5 +1,4 @@
 # Criando o front end
-=====================================================
 
 Criar a pasta onde ficara o conteudo do projeto
 
@@ -17,3 +16,14 @@ $ npm i --save-dev react@15.4.2 react-dom@15.4.2 react-router@3.0.2 redux@3.6.0 
 ```
 
 ## Configurando o Webpack
+
+Criar um arquivo 'webpack.config.js'
+
+importar os modulos
+
+```
+const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+```
+
+
