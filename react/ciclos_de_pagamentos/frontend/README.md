@@ -176,3 +176,47 @@ export default props => (
 )
 ```
 
+# Componente Cabeçalho
+
+
+criar em na pasta tamplate criar
+
+**header.jsx**
+
+```
+import React from 'react'
+
+export default props => (
+    <header className='main-header'>
+        <a href="/#/" className='logo'>
+            <span className='logo-mini'><b>My</b>M</span>
+            <span className="logo-lg">
+                <i className="fa fa-money"></i>
+                <b>My</b>Money
+            </span>
+        </a>
+        <nav className='navbar navbar-static-top'>
+            <a href="#" className='sidebar-toggle' data-toggle='offcanvas'></a>
+        </nav>
+    </header>
+)
+```
+
+**app.jsx**
+
+```
+
+import '../common/template/dependecies'
+import React from 'react'
+
+import Header from '../common/template/header'
+
+export default props => (
+    <div className="wrapper">
+        <Header />
+    </div>
+)
+
+```
+
+
