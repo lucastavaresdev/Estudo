@@ -451,6 +451,62 @@ export default props => (
 ```
 
 
+## React Router
+
+Criar dois arquivos na pasta template content.jsx e contentHeader.jsx
+
+
+**contentHeader.jsx**
+```
+import React from 'React'
+
+export default props => (
+    <section className="content-header">
+        <h1>{props.title} <small>{props.small}</small></h1>
+    </section>
+)
+```
+
+
+**contentHeader.jsx**
+```
+import React from 'react'
+
+export default props => (
+    <section className="content">{props.children}</section>
+)
+```
+
+
+
+
+**O dashboard sera transformado em um componente de classe**
+
+
+
+
+**dashboard.jsx**
+```
+import React, { Component } from 'react'
+
+import ContentHeader from '../common/template/contentHeader'
+import Content from '../common/template/content'
+
+class Dashboard extends Component {
+    render() {
+        return (
+            <div>
+                <ContentHeader />
+                <Content>
+                    Dashboard
+                </Content>
+            </div>
+        )
+    }
+}
+
+export default Dashboard
+```
 
 
 
