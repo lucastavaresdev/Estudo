@@ -608,3 +608,27 @@ export default props => (
 ```
 
 
+# Colocando o Redux na Aplicação
+
+## Configurando o redux
+
+- Na pasta main criar um arquivo que ira controlar os reducer (reducers.js)
+
+
+**reducers.js**
+```
+//importando  o redux
+import { combineReducers } from 'redux'
+
+//criado uma função pura recebe dos paramentro o estado atual(store) e a ação
+//
+const rootReducer = combineReducers({
+    dashboard: () => ({ sumary: { credit: 100, deb: 50 } })
+})
+
+//exportando o reducer
+export default rootReducer
+```
+
+
+**index.jsx**
