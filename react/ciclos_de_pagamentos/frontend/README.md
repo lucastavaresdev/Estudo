@@ -331,6 +331,48 @@ export default props => (
     )
 ```
 
+## Componente Footer
+
+Criar footer.jsx
+
+**footer.jsx**
+```
+    import React from 'react'
+
+
+    export default props => (
+        <footer className="main-footer">
+            <strong>
+                Copyright &copy; 2018
+                <a href="#" target='' _blank>Lucas Tavares</a>
+
+            </strong>
+        </footer>
+    )
+```
+
+app.jsx
+
+```
+import '../common/template/dependecies'
+import React from 'react'
+
+import Header from '../common/template/header'
+import SideBar from '../common/template/sidebar'
+import Footer from '../common/template/footer'
+
+export default props => (
+    <div className="wrapper">
+        <Header />
+        <SideBar />
+        <div className="content-wrapper">
+            <h1>Conteudo</h1>
+        </div>
+        <Footer />
+    </div>
+)
+```
+
 
 
 
