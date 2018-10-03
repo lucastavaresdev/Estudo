@@ -351,7 +351,7 @@ Criar footer.jsx
     )
 ```
 
-app.jsx
+**app.jsx**
 
 ```
 import '../common/template/dependecies'
@@ -372,6 +372,84 @@ export default props => (
     </div>
 )
 ```
+
+## React Router
+
+Criar o caminho src/billingCycle/billingCycle.jsx  e src/dashboard.jsx
+
+
+**dashboard.jsx**
+
+```
+import React from 'react'
+
+export default props => (
+    <div>
+        <h1>Dashboard</h1>
+    </div>
+)
+
+```
+
+**billingCycle.jsx**
+
+```
+import React from 'react'
+
+export default props => (
+    <div>
+        <h1>Ciclos de Pagamento</h1>
+    </div>
+)
+
+```
+
+Para criar as Rotas
+
+criar o caminho  main/routes.jsx
+
+**routes.jsx**
+```
+import React from 'react'
+import { Router, Route, Redirect, hashHistory } from 'react-router'
+
+
+import Dashboard from '../dashboard/dashboard'
+import BillingCycle from '../billingCycle/billingCycle'
+
+
+export default props => (
+    <Router history={hashHistory}>
+        <Router path='/' component={Dashboard} />
+        <Router path='/billingCycles' component={BillingCycle} />
+        <Redirect from='*' to='/' />
+    </Router>
+)
+```
+
+**app.jsx**
+
+```
+import '../common/template/dependecies'
+import React from 'react'
+
+import Header from '../common/template/header'
+import SideBar from '../common/template/sidebar'
+import Footer from '../common/template/footer'
+import Routes from './routes'
+
+export default props => (
+    <div className="wrapper">
+        <Header />
+        <SideBar />
+        <div className="content-wrapper">
+            <Routes />
+        </div>
+        <Footer />
+    </div>
+)
+```
+
 
 
 
