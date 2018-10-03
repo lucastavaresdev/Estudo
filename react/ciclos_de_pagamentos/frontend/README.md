@@ -451,7 +451,7 @@ export default props => (
 ```
 
 
-## React Router
+## Titulo de Conteudo
 
 Criar dois arquivos na pasta template content.jsx e contentHeader.jsx
 
@@ -508,5 +508,60 @@ class Dashboard extends Component {
 export default Dashboard
 ```
 
+## Componente Grid
+
+Criar common/layout/grid.jsx
+
+**grid.jsx**
+```
+import React, { Component } from 'react'
+
+export default class Grid extends Component {
+
+    toCssClasses(numbers) {
+        const cols = numbers ? numbers.split(' ') : []
+        let classes = ' '
+
+        if (cols[0]) classes += `col-xs-${cols[0]}`
+        if (cols[1]) classes += `col-sm-${cols[1]}`
+        if (cols[2]) classes += `col-md-${cols[2]}`
+        if (cols[3]) classes += `col-lg-${cols[3]}`
+
+        return classes
+    }
+
+    render() {
+        const gridClasses = this.toCssClasses(this.props.cols || '12')
+        return (
+            <div className={gridClasses}>
+                {this.props.children}
+            </div>
+        )
+    }
+}
+```
 
 
+## ValueBox
+
+
+**valuebox.jsx**
+```
+import React from 'react'
+import Grid from '../layout/grid'
+
+
+export default props => (
+    <Grid cols={props.cols}>
+        <div className={`small-box bg-${props.color}`}>
+            <div className="inner">
+                <h3>{props.value}</h3>
+                <p>{props.text}</p>
+            </div>
+            <div className="icon">
+                <div className={`fa fa-${props.icon}`}></div>
+            </div>
+        </div>
+    </Grid>
+)
+```
