@@ -630,5 +630,118 @@ const rootReducer = combineReducers({
 export default rootReducer
 ```
 
+# Integrando React redux
 
-**index.jsx**
+importar na dashboard um metodo do redux
+
+**dashboard**
+```
+import { connect } from 'react-redux'
+```
+
+antes de exportar é criado uma constante
+
+```
+const mapStateToProps = state => ({summary: state.dashboard.summary})
+```
+
+dashboard é referente a esta linha e o que foi criado la no reducer
+
+**reducer.js**
+```
+   dashboard: () => ({ sumary: { credit: 100, deb: 50 } })
+```
+
+voce exporta e mostra para o redux o objeto
+```
+const mapStateToProps = state => ({ summary: state.dashboard.summary })
+export default connect(mapStateToProps)(Dashboard)
+```
+
+dentro da classe vc extrai o sumario
+
+```
+const {credit, debt} = this.props.summary
+```
+
+apontar onde sera usada a variavel
+
+
+### ficou desta forma 
+
+**reducer.js**
+
+```
+import { combineReducers } from 'redux'
+
+const rootReducer = combineReducers({
+    dashboard: () => ({ summary: { credit: 120, debt: 50 } })
+})
+
+export default rootReducer
+```
+
+**Dashboard.jsx**
+```
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import ContentHeader from '../common/template/contentHeader'
+import Content from '../common/template/content'
+import ValueBox from '../common/widget/valuebox'
+import Row from '../common/layout/row';
+
+class Dashboard extends Component {
+    render() {
+
+        const { credit, debt } = this.props.summary
+
+        return (
+            <div>
+                <ContentHeader title='Dashboard' small='Versão 1.0' />
+                <Content>
+                    <Row>
+                        <ValueBox cols='12 4' color='green' icon='bank' value={`R$ ${credit}`} text='Total de Creditos' />
+                        <ValueBox cols='12 4' color='red' icon='credit-card' value={`R$ ${debt}`} text='Total de Debitos' />
+                        <ValueBox cols='12 4' color='blue' icon='money' value={`R$ ${credit - debt}`} text='Total Consolidado' />
+                    </Row>
+                </Content>
+            </div>
+        )
+    }
+}
+
+
+const mapStateToProps = state => ({ summary: state.dashboard.summary })
+export default connect(mapStateToProps)(Dashboard)
+```
+
+agora o reducer verdadeiro
+
+
+Criar na pasta dashboard/dashboard.reducer.js
+
+**dashboard.reducer.js**
+```
+const INITIAL_STATE = { summary: { credit: 0, debt: 0 } }
+
+export default function (state = INITIAL_STATE, action) {
+    return state
+}
+
+```
+**reducers.js**
+```
+import { combineReducers } from 'redux'
+
+import DashboardReducer from '../dashboard/dashboard.reducer'
+
+const rootReducer = combineReducers({
+    dashboard: DashboardReducer
+})
+
+export default rootReducer
+
+```
+
+# Integrando Redux - action creators
