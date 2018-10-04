@@ -745,3 +745,102 @@ export default rootReducer
 ```
 
 # Integrando Redux - action creators
+
+**dashboardActions.js**
+
+```
+import axios from 'axios'
+
+const BASE_URL = 'http://localhost:3003/api'
+
+export function getSummary() {
+    const request = axios.get(`${BASE_URL}/billingCycles/summary`)
+    return {
+        type: 'BILLING_SUMMARY_FETCHED',
+        payload: request
+    }
+}
+```
+
+
+**dashboard.reducer.js.js**
+
+```
+
+const INITIAL_STATE = { summary: { credit: 0, debt: 0 } }
+
+export default function (state = INITIAL_STATE, action) {
+    switch (action.type) {
+        case 'BILLING_SUMMARY_FETCHED':
+            return { ...state, summary: action.payload.data }
+        default:
+            return state
+    }
+}
+```
+
+ - Ligando o reducer ao dashboard
+
+ no dashboard fazer as importações
+
+
+### dashboard
+
+```
+    import { bindActionCreators } from 'redux'
+    import { getSummary } from './dashboardActions'
+```
+
+depois é criado o dispach que faz a ligação todas as actions creators liga com o dispash e retorna para todo os reducers da aplicação
+```
+    const mapDispatchToProps = dispatch => bindActionCreators({ getSummary }, dispatch)
+```
+
+depois ele é ligado
+
+```
+    export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+```
+quando o metodo é rederizado
+
+```
+    componentWillMount() {
+        this.props.getSummary()
+    }
+```
+
+na index é colocado estas linhas para aguardar o retorno
+
+```
+//importa o middleware
+import { applyMiddleware, createStore } from 'redux'
+
+//importa a promisse
+import promise from 'redux-promise'
+//só libera o reducer após a a resulução da promisse
+const store = applyMiddleware(promise)(createStore)(reducers)
+```
+
+
+** index.jsx **
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+import { applyMiddleware, createStore } from 'redux'
+import { Provider } from 'react-redux'
+
+import App from './main/app'
+import reducers from './main/reducers'
+
+import promise from 'redux-promise'
+
+
+const store = applyMiddleware(promise)(createStore)(reducers)
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+    , document.getElementById('app'))
+```
