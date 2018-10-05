@@ -889,3 +889,30 @@ ReactDOM.render(
 
 
 # Visão Geral ciclos de pagamento
+
+## Refatorando o billing Cycles passando para componente de classe
+
+```
+import React, { Component } from 'react'
+
+import ContentHeader from '../common/template/contentHeader'
+import Content from '../common/template/content'
+
+class BillingCycle extends Component {
+    render() {
+        return (
+            <div>
+                <ContentHeader title='Ciclos de Pagamento' small='Cadastro' />
+                <Content>
+                    Ciclos de pagamento
+
+                </Content>
+            </div>
+        )
+    }
+}
+
+export default BillingCycle
+```
+
+##
