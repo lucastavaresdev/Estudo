@@ -845,7 +845,7 @@ ReactDOM.render(
     , document.getElementById('app'))
 ```
 
-##Colocando o reduxdevTools
+## Colocando o reduxdevTools
 
 
 baixar o reduxdevTools
@@ -884,3 +884,8 @@ ReactDOM.render(
     </Provider>
     , document.getElementById('app'))
 ```
+
+----------------------------------------------------------------
+
+
+# Visão Geral ciclos de pagamento
