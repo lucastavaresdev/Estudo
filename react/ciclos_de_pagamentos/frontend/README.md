@@ -992,3 +992,49 @@ class BillingCycle extends Component {
 
 export default BillingCycle
 ```
+
+## Componente TabHeader
+
+
+common/tab/tabHeader.jsx
+
+
+```
+import React, { Component } from 'react'
+
+class TabHeader extends Component {
+    render() {
+        return (
+            <li>
+                <a href='javascript:;'
+                    data-toggle='tab'
+                    data-target={this.props.target}>
+                    <i className={`fa fa-${this.props.icon}`} ></i>
+                    {this.props.label}
+                </a>
+            </li>
+        )
+    }
+}
+
+export default TabHeader
+```
+
+BillingCyclos.jsx Ciclos de Pagamento
+```
+          <ContentHeader title='Ciclos de Pagamento' small='Cadastro' />
+                <Content>
+                    <Tabs>
+                        <TabsHeaders>
+                            <TabHeader label='Listar' icon='bars' target='tabList' />
+                            <TabHeader label='Incluir' icon='plus' target='tabCreate' />
+                            <TabHeader label='Alterar' icon='pencil' target='tabUpdate' />
+                            <TabHeader label='Excluir' icon='trash-o' target='tabDelete' />
+
+                        </TabsHeaders>
+                        <TabsContent>
+
+                        </TabsContent>
+                    </Tabs>
+                </Content>
+```
