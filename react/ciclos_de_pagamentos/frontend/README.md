@@ -1038,3 +1038,6 @@ BillingCyclos.jsx Ciclos de Pagamento
                     </Tabs>
                 </Content>
 ```
+
+
+## Criando a primeira Action e o Reducer
