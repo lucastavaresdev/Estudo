@@ -915,4 +915,80 @@ class BillingCycle extends Component {
 export default BillingCycle
 ```
 
-##
+## Componentes extruturais de abas
+
+Criar 3 componentes
+
+common/tab/tabs.jsx
+```
+import React from 'react'
+
+export default props => (
+    <div className="nav-tabs-custom">
+        {props.children}
+    </div>
+)
+
+```
+
+common/tab/tabsContent.jsx
+
+```
+import React from 'react'
+
+export default props => (
+    <div className="tab-content">
+        {props.children}
+    </div>
+)
+```
+
+common/tab/tabsHeaders.jsx
+
+```
+import React from 'react'
+
+export default props => (
+    <div className="tab-content">
+        {props.children}
+    </div>
+)
+```
+
+agora deve-se importar na pagina ciclos de pagamento (Billing Cycles)
+
+```
+import React, { Component } from 'react'
+
+import ContentHeader from '../common/template/contentHeader'
+import Content from '../common/template/content'
+
+** import Tabs from '../common/tab/tabs'
+import TabsHeaders from '../common/tab/tabsHeaders'
+import TabsContent from '../common/tab/tabsContent' **
+
+class BillingCycle extends Component {
+    render() {
+        return (
+            <div>
+                <ContentHeader title='Ciclos de Pagamento' small='Cadastro' />
+                <Content>
+                  
+                  **  <Tabs>
+                        <TabsHeaders>
+
+
+                        </TabsHeaders>
+                        <TabsContent>
+
+                        </TabsContent>
+                    </Tabs>
+                    **
+                </Content>
+            </div>
+        )
+    }
+}
+
+export default BillingCycle
+```
