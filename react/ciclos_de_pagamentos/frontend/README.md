@@ -630,5 +630,414 @@ const rootReducer = combineReducers({
 export default rootReducer
 ```
 
+# Integrando React redux
 
-**index.jsx**
+importar na dashboard um metodo do redux
+
+**dashboard**
+```
+import { connect } from 'react-redux'
+```
+
+antes de exportar é criado uma constante
+
+```
+const mapStateToProps = state => ({summary: state.dashboard.summary})
+```
+
+dashboard é referente a esta linha e o que foi criado la no reducer
+
+**reducer.js**
+```
+   dashboard: () => ({ sumary: { credit: 100, deb: 50 } })
+```
+
+voce exporta e mostra para o redux o objeto
+```
+const mapStateToProps = state => ({ summary: state.dashboard.summary })
+export default connect(mapStateToProps)(Dashboard)
+```
+
+dentro da classe vc extrai o sumario
+
+```
+const {credit, debt} = this.props.summary
+```
+
+apontar onde sera usada a variavel
+
+
+### ficou desta forma 
+
+**reducer.js**
+
+```
+import { combineReducers } from 'redux'
+
+const rootReducer = combineReducers({
+    dashboard: () => ({ summary: { credit: 120, debt: 50 } })
+})
+
+export default rootReducer
+```
+
+**Dashboard.jsx**
+```
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import ContentHeader from '../common/template/contentHeader'
+import Content from '../common/template/content'
+import ValueBox from '../common/widget/valuebox'
+import Row from '../common/layout/row';
+
+class Dashboard extends Component {
+    render() {
+
+        const { credit, debt } = this.props.summary
+
+        return (
+            <div>
+                <ContentHeader title='Dashboard' small='Versão 1.0' />
+                <Content>
+                    <Row>
+                        <ValueBox cols='12 4' color='green' icon='bank' value={`R$ ${credit}`} text='Total de Creditos' />
+                        <ValueBox cols='12 4' color='red' icon='credit-card' value={`R$ ${debt}`} text='Total de Debitos' />
+                        <ValueBox cols='12 4' color='blue' icon='money' value={`R$ ${credit - debt}`} text='Total Consolidado' />
+                    </Row>
+                </Content>
+            </div>
+        )
+    }
+}
+
+
+const mapStateToProps = state => ({ summary: state.dashboard.summary })
+export default connect(mapStateToProps)(Dashboard)
+```
+
+agora o reducer verdadeiro
+
+
+Criar na pasta dashboard/dashboard.reducer.js
+
+**dashboard.reducer.js**
+```
+const INITIAL_STATE = { summary: { credit: 0, debt: 0 } }
+
+export default function (state = INITIAL_STATE, action) {
+    return state
+}
+
+```
+**reducers.js**
+```
+import { combineReducers } from 'redux'
+
+import DashboardReducer from '../dashboard/dashboard.reducer'
+
+const rootReducer = combineReducers({
+    dashboard: DashboardReducer
+})
+
+export default rootReducer
+
+```
+
+# Integrando Redux - action creators
+
+**dashboardActions.js**
+
+```
+import axios from 'axios'
+
+const BASE_URL = 'http://localhost:3003/api'
+
+export function getSummary() {
+    const request = axios.get(`${BASE_URL}/billingCycles/summary`)
+    return {
+        type: 'BILLING_SUMMARY_FETCHED',
+        payload: request
+    }
+}
+```
+
+
+**dashboard.reducer.js.js**
+
+```
+
+const INITIAL_STATE = { summary: { credit: 0, debt: 0 } }
+
+export default function (state = INITIAL_STATE, action) {
+    switch (action.type) {
+        case 'BILLING_SUMMARY_FETCHED':
+            return { ...state, summary: action.payload.data }
+        default:
+            return state
+    }
+}
+```
+
+ - Ligando o reducer ao dashboard
+
+ no dashboard fazer as importações
+
+
+### dashboard
+
+```
+    import { bindActionCreators } from 'redux'
+    import { getSummary } from './dashboardActions'
+```
+
+depois é criado o dispach que faz a ligação todas as actions creators liga com o dispash e retorna para todo os reducers da aplicação
+```
+    const mapDispatchToProps = dispatch => bindActionCreators({ getSummary }, dispatch)
+```
+
+depois ele é ligado
+
+```
+    export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+```
+quando o metodo é rederizado
+
+```
+    componentWillMount() {
+        this.props.getSummary()
+    }
+```
+
+na index é colocado estas linhas para aguardar o retorno
+
+```
+//importa o middleware
+import { applyMiddleware, createStore } from 'redux'
+
+//importa a promisse
+import promise from 'redux-promise'
+//só libera o reducer após a a resulução da promisse
+const store = applyMiddleware(promise)(createStore)(reducers)
+```
+
+
+** index.jsx **
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+import { applyMiddleware, createStore } from 'redux'
+import { Provider } from 'react-redux'
+
+import App from './main/app'
+import reducers from './main/reducers'
+
+import promise from 'redux-promise'
+
+
+const store = applyMiddleware(promise)(createStore)(reducers)
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+    , document.getElementById('app'))
+```
+
+## Colocando o reduxdevTools
+
+
+baixar o reduxdevTools
+
+index.jsx
+
+linhas inseridas
+```
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__
+    && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+const store = applyMiddleware(promise)(createStore)(reducers, devTools)
+```
+
+
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+import { applyMiddleware, createStore } from 'redux'
+import { Provider } from 'react-redux'
+
+import App from './main/app'
+import reducers from './main/reducers'
+
+import promise from 'redux-promise'
+
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__
+    && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+const store = applyMiddleware(promise)(createStore)(reducers, devTools)
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+    , document.getElementById('app'))
+```
+
+----------------------------------------------------------------
+
+
+# Visão Geral ciclos de pagamento
+
+## Refatorando o billing Cycles passando para componente de classe
+
+```
+import React, { Component } from 'react'
+
+import ContentHeader from '../common/template/contentHeader'
+import Content from '../common/template/content'
+
+class BillingCycle extends Component {
+    render() {
+        return (
+            <div>
+                <ContentHeader title='Ciclos de Pagamento' small='Cadastro' />
+                <Content>
+                    Ciclos de pagamento
+
+                </Content>
+            </div>
+        )
+    }
+}
+
+export default BillingCycle
+```
+
+## Componentes extruturais de abas
+
+Criar 3 componentes
+
+common/tab/tabs.jsx
+```
+import React from 'react'
+
+export default props => (
+    <div className="nav-tabs-custom">
+        {props.children}
+    </div>
+)
+
+```
+
+common/tab/tabsContent.jsx
+
+```
+import React from 'react'
+
+export default props => (
+    <div className="tab-content">
+        {props.children}
+    </div>
+)
+```
+
+common/tab/tabsHeaders.jsx
+
+```
+import React from 'react'
+
+export default props => (
+    <div className="tab-content">
+        {props.children}
+    </div>
+)
+```
+
+agora deve-se importar na pagina ciclos de pagamento (Billing Cycles)
+
+```
+import React, { Component } from 'react'
+
+import ContentHeader from '../common/template/contentHeader'
+import Content from '../common/template/content'
+
+** import Tabs from '../common/tab/tabs'
+import TabsHeaders from '../common/tab/tabsHeaders'
+import TabsContent from '../common/tab/tabsContent' **
+
+class BillingCycle extends Component {
+    render() {
+        return (
+            <div>
+                <ContentHeader title='Ciclos de Pagamento' small='Cadastro' />
+                <Content>
+                  
+                  **  <Tabs>
+                        <TabsHeaders>
+
+
+                        </TabsHeaders>
+                        <TabsContent>
+
+                        </TabsContent>
+                    </Tabs>
+                    **
+                </Content>
+            </div>
+        )
+    }
+}
+
+export default BillingCycle
+```
+
+## Componente TabHeader
+
+
+common/tab/tabHeader.jsx
+
+
+```
+import React, { Component } from 'react'
+
+class TabHeader extends Component {
+    render() {
+        return (
+            <li>
+                <a href='javascript:;'
+                    data-toggle='tab'
+                    data-target={this.props.target}>
+                    <i className={`fa fa-${this.props.icon}`} ></i>
+                    {this.props.label}
+                </a>
+            </li>
+        )
+    }
+}
+
+export default TabHeader
+```
+
+BillingCyclos.jsx Ciclos de Pagamento
+```
+          <ContentHeader title='Ciclos de Pagamento' small='Cadastro' />
+                <Content>
+                    <Tabs>
+                        <TabsHeaders>
+                            <TabHeader label='Listar' icon='bars' target='tabList' />
+                            <TabHeader label='Incluir' icon='plus' target='tabCreate' />
+                            <TabHeader label='Alterar' icon='pencil' target='tabUpdate' />
+                            <TabHeader label='Excluir' icon='trash-o' target='tabDelete' />
+
+                        </TabsHeaders>
+                        <TabsContent>
+
+                        </TabsContent>
+                    </Tabs>
+                </Content>
+```
+
+
+## Criando a primeira Action e o Reducer
