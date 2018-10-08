@@ -1041,3 +1041,48 @@ BillingCyclos.jsx Ciclos de Pagamento
 
 
 ## Criando a primeira Action e o Reducer
+
+Criar na pasta tab/tabAction
+
+```
+export function selectTab(tabId) {
+    console.log(tabID)
+    return {
+        type: 'TAB_SELECTED',
+        payload: tabId
+    }
+}
+```
+
+Agora criamos o reducer da ação
+
+tab/tebReducer
+
+```
+const INITIAL_STATE = { selected: ' ' }
+
+export default (state = INITIAL_STATE, action) => {
+    switch (action.type) {
+        case 'TAB_SELECTED':
+            return { ...state, selected: action.payload }
+        default:
+            return state
+    }
+}
+```
+
+No main reducer devese importar
+
+main/reducers
+```
+const INITIAL_STATE = { selected: ' ' }
+
+export default (state = INITIAL_STATE, action) => {
+    switch (action.type) {
+        case 'TAB_SELECTED':
+            return { ...state, selected: action.payload }
+        default:
+            return state
+    }
+}
+```
