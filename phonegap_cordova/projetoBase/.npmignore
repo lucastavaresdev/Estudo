@@ -1,2 +1,8 @@
 # OS X
 .DS_Store
+
+./res
+./plugins
+./node_modules
+./platforms
+./hooks
