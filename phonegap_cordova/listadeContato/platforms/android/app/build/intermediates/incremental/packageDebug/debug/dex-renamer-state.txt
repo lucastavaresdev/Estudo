@@ -1,4 +1,0 @@
-#Wed Aug 29 10:41:47 BRT 2018
-base.0=C\:\\wamp\\www\\cursos\\Javascript\\phonegap_cordova\\listadeContato\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-renamed.0=classes.dex
-file.0=C\:\\wamp\\www\\cursos\\Javascript\\phonegap_cordova\\listadeContato\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex
