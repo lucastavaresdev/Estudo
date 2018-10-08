@@ -1086,3 +1086,33 @@ export default (state = INITIAL_STATE, action) => {
     }
 }
 ```
+
+
+## Componente TabHeader: Conectando com Redux
+
+
+importar no tabHeader.jsx
+```
+import { bindActionCreators } from 'react-redux'
+import { connect } from './tabActions'
+
+import { selectTab } from './tabActions'
+
+```
+
+
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+
