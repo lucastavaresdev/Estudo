@@ -12,15 +12,18 @@ class TabHeader extends Component {
                     data-toggle='tab'
                     onClick={() => this.props.selectTab(this.props.target)}
                     data-target={this.props.target}>
-                    <i className={`fa fa-${this.props.icon}`} ></i>
-                    {this.props.label}
+                    <i className={`fa fa-${this.props.icon}`}></i> {this.props.label}
                 </a>
             </li>
         )
     }
 }
 
+
+
+
+
 const mapStateToProps = state => ({ tab: state.tab })
 const mapDispatchToProps = dispatch => bindActionCreators({ selectTab }, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(TabHeader)
 
-export default connect(mapStateToProps, mapDispatchToProps)(TabHeader) 

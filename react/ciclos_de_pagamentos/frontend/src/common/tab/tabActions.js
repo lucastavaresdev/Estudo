@@ -1,5 +1,5 @@
 export function selectTab(tabId) {
-    console.log(tabID)
+    console.log(tabId)
     return {
         type: 'TAB_SELECTED',
         payload: tabId
