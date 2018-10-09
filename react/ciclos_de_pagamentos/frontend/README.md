@@ -1093,24 +1093,104 @@ export default (state = INITIAL_STATE, action) => {
 
 importar no tabHeader.jsx
 ```
-import { bindActionCreators } from 'react-redux'
-import { connect } from './tabActions'
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 import { selectTab } from './tabActions'
 
-```
+class TabHeader extends Component {
+    render() {
+        const selected = this.props.tab.selected === this.props.target
+        return (
+            <li className={selected ? 'active' : ' '}>
+                <a href='javascript:;'
+                    data-toggle='tab'
+                    onClick={() => this.props.selectTab(this.props.target)}
+                    data-target={this.props.target}>
+                    <i className={`fa fa-${this.props.icon}`}></i> {this.props.label}
+                </a>
+            </li>
+        )
+    }
+}
 
 
+const mapStateToProps = state => ({ tab: state.tab })
+const mapDispatchToProps = dispatch => bindActionCreators({ selectTab }, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(TabHeader)
+```
+## Compoenente tab content
+
+
+Componente de classe sem o  redux
+
+tabContent.jsx
+```
+import React, { Component } from 'react'
+
+class TabContent extends Component {
+    render() {
+        return (
+            <div id={this.props.id}>
+                {this.props.children}
+            </div>
+        )
+    }
+}
+```
+
+colocando o redux
+tabContent.jsx
+```
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+
+class TabContent extends Component {
+    render() {
+        return (
+            <div id={this.props.id}>
+                {this.props.children}
+            </div>
+        )
+    }
+}
+
+const mapStateToProps = state => ({ tab: state.tab })
+export default connect(mapStateToProps)(TabContent)
+```
+
+tabContent.jsx colocando a classe de ativo
+
+```
+class TabContent extends Component {
+    render() {
+        const selected = this.props.tab.selected === this.props.id
+        return (
+            <div id={this.props.id} className={`tab-pane ${selected ? 'active' : ' '}`}>
+                {this.props.children}
+            </div>
+        )
+    }
+}
+```
+
+billingCycles.jsx
+```
+  <TabsContent>
+    <TabContent id='tabList'><h1>Lista</h1></TabContent>
+    <TabContent id='tabCreate'><h1>Incluir</h1></TabContent>
+    <TabContent id='tabUpdate'><h1>Alterar</h1></TabContent>
+    <TabContent id='tabDelete'><h1>Delete</h1></TabContent>
+ </TabsContent>
+```
+
+## Componente BillingCycles
 ```
 ```
-```
-```
-```
-```
-```
-```
-```
-```
+
 ```
 ```
 ```
