@@ -1580,14 +1580,14 @@ class BillingCycleList extends Component {
 const mapStateToProps = state => ({ list: state.billingCycle.list })
 const mapDispatchToProps = dispatch => bindActionCreators({ getList }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(BillingCycleList)
+```
 
+## Exibindo dados do BillingCyclesList
 
+```
 ```
 
 
-```
-
-```
 ```
 ```
 ```
