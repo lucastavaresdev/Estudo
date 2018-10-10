@@ -1635,20 +1635,85 @@ import Form from './billingCycleForm'
 
 ## Redux Form pt2
 
+BillingCycleForm.jsx
 ```
+import React, { Component } from 'react'
+import { reduxForm, Field } from 'redux-form'
+
+class BillingCycleForm extends Component {
+    render() {
+        const { handleSubmit } = this.props
+
+        return (
+            <form role='form' onSubmit={handleSubmit}>
+                <div className="box-body">
+                    <Field name='name' component='input' />
+                    <Field name='month' component='input' />
+                    <Field name='year' component='input' />
+                </div>
+                <div className="box-footer">
+                    <button type='submit' className="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        )
+    }
+}
+
+export default reduxForm({ form: 'billingCycleForm' })(BillingCycleForm)
+```
+
+billingCyclesActions.js
+```
+export function create(values) {
+    console.log(values)
+}
+```
+
+billingCycles.jsx
+
+```
+import { selectTab, showTabs } from '../common/tab/tabActions'
+import { create } from './billingCyclesActions'
+
+ <TabContent id='tabCreate'>
+        <Form onSubmit={tabCreate} />
+</TabContent>
+
+const mapDispatchToProps = dispatch => bindActionCreators({ selectTab, showTabs, create }, dispatch)
 
 ```
 
+billingCyclesActions
+```
+import axios from 'axios'
+
+const BASE_URL = 'http://localhost:3004/api'
 
 
+export function getList() {
+    const request = axios.get(`${BASE_URL}/billingCycles`)
+    return {
+        type: 'BILLING_CYCLES_FETCHED',
+        payload: request
+    }
+}
+
+export function create(values) {
+    axios.post(`${BASE_URL}/billingCycles`, values)
+    return {
+        type: 'TEMP'
+    }
+}
+```
+
+
+## Mensagem de sucesso e errors
+
 ```
 ```
-```
-```
-```
-```
-```
-```
+
+
+
 ```
 ```
 ```
