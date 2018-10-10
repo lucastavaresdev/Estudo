@@ -1391,15 +1391,90 @@ export default connect(mapStateToProps)(TabContent)
 
 
 
-## Visibilidade das abas (Parte 2)
+## Criando o action getList
+
+billingCyclesActions
+```
+import axios from 'axios'
+
+const BASE_URL = 'http://localhost:3004/api'
+
+
+export function getList() {
+    const request = axios.get(`${BASE_URL}/billingCycles`)
+    return {
+        type: 'BILLING_CYCLES_FETCHED',
+        payload: request
+    }
+}
+```
+
+
+billingCyclesReducer.js
+
+```
+const INITIAL_STATE = { list: [] }
+
+export default (state = INITIAL_STATE, action) => {
+    switch (action.type) {
+        case 'BILLING_CYCLES_FETCHED':
+            return { ...state, list: action.payload.data }
+        default:
+            return state
+    }
+}
+```
+tornando visivel na aplicação
+reducers.js
+
+```
+import { combineReducers } from 'redux'
+
+import DashboardReducer from '../dashboard/dashboardReducer'
+import TabReducer from '../common/tab/tabReducer'
+import BillingCyclesReducer from '../billingCycle/billingCyclesReducer'
+
+const rootReducer = combineReducers({
+    dashboard: DashboardReducer,
+    tab: TabReducer,
+    billingCycle: BillingCyclesReducer
+})
+
+export default rootReducer
+```
+
+
 
 ```
 ```
 ```
 ```
-
-
-
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
 ```
 ```
 
