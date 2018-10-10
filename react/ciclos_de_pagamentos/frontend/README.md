@@ -1443,12 +1443,46 @@ const rootReducer = combineReducers({
 export default rootReducer
 ```
 
+## Componenete Billing Cycles List 
 
 
+billingCycleList.jsx
+
 ```
+import React, { Component } from 'react'
+
+
+class billingCycleList extends Component {
+    render() {
+        return (
+            <div>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Mês</th>
+                            <th>Ano</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+}
 ```
+
+billingCycle.jsx
 ```
+            <TabContent id='tabList'>
+                    <List />
+           </TabContent>
 ```
+
+
+
 ```
 ```
 ```
