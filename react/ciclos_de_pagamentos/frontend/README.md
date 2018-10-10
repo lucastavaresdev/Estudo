@@ -1582,18 +1582,65 @@ const mapDispatchToProps = dispatch => bindActionCreators({ getList }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(BillingCycleList)
 ```
 
-## Exibindo dados do BillingCyclesList
-
-```
-```
+## Redux Form pt1
 
 
+instalar o redux-form
+
+reducer.js
 ```
+
+import { reducer as formReducer } from 'redux-form'
+
+const rootReducer = combineReducers({
+    dashboard: DashboardReducer,
+    tab: TabReducer,
+    billingCycle: BillingCyclesReducer,
+    form: formReducer
+})
+
 ```
+criando um novo componente
+
+billingCycleForm.jsx
 ```
+import React, { Component } from 'react'
+
+class BillingCycleForm extends Component {
+    render() {
+        return (
+            <form role='form'>
+                <div className="box-body">
+
+                </div>
+                <div className="box-footer">
+                    <button type='submit' className="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        )
+    }
+}
+
+export default BillingCycleForm
 ```
+
+BillingCycle.jsx
 ```
+import Form from './billingCycleForm'
+
+<TabContent id='tabCreate'>
+      <Form />
+</TabContent>
 ```
+
+## Redux Form pt2
+
+```
+
+```
+
+
+
 ```
 ```
 ```
