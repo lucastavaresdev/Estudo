@@ -1086,3 +1086,640 @@ export default (state = INITIAL_STATE, action) => {
     }
 }
 ```
+
+
+## Componente TabHeader: Conectando com Redux
+
+
+importar no tabHeader.jsx
+```
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+import { selectTab } from './tabActions'
+
+class TabHeader extends Component {
+    render() {
+        const selected = this.props.tab.selected === this.props.target
+        return (
+            <li className={selected ? 'active' : ' '}>
+                <a href='javascript:;'
+                    data-toggle='tab'
+                    onClick={() => this.props.selectTab(this.props.target)}
+                    data-target={this.props.target}>
+                    <i className={`fa fa-${this.props.icon}`}></i> {this.props.label}
+                </a>
+            </li>
+        )
+    }
+}
+
+
+const mapStateToProps = state => ({ tab: state.tab })
+const mapDispatchToProps = dispatch => bindActionCreators({ selectTab }, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(TabHeader)
+```
+## Compoenente tab content
+
+
+Componente de classe sem o  redux
+
+tabContent.jsx
+```
+import React, { Component } from 'react'
+
+class TabContent extends Component {
+    render() {
+        return (
+            <div id={this.props.id}>
+                {this.props.children}
+            </div>
+        )
+    }
+}
+```
+
+colocando o redux
+tabContent.jsx
+```
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+
+class TabContent extends Component {
+    render() {
+        return (
+            <div id={this.props.id}>
+                {this.props.children}
+            </div>
+        )
+    }
+}
+
+const mapStateToProps = state => ({ tab: state.tab })
+export default connect(mapStateToProps)(TabContent)
+```
+
+tabContent.jsx colocando a classe de ativo
+
+```
+class TabContent extends Component {
+    render() {
+        const selected = this.props.tab.selected === this.props.id
+        return (
+            <div id={this.props.id} className={`tab-pane ${selected ? 'active' : ' '}`}>
+                {this.props.children}
+            </div>
+        )
+    }
+}
+```
+
+billingCycles.jsx
+```
+  <TabsContent>
+    <TabContent id='tabList'><h1>Lista</h1></TabContent>
+    <TabContent id='tabCreate'><h1>Incluir</h1></TabContent>
+    <TabContent id='tabUpdate'><h1>Alterar</h1></TabContent>
+    <TabContent id='tabDelete'><h1>Delete</h1></TabContent>
+ </TabsContent>
+```
+
+## Componente BillingCycles with redux
+
+```
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+
+import ContentHeader from '../common/template/contentHeader'
+import Content from '../common/template/content'
+import Tabs from '../common/tab/tabs'
+import TabsHeaders from '../common/tab/tabsHeaders'
+import TabsContent from '../common/tab/tabsContent'
+import TabHeader from '../common/tab/tabHeader'
+import TabContent from '../common/tab/tabContent'
+import { selectTab } from '../common/tab/tabActions'
+
+class BillingCycle extends Component {
+
+    componentWillMount() {
+        this.props.selectTab('tabList')
+    }
+
+    render() {
+        return (
+            <div>
+                <ContentHeader title='Ciclos de Pagamento' small='Cadastro' />
+                <Content>
+                    <Tabs>
+                        <TabsHeaders>
+                            <TabHeader label='Listar' icon='bars' target='tabList' />
+                            <TabHeader label='Incluir' icon='plus' target='tabCreate' />
+                            <TabHeader label='Alterar' icon='pencil' target='tabUpdate' />
+                            <TabHeader label='Excluir' icon='trash-o' target='tabDelete' />
+
+                        </TabsHeaders>
+                        <TabsContent>
+                            <TabContent id='tabList'><h1>Lista</h1></TabContent>
+                            <TabContent id='tabCreate'><h1>Incluir</h1></TabContent>
+                            <TabContent id='tabUpdate'><h1>Alterar</h1></TabContent>
+                            <TabContent id='tabDelete'><h1>Delete</h1></TabContent>
+                        </TabsContent>
+                    </Tabs>
+                </Content>
+            </div>
+        )
+    }
+}
+
+const mapDispatchToProps = dispatch => bindActionCreators({ selectTab }, dispatch)
+export default connect(null, mapDispatchToProps)(BillingCycle)
+```
+
+## Visibilidade das abas (Parte 1)
+
+tabAction.js
+```
+export function selectTab(tabId) {
+    console.log(tabId)
+    return {
+        type: 'TAB_SELECTED',
+        payload: tabId
+    }
+}
+
+showTabs('tabList', 'tabCreate')
+
+export function showTabs(...tabIds) {
+    const tabsToShow = {}
+    tabIds.forEach(e => tabsToShow[e] = true)
+    return {
+        type: 'TAB_SHOWED',
+        payload: tabsToShow
+    }
+}
+```
+
+tabReducer.js
+
+```
+const INITIAL_STATE = { selected: ' ', visible: {} }
+
+export default (state = INITIAL_STATE, action) => {
+    switch (action.type) {
+        case 'TAB_SELECTED':
+            return { ...state, selected: action.payload }
+        case 'TAB_SHOWED':
+            return { ...state, visible: action.payload }
+        default:
+            return state
+    }
+}
+```
+billingCycle.jsx
+```
+import TabHeader from '../common/tab/tabHeader'
+import TabContent from '../common/tab/tabContent'
+import { selectTab, showTabs } from '../common/tab/tabActions'
+
+class BillingCycle extends Component {
+
+    componentWillMount() {
+        this.props.selectTab('tabList')
+        this.props.showTabs('tabList', 'tabCreate')
+    }
+
+    render() {
+        return (
+            <div>
+                <ContentHeader title='Ciclos de Pagamento' small='Cadastro' />
+                <Content>
+                    <Tabs>
+                        <TabsHeaders>
+                            <TabHeader label='Listar' icon='bars' target='tabList' />
+                            <TabHeader label='Incluir' icon='plus' target='tabCreate' />
+                            <TabHeader label='Alterar' icon='pencil' target='tabUpdate' />
+                            <TabHeader label='Excluir' icon='trash-o' target='tabDelete' />
+
+                        </TabsHeaders>
+                        <TabsContent>
+                            <TabContent id='tabList'><h1>Lista</h1></TabContent>
+                            <TabContent id='tabCreate'><h1>Incluir</h1></TabContent>
+                            <TabContent id='tabUpdate'><h1>Alterar</h1></TabContent>
+                            <TabContent id='tabDelete'><h1>Delete</h1></TabContent>
+                        </TabsContent>
+                    </Tabs>
+                </Content>
+            </div>
+        )
+    }
+}
+
+const mapDispatchToProps = dispatch => bindActionCreators({ selectTab, showTabs }, dispatch)
+export default connect(null, mapDispatchToProps)(BillingCycle)
+```
+
+## Visibilidade das abas (Parte 2)
+
+criar uma pasta common/operador/if.jsx
+```
+import React from 'react'
+
+export default props => {
+    if (props.test) {
+        return props.children
+    } else {
+        return false
+    }
+
+}
+
+```
+TabHeader.jsx
+
+```
+import If from '../operador/if'
+import { selectTab } from './tabActions'
+
+class TabHeader extends Component {
+    render() {
+        const selected = this.props.tab.selected === this.props.target
+        const visible = this.props.tab.visible[this.props.target]
+        return (
+            <If test={visible}>
+                <li className={selected ? 'active' : ' '}>
+                    <a href='javascript:;'
+                        data-toggle='tab'
+                        onClick={() => this.props.selectTab(this.props.target)}
+                        data-target={this.props.target}>
+                        <i className={`fa fa-${this.props.icon}`}></i> {this.props.label}
+                    </a>
+                </li>
+            </If>
+        )
+    }
+}
+```
+
+tabContent.jsx
+```
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import If from '../operador/if'
+
+class TabContent extends Component {
+    render() {
+
+        const selected = this.props.tab.selected === this.props.id
+        const visible = this.props.tab.visible[this.props.target]
+        return (
+            <div id={this.props.id} className={`tab-pane ${selected ? 'active' : ' '}`}>
+                {this.props.children}
+            </div>
+        )
+    }
+}
+
+const mapStateToProps = state => ({ tab: state.tab })
+export default connect(mapStateToProps)(TabContent)
+```
+
+
+
+## Criando o action getList
+
+billingCyclesActions
+```
+import axios from 'axios'
+
+const BASE_URL = 'http://localhost:3004/api'
+
+
+export function getList() {
+    const request = axios.get(`${BASE_URL}/billingCycles`)
+    return {
+        type: 'BILLING_CYCLES_FETCHED',
+        payload: request
+    }
+}
+```
+
+
+billingCyclesReducer.js
+
+```
+const INITIAL_STATE = { list: [] }
+
+export default (state = INITIAL_STATE, action) => {
+    switch (action.type) {
+        case 'BILLING_CYCLES_FETCHED':
+            return { ...state, list: action.payload.data }
+        default:
+            return state
+    }
+}
+```
+tornando visivel na aplicação
+reducers.js
+
+```
+import { combineReducers } from 'redux'
+
+import DashboardReducer from '../dashboard/dashboardReducer'
+import TabReducer from '../common/tab/tabReducer'
+import BillingCyclesReducer from '../billingCycle/billingCyclesReducer'
+
+const rootReducer = combineReducers({
+    dashboard: DashboardReducer,
+    tab: TabReducer,
+    billingCycle: BillingCyclesReducer
+})
+
+export default rootReducer
+```
+
+## Componenete Billing Cycles List 
+
+
+billingCycleList.jsx
+
+```
+import React, { Component } from 'react'
+
+
+class billingCycleList extends Component {
+    render() {
+        return (
+            <div>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Mês</th>
+                            <th>Ano</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+}
+```
+
+billingCycle.jsx
+```
+            <TabContent id='tabList'>
+                    <List />
+           </TabContent>
+```
+
+
+## integrando billing Cycles ao redux
+
+billingCycleList.jsx
+
+```
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { getList } from './billingCyclesActions'
+
+
+class BillingCycleList extends Component {
+
+    componentWillMount() {
+        this.props.getList()
+    }
+
+    render() {
+        console.log(this.props.list)
+        return (
+            <div>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Mês</th>
+                            <th>Ano</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+}
+
+
+const mapStateToProps = state => ({ list: state.billingCycle.list })
+const mapDispatchToProps = dispatch => bindActionCreators({ getList }, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(BillingCycleList)
+
+```
+
+
+## Exibindo dados do BillingCyclesList
+
+billingCycleList
+```
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { getList } from './billingCyclesActions'
+
+
+class BillingCycleList extends Component {
+
+    componentWillMount() {
+        this.props.getList()
+    }
+
+    rederRows() {
+        const list = this.props.list || []
+        return list.map(bc => (
+            <tr key={bc._id}>
+                <td>{bc.name}</td>
+                <td>{bc.month}</td>
+                <td>{bc.year}</td>
+            </tr>
+        ))
+    }
+
+    render() {
+        console.log(this.props.list)
+        return (
+            <div>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Mês</th>
+                            <th>Ano</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.rederRows()}
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+}
+
+
+const mapStateToProps = state => ({ list: state.billingCycle.list })
+const mapDispatchToProps = dispatch => bindActionCreators({ getList }, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(BillingCycleList)
+```
+
+## Redux Form pt1
+
+
+instalar o redux-form
+
+reducer.js
+```
+
+import { reducer as formReducer } from 'redux-form'
+
+const rootReducer = combineReducers({
+    dashboard: DashboardReducer,
+    tab: TabReducer,
+    billingCycle: BillingCyclesReducer,
+    form: formReducer
+})
+
+```
+criando um novo componente
+
+billingCycleForm.jsx
+```
+import React, { Component } from 'react'
+
+class BillingCycleForm extends Component {
+    render() {
+        return (
+            <form role='form'>
+                <div className="box-body">
+
+                </div>
+                <div className="box-footer">
+                    <button type='submit' className="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        )
+    }
+}
+
+export default BillingCycleForm
+```
+
+BillingCycle.jsx
+```
+import Form from './billingCycleForm'
+
+<TabContent id='tabCreate'>
+      <Form />
+</TabContent>
+```
+
+## Redux Form pt2
+
+BillingCycleForm.jsx
+```
+import React, { Component } from 'react'
+import { reduxForm, Field } from 'redux-form'
+
+class BillingCycleForm extends Component {
+    render() {
+        const { handleSubmit } = this.props
+
+        return (
+            <form role='form' onSubmit={handleSubmit}>
+                <div className="box-body">
+                    <Field name='name' component='input' />
+                    <Field name='month' component='input' />
+                    <Field name='year' component='input' />
+                </div>
+                <div className="box-footer">
+                    <button type='submit' className="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        )
+    }
+}
+
+export default reduxForm({ form: 'billingCycleForm' })(BillingCycleForm)
+```
+
+billingCyclesActions.js
+```
+export function create(values) {
+    console.log(values)
+}
+```
+
+billingCycles.jsx
+
+```
+import { selectTab, showTabs } from '../common/tab/tabActions'
+import { create } from './billingCyclesActions'
+
+ <TabContent id='tabCreate'>
+        <Form onSubmit={tabCreate} />
+</TabContent>
+
+const mapDispatchToProps = dispatch => bindActionCreators({ selectTab, showTabs, create }, dispatch)
+
+```
+
+billingCyclesActions
+```
+import axios from 'axios'
+
+const BASE_URL = 'http://localhost:3004/api'
+
+
+export function getList() {
+    const request = axios.get(`${BASE_URL}/billingCycles`)
+    return {
+        type: 'BILLING_CYCLES_FETCHED',
+        payload: request
+    }
+}
+
+export function create(values) {
+    axios.post(`${BASE_URL}/billingCycles`, values)
+    return {
+        type: 'TEMP'
+    }
+}
+```
+
+
+## Mensagem de sucesso e errors
+
+```
+```
+
+
+
+```
+```
+```
+```
+```
+```
+```
+```
+
