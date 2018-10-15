@@ -1709,11 +1709,554 @@ export function create(values) {
 
 ## Mensagem de sucesso e errors
 
+importar react-redux-toastr
+
+Common/msg/messages.jsx
+
+```
+import React from 'react'
+import ReduxToastr from 'react-redux-toastr'
+import 'modules/react-redux-toastr/lib/css/react-redux-toastr.css'
+
+
+export default props => (
+    <ReduxToastr
+        timeOut={4000}
+        newestOnTop={false}
+        preventDuplicates={true}
+        position='top-right'
+        transitionIn="fadeIn"
+        transitionOut="fadeOut"
+        progressBar />
+)
+```
+
+app.jsx instancia o objeto tanto faz o local pois ja no componente ta no topo
+
+```
+import Messages from '../common/msg/messages'
+
+export default props => (
+    <div className="wrapper">
+        <Header />
+        <SideBar />
+        <div className="content-wrapper">
+            <Routes />
+        </div>
+        <Footer />
+        <Message />
+    </div>
+)
+```
+reducer.js
+
+```
+import { reducer as toastReducer } from 'react-redux-toastr'
+
+
+const rootReducer = combineReducers({
+    dashboard: DashboardReducer,
+    tab: TabReducer,
+    billingCycle: BillingCyclesReducer,
+    form: formReducer,
+    toastr: toastReducer
+})
+```
+
+bilingCycleAction.js
+
+```
+import axios from 'axios'
+import { toastr } from 'react-redux-toastr'
+
+const BASE_URL = 'http://localhost:3004/api'
+
+
+export function getList() {
+    const request = axios.get(`${BASE_URL}/billingCycles`)
+    return {
+        type: 'BILLING_CYCLES_FETCHED',
+        payload: request
+    }
+}
+
+export function create(values) {
+    axios.post(`${BASE_URL}/billingCycles`, values)
+        .then(resp => {
+            toastr.success('Sucesso', 'Operação Realizada com sucesso')
+        })
+        .catch(e => {
+            e.response.data.errors.forEach(error => toastr.error('Erro', error))
+        })
+    return {
+        type: 'TEMP'
+    }
+}
+```
+
+## Melhorias de inclusao apos disparar o formulario
+
+index.jsx importar
+
+```
+import multi from 'redux-multi'
+import thunk from 'redux-thunk'
+
+const store = applyMiddleware(multi, thunk, promise)(createStore)(reducers, devTools)
+
+```
+
+
+BillingCyclesActions
+
+```
+import axios from 'axios'
+import { toastr } from 'react-redux-toastr'
+import { reset as resetForm } from 'redux-form'
+import { showTabs, selectTab } from '../common/tab/tabActions'
+
+const BASE_URL = 'http://localhost:3004/api'
+
+
+export function getList() {
+    const request = axios.get(`${BASE_URL}/billingCycles`)
+    return {
+        type: 'BILLING_CYCLES_FETCHED',
+        payload: request
+    }
+}
+
+export function create(values) {
+    return dispatch => {
+        axios.post(`${BASE_URL}/billingCycles`, values)
+            .then(resp => {
+                toastr.success('Sucesso', 'Operação Realizada com sucesso')
+                dispatch([
+                    resetForm('billingCycleForm'),
+                    getList(),
+                    selectTab('tabList'),
+                    showTabs('tabList', 'tabCreate')
+                ])
+            })
+            .catch(e => {
+                e.response.data.errors.forEach(error => toastr.error('Erro', error))
+            })
+    }
+}
+```
+
+## Componente Field Personalizado
+
+common\form\labelAndInput.jsx
+
+```
+import React from 'react'
+import Grid from '../layout/grid'
+
+export default props => (
+    <Grid cols={props.cols}>
+        <div className="form-group">
+            <label htmlFor={props.name}>{props.label}</label>
+            <input {...props.input} className='form-control'
+                placeholder={props.placeholder}
+                readOnly={props.readOnly} type={props.type}
+            />
+        </div>
+    </Grid>
+)
+```
+
+billingCycleForm.jsx
+
+```
+import labelAndInput from '../common/form/labelAndInput'
+
+      <form role='form' onSubmit={handleSubmit}>
+                <div className="box-body">
+                    <Field name='name' component={labelAndInput}
+                        label='Nome' cols='12 4' placeholder='Informe o nome' />
+                    <Field name='month' component={labelAndInput}
+                        label='Mês' cols='12 4' placeholder='Informe o mes' type='number' />
+                    <Field name='year' component={labelAndInput}
+                        label='Ano' cols='12 4' placeholder='Informe o ans' type='number' />
+                </div>
+```
+
+
+## Exibir Aba de Alterar Ciclo de Pagamento
+
+billingCyclesActions.js
+
+```
+            .catch(e => {
+                e.response.data.errors.forEach(error => toastr.error('Erro', error))
+            })
+    }
+}
+
+export function showUpdate(billingCycle) {
+    return [
+        showTabs('tabUpdate'),
+        selectTab('tabUpdate')
+    ]
+}
+```
+
+
+billingCycleList
+```
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { getList, showUpdate } from './billingCyclesActions'
+
+
+class BillingCycleList extends Component {
+
+    componentWillMount() {
+        this.props.getList()
+    }
+
+    rederRows() {
+        const list = this.props.list || []
+        return list.map(bc => (
+            <tr key={bc._id}>
+                <td>{bc.name}</td>
+                <td>{bc.month}</td>
+                <td>{bc.year}</td>
+                <td>
+                    <button className="btn btn-warning" onClick={() => this.props.showUpdate(bc)}>
+                        <i className='fa fa-pencil'></i>
+                    </button>
+                </td>
+            </tr>
+        ))
+    }
+
+    render() {
+        console.log(this.props.list)
+        return (
+            <div>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Mês</th>
+                            <th>Ano</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.rederRows()}
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+}
+
+
+const mapStateToProps = state => ({ list: state.billingCycle.list })
+const mapDispatchToProps = dispatch => bindActionCreators({ getList, showUpdate }, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(BillingCycleList)
+
+```
+
+billingCycle.jsx
+```
+       <TabContent id='tabUpdate'>
+                                <Form />
+                            </TabContent>
+```
+
+## Inicializando o formulario
+
+billingCyclesActions.js
+
+```
+import { reset as resetForm, initialize } from 'redux-form'
+
+export function showUpdate(billingCycle) {
+    return [
+        showTabs('tabUpdate'),
+        selectTab('tabUpdate'),
+        initialize('billingCycleForm', billingCycle)
+    ]
+}
+```
+billingCycleForm
+destroyOnUnmount: false
+```
+export default reduxForm({ form: 'billingCycleForm', destroyOnUnmount: false })(BillingCycleForm)
+```
+
+## Função botão cancelar
+
+billingCyclesActions
+```
+import axios from 'axios'
+import { toastr } from 'react-redux-toastr'
+import { reset as resetForm, initialize } from 'redux-form'
+import { showTabs, selectTab } from '../common/tab/tabActions'
+
+const BASE_URL = 'http://localhost:3004/api'
+const INITIAL_VALUES = {}
+
+export function getList() {
+    const request = axios.get(`${BASE_URL}/billingCycles`)
+    return {
+        type: 'BILLING_CYCLES_FETCHED',
+        payload: request
+    }
+}
+
+export function create(values) {
+    return dispatch => {
+        axios.post(`${BASE_URL}/billingCycles`, values)
+            .then(resp => {
+                toastr.success('Sucesso', 'Operação Realizada com sucesso')
+                dispatch(init())
+            })
+            .catch(e => {
+                e.response.data.errors.forEach(error => toastr.error('Erro', error))
+            })
+    }
+}
+
+export function showUpdate(billingCycle) {
+    return [
+        showTabs('tabUpdate'),
+        selectTab('tabUpdate'),
+        initialize('billingCycleForm', billingCycle)
+    ]
+}
+
+export function init() {
+    return [
+        showTabs('tabList', 'tabCreate'),
+        selectTab('tabList'),
+        getList(),
+        initialize('billingCycleForm', INITIAL_VALUES)
+    ]
+}
+```
+
+billingCyclesActions.js
+```
+import axios from 'axios'
+import { toastr } from 'react-redux-toastr'
+import { reset as resetForm, initialize } from 'redux-form'
+import { showTabs, selectTab } from '../common/tab/tabActions'
+
+const BASE_URL = 'http://localhost:3004/api'
+const INITIAL_VALUES = {}
+
+export function getList() {
+    const request = axios.get(`${BASE_URL}/billingCycles`)
+    return {
+        type: 'BILLING_CYCLES_FETCHED',
+        payload: request
+    }
+}
+
+export function create(values) {
+    return dispatch => {
+        axios.post(`${BASE_URL}/billingCycles`, values)
+            .then(resp => {
+                toastr.success('Sucesso', 'Operação Realizada com sucesso')
+                dispatch(init())
+            })
+            .catch(e => {
+                e.response.data.errors.forEach(error => toastr.error('Erro', error))
+            })
+    }
+}
+
+export function showUpdate(billingCycle) {
+    return [
+        showTabs('tabUpdate'),
+        selectTab('tabUpdate'),
+        initialize('billingCycleForm', billingCycle)
+    ]
+}
+
+export function init() {
+    return [
+        showTabs('tabList', 'tabCreate'),
+        selectTab('tabList'),
+        getList(),
+        initialize('billingCycleForm', INITIAL_VALUES)
+    ]
+}
+```
+
+## Alterar Ciclo de Pagamento
+
+billingCicles.jsx
+```
+import { create, update } from './billingCyclesActions'
+
+   <TabContent id='tabUpdate'>
+  <Form onSubmit={this.props.update} />
+ </TabContent>
+
+
+const mapDispatchToProps = dispatch => bindActionCreators({ selectTab, showTabs, create, update }, dispatch)
+
+```
+
+billingCyclesActions.js
+
+```
+export function create(values) {
+    return submit(values, 'post')
+}
+
+export function update(values) {
+    return submit(values, 'put')
+}
+
+function submit(values, method) {
+    return dispatch => {
+        const id = values._id ? values._id : ''
+        axios[method](`${BASE_URL}/billingCycles/${id}`, values)
+            .then(resp => {
+                toastr.success('Sucesso', 'Operação Realizada com sucesso')
+                dispatch(init())
+            })
+            .catch(e => {
+                e.response.data.errors.forEach(error => toastr.error('Erro', error))
+            })
+    }
+}
+
+```
+
+## Excluir Ciclo de Pagamento
+
+billingCyclesActions.js
+```
+export function showDelete(billingCycle) {
+    return [
+        showTabs('tabDelete'),
+        selectTab('tabDelete'),
+        initialize('billingCycleForm', billingCycle)
+    ]
+}
+
+```
+billingCycleList.jsx
+```
+import { getList, showUpdate, showDelete } from './billingCyclesActions'
+
+    <button className="btn btn-danger" onClick={() => this.props.showDelete(bc)}>
+                        <i className='fa fa-trash-o'></i>
+                    </button>
+
+const mapDispatchToProps = dispatch => bindActionCreators({ getList, showUpdate, showDelete }, dispatch)
+
+```
+
+billingCycle
+```
+
+import { create, update, remove } from './billingCyclesActions'
+
+    <TabContent id='tabDelete'>
+        <Form onSubmit={this.props.remove} />
+    </TabContent>
+
+   const mapDispatchToProps = dispatch => bindActionCreators({ selectTab, showTabs, create, update, remove }, dispatch)
+
+```
+
+billingCycleForm.jsx
+```
+class BillingCycleForm extends Component {
+    render() {
+        const { handleSubmit, readOnly } = this.props
+
+        return (
+            <form role='form' onSubmit={handleSubmit}>
+                <div className="box-body">
+                    <Field name='name' component={labelAndInput} readOnly={readOnly}
+                        label='Nome' cols='12 4' placeholder='Informe o nome' />
+                    <Field name='month' component={labelAndInput} readOnly={readOnly}
+                        label='Mês' cols='12 4' placeholder='Informe o mes' type='number' />
+                    <Field name='year' component={labelAndInput} readOnly={readOnly}
+                        label='Ano' cols='12 4' placeholder='Informe o ans' type='number' />
+                </div>
+                <div className="box-footer">
+                    <button type='submit' className="btn btn-primary">Submit</button>
+                    <button type='button' className='btn btn-default'
+                        onClick={this.props.init}>Cancelar</button>
+                </div>
+            </form>
+        )
+    }
+}
+```
+
+billingCycle.jsx
+```
+<TabContent id='tabDelete'>
+    <Form onSubmit={this.props.remove} readOnly={true} />
+</TabContent>
+```
+
+## Finalizando Cadastro Basico
+
+billingCyclesForm
+```
+   <button type='submit' className={`btn btn-${this.props.submitClass}`}>{this.props.submitLabel}</button>
+
+```
+billingCycle
+```
+      <TabContent id='tabList'>
+                                <List />
+                            </TabContent>
+                            <TabContent id='tabCreate'>
+                                <Form onSubmit={this.props.create}
+                                    submitLabel='Incluir' submitClass='primary' />
+                            </TabContent>
+                            <TabContent id='tabUpdate'>
+                                <Form onSubmit={this.props.update}
+                                    submitLabel='Alterar' submitClass='info' />
+                            </TabContent>
+                            <TabContent id='tabDelete'>
+                                <Form onSubmit={this.props.remove} readOnly={true}
+                                    submitLabel='Excluir' submitClass='danger' />
+                            </TabContent>
+                        </TabsContent>
+```
+
+custom css
+```
+    .main-footer {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+    }
+
+    button {
+        margin-left: 5px;
+    }
+
+    .table-actions {
+        width: 150px;
+    }
+```
+
+billingCicleList
+
+```
+ <th className='table-actions'>Ações</th>
+```
+
+
 ```
 ```
-
-
-
 ```
 ```
 ```

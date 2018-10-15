@@ -9,7 +9,7 @@ export default props => (
         newestOnTop={false}
         preventDuplicates={true}
         position='top-right'
-        transitionIn='fadeIn'
-        transitionOut='fadeOut'
+        transitionIn="fadeIn"
+        transitionOut="fadeOut"
         progressBar />
 )
