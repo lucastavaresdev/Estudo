@@ -1709,15 +1709,61 @@ export function create(values) {
 
 ## Mensagem de sucesso e errors
 
+importar react-redux-toastr
+
+Common/msg/messages.jsx
+
 ```
-```
+import React from 'react'
+import ReduxToastr from 'react-redux-toastr'
+import 'modules/react-redux-toastr/lib/css/react-redux-toastr.css'
 
 
+export default props => (
+    <ReduxToastr
+        timeOut={4000}
+        newestOnTop={false}
+        preventDuplicates={true}
+        position='top-right'
+        transitionIn="fadeIn"
+        transitionOut="fadeOut"
+        progressBar />
+)
+```
+
+app.jsx instancia o objeto tanto faz o local pois ja no componente ta no topo
 
 ```
+import Messages from '../common/msg/messages'
+
+export default props => (
+    <div className="wrapper">
+        <Header />
+        <SideBar />
+        <div className="content-wrapper">
+            <Routes />
+        </div>
+        <Footer />
+        <Message />
+    </div>
+)
 ```
+reducer.js
+
 ```
+import { reducer as toastReducer } from 'react-redux-toastr'
+
+
+const rootReducer = combineReducers({
+    dashboard: DashboardReducer,
+    tab: TabReducer,
+    billingCycle: BillingCyclesReducer,
+    form: formReducer,
+    toastr: toastReducer
+})
 ```
+
+bilingCycleAction
 ```
 ```
 ```
