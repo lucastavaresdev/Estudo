@@ -1845,11 +1845,45 @@ export function create(values) {
 }
 ```
 
+## Componente Field Personalizado
+
+common\form\labelAndInput.jsx
 
 ```
+import React from 'react'
+import Grid from '../layout/grid'
+
+export default props => (
+    <Grid cols={props.cols}>
+        <div className="form-group">
+            <label htmlFor={props.name}>{props.label}</label>
+            <input {...props.input} className='form-control'
+                placeholder={props.placeholder}
+                readOnly={props.readOnly} type={props.type}
+            />
+        </div>
+    </Grid>
+)
 ```
+
+billingCycleForm.jsx
+
 ```
+import labelAndInput from '../common/form/labelAndInput'
+
+      <form role='form' onSubmit={handleSubmit}>
+                <div className="box-body">
+                    <Field name='name' component={labelAndInput}
+                        label='Nome' cols='12 4' placeholder='Informe o nome' />
+                    <Field name='month' component={labelAndInput}
+                        label='Mês' cols='12 4' placeholder='Informe o mes' type='number' />
+                    <Field name='year' component={labelAndInput}
+                        label='Ano' cols='12 4' placeholder='Informe o ans' type='number' />
+                </div>
 ```
+
+
+##
 ```
 ```
 ```
