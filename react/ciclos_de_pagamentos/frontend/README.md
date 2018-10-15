@@ -1971,11 +1971,27 @@ billingCycle.jsx
 
 ## Inicializando o formulario
 
-```
-```
+billingCyclesActions.js
 
 ```
+import { reset as resetForm, initialize } from 'redux-form'
+
+export function showUpdate(billingCycle) {
+    return [
+        showTabs('tabUpdate'),
+        selectTab('tabUpdate'),
+        initialize('billingCycleForm', billingCycle)
+    ]
+}
 ```
+billingCycleForm
+destroyOnUnmount: false
+```
+export default reduxForm({ form: 'billingCycleForm', destroyOnUnmount: false })(BillingCycleForm)
+```
+
+## Função botão cancelar
+
 ```
 ```
 ```
