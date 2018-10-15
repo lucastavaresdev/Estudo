@@ -2134,13 +2134,43 @@ function submit(values, method) {
 
 ## Excluir Ciclo de Pagamento
 
+billingCyclesActions.js
 ```
-```
+export function showDelete(billingCycle) {
+    return [
+        showTabs('tabDelete'),
+        selectTab('tabDelete'),
+        initialize('billingCycleForm', billingCycle)
+    ]
+}
 
 ```
+billingCycleList.jsx
 ```
+import { getList, showUpdate, showDelete } from './billingCyclesActions'
+
+    <button className="btn btn-danger" onClick={() => this.props.showDelete(bc)}>
+                        <i className='fa fa-trash-o'></i>
+                    </button>
+
+const mapDispatchToProps = dispatch => bindActionCreators({ getList, showUpdate, showDelete }, dispatch)
+
 ```
+
+billingCycle
 ```
+
+import { create, update, remove } from './billingCyclesActions'
+
+    <TabContent id='tabDelete'>
+        <Form onSubmit={this.props.remove} />
+    </TabContent>
+
+   const mapDispatchToProps = dispatch => bindActionCreators({ selectTab, showTabs, create, update, remove }, dispatch)
+
+```
+
+
 ```
 ```
 ```
