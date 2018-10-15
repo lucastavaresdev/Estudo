@@ -2170,11 +2170,40 @@ import { create, update, remove } from './billingCyclesActions'
 
 ```
 
+billingCycleForm.jsx
+```
+class BillingCycleForm extends Component {
+    render() {
+        const { handleSubmit, readOnly } = this.props
 
+        return (
+            <form role='form' onSubmit={handleSubmit}>
+                <div className="box-body">
+                    <Field name='name' component={labelAndInput} readOnly={readOnly}
+                        label='Nome' cols='12 4' placeholder='Informe o nome' />
+                    <Field name='month' component={labelAndInput} readOnly={readOnly}
+                        label='Mês' cols='12 4' placeholder='Informe o mes' type='number' />
+                    <Field name='year' component={labelAndInput} readOnly={readOnly}
+                        label='Ano' cols='12 4' placeholder='Informe o ans' type='number' />
+                </div>
+                <div className="box-footer">
+                    <button type='submit' className="btn btn-primary">Submit</button>
+                    <button type='button' className='btn btn-default'
+                        onClick={this.props.init}>Cancelar</button>
+                </div>
+            </form>
+        )
+    }
+}
 ```
+
+billingCycle.jsx
 ```
+<TabContent id='tabDelete'>
+    <Form onSubmit={this.props.remove} readOnly={true} />
+</TabContent>
 ```
-```
+
 ```
 ```
 ```
