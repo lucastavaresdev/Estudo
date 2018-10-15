@@ -1784,8 +1784,9 @@ export function create(values) {
     axios.post(`${BASE_URL}/billingCycles`, values)
         .then(resp => {
             toastr.success('Sucesso', 'Operação Realizada com sucesso')
-        }).catch(e => {
-            e.response.data.erros.forEach(error => toastr.error('Erro', error))
+        })
+        .catch(e => {
+            e.response.data.errors.forEach(error => toastr.error('Erro', error))
         })
     return {
         type: 'TEMP'
