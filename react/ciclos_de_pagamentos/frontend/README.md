@@ -2204,14 +2204,57 @@ billingCycle.jsx
 </TabContent>
 ```
 
+## Finalizando Cadastro Basico
+
+billingCyclesForm
 ```
+   <button type='submit' className={`btn btn-${this.props.submitClass}`}>{this.props.submitLabel}</button>
+
 ```
+billingCycle
 ```
+      <TabContent id='tabList'>
+                                <List />
+                            </TabContent>
+                            <TabContent id='tabCreate'>
+                                <Form onSubmit={this.props.create}
+                                    submitLabel='Incluir' submitClass='primary' />
+                            </TabContent>
+                            <TabContent id='tabUpdate'>
+                                <Form onSubmit={this.props.update}
+                                    submitLabel='Alterar' submitClass='info' />
+                            </TabContent>
+                            <TabContent id='tabDelete'>
+                                <Form onSubmit={this.props.remove} readOnly={true}
+                                    submitLabel='Excluir' submitClass='danger' />
+                            </TabContent>
+                        </TabsContent>
 ```
+
+custom css
 ```
+    .main-footer {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+    }
+
+    button {
+        margin-left: 5px;
+    }
+
+    .table-actions {
+        width: 150px;
+    }
 ```
+
+billingCicleList
+
 ```
+ <th className='table-actions'>Ações</th>
 ```
+
+
 ```
 ```
 ```
