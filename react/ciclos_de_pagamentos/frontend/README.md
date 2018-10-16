@@ -2313,15 +2313,125 @@ import CreditList from './creditList'
 
 ## Componente input para CreditList 
 
-billingCycle\creditList.jsx
+src\common\input
 ```
+import React from 'react'
+
+export default props => (
+    <input {...props.input}
+        className='form-control'
+        placeholder={props.placeholder}
+        readOnly={props.readOnly}
+        type={props.type}
+    />
+)
 
 ```
 
+creditList.jsx
+```
+import Input from '../common/form/input'
+
+     <tr>
+                <td><Field name='credits[1].name' component={Input}
+                    placeholder='Informe o nome' readOnly={this.props.readOnly} /></td>
+                <td><Field name='credits[1].value' component={Input}
+                    placeholder='Informe o valor' readOnly={this.props.readOnly} /></td>
+                <td></td>
+            </tr>
+```
+bilingCiclesForm.jsx
+```
+    <CreditList cols='12 6' readOnly={readOnly} />
+```
+
+## Evoluindo componente CreditList
 
 
 ```
 ```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
+```
+```
+
 ```
 ```
 
