@@ -2611,7 +2611,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({ arrayInsert, arrayRe
 export default connect(null, mapDispatchToProps)(CreditList)
 ```
 
-# Generalizando Componentes
+## Generalizando Componentes
 
 alterar nome de creditList para itemList.jsx e aonde ele é importado renomar
 
@@ -2641,10 +2641,26 @@ class ItemList extends Component {
           <legend>{this.props.legent}</legend>
 ```
 
-```
-```
+## Adicionando Campo Status no ItemList
+
+Billing Cicles Form
 
 ```
+const { handleSubmit, readOnly, credits, debts } = this.props
+
+ <ItemList cols='12 6' list={debts} readOnly={readOnly}
+                        field='debts' legent='Debitos' />
+
+const mapStateToProps = state => ({
+    credits: selector(state, 'credits'),
+    debits: selector(state, 'debts')
+})
+```
+
+billingCyclesActions.jsx
+
+```
+
 ```
 
 ```
