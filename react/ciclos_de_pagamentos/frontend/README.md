@@ -2657,15 +2657,36 @@ const mapStateToProps = state => ({
 })
 ```
 
-billingCyclesActions.jsx
+itemList.jsx
+
+```
+import If from '../common/operador/if'
+
+
+
+   <If test={this.props.showStatus}>
+                                    <th>Status</th>
+                                </If>
+
+   <If test={this.props.showStatus}>
+       <td><Field name={`${this.props.field}[${index}].status`} component={Input}
+        placeholder='Informe o status' readOnly={this.props.readOnly} /></td>
+   </If>
+
+  
 
 ```
 
+ billingCycleForm
+```
+         <If test={this.props.showStatus}>
+                    <td><Field name={`${this.props.field}[${index}].status`} component={Input}
+                        placeholder='Informe o status' readOnly={this.props.readOnly} /></td>
+                </If>
 ```
 
-```
-```
 
+## Componente de Sumario
 ```
 ```
 

@@ -7,6 +7,7 @@ import { init } from '../common/form/labelAndInput'
 import labelAndInput from '../common/form/labelAndInput';
 import ItemList from './itemList'
 
+
 class BillingCycleForm extends Component {
     render() {
         const { handleSubmit, readOnly, credits, debts } = this.props
@@ -23,7 +24,7 @@ class BillingCycleForm extends Component {
                     <ItemList cols='12 6' list={credits} readOnly={readOnly}
                         field='credits' legent='Creditos' />
                     <ItemList cols='12 6' list={debts} readOnly={readOnly}
-                        field='debts' legent='Debitos' />
+                        field='debts' legent='Debitos' showStatus={true} />
                 </div>
                 <div className="box-footer">
                     <button type='submit' className={`btn btn-${this.props.submitClass}`}>{this.props.submitLabel}</button>
@@ -40,7 +41,7 @@ const selector = formValueSelector('billingCycleForm')
 
 const mapStateToProps = state => ({
     credits: selector(state, 'credits'),
-    debits: selector(state, 'debts')
+    debts: selector(state, 'debts')
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({ init }, dispatch)
