@@ -1,45 +1,3 @@
-# MODULO DE AUTENTICACAO
-
-#BACKEND
-
-## Dependencias
-
-
-
-```
-npm i --save bcrypt@1.0.2 jsonwebtoken@7.3.0
-```
-
-na pasta src .env
-
-.env
-```
-module.exports = {
-    authSecret: 'Chave que vc quiser por'
-}
-```
-```
-```
-
-na pasta criar aquivo backend/src/user/user.js
-
-
-```
-const restful = require('node-restful')
-const mongoose = restful.mongoose
-
-const userSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    email: { type: String, required: true },
-    password: { type: String, min: 6, max: 12, required: true }
-})
-
-module.exports = restful.model('User', userSchema)
-```
-
-na pasta criar aquivo backend/src/user/authService.js
-
-```
 const _ = require('lodash');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
@@ -54,13 +12,9 @@ const sendErrorsFromDB = (res, dbErrors) => {
     _.forIn(dbErrors.errors, error => errors.push(error.message))
     return res.status(400).json({ errors })
 }
-```
 
 
-165
-
-authService.js
-```
+//recebe os dados do usuario e leva para o usuario
 const login = (req, res, next) => {
     const email = req.body.email || ' '
     const password = req.body.password || ' '
@@ -80,9 +34,8 @@ const login = (req, res, next) => {
     })
 }
 
-
 //valida token
-//verifica se o token esta valido se nao  espira
+
 const validateToken = (req, res, next) => {
     const token = req.body.token || ''
 
@@ -90,24 +43,8 @@ const validateToken = (req, res, next) => {
         return res.status(200).send({ valid: !err })
     })
 }
-```
 
-```
-```
 
-```
-```
+//singup
 
-```
-```
-
-```
-```
-```
-```
-```
-```
-```
-```
-```na pasta criar aquivo backend/src/user/user.js
-```
+const = name =
