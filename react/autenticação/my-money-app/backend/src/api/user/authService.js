@@ -46,5 +46,43 @@ const validateToken = (req, res, next) => {
 
 
 //singup
+const singup = (req, res, next) => {
+    const name = req.body.name || ' '
+    const email = req.body.email || ' '
+    const password = req.body.password || ' '
+    const confirmPassword = req.body.confirm_password || ' '
 
-const = name =
+    if (!email.match(emailRegex)) {
+        return res.status(400).send({ errors: ['O e-mail informado está invalido'] })
+    }
+    if (!password.match(passwordRegex)) {
+        return res.status(400).send({
+            errors: [
+                "Senha Precisa ter: uma letra maiuscula, uma minuscula"
+            ]
+        })
+    }
+
+    const salt = bcrypt.genSaltSync()
+    const passwordHash = bcrypt.hashSync(password, salt)
+    if (!bcrypt.compareSync(confirmPassword, passwordHash)) {
+        return res.status(400).send({ errors: ['Senhas não conferem'] })
+    }
+
+    User.findOne({ email }, (err, user) => {
+        if (err) {
+            return sendErrorsFromDB(res, err)
+        } else if (user) {
+            return res.status(400).send({ errors: ['Usuario já cadastrado'] })
+        } else {
+            const newUser = new User({ name, emal, password: passwordHash })
+            newUser.save(err => {
+                if (err) {
+                    return sendErrorsFromDB(err, err)
+                } else {
+                    login(req, res, next)
+                }
+            })
+        }
+    })
+}
