@@ -43,3 +43,8 @@ const validateToken = (req, res, next) => {
         return res.status(200).send({ valid: !err })
     })
 }
+
+
+//singup
+
+const = name =
