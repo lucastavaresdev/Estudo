@@ -71,25 +71,14 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/modulos/moduloA.js":
-/*!********************************!*\
-  !*** ./src/modulos/moduloA.js ***!
-  \********************************/
+/***/ "./src/assets/css/estilo.css":
+/*!***********************************!*\
+  !*** ./src/assets/css/estilo.css ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const moduloB = __webpack_require__(/*! ./moduloB */ \"./src/modulos/moduloB.js\")\r\nconsole.log(moduloB.saudacao());\r\n\n\n//# sourceURL=webpack:///./src/modulos/moduloA.js?");
-
-/***/ }),
-
-/***/ "./src/modulos/moduloB.js":
-/*!********************************!*\
-  !*** ./src/modulos/moduloB.js ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = {\r\n    saudacao() { return 'Ola eu sou o modulo B'}\r\n} \n\n//# sourceURL=webpack:///./src/modulos/moduloB.js?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/assets/css/estilo.css?");
 
 /***/ }),
 
@@ -113,7 +102,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _pessoa__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pessoa */ \"./src/pessoa.js\");\n/* harmony import */ var _modulos_moduloA__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modulos/moduloA */ \"./src/modulos/moduloA.js\");\n/* harmony import */ var _modulos_moduloA__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modulos_moduloA__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\n\r\nconst atendente = new _pessoa__WEBPACK_IMPORTED_MODULE_0__[\"default\"]\r\nconsole.log(atendente.cumprimentar());\r\n\n\n//# sourceURL=webpack:///./src/principal.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _pessoa__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pessoa */ \"./src/pessoa.js\");\n/* harmony import */ var _assets_css_estilo_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/css/estilo.css */ \"./src/assets/css/estilo.css\");\n/* harmony import */ var _assets_css_estilo_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_assets_css_estilo_css__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\n\r\n\r\nconst atendente = new _pessoa__WEBPACK_IMPORTED_MODULE_0__[\"default\"]\r\nconsole.log(atendente.cumprimentar());\r\n\n\n//# sourceURL=webpack:///./src/principal.js?");
 
 /***/ })
 
