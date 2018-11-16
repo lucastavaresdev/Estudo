@@ -1,3 +1,8 @@
-body{
-    background: purple;
-}
+body {
+  background: purple; }
+
+.botao {
+  background: #f1f;
+  color: red;
+  font-size: 1.8em; }
+
