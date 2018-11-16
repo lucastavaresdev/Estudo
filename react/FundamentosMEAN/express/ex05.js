@@ -1,6 +1,6 @@
 const express = require('express')
 const server = express()
-const routers = require('./ex05_router')
+const router = require('./ex05_router')
 
-server.use('/api', routers )
+server.use('/api', router )
 server.listen(3000, () => console.log('execuntando'))
