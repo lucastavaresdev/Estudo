@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Primeiro from './componentes/primeiro'
+import Bomdia from './componentes/Bomdia'
 
-ReactDOM.render(<Primeiro />, document.getElementById('root'))
+ReactDOM.render(<Bomdia nome='teste2d' />, document.getElementById('root'))
