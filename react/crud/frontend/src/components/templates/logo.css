@@ -1,0 +1,6 @@
+aside.log{
+    background-color: var (--bg-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
