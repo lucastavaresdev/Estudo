@@ -1,16 +1,17 @@
 import React, {Component} from 'react'
-import { View, Text,  StyleSheet} from 'react-native'
+import { View,   StyleSheet} from 'react-native'
+
 import Simples from './componentes/Simples'
+import {ParImpar} from './componentes/ParImpar'
 
 export default class App extends Component {
-  render(){
+  render() {
     return(
-      <View style={styles.container}>
-        <Text style={styles.f20}>
+          <div>
             <Simples texto='Asd Flexivel'/>
-            </Text>
-      </View>
-    )
+           <ParImpar numero={31} />
+      </div>     
+      )
   }
 }
 
