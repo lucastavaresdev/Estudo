@@ -5,7 +5,7 @@ export default StyleSheet.create({
         paddingHorizontal: 15,
         marginVertical: 5,
         borderRadius: 10,
-        borderWidth: 8,
+        borderWidth: 1,
         borderColor: '#222',
         fontSize: 24,
         fontWeight: 'bold',
