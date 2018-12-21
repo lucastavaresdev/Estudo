@@ -9,6 +9,7 @@ export default class Contador extends Component{
     // constructor(props){
     //     super(props)
     //     this.maisUm = this.maisUm.bind(this)
+    //     this.limpar = this.limpar.bind(this)
     // }
 
     maisUm() {
@@ -24,7 +25,7 @@ export default class Contador extends Component{
             <View>
                 <Text style={{fontSize:40}}>{this.state.numero}</Text>
                 <TouchableHighlight
-                    onPress={() => this.maisUm}
+                    onPress={() => this.maisUm()}
                     onLongPress= {this.limpar}
                 >
                     <Text style={{fontSize:20}}>Incrementar/Zerar</Text>
