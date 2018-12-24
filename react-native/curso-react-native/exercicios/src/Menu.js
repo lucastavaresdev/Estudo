@@ -9,10 +9,14 @@ import Plataformas from './componentes/plataformas'
 import ValidarProps from './componentes/ValidarProps'
 import Evento from './componentes/evento'
 import Avo from './componentes/ComunicacaoDireta'
-import TextoSincronizado from './componentes/ComunicacaoIndireta'
+//import TextoSincronizado from './componentes/ComunicacaoIndireta'
+import ListaFlex from './componentes/ListaFlex'
 
 export default createDrawerNavigator({
-
+    ListaFlex: {
+        screen: ListaFlex,
+        navigationOptions: {title: 'Lista Flex'}
+    },
     Avo: {
         screen: () => <Avo nome='Joao' sobrenome='Silva' />
     },
