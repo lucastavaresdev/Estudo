@@ -6,8 +6,31 @@ import ParImpar from './componentes/ParImpar'
 import Inverter ,{MegaSena} from './componentes/Multi'
 import Contador from './componentes/Contador'
 import Plataformas from './componentes/plataformas'
+import ValidarProps from './componentes/ValidarProps'
+import Evento from './componentes/evento'
+import Avo from './componentes/ComunicacaoDireta'
+//import TextoSincronizado from './componentes/ComunicacaoIndireta'
+import ListaFlex from './componentes/ListaFlex'
+import Flex from './componentes/Flex'
 
 export default createDrawerNavigator({
+    Flex: {
+        screen: Flex,
+        navigationOptions: {title: 'Flex'}
+    },
+    ListaFlex: {
+        screen: ListaFlex,
+        navigationOptions: {title: 'Lista Flex'}
+    },
+    Avo: {
+        screen: () => <Avo nome='Joao' sobrenome='Silva' />
+    },
+    Evento: {
+        screen: Evento
+    },
+    ValidarProps: {
+        screen: () => <ValidarProps label="Ano: " ano={18}/>
+    },
     Plataformas: {
         screen: Plataformas
     },
