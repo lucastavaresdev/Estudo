@@ -32,16 +32,34 @@ export default class App extends Component {
     }
   }
 
-  onOpenField
- 
+  onOpenField = (row, column) => {
+    const board = cloneBoard(this.state.board)
+    openField(board, row, column)
+    const lost = hadExplosion(board)
+    const won = wonGame(board)
+
+    if (lost) {
+      showMines(board)
+      Alert.alert('Perdeeeeu!', 'Que buuuurro!')
+    }
+
+    if (won) {
+      Alert.alert('Parabéns', 'Você Venceu!')
+    }
+
+    this.setState({ board, lost, won })
+  }
+
   render() {
     return (
       <View style={styles.container}>
       <Text style={styles.welcome}>Iniciando o Mines !!</Text>
       <Text style={styles.instructions}>Tamanho da Grade:
       {params.getRowsAmount()}x{params.getColumnsAmount()} </Text>
-        <View style={styles.board}>
-          <MineField board={this.state.board} />
+     <View style={styles.board}>
+          <MineField board={this.state.board} 
+            onOpenField={this.onOpenField}
+            onSelectField={this.onSelectField} />
         </View>
       </View>
     );
