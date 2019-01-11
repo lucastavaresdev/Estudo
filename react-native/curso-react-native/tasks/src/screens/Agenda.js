@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {StyleSheet, Text, View, ImageBackgroud} from 'react-native'
+import {StyleSheet, Text, View, ImageBackground} from 'react-native'
 import moment from 'moment'
 import 'moment/locale/pt-br'
 import todayImage from '../../assets/imgs/todayImage.jpg'
@@ -9,15 +9,15 @@ export default class Agenda extends Component {
     render(){
         return(
             <View style={styles.container}>
-                <ImageBackgroud source={todayImage} style={styles.backgroud}>
+                <ImageBackground source={todayImage} style={styles.background}>
                     <View style={styles.titlebar}>
                         <Text style={styles.title}>Hoje</Text>
                         <Text style={styles.subtitle}>
                             {moment().locale('pt-br').format('ddd, D,[de] MMMM')}
                         </Text>
                     </View>
-                </ImageBackgroud>
-                <View style={styles.taskContainer}>
+                </ImageBackground>
+                <View style={styles.taksContainer}>
                     <Text>Tarefa 1</Text>
                     <Text>Tarefa 2</Text>
                     <Text>Tarefa 3</Text>
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1
     },
-    backgroud: {
+    background: {
         flex: 3,
     },
     titleBar: {
