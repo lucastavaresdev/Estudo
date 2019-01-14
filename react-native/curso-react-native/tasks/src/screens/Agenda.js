@@ -3,13 +3,17 @@ import {StyleSheet,
             Text,
             View,
             ImageBackground,
-            FlatList            
+            FlatList ,         
+            TouchableOpacity,
+            Platform,
             } from 'react-native'
 import moment from 'moment'
 import 'moment/locale/pt-br'
 import todayImage from '../../assets/imgs/todayImage.jpg'
 import commonStyles from '../commonStyles'
 import Task from '../components/Task'
+import Icon from 'react-native-vector-icons/FontAwesome'
+
 
 export default class Agenda extends Component {
     state = {
@@ -38,8 +42,29 @@ export default class Agenda extends Component {
                 estimateAt: new Date(), doneAt: new Date()},
             {id: Math.random(), desc: 'Concluir CursO',
                 estimateAt: new Date(), doneAt: null},
-        ]
+        ],
+        visibleTasks: [],
+        showDoneTasks: true,
     }
+
+    filterTasks = () => {
+            let visibleTasks = null
+            if(this.state.showDoneTasks) {
+                visibleTasks = [...this.state.tasks]
+            } else {
+                const pending = task => task.doneAt === null
+                visibleTasks = this.state.tasks.filter(pending)
+            }
+            this.setState({visibleTasks})
+    }
+
+    toogleFilter = () => {
+        this.setState({showDoneTasks: !this.state.showDoneTasks})
+    }
+
+    componentDidMount = () =>{
+        this.filterTasks()
+    } 
 
     toggleTask = id => {
         const tasks = this.state.tasks.map(task => {
@@ -57,6 +82,14 @@ export default class Agenda extends Component {
         return(
             <View style={styles.container}>
                 <ImageBackground source={todayImage} style={styles.background}>
+
+                <View style={styles.iconBar}>
+                    <TouchableOpacity onPress={this.toogleFilter}>
+                        <Icon name={this.state.showDoneTasks ? 'eye' : 'eye-slash'}
+                            size={20} color={commonStyles.colors.secondary} />
+                    </TouchableOpacity>
+                </View>
+
                     <View style={styles.titlebar}>
                         <Text style={styles.title}>Hoje</Text>
                         <Text style={styles.subtitle}>
@@ -65,7 +98,8 @@ export default class Agenda extends Component {
                     </View>
                 </ImageBackground>
                 <View style={styles.taksContainer}>
-                  <FlatList data={this.state.tasks} keyExtractor={item => `${item.id}`} 
+                  <FlatList data={this.state.visibleTasks}
+                     keyExtractor={item => `${item.id}`} 
                     renderItem={({item}) =>
                     <Task {...item} toggleTask={this.toggleTask} />} />
                 </View>
