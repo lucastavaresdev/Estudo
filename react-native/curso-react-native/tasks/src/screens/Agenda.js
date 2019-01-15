@@ -48,23 +48,25 @@ export default class Agenda extends Component {
     }
 
     filterTasks = () => {
-            let visibleTasks = null
-            if(this.state.showDoneTasks) {
-                visibleTasks = [...this.state.tasks]
-            } else {
-                const pending = task => task.doneAt === null
-                visibleTasks = this.state.tasks.filter(pending)
-            }
-            this.setState({visibleTasks})
+        let visibleTasks = null
+        if (this.state.showDoneTasks) {
+            visibleTasks = [...this.state.tasks]
+        } else {
+            const pending = task => task.doneAt === null
+            visibleTasks = this.state.tasks.filter(pending)
+        }
+        this.setState({ visibleTasks })
     }
 
-    toogleFilter = () => {
-        this.setState({showDoneTasks: !this.state.showDoneTasks})
+    toggleFilter  = () => {
+        this.setState({showDoneTasks: !this.state.showDoneTasks}
+            , this.filterTasks)
     }
 
-    componentDidMount = () =>{
+    componentDidMount = () => {
         this.filterTasks()
     } 
+
 
     toggleTask = id => {
         const tasks = this.state.tasks.map(task => {
@@ -84,10 +86,10 @@ export default class Agenda extends Component {
                 <ImageBackground source={todayImage} style={styles.background}>
 
                 <View style={styles.iconBar}>
-                    <TouchableOpacity onPress={this.toogleFilter}>
-                        <Icon name={this.state.showDoneTasks ? 'eye' : 'eye-slash'}
-                            size={20} color={commonStyles.colors.secondary} />
-                    </TouchableOpacity>
+                <TouchableOpacity onPress={this.toggleFilter}>
+                            <Icon name={this.state.showDoneTasks ? 'eye' : 'eye-slash'}
+                                size={20} color={commonStyles.colors.secondary} />
+                        </TouchableOpacity>
                 </View>
 
                     <View style={styles.titlebar}>
