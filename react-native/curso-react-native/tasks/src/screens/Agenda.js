@@ -6,6 +6,7 @@ import {StyleSheet,
             FlatList ,         
             TouchableOpacity,
             Platform,
+            AsyncStorage
             } from 'react-native'
 import moment from 'moment'
 import 'moment/locale/pt-br'
@@ -19,32 +20,7 @@ import AddTask from './AddTask'
 
 export default class Agenda extends Component {
     state = {
-        tasks: [
-            {id: Math.random(), desc: 'Comprar o Curso React Native',
-                estimateAt: new Date(), doneAt: new Date()},
-            {id: Math.random(), desc: 'Concluir CursO',
-                estimateAt: new Date(), doneAt: null},
-            {id: Math.random(), desc: 'Comprar o Curso React Native',
-                estimateAt: new Date(), doneAt: new Date()},
-            {id: Math.random(), desc: 'Concluir CursO',
-                estimateAt: new Date(), doneAt: null},
-            {id: Math.random(), desc: 'Comprar o Curso React Native',
-                estimateAt: new Date(), doneAt: new Date()},
-            {id: Math.random(), desc: 'Concluir CursO',
-                estimateAt: new Date(), doneAt: null},
-            {id: Math.random(), desc: 'Comprar o Curso React Native',
-                estimateAt: new Date(), doneAt: new Date()},
-            {id: Math.random(), desc: 'Concluir CursO',
-                estimateAt: new Date(), doneAt: null},
-            {id: Math.random(), desc: 'Comprar o Curso React Native',
-                estimateAt: new Date(), doneAt: new Date()},
-            {id: Math.random(), desc: 'Concluir CursO',
-                estimateAt: new Date(), doneAt: null},
-            {id: Math.random(), desc: 'Comprar o Curso React Native',
-                estimateAt: new Date(), doneAt: new Date()},
-            {id: Math.random(), desc: 'Concluir CursO',
-                estimateAt: new Date(), doneAt: null},
-        ],
+        tasks: [ ],
         visibleTasks: [],
         showDoneTasks: true,
         showAddTask: false,
@@ -61,6 +37,11 @@ export default class Agenda extends Component {
 
         this.setState({tasks, showAddTask: false}, this.filterTasks)
     }
+
+    deleteTask = id => {
+        const tasks = this.state.tasks.filter(task => task.id !== id)
+        this.setState({tasks}, this.filterTasks)
+    }
     
     filterTasks = () => {
         let visibleTasks = null
@@ -71,6 +52,7 @@ export default class Agenda extends Component {
             visibleTasks = this.state.tasks.filter(pending)
         }
         this.setState({ visibleTasks })
+        AsyncStorage.setItem('tasks', JSON.stringify(this.state.tasks))
     }
 
     toggleFilter  = () => {
@@ -78,8 +60,11 @@ export default class Agenda extends Component {
             , this.filterTasks)
     }
 
-    componentDidMount = () => {
-        this.filterTasks()
+    componentDidMount = async () => {
+        const data = await AsyncStorage.getItem('tasks');
+        const tasks = JSON.parse(data) || []
+        this.setState({tasks}, this.filterTasks())
+        
     } 
 
 
@@ -95,7 +80,6 @@ export default class Agenda extends Component {
     }
   
     render(){
-
         return(
             <View style={styles.container}>
             <AddTask isVisible={this.state.showAddTask}
@@ -104,10 +88,10 @@ export default class Agenda extends Component {
                 <ImageBackground source={todayImage} style={styles.background}>
 
                 <View style={styles.iconBar}>
-                <TouchableOpacity onPress={this.toggleFilter}>
-                            <Icon name={this.state.showDoneTasks ? 'eye' : 'eye-slash'}
+                    <TouchableOpacity onPress={this.toggleFilter}>
+                        <Icon name={this.state.showDoneTasks ? 'eye' : 'eye-slash'}
                                 size={20} color={commonStyles.colors.secondary} />
-                        </TouchableOpacity>
+                    </TouchableOpacity>
                 </View>
 
                     <View style={styles.titlebar}>
@@ -121,7 +105,8 @@ export default class Agenda extends Component {
                   <FlatList data={this.state.visibleTasks}
                      keyExtractor={item => `${item.id}`} 
                     renderItem={({item}) =>
-                    <Task {...item} toggleTask={this.toggleTask} />} />
+                    <Task {...item} toggleTask={this.toggleTask} 
+                            onDelete={this.deleteTask} />} />
                 </View>
                 <ActionButtton buttonColor={commonStyles.colors.today}
                     onPress={() => {this.setState({showAddTask: true}) }}
@@ -133,7 +118,7 @@ export default class Agenda extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
     },
     background: {
         flex: 3,
@@ -143,20 +128,26 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
     },
     title: {
-            fontFamily: commonStyles.fontFamily,
-            color: commonStyles.colors.secondary,
-            fontSize: 50,
-            marginLeft: 20,
-            marginBottom: 10,
-        },
-        subtitle: {
-            fontFamily: commonStyles.fontFamily,
-            color: commonStyles.colors.secondary,
-            fontSize: 20,
-            marginLeft: 20,
-            marginBottom: 30,
-        },
-        taksContainer: {
+        fontFamily: commonStyles.fontFamily,
+        color: commonStyles.colors.secondary,
+        fontSize: 50,
+        marginLeft: 20,
+        marginBottom: 10,
+    },
+    subtitle: {
+        fontFamily: commonStyles.fontFamily,
+        color: commonStyles.colors.secondary,
+        fontSize: 20,
+        marginLeft: 20,
+        marginBottom: 30,
+    },
+    taksContainer: {
         flex: 7,
-     }
+    },
+    iconBar: {
+        marginTop: Platform.OS === 'ios' ? 30 : 10,
+        marginHorizontal: 20,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    }
 })
