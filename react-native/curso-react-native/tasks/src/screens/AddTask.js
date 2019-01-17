@@ -15,20 +15,10 @@ import {
 import moment from 'moment'
 import commonStyles from '../commonStyles'
 
+const initialState = { desc: '', date: new Date() }
 
 export default class AddTask extends Component {
-
-    constructor(props) {
-        super(props)
-        this.state = this.getInitialState()
-    }
-
-    getInitialState = () => {
-        return {
-            desc: '',
-            date: new Date()
-        }
-    }
+    state = { ...initialState }
 
     save = () => {
         if (!this.state.desc.trim()) {
@@ -38,6 +28,7 @@ export default class AddTask extends Component {
 
         const data = { ...this.state }
         this.props.onSave(data)
+        this.setState({ ...initialState })
     }
 
     handleDateAndroidChanged = () => {
@@ -72,8 +63,7 @@ export default class AddTask extends Component {
         return (
             <Modal onRequestClose={this.props.onCancel}
                 visible={this.props.isVisible}
-                animationType='slide' transparent={true}
-                onShow={() => this.setState({ ...this.getInitialState() })}>
+                animationType='slide' transparent={true}>
                 <TouchableWithoutFeedback onPress={this.props.onCancel}>
                     <View style={styles.offset}></View>
                 </TouchableWithoutFeedback>
@@ -143,4 +133,4 @@ var styles = StyleSheet.create({
         marginTop: 10,
         textAlign: 'center',
     }
-})
+}) 
