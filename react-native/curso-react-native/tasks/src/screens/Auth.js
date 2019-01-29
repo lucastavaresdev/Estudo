@@ -9,7 +9,8 @@ import {
     Alert
  } from 'react-native'
  import commonStyle from '../commonStyles'
- import backgroudImage from '../../assets/imgs/login.jpg'
+ import backgroundImage from '../../assets/imgs/login.jpg'
+import commonStyles from '../commonStyles';
 
  export default class Auth extends Component{
      state = {
@@ -31,7 +32,7 @@ import {
 
      render(){
          return(
-             <ImageBackground source={backgroudImage} style={styles.background}>
+             <ImageBackground source={backgroundImage} style={styles.background}>
                 <Text style={styles.title}>Tasks</Text>
                 <View style={styles.formContainer}>
                     <Text style={styles.subtitle}>
@@ -75,3 +76,43 @@ import {
          )
      }
  }
+
+ const styles = StyleSheet.create({
+        background: {
+            flex: 1,
+            width: '100%',
+            alignItems: 'center',
+            justifyContent: 'center',
+        },
+        title: {
+            fontFamily: commonStyles.fontFamily,
+            color: '#FFFFFF',
+            fontSize: 70,
+            marginBottom: 10,
+        },
+        subtitle: { 
+            fontFamily: commonStyles.fontFamily,
+            color: '#FFFFFF',
+            fontSize: 20
+        },
+        formContainer: {
+            backgroundColor: 'rgba(0,0,0,0.8)',
+            padding: 20,
+            width: '90%'
+        },
+        input: {
+            marginTop: 10,
+            backgroundColor: '#FFFFFF'
+        },
+        button: {
+            backgroundColor: '#080',
+            marginTop: 10,
+            padding: 10,
+            alignItems: 'center',
+        },
+        buttonText: {
+            fontFamily: commonStyles.fontFamily,
+            color: '#FFFFFF',
+            fontSize: 20
+        }
+ })
