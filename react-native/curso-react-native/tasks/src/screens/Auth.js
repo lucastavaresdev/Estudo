@@ -11,6 +11,7 @@ import {
  import commonStyle from '../commonStyles'
  import backgroundImage from '../../assets/imgs/login.jpg'
 import commonStyles from '../commonStyles';
+import AuthInput from '../components/AuthInput'
 
  export default class Auth extends Component{
      state = {
@@ -39,20 +40,20 @@ import commonStyles from '../commonStyles';
                         {this.state.stageNew ? 'Crie a sua conta' : 'Informe seus dados'}
                     </Text>
                     {this.state.stageNew &&
-                        <TextInput placeholder='Nome' style={styles.input} 
+                        <AuthInput icon='user' placeholder='Nome' style={styles.input} 
                             value={this.state.name}
                             onChangeText={name => this.setState({name})}
                     />}
-                    <TextInput placeholder='email' style={styles.input} 
+                     <AuthInput icon='at' placeholder='email' style={styles.input} 
                             value={this.state.email}
                             onChangeText={email => this.setState({email})}
                     />
-                    <TextInput placeholder='Senha' style={styles.input} 
+                  <AuthInput icon='lock' secureTextEntry={true} placeholder='Senha' style={styles.input} 
                             value={this.state.password}
                             onChangeText={password => this.setState({password})}
                     />
                         {this.state.stageNew && 
-                            <TextInput placeholder='Confirmação' style={styles.input} 
+                              <AuthInput icon='asterisk'  secureTextEntry={true} placeholder='Confirmação' style={styles.input} 
                             value={this.state.confirmPassword}
                             onChangeText={confirmPassword => this.setState({confirmPassword})}
                             />
