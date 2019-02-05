@@ -7,8 +7,9 @@ import {
     FlatList,
     TouchableOpacity,
     Platform,
-    AsyncStorage
 } from 'react-native'
+import axios from 'axios'
+import { server, showError } from '../common'
 import moment from 'moment'
 import 'moment/locale/pt-br'
 import todayImage from '../../assets/imgs/todayImage.jpg'
@@ -17,6 +18,7 @@ import Task from '../components/Task'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import ActionButton from 'react-native-action-button'
 import AddTask from './AddTask'
+
 
 export default class Agenda extends Component {
     state = {
@@ -53,7 +55,7 @@ export default class Agenda extends Component {
             visibleTasks = this.state.tasks.filter(pending)
         }
         this.setState({ visibleTasks })
-        AsyncStorage.setItem('tasks', JSON.stringify(this.state.tasks))
+   
     }
 
     toggleFilter = () => {
@@ -62,9 +64,7 @@ export default class Agenda extends Component {
     }
 
     componentDidMount = async () => {
-        const data = await AsyncStorage.getItem('tasks')
-        const tasks = JSON.parse(data) || []
-        this.setState({ tasks }, this.filterTasks)
+       
     }
 
     toggleTask = id => {
@@ -76,6 +76,12 @@ export default class Agenda extends Component {
             return task
         })
         this.setState({ tasks }, this.filterTasks)
+    }
+
+    loadTasks = async () => {
+        try {
+            
+        }
     }
 
     render() {
