@@ -18,7 +18,7 @@ import ActionButton from 'react-native-action-button'
 import AddTask from './AddTask'
 import { server, showError } from '../common'
 
-import todayImage from '../../assets/imgs/today.jpg'
+import todayImage from '../../assets/imgs/todayImage.jpg'
 import tomorrowImage from '../../assets/imgs/tomorrow.jpg'
 import weekImage from '../../assets/imgs/week.jpg'
 import monthImage from '../../assets/imgs/month.jpg'
