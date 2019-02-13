@@ -1,5 +1,5 @@
 {
-  "name": "lambe",
+  "name": "instaclone",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "react": "16.4.1",
-    "react-native": "0.56.1",
+    "react-native": "0.56.0",
     "axios": "0.18.0",
     "react-native-gravatar": "1.0.2",
     "react-native-image-picker": "0.27.1",
@@ -19,9 +19,9 @@
     "redux-thunk": "2.3.0"
   },
   "devDependencies": {
-    "babel-jest": "23.6.0",
-    "babel-preset-react-native": "^5",
-    "jest": "23.6.0",
+    "babel-jest": "24.1.0",
+    "babel-preset-react-native": "5",
+    "jest": "24.1.0",
     "react-test-renderer": "16.4.1"
   },
   "jest": {
