@@ -11,8 +11,8 @@ let templatestr: string = `${str} de lucas`
 console.log(templatestr)
 
 function func():void{}
-if(bool != null){}
-if(bool != undefined){}
+if(bool !== null){}
+if(bool !== undefined){}
 
 if(bool){
     let i: number;
@@ -34,3 +34,28 @@ enum Day {Monday, Tuesday  = 2, Wednesday}
 let day: Day = Day.Monday
 console.log(`day: ${day} || ${Day.Tuesday} || ${Day.Wednesday}` )
 console.log(`day: ${Day[0]} `)
+
+
+console.log(true === 1)
+
+
+function add(v1:number, v2:number, v3?:number): number{
+    if(v3 !== undefined)
+        return v1 + v2+v3
+    return v1 + v2
+}
+
+console.log(`add ${add(1,2,3)}`)
+console.log(`add ${add(1,2)}`)
+
+function add2(v1:any, v2:any, v3?:any): any{
+    if(v3 !== undefined)
+        return v1 + v2+v3
+    return v1 + v2
+}
+
+console.log(`add ${add2("lucas", 3)}`)
+
+let var1: any = "sass"
+
+let example: void = null

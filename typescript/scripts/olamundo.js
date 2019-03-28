@@ -9,8 +9,8 @@ var str = 'Uma mensagem';
 var templatestr = str + " de lucas";
 console.log(templatestr);
 function func() { }
-if (bool != null) { }
-if (bool != undefined) { }
+if (bool !== null) { }
+if (bool !== undefined) { }
 if (bool) {
     var i = void 0;
     for (i = 0; i < 3; i++) {
@@ -32,4 +32,20 @@ var Day;
 var day = Day.Monday;
 console.log("day: " + day + " || " + Day.Tuesday + " || " + Day.Wednesday);
 console.log("day: " + Day[0] + " ");
+console.log(true === 1);
+function add(v1, v2, v3) {
+    if (v3 !== undefined)
+        return v1 + v2 + v3;
+    return v1 + v2;
+}
+console.log("add " + add(1, 2, 3));
+console.log("add " + add(1, 2));
+function add2(v1, v2, v3) {
+    if (v3 !== undefined)
+        return v1 + v2 + v3;
+    return v1 + v2;
+}
+console.log("add " + add2("lucas", 3));
+var var1 = "sass";
+var example = null;
 //# sourceMappingURL=olamundo.js.map
