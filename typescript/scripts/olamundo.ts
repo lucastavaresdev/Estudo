@@ -58,4 +58,19 @@ console.log(`add ${add2("lucas", 3)}`)
 
 let var1: any = "sass"
 
-let example: void = null
+let stringlenght: number = (<string> var1).length
+let stringUppercase: string = (var1 as string).toUpperCase();
+
+console.log(stringlenght)
+console.log(stringUppercase)
+
+function add3(v1: string, ...v2:number[]): void{
+    let sum: number = 0;
+    for(let i = 0;i<v2.length; i++){
+        sum += v2[i]
+    }
+    console.log(v1 + sum)
+}
+
+add3(`a soma é: `, 1,2,3)
+//let example: void = null

@@ -47,5 +47,21 @@ function add2(v1, v2, v3) {
 }
 console.log("add " + add2("lucas", 3));
 var var1 = "sass";
-var example = null;
+var stringlenght = var1.length;
+var stringUppercase = var1.toUpperCase();
+console.log(stringlenght);
+console.log(stringUppercase);
+function add3(v1) {
+    var v2 = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        v2[_i - 1] = arguments[_i];
+    }
+    var sum = 0;
+    for (var i = 0; i < v2.length; i++) {
+        sum += v2[i];
+    }
+    console.log(v1 + sum);
+}
+add3("a soma \u00E9: ", 1, 2, 3);
+//let example: void = null
 //# sourceMappingURL=olamundo.js.map
