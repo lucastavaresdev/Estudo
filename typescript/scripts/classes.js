@@ -12,31 +12,34 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var Person = /** @class */ (function () {
-    function Person(name) {
+var Person2 = /** @class */ (function () {
+    function Person2(name) {
         this.name = name;
     }
-    Person.prototype.print = function () {
+    Person2.prototype.print = function () {
         console.log("" + this.name);
     };
-    return Person;
+    return Person2;
 }());
-var Employee = /** @class */ (function (_super) {
-    __extends(Employee, _super);
-    function Employee(name, salary) {
+var Employee2 = /** @class */ (function (_super) {
+    __extends(Employee2, _super);
+    function Employee2(name, salary) {
         var _this = _super.call(this, name) || this;
         _this.salary = salary;
         return _this;
     }
-    Employee.prototype.print = function () {
+    Employee2.prototype.print = function () {
         _super.prototype.print.call(this);
         console.log("Salary: " + this.salary);
     };
-    return Employee;
-}(Person));
-var pl = new Person("Lucas");
-var empt = new Employee('Lucas Tavares', 500);
+    return Employee2;
+}(Person2));
+var pl = new Person2("Lucas");
+var empt = new Employee2('Lucas Tavares', 500);
 pl.print();
 empt.print();
 var p2 = {};
+//polimorfismo
+var p3 = new Employee2("Lucy", 200);
+p3.print();
 //# sourceMappingURL=classes.js.map

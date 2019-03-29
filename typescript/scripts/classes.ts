@@ -1,5 +1,5 @@
-class Person{
-    name: string;
+class Person2{
+    public name: string;
     constructor(name: string){
         this.name = name
     }
@@ -9,8 +9,8 @@ class Person{
     }
 }
 
-class Employee extends Person{
-    salary: number
+class Employee2 extends Person2{
+    public salary: number
     constructor(name: string, salary: number){
         super(name);
         this.salary = salary;
@@ -22,9 +22,16 @@ class Employee extends Person{
     }
 }
 
-let pl = new Person("Lucas")
-let empt = new Employee('Lucas Tavares', 500)
+
+
+let pl = new Person2("Lucas")
+let empt = new Employee2('Lucas Tavares', 500)
 pl.print()
 empt.print()
-
 let p2 = <Person>{};
+
+
+//polimorfismo
+
+let p3: Person2 = new Employee2("Lucy", 200);
+p3.print();
