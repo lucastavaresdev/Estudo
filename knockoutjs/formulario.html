@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Exemplo Knockout</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<style>
+		.item-checked {
+			color: #ddd;
+			text-decoration: line-through;
+		}
+
+		.total {
+			padding: 0 2px;
+		}
+	</style>
+
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-8 col-xs-offset-2">
+				<br><br>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4>knockout Bindings</h4>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-12" data-bind="with: alerta">
+								<div class="alert alert-warning" data-bind="text: mensagem, css: {'alert-danger': (tipo == 'danger'), 'alert-info': tipo == 'info', 'alert-warning' : tipo == 'warning'}, visible: mostrar ">Mensagem</div>
+							</div>
+						</div>
+						<div class="row">
+							<!-- COL ESQUERDA -->
+							<div class="col-xs-6">
+								<strong>Lista de Itens</strong>
+								<ul class="list-group" data-bind="foreach: lista">
+									<!-- Itens da lista -->
+									<li class="list-group-item"  data-bind="css: {'item-checked': $data.checado}">
+										<input type="checkbox" data-bind="checked: $data.checado"/>
+										<!-- ko text: descricao -->		<!-- /ko -->
+									</li>
+								</ul>
+
+								<!-- <li class="list-group-item item-checked">
+									 <input type="checkbox" checked/>
+									 Descrição do Item
+								</li> -->
+
+								<div class="col-xs-12">
+									<div class="row">
+										<div class="col-xs-2 total">Total:</div>
+										<div class="col-xs-2 total" data-bind="text: lista().length"></div>
+										<div class="col-xs-2 total text-center"><input type="checkbox" /> :</div>
+										<div class="col-xs-2 total" data-bind="text: itensNaoChecados">1</div>
+										<div class="col-xs-2 total text-center"><input type="checkbox" checked /> :
+										</div>
+										<div class="col-xs-2 total" data-bind="text: itensChecados">0</div>
+									</div>
+								</div>
+							</div>
+							<!-- COL DIREITA -->
+							<div class="col-xs-6">
+								<div class="row">
+									<div class="col-xs-12"><label>Descrição do Item</label></div>
+									<div class="col-xs-12"><input type="text" class="form-control input-sm"
+											data-bind='value: descricaoItem' /></div>
+									<div class="col-xs-12"><br></div>
+									<div class="col-xs-12"><button class="btn btn-primary btn-block" data-bind="click: incluirItem">Incluir
+											item</button></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.0.js"></script>
+	<script type="text/javascript">
+
+		function ViewModel() {
+			var self = this;
+			
+			//{descricao: "", checado: false}
+			self.lista = ko.observableArray([]);
+			self.descricaoItem = ko.observable("");
+
+
+			self.alerta = ko.observable({ mostrar: false, mensagem: "Formulario ok", tipo: "info" })
+
+			self.incluirItem = function () {
+				if(self.descricaoItem() === ""){
+					self.alerta({ mostrar: true, mensagem: "Preencha a descricao do item", tipo: "warning" })
+				}else{
+					self.lista.push({descricao: self.descricaoItem(), checado: ko.observable(false)})
+					self.descricaoItem("");
+					self.alerta({ mostrar: true, mensagem: "Item Incluido", tipo: "info" })
+				}
+			};
+
+			self.itensChecados = ko.pureComputed(function(){
+				return  self.lista().filter(function(item){ return item.checado();}).length
+			});
+
+			self.itensNaoChecados = ko.pureComputed(function(){
+				return self.lista().filter(function(item){ return !item.checado();}).length
+			});
+			
+		}
+
+		vm = new ViewModel();
+
+		ko.applyBindings(vm);
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+   <head>
+      <title>KnockoutJS Simple Example</title>
+      <script src = "https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js" 
+         type = "text/javascript"></script>
+   </head>
+
+   <body>
+      
+    <p>First String: <input data-bind = "value: primeira" /></p>
+      <p>Second String: <input data-bind = "value: segunda" /></p>
+
+
+      <p>First String: <strong data-bind = "text: primeira">Hi</strong></p>
+      <p>Second String: <strong data-bind = "text: segunda">There</strong></p>
+
+      <p>Derived String: <strong data-bind = "text: primeiraeSegunda"></strong></p>
+
+      <script>
+
+
+         function AppViewModel() {
+            this.primeira = ko.observable("Entre com a primeira String");
+            this.segunda = ko.observable("Enter com a segunda String");
+
+
+
+            this.primeiraeSegunda = ko.computed(function() {
+                var num1 = parseInt(this.primeira())
+                var num2 = parseInt(this.segunda())
+               return  num1 + num2;
+            }, this);
+         }
+
+         // Activates knockout.js
+         ko.applyBindings(new AppViewModel());
+         
+      </script>
+
+   </body>
+</html>

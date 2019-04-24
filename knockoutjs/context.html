@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Exemplo Knockout</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<style>
+		.item-checked {
+			color: #ddd;
+			text-decoration: line-through;
+		}
+
+		.total {
+			padding: 0 2px;
+		}
+	</style>
+
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-8 col-xs-offset-2">
+				<br><br>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4>knockout Bindings</h4>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+								<div class="col-xs-12">
+									<h4 data-bind="text: propA"></h4>
+									<h4 data-bind="text: context2().propA"></h4>
+									<h5 data-bind="with: context2">
+										<span data-bind="text: propA"></span>
+									</h5>
+									<button data-bind="click: function(){ viewParent($data); }">View Parent</button>
+								</div>
+							</div>
+							<br>
+							<br>
+							<div class="row">
+								<div class="col-xs-6">
+									<ul class="list-group" data-bind="foreach: lista">
+										<li class="list-group-item">
+											<div class="row">
+												<div class="col-xs-12" data-bind="text: propA"></div>
+												<div class="col-xs-12">	<button data-bind="click: function(){ $parent.viewParent($element); }">View Parent</button></div>
+												<div class="col-xs-12"></div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+
+
+
+							<!-- COL DIREITA -->
+							<div class="col-xs-6">
+								<div class="row">
+									<div class="col-xs-12">
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+		<script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.0.js"></script>
+		<script type="text/javascript">
+
+			function ViewModel() {
+				var self = this;
+
+				self.propA = ko.observable("Prop A do contexto principal")
+				self.viewParent = function (parent) {
+					console.log(parent)
+				}
+
+				self.context2 = ko.observable({
+					propA: ko.observable("propA do contexto Filho")
+				})
+
+				self.lista = ko.observableArray([
+					{ propA: "PropA do elemento 1 do contexto filho criado pelo foreach" },
+					{ propA: "PropA do elemento 2 do contexto filho criado pelo foreach" },
+					{ propA: "PropA do elemento 3 do contexto filho criado pelo foreach" }
+				])
+
+			}
+
+			vm = new ViewModel();
+
+			ko.applyBindings(vm);
+
+		</script>
+</body>
+
+</html>
