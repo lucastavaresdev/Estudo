@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Vue.js</title>
+    <script src='https://unpkg.com/vue@2.6.10/dist/vue.js'></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <button v-on:click.left="onClick">Botao Esquerdo</button>
+        <button v-on:click.middle="onClick">Botao meio</button>
+        <button v-on:click.right="onClick">Botao Direito</button>
+        <button v-on:click.right.prevent="onClick">Sem menu de contexto</button>
+    </div>
+
+    <script>
+
+     new Vue({
+         el: '#app', 
+         methods: {
+             onClick: function(event){
+                console.log('Botao ' + event.button + ' pressionando')
+             },
+         }
+     })
+
+
+    </script>
+
+</body>
+
+</html>
