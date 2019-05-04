@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <p>Nome original {{ curso }}</p>
+        <p>Nome invertido (computed): {{ cursoInvertidoComputed }}</p>
+        <p>Nome invertido (methods):  {{ cursoInvertidomethods() }}</p>
+        <p>Autor: {{ nomedoAutorInteiro ? 'lucas tavares' : 'lucas' }}</p>
+        <button @click='nomedoAutorInteiro = !nomedoAutorInteiro'>Alterar nome do autor</button>
+        <br>
+        <input @keyup.enter="alteraNomedoCurso">
+    </div>
+
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                curso: 'Curso de VueJS',
+                nomedoAutorInteiro: false
+            },
+            //computed é cacheada ela so é reavaliada se a propriedade curso for alterada
+            computed: {
+                cursoInvertidoComputed: function () {
+                    console.log('Computed ')
+                    return this.curso.split('').reverse().join('')
+                }
+            },
+            //method é chamado a cada vez
+        
+            methods: {
+                alteraNomedoCurso: function (event) {
+                    this.curso = event.target.value;
+                },
+                cursoInvertidomethods: function(event){
+                    console.log('!Method ')
+                    return this.curso.split('').reverse().join('')
+                }
+            }
+
+        })
+
+
+    </script>
+</body>
+
+</html>
