@@ -9,28 +9,33 @@
 <body>
 
     <div id="app">
-        <p>Nome: {{ nomeCompleto }}</p>
-        <button @click='alterarNomes'>Alterar Nomes</button>
+        <p>Nome: {{ nomeCompleto}}</p>
+        <input @keyup.enter="alterarNome">
     </div>
 
     <script>
-        //watches quando usar api ou alguma operação assincrona 
+
         new Vue({
             el: '#app',
             data: {
-               nomeCompleto: 'Lucas Tomiati',
+               primeiroNome: 'Lucas',
+               ultimoNome: 'Tomiati'
             },
-            watch: {
-                nomeCompleto: function(novoNomeCompleto, antigoNomeCompleto){
-                    var self  = this
-                    setTimeout(function(){
-                        self.nomeCompleto = 'nome resetado'
-                    }, 3000)
+            computed: {
+                nomeCompleto: {
+                    get: function(){
+                        return this.primeiroNome + '  ' +this.ultimoNome
+                    },
+                    set: function(novoNome){
+                        var nomes = novoNome.split(' ')
+                        this.primeiroNome = nomes[0]
+                        this.ultimoNome = nomes[nomes.length - 1]
+                    }
                 }
             },
-            methods: {
-                alterarNomes: function (event) {
-                    this.nomeCompleto = 'Lucas Tavares'
+            methods:{
+                alterarNome: function(event){
+                    this.nomeCompleto = event.target.value;
                 }
             }
         })
