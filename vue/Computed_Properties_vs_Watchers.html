@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <p>Nome: {{ nomeCompleto }}</p>
+        <button @click='alterarNomes'>Alterar Nomes</button>
+    </div>
+
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                primeiroNome: 'Lucas',
+                ultimoNome: 'Tomiati',
+                // nomeCompleto: 'Lucas Tomiati',
+            },
+            //valor em cache
+            computed: {
+                nomeCompleto: function(){
+                    return this.primeiroNome + ' ' + this.ultimoNome;
+                }
+            },
+            // watch: {
+            //     primeiroNome: function (novoPrimeiroNome, antigoPrimeiroNome) {
+            //         this.nomeCompleto = novoPrimeiroNome + " " + this.ultimoNome;
+            //     },
+            //     ultimoNome: function (novoultimoNome, antigoultimoNome) {
+            //         this.nomeCompleto = this.primeiroNome + " " + novoultimoNome;
+            //     },
+            // },
+            methods: {
+                alterarNomes: function (event) {
+                    this.primeiroNome = 'tavares'
+                    this.ultimoNome = 'lucas'
+                }
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
