@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<style>
+    #app div{
+        display: inline-block;
+        margin-right: 10px;
+        background-color: gray; 
+    }
+</style>
+<body>
+
+    <div id="app">
+        <div 
+            style='width: 200px;height: 200px'
+            :style='{ backgroundColor: cor, height: tamanho + "px" }'   
+        >
+        </div>
+        <div :style="estilosCss"></div>
+        <input v-model="cor" placeholder="Cor">
+        <input v-model.number="tamanho" placeholder="Tamanho em Pixels">
+    </div>
+
+<script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                cor: '',
+                tamanho: 200
+            },
+            computed: {
+                estilosCss: function(){
+                    return {
+                        backgroundColor: this.cor,
+                        height: (this.tamanho + 10) + "px",
+                        width: '100px'
+                    }
+                }
+            }
+            
+        })
+
+    </script>
+</body>
+
+</html>
