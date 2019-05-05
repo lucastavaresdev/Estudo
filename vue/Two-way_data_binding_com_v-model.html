@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <input :value="nome" @input="nome = $event.target.value">
+       <!--Forma mais simples-->
+        <input v-model='nome'>
+        <p> Nome: {{nome}}</p>
+    </div>
+
+<script>
+
+        new Vue({
+            el: '#app',
+            data: {
+              nome: 'Lucas'
+            }
+        })
+
+    </script>
+</body>
+
+</html>
