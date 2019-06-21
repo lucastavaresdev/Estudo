@@ -1,3 +1,5 @@
+package inicio
+
 fun operacao(a: Int, b: Int, c: String) {
     /*
     when (c) {

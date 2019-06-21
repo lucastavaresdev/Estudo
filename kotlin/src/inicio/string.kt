@@ -1,3 +1,5 @@
+package inicio
+
 fun main() {
     val frase = "kotlin é uma linguagem"
     val caracteritica = "programação"

@@ -1,3 +1,5 @@
+package inicio
+
 fun main() {
     var nome = "Lucas Tavares";
     var idade: Byte = 24

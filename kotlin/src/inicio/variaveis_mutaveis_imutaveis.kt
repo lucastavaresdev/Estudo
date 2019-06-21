@@ -1,3 +1,5 @@
+package inicio
+
 fun main() {
     //var mutaveis
         var nome = "teste"

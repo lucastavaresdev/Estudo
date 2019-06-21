@@ -1,3 +1,5 @@
+package inicio
+
 fun main() {
     val str = "lucas tavares"
     for(c in str){

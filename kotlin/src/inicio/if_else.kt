@@ -1,4 +1,4 @@
-/*fun maiorDeIdade(idade: Int): Boolean {
+package inicio/*fun inicio.maiorDeIdade(idade: Int): Boolean {
     if (idade >= 18) {
         //println("Maior de Idade");
         return true

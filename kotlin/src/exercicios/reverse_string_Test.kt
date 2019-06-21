@@ -4,13 +4,13 @@ import  org.junit.Test;
 
 fun reverseString(){
 
-    @Test fun reverseUseSB(){
+    @Test fun reverseUsingSB(){
 
-        Assert.assertEquals("bs niltok",reverseUseSB("kotlin sb"))
+        Assert.assertEquals("bs niltok",reverseUsingSB("kotlin sb"))
     }
 
-    @Test fun reverseUseStringLoop(){
-        Assert.assertEquals("pool niltok", reverseUseStringLoop("kotlin loop"))
+    @Test fun reverseUsingLoop(){
+        Assert.assertEquals("pool niltok", reverseUsingLoop("kotlin loop"))
     }
 
 

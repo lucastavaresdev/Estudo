@@ -1,10 +1,12 @@
+package inicio
+
 fun media(vararg notas: Float){
     if(notas.isNotEmpty()){
         var soma = 0f
         for(nota in notas){
             soma += nota
         }
-        println("A media é ${soma/notas.size}")
+        println("A inicio.media é ${soma/notas.size}")
     }
 
 }
@@ -18,6 +20,6 @@ fun <T> media2(vararg valores: T){
 
 
 fun main() {
-    media(1f,10f,5f)
-    media2(5,7f,5f, "lucas")
+    media(1f, 10f, 5f)
+    media2(5, 7f, 5f, "lucas")
 }

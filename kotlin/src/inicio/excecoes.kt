@@ -1,3 +1,5 @@
+package inicio
+
 fun main() {
     try {
         println("sdsada".toInt())
