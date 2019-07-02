@@ -1,3 +1,5 @@
+package orientacao_objetos
+
 //caso precise fazer um get e set customizado
 
 class Maquina(var marca: String) {

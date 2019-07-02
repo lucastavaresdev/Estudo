@@ -1,4 +1,4 @@
-import java.util.*
+package orientacao_objetos
 
 class Pessoa1
 
