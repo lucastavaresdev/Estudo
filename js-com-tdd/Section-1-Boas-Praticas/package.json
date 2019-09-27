@@ -1,7 +1,7 @@
 {
-  "name": "secao_1",
+  "name": "section-1-boas-praticas",
   "version": "1.0.0",
-  "description": "curso de js com tdd modulo 1",
+  "description": "Section 1 do curso js com jdd",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,7 @@
   "keywords": [
     "js",
     "tdd",
-    "library"
+    "javascript"
   ],
   "author": "Lucas Tavares <lucastavaresdev@gmail.com>",
   "license": "MIT"
