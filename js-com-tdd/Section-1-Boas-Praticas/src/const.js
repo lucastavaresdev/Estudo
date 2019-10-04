@@ -1,5 +1,4 @@
 
-//cria um objeto
 const nome = {
   nome: 'lucas',
   idade: 70,
