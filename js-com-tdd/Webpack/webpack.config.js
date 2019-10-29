@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 
 module.exports = {
-    entry: '.app.js',
+    entry: './app.js',
     output: {
         filename: './build.js'
     },
