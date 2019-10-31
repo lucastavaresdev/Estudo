@@ -30,31 +30,71 @@ describe('Main', function () {
 /* ------------------------------------------------- */
 /* ---------------- Hooks ---------------------- */
 /* ------------------------------------------------- */
+// describe('MainHooks', function () {
+
+//   //Roda uma vez antes do bloco
+//   before(function(){
+//     console.log("before");
+//   })
+//   //Roda uma vez depois do bloco
+//   after(function(){
+//     console.log("after");
+//   })
+//   //Roda todas as vezes antes de cada bloco
+//   beforeEach(function(){
+//     console.log("beforeEach");
+//   })
+
+//   //Roda todas as vezes depois de cada bloco
+//   afterEach(function(){
+//     console.log("afterEach");
+//   })
+
+
+//   it("teste1", function(){
+//     console.log("teste1");
+//   })
+//   it("teste2", function(){
+//     console.log("teste2");
+//   })
+// })
+
+
 describe('MainHooks', function () {
 
+  var arr;
   //Roda uma vez antes do bloco
-  before(function(){
-    console.log("before");
+  before(function () {
+
   })
   //Roda uma vez depois do bloco
-  after(function(){
-    console.log("after");
+  after(function () {
+
   })
   //Roda todas as vezes antes de cada bloco
-  beforeEach(function(){
-    console.log("beforeEach");
+  beforeEach(function () {
+     arr = [1,2,3]
   })
 
   //Roda todas as vezes depois de cada bloco
-  afterEach(function(){
-    console.log("afterEach");
+  afterEach(function () {
+
   })
 
 
-  it("teste1", function(){
-    console.log("teste1");
+
+  it("deve retornar a quantidade de itens do arrey apos adicionar um valor", function () {
+    arr.push(4)
+    console.log(arr.length) // 4
   })
-  it("teste2", function(){
-    console.log("teste2");
+
+  it("Quando usar o metodo pop o array deve dinuir em um valor", function () {
+    arr.pop()
+    console.log(arr.length)
   })
+
+  it("O ultimo valor foi 3", function () {
+    console.log(arr.pop() === 3) //true
+  })
+
 })
