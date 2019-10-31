@@ -1,3 +1,4 @@
+/*
 // describe descreve o que o teste faz
 // context que recebe dois tipos de parametros
 // It roda os nossos testes
@@ -22,4 +23,38 @@ describe('Main', function () {
 
   })
 
+})
+
+*/
+
+/* ------------------------------------------------- */
+/* ---------------- Hooks ---------------------- */
+/* ------------------------------------------------- */
+describe('MainHooks', function () {
+
+  //Roda uma vez antes do bloco
+  before(function(){
+    console.log("before");
+  })
+  //Roda uma vez depois do bloco
+  after(function(){
+    console.log("after");
+  })
+  //Roda todas as vezes antes de cada bloco
+  beforeEach(function(){
+    console.log("beforeEach");
+  })
+
+  //Roda todas as vezes depois de cada bloco
+  afterEach(function(){
+    console.log("afterEach");
+  })
+
+
+  it("teste1", function(){
+    console.log("teste1");
+  })
+  it("teste2", function(){
+    console.log("teste2");
+  })
 })
