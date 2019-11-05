@@ -1,26 +1,31 @@
 {
-  "name": "section-1-boas-praticas",
-  "version": "1.0.0",
-  "description": "Section 1 do curso js com jdd",
-  "main": "index.js",
-  "scripts": {
-    "lint": "./node_modules/.bin/eslint ./src/*.js",
-    "prepush": "npm run lint",
-    "test": "./node_modules/.bin/mocha src/tests/**/*.spec.js"
-  },
-  "keywords": [
-    "js",
-    "tdd",
-    "javascript"
-  ],
-  "author": "Lucas Tavares <lucastavaresdev@gmail.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^6.5.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "husky": "^3.0.7",
-    "mocha": "^6.2.2"
-  }
+    "name": "section-1-boas-praticas",
+    "version": "1.0.0",
+    "description": "Section 1 do curso js com jdd",
+    "main": "index.js",
+    "scripts": {
+        "lint": "./node_modules/.bin/eslint ./src/*.js",
+        "prepush": "npm run lint",
+        "test": "./node_modules/.bin/mocha src/tests/**/*.spec.js --require babel-register --watch"
+    },
+    "keywords": [
+        "js",
+        "tdd",
+        "javascript"
+    ],
+    "author": "Lucas Tavares <lucastavaresdev@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/preset-env": "^7.7.1",
+        "chai": "^4.2.0",
+        "eslint": "^6.5.0",
+        "eslint-config-airbnb-base": "^14.0.0",
+        "eslint-plugin-import": "^2.18.2",
+        "husky": "^3.0.7",
+        "mocha": "^6.2.2"
+    },
+    "dependencies": {
+        "babel-preset-env": "^1.7.0",
+        "babel-register": "^6.26.0"
+    }
 }
