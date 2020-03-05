@@ -1,0 +1,4 @@
+package repositoryDados
+
+class ContactRepository {
+}
