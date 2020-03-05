@@ -14,6 +14,6 @@ fun reverseUsingLoop(str: String): String {
         SbPharase.append(str[i])
         i--
     }
-    
+
     return SbPharase.toString()
 }

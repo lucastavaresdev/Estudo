@@ -3,12 +3,11 @@ package exercicios
 import org.junit.Assert
 import org.junit.Test
 
-class ReverseString(){
-    @Test
-    fun reverseUsingSb(){
+class ReverseStringTest {
+    @Test fun reverseUsingSb(){
         Assert.assertEquals("bs niltok", reverseUsingSb("kotlin Sb"))
     }
-    @Test fun reverseUsingLoop{
+    @Test fun reverseUsingLoop(){
         Assert.assertEquals("pool niltok", reverseUsingLoop("kotlin Loop"))
     }
 }
