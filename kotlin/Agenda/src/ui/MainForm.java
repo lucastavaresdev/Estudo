@@ -5,6 +5,8 @@ import entity.ContactEntity;
 
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -19,6 +21,9 @@ public class MainForm extends JFrame {
     private JTable tableContats;
     private JLabel labelContactCount;
     private ContactBusiness mcontactBusiness;
+
+    private String mNome = "";
+    private String mfone = "";
 
     //construtor da interface
     public MainForm() {
@@ -38,12 +43,12 @@ public class MainForm extends JFrame {
         loadContacs();
     }
 
-    private void loadContacs(){
+    private void loadContacs() {
         java.util.List<ContactEntity> contactList = mcontactBusiness.getList();
         String[] columNames = {"nome", "telefone"};
         DefaultTableModel model = new DefaultTableModel(new Object[0][0], columNames);
 
-        for (ContactEntity i : contactList){
+        for (ContactEntity i : contactList) {
             Object[] o = new Object[2];
 
             o[0] = i.getName();
@@ -66,10 +71,32 @@ public class MainForm extends JFrame {
                 dispose();
             }
         });
+
+        tableContats.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (e.getValueIsAdjusting()) {
+
+                    if (tableContats.getSelectedRow() != -1) {
+                        mNome = tableContats.getValueAt(tableContats.getSelectedRow(), 0).toString();
+                        mfone = tableContats.getValueAt(tableContats.getSelectedRow(), 1).toString();
+                    }
+                }
+            }
+        });
         buttonRemove.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+              
+                try {
+                    mcontactBusiness.delete(mNome, mfone);
+                    loadContacs();
 
+                    mNome = "";
+                    mfone = "";
+                } catch (Exception E) {
+                    JOptionPane.showMessageDialog(new JFrame(), E.getMessage());
+                }
             }
         });
     }
