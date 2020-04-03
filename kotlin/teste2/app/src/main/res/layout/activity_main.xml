@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#53B2D1"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:text="Quarta, 21 de Setembro"
+        android:textColor="#fff"
+        android:textSize="24sp" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/textDate"
+        android:background="#FFFFFF" />
+
+    <CheckBox
+        android:id="@+id/chk1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textDate"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="54dp"
+        android:text="falar nome joyce"
+        android:textSize="18sp"
+        android:textColor="#fff" />
+
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/chk1"
+        android:layout_alignParentStart="true"
+        android:text="dar beijinho no moh"
+        android:textSize="18sp"
+        android:textColor="#fff" />
+
+    <TextView
+        android:id="@+id/textComplete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:text="Complete todas as tarefas"
+        android:textColor="#fff"
+        android:textSize="24sp" />
+
+
+</RelativeLayout>
