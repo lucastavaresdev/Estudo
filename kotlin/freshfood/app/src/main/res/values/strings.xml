@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">fresh-food</string>
+    <string name="email" ><font size="16dp">Email</font></string>
+</resources>

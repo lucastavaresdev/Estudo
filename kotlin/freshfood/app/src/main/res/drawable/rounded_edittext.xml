@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
 
-</selector>
+    <corners android:radius="10dp" />
+
+    <padding
+        android:bottom="3dp"
+        android:left="0dp"
+        android:right="0dp"
+        android:top="3dp" />
+
+    <solid android:color="@color/corBg"/>
+
+    <stroke
+        android:width="8dp"
+        android:color="@color/corBg"
+        />
+
+</shape>

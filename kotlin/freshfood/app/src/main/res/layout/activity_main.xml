@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textSign"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="141dp"
+        android:text="Sign in"
+        android:textAlignment="center"
+        android:textColor="@color/corPrimaria"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        app:layout_constraintTop_toBottomOf="@+id/textSign"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="173dp"
+        android:background="@drawable/rounded_edittext"
+        android:bottomRightRadius="15dp"
+        android:hint="@string/email"
+        android:textColorHint="#A6BCD0"
+        android:drawableLeft="@drawable/ic_mail"
+        android:drawableStart="@drawable/ic_mail"
+        android:drawableTint="#corBgDark"
+        android:drawablePadding="8dp"
+        android:paddingLeft="16dp"
+
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+<!--    android:background="@drawable/rounded_edittext"-->
