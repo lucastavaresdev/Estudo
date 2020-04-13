@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">fresh-food</string>
     <string name="email" ><font size="16dp">Email</font></string>
+    <string name="senha" ><font size="16dp">Password</font></string>
+    <string name="forgot">Forgot password?</string>
 </resources>

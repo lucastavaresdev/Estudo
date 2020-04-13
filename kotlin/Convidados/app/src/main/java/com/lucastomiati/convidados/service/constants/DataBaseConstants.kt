@@ -1,4 +1,4 @@
-package com.lucastomiati.convidados.service
+package com.lucastomiati.convidados.service.constants
 
 
 class DataBaseConstants private constructor() {
