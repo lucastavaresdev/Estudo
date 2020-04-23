@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+  <Button
+      android:id="@+id/btn1"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      android:layout_marginTop="30dp"
+      android:layout_marginLeft="30dp"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="Fraguimento 1" />
+
+    <Button
+        android:id="@+id/btn2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/btn1"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Fraguimento 2" />
+
+    <FrameLayout
+        app:layout_constraintTop_toBottomOf="@id/btn1"
+        android:layout_marginTop="25dp"
+        android:id="@+id/Framebox"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@id/btn1"
+       >
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
